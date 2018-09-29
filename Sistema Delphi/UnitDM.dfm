@@ -3,17 +3,16 @@ object DM: TDM
   Height = 398
   Width = 534
   object ADOConnection1: TADOConnection
-    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O'
+      'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O;'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 40
     Top = 16
   end
   object ADODS_Cliente: TADODataSet
-    Connection = ADOConnection1
+    Connection = ADOConnection2
     CursorType = ctStatic
     CommandText = 'Select * from Cliente'
     Parameters = <>
@@ -75,5 +74,80 @@ object DM: TDM
     DataSet = ADODS_Cliente
     Left = 112
     Top = 72
+  end
+  object ADODS_Veiculo: TADODataSet
+    Connection = ADOConnection2
+    CursorType = ctStatic
+    CommandText = 'select * from Veiculo'#13#10
+    Parameters = <>
+    Left = 40
+    Top = 144
+    object ADODS_VeiculoCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADODS_VeiculoFabricante: TIntegerField
+      FieldName = 'Fabricante'
+    end
+    object ADODS_VeiculoModelo: TIntegerField
+      FieldName = 'Modelo'
+    end
+    object ADODS_VeiculoCombustivel: TIntegerField
+      FieldName = 'Combustivel'
+    end
+    object ADODS_VeiculoPlaca: TStringField
+      FieldName = 'Placa'
+      Size = 8
+    end
+    object ADODS_VeiculoAno: TWideStringField
+      FieldName = 'Ano'
+      Size = 10
+    end
+    object ADODS_VeiculoValor: TBCDField
+      FieldName = 'Valor'
+      Precision = 9
+      Size = 2
+    end
+    object ADODS_VeiculoCor: TStringField
+      FieldName = 'Cor'
+      Size = 25
+    end
+    object ADODS_VeiculoKm: TBCDField
+      FieldName = 'Km'
+      Precision = 9
+      Size = 3
+    end
+    object ADODS_VeiculoZeroKm: TStringField
+      FieldName = 'ZeroKm'
+      FixedChar = True
+      Size = 1
+    end
+    object ADODS_VeiculoQuantidade: TIntegerField
+      FieldName = 'Quantidade'
+    end
+    object ADODS_VeiculoStatus: TStringField
+      FieldName = 'Status'
+      FixedChar = True
+      Size = 1
+    end
+    object ADODS_VeiculoDocum: TStringField
+      FieldName = 'Docum'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object ADOConnection2: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
+      'fo=False;Initial Catalog=Concessionaria;Data Source=NCC04-14'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 120
+    Top = 16
+  end
+  object DS_Veiculo: TDataSource
+    DataSet = ADODS_Veiculo
+    Left = 112
+    Top = 144
   end
 end

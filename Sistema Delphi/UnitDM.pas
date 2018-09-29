@@ -23,6 +23,22 @@ type
     ADODS_ClienteNroConta: TStringField;
     ADODS_ClienteStatus: TStringField;
     DS_Cliente: TDataSource;
+    ADODS_Veiculo: TADODataSet;
+    ADOConnection2: TADOConnection;
+    ADODS_VeiculoCodigo: TIntegerField;
+    ADODS_VeiculoFabricante: TIntegerField;
+    ADODS_VeiculoModelo: TIntegerField;
+    ADODS_VeiculoCombustivel: TIntegerField;
+    ADODS_VeiculoPlaca: TStringField;
+    ADODS_VeiculoAno: TWideStringField;
+    ADODS_VeiculoValor: TBCDField;
+    ADODS_VeiculoCor: TStringField;
+    ADODS_VeiculoKm: TBCDField;
+    ADODS_VeiculoZeroKm: TStringField;
+    ADODS_VeiculoQuantidade: TIntegerField;
+    ADODS_VeiculoStatus: TStringField;
+    ADODS_VeiculoDocum: TStringField;
+    DS_Veiculo: TDataSource;
   private
     { Private declarations }
   public

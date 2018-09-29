@@ -4,22 +4,22 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UnitManCliente, Vcl.ToolWin,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ToolWin,
   Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB, UnitDM, Vcl.Mask,
-  Vcl.DBCtrls;
+  Vcl.DBCtrls, Data.Win.ADODB;
 
 type
   TFrmCadCliente = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
     ToolBar1: TToolBar;
-    bnt_Salvar: TToolButton;
+    btn_Salvar: TToolButton;
     ToolButton2: TToolButton;
     btn_Cancelar: TToolButton;
     ToolButton4: TToolButton;
     btn_Sair: TToolButton;
     StatusBar1: TStatusBar;
-    Panel2: TPanel;
+    Pn1Ficha: TPanel;
     DBComboBox1: TDBComboBox;
     DBEdit1: TDBEdit;
     Label2: TLabel;
@@ -42,6 +42,10 @@ type
     DBEdit8: TDBEdit;
     DBEdit9: TDBEdit;
     DBEdit10: TDBEdit;
+    Label13: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    ADOQRY_Veiculo: TADOQuery;
+    DS_Veiculo: TDataSource;
   private
     { Private declarations }
   public
@@ -54,4 +58,7 @@ var
 implementation
 
 {$R *.dfm}
+
+uses UnitManCliente;
+
 end.

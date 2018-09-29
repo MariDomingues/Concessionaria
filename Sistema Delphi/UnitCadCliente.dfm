@@ -26,7 +26,6 @@ object FrmCadCliente: TFrmCadCliente
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 525
     object Label1: TLabel
       Left = 133
       Top = 10
@@ -57,12 +56,12 @@ object FrmCadCliente: TFrmCadCliente
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
-    ExplicitWidth = 645
-    object bnt_Salvar: TToolButton
+    object btn_Salvar: TToolButton
       Left = 0
       Top = 0
       Hint = 'Salvar Registro'
-      Caption = 'bnt_Salvar'
+      ParentCustomHint = False
+      Caption = 'btn_Salvar'
       ImageIndex = 3
     end
     object ToolButton2: TToolButton
@@ -105,19 +104,14 @@ object FrmCadCliente: TFrmCadCliente
       item
         Width = 50
       end>
-    ExplicitLeft = 312
-    ExplicitTop = 272
-    ExplicitWidth = 0
   end
-  object Panel2: TPanel
+  object Pn1Ficha: TPanel
     Left = 0
     Top = 90
     Width = 571
     Height = 295
     Align = alClient
     TabOrder = 3
-    ExplicitTop = 96
-    ExplicitHeight = 443
     object Label2: TLabel
       Left = 31
       Top = 32
@@ -171,7 +165,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 271
       Top = 192
       Width = 46
-      Height = 21
+      Height = 13
       Caption = 'Telefone:'
     end
     object Label10: TLabel
@@ -194,6 +188,13 @@ object FrmCadCliente: TFrmCadCliente
       Width = 35
       Height = 13
       Caption = 'Status:'
+    end
+    object Label13: TLabel
+      Left = 25
+      Top = 252
+      Width = 37
+      Height = 13
+      Caption = 'Ve'#237'culo:'
     end
     object DBComboBox1: TDBComboBox
       Left = 323
@@ -278,5 +279,29 @@ object FrmCadCliente: TFrmCadCliente
       Height = 21
       TabOrder = 10
     end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 68
+      Top = 249
+      Width = 145
+      Height = 21
+      DataField = 'Veiculo'
+      DataSource = DM.DS_Cliente
+      ListSource = DS_Veiculo
+      ReadOnly = True
+      TabOrder = 11
+    end
+  end
+  object ADOQRY_Veiculo: TADOQuery
+    Connection = DM.ADOConnection2
+    Parameters = <>
+    SQL.Strings = (
+      'select Placa from Veiculo where Placa <>')
+    Left = 296
+    Top = 338
+  end
+  object DS_Veiculo: TDataSource
+    DataSet = ADOQRY_Veiculo
+    Left = 352
+    Top = 338
   end
 end

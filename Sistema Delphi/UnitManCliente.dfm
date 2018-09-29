@@ -4,8 +4,8 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Manuuten'#231#227'o do Cadastro de Cliente'
-  ClientHeight = 309
-  ClientWidth = 525
+  ClientHeight = 359
+  ClientWidth = 590
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 525
+    Width = 590
     Height = 41
     Align = alTop
     Color = clMenuHighlight
@@ -43,7 +43,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 525
+    Width = 590
     Height = 49
     BorderWidth = 1
     ButtonHeight = 40
@@ -133,8 +133,9 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   object Panel2: TPanel
     Left = 0
     Top = 88
-    Width = 525
+    Width = 590
     Height = 41
+    Align = alCustom
     TabOrder = 2
     object Label2: TLabel
       Left = 8
@@ -154,22 +155,19 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 290
-    Width = 525
+    Top = 340
+    Width = 590
     Height = 19
     Panels = <
       item
         Width = 50
       end>
-    ExplicitLeft = 264
-    ExplicitTop = 160
-    ExplicitWidth = 0
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 126
-    Width = 527
-    Height = 165
+    Top = 124
+    Width = 590
+    Height = 216
     Align = alCustom
     DataSource = DM.DS_Cliente
     TabOrder = 4
@@ -197,7 +195,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 128
     Top = 192
     Bitmap = {
-      494C0101070048003C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800440018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -804,7 +802,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800340018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038003C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1411,7 +1409,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800340018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038003C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

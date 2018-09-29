@@ -5,8 +5,8 @@ object Unt_Login: TUnt_Login
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Login - Concession'#225'ria'
-  ClientHeight = 894
-  ClientWidth = 1940
+  ClientHeight = 652
+  ClientWidth = 783
   Color = clMenu
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object Unt_Login: TUnt_Login
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
-    Left = 706
-    Top = 383
+    Left = 162
+    Top = 207
     Width = 482
     Height = 217
     Color = clWhite
@@ -80,14 +80,16 @@ object Unt_Login: TUnt_Login
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 875
-    Width = 1940
+    Top = 633
+    Width = 783
     Height = 19
     Color = clWhite
     Panels = <>
+    ExplicitTop = 875
+    ExplicitWidth = 1940
   end
   object Timer1: TTimer
-    Left = 600
-    Top = 256
+    Left = 304
+    Top = 496
   end
 end
