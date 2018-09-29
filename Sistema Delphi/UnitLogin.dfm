@@ -77,6 +77,24 @@ object Unt_Login: TUnt_Login
       ParentFont = False
       TabOrder = 1
     end
+    object Button1: TButton
+      Left = 128
+      Top = 152
+      Width = 75
+      Height = 25
+      Caption = 'Entrar'
+      TabOrder = 2
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 320
+      Top = 152
+      Width = 75
+      Height = 25
+      Caption = 'Sair'
+      TabOrder = 3
+      OnClick = Button2Click
+    end
   end
   object StatusBar1: TStatusBar
     Left = 0
@@ -85,8 +103,6 @@ object Unt_Login: TUnt_Login
     Height = 19
     Color = clWhite
     Panels = <>
-    ExplicitTop = 875
-    ExplicitWidth = 1940
   end
   object Timer1: TTimer
     Left = 304

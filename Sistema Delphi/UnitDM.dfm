@@ -12,7 +12,7 @@ object DM: TDM
     Top = 16
   end
   object ADODS_Cliente: TADODataSet
-    Connection = ADOConnection2
+    Connection = ADOConnection1
     CursorType = ctStatic
     CommandText = 'Select * from Cliente'
     Parameters = <>
@@ -76,7 +76,7 @@ object DM: TDM
     Top = 72
   end
   object ADODS_Veiculo: TADODataSet
-    Connection = ADOConnection2
+    Connection = ADOConnection1
     CursorType = ctStatic
     CommandText = 'select * from Veiculo'#13#10
     Parameters = <>
@@ -136,10 +136,9 @@ object DM: TDM
     end
   end
   object ADOConnection2: TADOConnection
-    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=Concessionaria;Data Source=NCC04-14'
+      'fo=False;Initial Catalog=Concessionaria;Data Source=NCC04-14;'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 120

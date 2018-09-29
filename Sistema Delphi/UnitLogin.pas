@@ -16,6 +16,10 @@ type
     DBEdit2: TDBEdit;
     StatusBar1: TStatusBar;
     Timer1: TTimer;
+    Button1: TButton;
+    Button2: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,5 +33,16 @@ implementation
 
 {$R *.dfm}
 
+uses UnitManCliente;
+
+procedure TUnt_Login.Button1Click(Sender: TObject);
+begin
+  Frm_Man_Cliente.ShowModal;
+end;
+
+procedure TUnt_Login.Button2Click(Sender: TObject);
+begin
+  Close;
+end;
 
 end.

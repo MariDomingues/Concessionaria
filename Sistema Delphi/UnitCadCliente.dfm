@@ -15,6 +15,8 @@ object FrmCadCliente: TFrmCadCliente
   KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -63,6 +65,7 @@ object FrmCadCliente: TFrmCadCliente
       ParentCustomHint = False
       Caption = 'btn_Salvar'
       ImageIndex = 3
+      OnClick = btn_SalvarClick
     end
     object ToolButton2: TToolButton
       Left = 43
@@ -78,6 +81,7 @@ object FrmCadCliente: TFrmCadCliente
       Hint = 'Cancelar Registro'
       Caption = 'btn_Cancelar'
       ImageIndex = 4
+      OnClick = btn_CancelarClick
     end
     object ToolButton4: TToolButton
       Left = 94
@@ -93,6 +97,7 @@ object FrmCadCliente: TFrmCadCliente
       Hint = 'Sair'
       Caption = 'btn_Sair'
       ImageIndex = 5
+      OnClick = btn_SairClick
     end
   end
   object StatusBar1: TStatusBar
@@ -112,196 +117,244 @@ object FrmCadCliente: TFrmCadCliente
     Height = 295
     Align = alClient
     TabOrder = 3
+    ExplicitTop = 84
     object Label2: TLabel
-      Left = 31
-      Top = 32
+      Left = 38
+      Top = 25
       Width = 31
       Height = 13
       Caption = 'Nome:'
     end
     object Label4: TLabel
-      Left = 292
-      Top = 64
+      Left = 299
+      Top = 57
       Width = 25
       Height = 13
       Caption = 'CNH:'
     end
     object Label5: TLabel
-      Left = 39
-      Top = 64
+      Left = 46
+      Top = 57
       Width = 23
       Height = 13
       Caption = 'CPF:'
     end
     object Label3: TLabel
-      Left = 30
-      Top = 192
+      Left = 37
+      Top = 185
       Width = 32
       Height = 13
       Caption = 'Bairro:'
     end
     object Label6: TLabel
-      Left = 25
-      Top = 128
+      Left = 32
+      Top = 121
       Width = 37
       Height = 13
       Caption = 'Cidade:'
     end
     object Label7: TLabel
-      Left = 13
-      Top = 160
+      Left = 20
+      Top = 153
       Width = 49
       Height = 13
       Caption = 'Endere'#231'o:'
     end
     object Label8: TLabel
-      Left = 294
-      Top = 128
+      Left = 301
+      Top = 121
       Width = 23
       Height = 13
       Caption = 'CEP:'
     end
     object Label9: TLabel
-      Left = 271
-      Top = 192
+      Left = 278
+      Top = 185
       Width = 46
       Height = 13
       Caption = 'Telefone:'
     end
     object Label10: TLabel
-      Left = 34
-      Top = 96
+      Left = 41
+      Top = 89
       Width = 28
       Height = 13
       Caption = 'Email:'
     end
     object Label11: TLabel
-      Left = 5
-      Top = 223
+      Left = 12
+      Top = 216
       Width = 57
       Height = 13
       Caption = 'Nro. Conta:'
     end
     object Label12: TLabel
-      Left = 282
-      Top = 223
+      Left = 289
+      Top = 216
       Width = 35
       Height = 13
       Caption = 'Status:'
     end
     object Label13: TLabel
-      Left = 25
-      Top = 252
+      Left = 32
+      Top = 245
       Width = 37
       Height = 13
       Caption = 'Ve'#237'culo:'
     end
     object DBComboBox1: TDBComboBox
-      Left = 323
-      Top = 220
+      Left = 330
+      Top = 213
       Width = 188
       Height = 21
       Style = csDropDownList
       DataField = 'Status'
       DataSource = DM.DS_Cliente
       Items.Strings = (
-        'A'
-        'I')
-      TabOrder = 0
-    end
-    object DBEdit1: TDBEdit
-      Left = 68
-      Top = 29
-      Width = 443
-      Height = 21
-      TabOrder = 1
-    end
-    object DBEdit2: TDBEdit
-      Left = 68
-      Top = 61
-      Width = 190
-      Height = 21
-      TabOrder = 2
-    end
-    object DBEdit3: TDBEdit
-      Left = 321
-      Top = 61
-      Width = 190
-      Height = 21
-      TabOrder = 3
-    end
-    object DBEdit4: TDBEdit
-      Left = 68
-      Top = 93
-      Width = 443
-      Height = 21
-      TabOrder = 4
-    end
-    object DBEdit5: TDBEdit
-      Left = 68
-      Top = 125
-      Width = 190
-      Height = 21
-      TabOrder = 5
-    end
-    object DBEdit6: TDBEdit
-      Left = 321
-      Top = 125
-      Width = 190
-      Height = 21
-      TabOrder = 6
-    end
-    object DBEdit7: TDBEdit
-      Left = 68
-      Top = 157
-      Width = 443
-      Height = 21
-      TabOrder = 7
-    end
-    object DBEdit8: TDBEdit
-      Left = 68
-      Top = 189
-      Width = 190
-      Height = 21
-      TabOrder = 8
-    end
-    object DBEdit9: TDBEdit
-      Left = 321
-      Top = 189
-      Width = 190
-      Height = 21
-      TabOrder = 9
-    end
-    object DBEdit10: TDBEdit
-      Left = 68
-      Top = 220
-      Width = 190
-      Height = 21
+        'Ativo'
+        'Inativo')
       TabOrder = 10
     end
+    object DBEdit1: TDBEdit
+      Left = 75
+      Top = 22
+      Width = 443
+      Height = 21
+      DataField = 'Nome'
+      DataSource = DM.DS_Cliente
+      TabOrder = 0
+    end
+    object DBEdit2: TDBEdit
+      Left = 75
+      Top = 54
+      Width = 190
+      Height = 21
+      DataField = 'CPF'
+      DataSource = DM.DS_Cliente
+      TabOrder = 1
+    end
+    object DBEdit3: TDBEdit
+      Left = 328
+      Top = 54
+      Width = 190
+      Height = 21
+      DataField = 'CNH'
+      DataSource = DM.DS_Cliente
+      TabOrder = 2
+    end
+    object DBEdit4: TDBEdit
+      Left = 75
+      Top = 86
+      Width = 443
+      Height = 21
+      DataField = 'Email'
+      DataSource = DM.DS_Cliente
+      TabOrder = 3
+    end
+    object DBEdit5: TDBEdit
+      Left = 75
+      Top = 118
+      Width = 190
+      Height = 21
+      DataField = 'Cidade'
+      DataSource = DM.DS_Cliente
+      TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 328
+      Top = 118
+      Width = 190
+      Height = 21
+      DataField = 'CEP'
+      DataSource = DM.DS_Cliente
+      TabOrder = 5
+    end
+    object DBEdit7: TDBEdit
+      Left = 75
+      Top = 150
+      Width = 443
+      Height = 21
+      DataField = 'Endereco'
+      DataSource = DM.DS_Cliente
+      TabOrder = 6
+    end
+    object DBEdit8: TDBEdit
+      Left = 75
+      Top = 182
+      Width = 190
+      Height = 21
+      DataField = 'Bairro'
+      DataSource = DM.DS_Cliente
+      TabOrder = 7
+    end
+    object DBEdit9: TDBEdit
+      Left = 328
+      Top = 182
+      Width = 190
+      Height = 21
+      DataField = 'Telefone'
+      DataSource = DM.DS_Cliente
+      TabOrder = 8
+    end
+    object DBEdit10: TDBEdit
+      Left = 75
+      Top = 213
+      Width = 190
+      Height = 21
+      DataField = 'NroConta'
+      DataSource = DM.DS_Cliente
+      TabOrder = 9
+    end
     object DBLookupComboBox1: TDBLookupComboBox
-      Left = 68
-      Top = 249
+      Left = 75
+      Top = 242
       Width = 145
       Height = 21
-      DataField = 'Veiculo'
-      DataSource = DM.DS_Cliente
+      DataField = 'Codigo'
+      DataSource = DM.DS_Veiculo
+      KeyField = 'Codigo'
+      ListField = 'Placa'
       ListSource = DS_Veiculo
       ReadOnly = True
       TabOrder = 11
     end
+    object DBEdit11: TDBEdit
+      Left = 20
+      Top = 269
+      Width = 64
+      Height = 21
+      DataField = 'Codigo'
+      DataSource = DM.DS_Cliente
+      TabOrder = 12
+      Visible = False
+    end
   end
   object ADOQRY_Veiculo: TADOQuery
-    Connection = DM.ADOConnection2
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select Placa from Veiculo where Placa <>')
+      'select Codigo, Placa from Veiculo where Placa <> null')
     Left = 296
     Top = 338
   end
   object DS_Veiculo: TDataSource
     DataSet = ADOQRY_Veiculo
     Left = 352
+    Top = 338
+  end
+  object DS_CodCli: TDataSource
+    DataSet = ADOQRY_CodCli
+    Left = 472
+    Top = 338
+  end
+  object ADOQRY_CodCli: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select top 1 Codigo from Cliente order by Codigo desc;')
+    Left = 416
     Top = 338
   end
 end

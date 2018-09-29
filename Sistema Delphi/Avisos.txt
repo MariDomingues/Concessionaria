@@ -1,0 +1,163 @@
+ADOConnection2ADOConnection2 - faculdade
+ADOConnection2ADOConnection1 - casa
+
+Ajuda com Query no delphi
+https://www.andrecelestino.com/conhecendo-o-componente-query/
+
+
+Combo Box - Veiculo
+Propriedades:
+- Listource
+- ListField
+- Hint
+
+
+Variavel Global
+//Operação de navegação
+
+operacao : integer;
+
+
+procedure FrmVenda.Botoes
+begin
+	if operacao = 1 then
+		begin
+			//Verifica se esta no final da tabela
+			if DM.ADODSVenda.Eof then
+				begin
+
+					btn_proximo.enabled := false;
+					btn_ultimo.enabled := false;
+				end
+			else
+				begin
+					btn_proximo.enabled := true;
+					btn_ultimo.enabled := true;
+				end;
+			//Verifica se esta no inicio da tabela
+			if DM.ADODSVenda.Bof then
+				begin
+
+					btn_anterior.enabled := false;
+					btn_primeiro.enabled := false;
+				end
+			else
+				begin
+					btn_anterior.enabled := true;
+					btn_primeiro.enabled := true;
+				end
+		end
+
+		else
+			begin
+				btn_primeiro.enabled := false;
+				btn_anterior.enabled := false;
+				btn_proximo.enabled := false;
+				btn_ultimo.enabled := false;
+			end;
+			
+		btn_inserir.enabled := ativa;
+		btn_sair.enabled := ativa;
+		if (DM.ADODSVenda.RecordCount > 0) then
+			begin
+				btn_pesquisa.enabled := ativa;
+				btn_imprimir.enabled := ativa;
+				btn_alterar.enabled := ativa;
+				btn_excluir.enabled := ativa;
+			end
+		else
+			begin
+				btn_pesquisa.enabled := not ativa;
+				btn_imprimir.enabled := not ativa;
+				btn_alterar.enabled  := not ativa;
+				btn_excluir.enabled  := not ativa;
+			end;
+		btn_salvar.enabled := not Ativa;
+		brn_cancelar.enabled := not Ativa;
+		PnlFicha.Enabled := not Ativa;
+end;	
+	
+inserirClick
+begin
+	DM.ADODSVenda.Insert;
+	
+	Botoes(False);
+	operacao := 0;
+end;
+
+alterarClick
+begin
+	DM.ADODSVenda.Edit;
+	
+	Botoes(False);
+	operacao := 0;
+end;
+
+salvarClick
+begin
+	DM.ADODSVenda.Post;
+	
+	Mensagem falando que gravou
+	
+	operacao := 1;
+	Botoes(True);
+end;
+
+cancelarClick
+begin
+	DM.ADODSVenda.Cancel;
+	
+	Mensagem falando que cancelou
+	
+	operacao := 1;
+	Botoes(True);
+end;
+
+fecharClick
+begin
+	close;
+end;
+
+primeiroClick
+begin
+	DM.ADODSVenda.First;
+	Botoes(True);
+end;
+
+proximoClick
+begin
+	DM.ADODSVenda.Next;
+	Botoes(True);
+end;
+
+ultimoClick
+begin
+	DM.ADODSVenda.Last;
+	Botoes(True);
+end;
+
+onActivate
+begin
+	operacao := 1;
+	
+	DM.ADODSVendas.Close;
+	DM.ADODSVendas.CommandText := '';
+	DM.ADODSVendas.CommandText := 'select * from VENDA order by ID';
+	DM.ADODSVendas.Open;
+	
+	Botoes(True);
+	
+	ADOQryCliente.Close;
+	ADOQryCliente.Open;
+	
+	ADOQryVendedor.Close;
+	ADOQryVendedor.Open;
+end;
+
+onClose
+begin
+	DM.ADODSVenda.Close;
+	
+	DM.ADOQryCliente.Close;
+	DM.ADOQryVendedor.Close;
+end;

@@ -46,6 +46,14 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     ADOQRY_Veiculo: TADOQuery;
     DS_Veiculo: TDataSource;
+    DS_CodCli: TDataSource;
+    ADOQRY_CodCli: TADOQuery;
+    DBEdit11: TDBEdit;
+    procedure btn_SalvarClick(Sender: TObject);
+    procedure btn_CancelarClick(Sender: TObject);
+    procedure btn_SairClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,11 +62,65 @@ type
 
 var
   FrmCadCliente: TFrmCadCliente;
+  CodCli : integer;
 
 implementation
 
 {$R *.dfm}
 
 uses UnitManCliente;
+
+procedure TFrmCadCliente.btn_CancelarClick(Sender: TObject);
+begin
+  DM.ADODS_Cliente.Cancel;
+
+  Application.MessageBox('O inclusão ou alteração deste registro foi abortada.', 'Atenção', MB_OK + MB_ICONERROR);
+
+  btn_Salvar.Enabled   := False;
+  btn_Cancelar.Enabled := False;
+  btn_Sair.Enabled     := True;
+  Pn1Ficha.Enabled     := False;
+end;
+
+procedure TFrmCadCliente.btn_SairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmCadCliente.btn_SalvarClick(Sender: TObject);
+begin
+  CodCli := ADOQRY_CodCli.FieldByName('Codigo').AsInteger;
+  CodCli := CodCli + 1;
+
+  DBEdit11.Text := IntToStr(CodCli);
+
+  DM.ADODS_Cliente.Post;
+
+  Application.MessageBox('O registro foi incluido ou alterado com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION);
+
+  btn_Salvar.Enabled   := False;
+  btn_Cancelar.Enabled := False;
+  btn_Sair.Enabled     := True;
+  Pn1Ficha.Enabled     := False;
+
+
+end;
+
+procedure TFrmCadCliente.FormActivate(Sender: TObject);
+begin
+  ADOQRY_Veiculo.Close;
+  ADOQRY_Veiculo.Open;
+
+	ADOQRY_CodCli.Close;
+  ADOQRY_CodCli.Open;
+end;
+
+procedure TFrmCadCliente.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  DM.ADODS_Veiculo.Close;
+
+	ADOQRY_Veiculo.Close;
+	ADOQRY_CodCli.Close;
+end;
 
 end.
