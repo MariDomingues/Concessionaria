@@ -3,6 +3,7 @@ object DM: TDM
   Height = 398
   Width = 534
   object ADOConnection1: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
       'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O;'
@@ -148,5 +149,40 @@ object DM: TDM
     DataSet = ADODS_Veiculo
     Left = 112
     Top = 144
+  end
+  object DS_Login: TDataSource
+    DataSet = ADODS_Login
+    Left = 112
+    Top = 208
+  end
+  object ADODS_Login: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from Login'#13#10
+    Parameters = <>
+    Left = 40
+    Top = 208
+    object ADODS_LoginCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADODS_LoginUsuario: TStringField
+      FieldName = 'Usuario'
+      Size = 50
+    end
+    object ADODS_LoginSenha: TStringField
+      FieldName = 'Senha'
+      Size = 15
+    end
+    object ADODS_LoginFuncionario: TIntegerField
+      FieldName = 'Funcionario'
+    end
+    object ADODS_LoginCliente: TIntegerField
+      FieldName = 'Cliente'
+    end
+    object ADODS_LoginStatus: TStringField
+      FieldName = 'Status'
+      FixedChar = True
+      Size = 1
+    end
   end
 end

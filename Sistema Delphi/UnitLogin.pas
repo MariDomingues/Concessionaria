@@ -5,19 +5,22 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask,
-  Vcl.DBCtrls, Vcl.ComCtrls;
+  Vcl.DBCtrls, Vcl.ComCtrls, Data.DB, Data.Win.ADODB;
 
 type
-  TUnt_Login = class(TForm)
+  TFrm_Login = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
     Label2: TLabel;
-    DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
-    StatusBar1: TStatusBar;
-    Timer1: TTimer;
     Button1: TButton;
     Button2: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    ADOQRY_Login: TADOQuery;
+    DS_Login: TDataSource;
+    ADOQRY_LoginCodigo: TIntegerField;
+    ADOQRY_LoginUsuario: TStringField;
+    ADOQRY_LoginSenha: TStringField;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private
@@ -27,20 +30,30 @@ type
   end;
 
 var
-  Unt_Login: TUnt_Login;
+  Frm_Login: TFrm_Login;
 
 implementation
 
 {$R *.dfm}
 
-uses UnitManCliente;
+uses UnitMenu;
 
-procedure TUnt_Login.Button1Click(Sender: TObject);
+procedure TFrm_Login.Button1Click(Sender: TObject);
 begin
-  Frm_Man_Cliente.ShowModal;
+  ADOQRY_Login.Close;
+
+  ADOQRY_Login.Parameters[0].Value := (Edit1.Text);
+  ADOQRY_Login.Parameters[1].Value := (Edit2.Text);
+
+  ADOQRY_Login.Open;
+
+  if ADOQRY_Login.IsEmpty then
+    Application.MessageBox('Usuário ou Senha Inválido.', 'Erro', MB_OK + MB_ICONERROR)
+  else
+    Frm_Menu.ShowModal;
 end;
 
-procedure TUnt_Login.Button2Click(Sender: TObject);
+procedure TFrm_Login.Button2Click(Sender: TObject);
 begin
   Close;
 end;

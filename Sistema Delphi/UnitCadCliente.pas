@@ -55,6 +55,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
   private
+    procedure LimpaTela;
     { Private declarations }
   public
     { Public declarations }
@@ -74,12 +75,14 @@ procedure TFrmCadCliente.btn_CancelarClick(Sender: TObject);
 begin
   DM.ADODS_Cliente.Cancel;
 
-  Application.MessageBox('O inclusão ou alteração deste registro foi abortada.', 'Atenção', MB_OK + MB_ICONERROR);
+  Application.MessageBox('A inclusão ou alteração deste registro foi abortada.', 'Atenção', MB_OK + MB_ICONERROR);
 
   btn_Salvar.Enabled   := False;
   btn_Cancelar.Enabled := False;
   btn_Sair.Enabled     := True;
   Pn1Ficha.Enabled     := False;
+
+  LimpaTela;
 end;
 
 procedure TFrmCadCliente.btn_SairClick(Sender: TObject);
@@ -89,10 +92,13 @@ end;
 
 procedure TFrmCadCliente.btn_SalvarClick(Sender: TObject);
 begin
-  CodCli := ADOQRY_CodCli.FieldByName('Codigo').AsInteger;
-  CodCli := CodCli + 1;
+  if Acao = 'I' then
+    begin
+      CodCli := ADOQRY_CodCli.FieldByName('Codigo').AsInteger;
+      CodCli := CodCli + 1;
 
-  DBEdit11.Text := IntToStr(CodCli);
+      DBEdit11.Text := IntToStr(CodCli);
+    end;
 
   DM.ADODS_Cliente.Post;
 
@@ -103,7 +109,7 @@ begin
   btn_Sair.Enabled     := True;
   Pn1Ficha.Enabled     := False;
 
-
+  LimpaTela;
 end;
 
 procedure TFrmCadCliente.FormActivate(Sender: TObject);
@@ -113,6 +119,8 @@ begin
 
 	ADOQRY_CodCli.Close;
   ADOQRY_CodCli.Open;
+
+  DBComboBox1.ItemIndex := 0;
 end;
 
 procedure TFrmCadCliente.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -121,6 +129,22 @@ begin
 
 	ADOQRY_Veiculo.Close;
 	ADOQRY_CodCli.Close;
+end;
+
+procedure TFrmCadCliente.LimpaTela;
+begin
+  DBEdit1.Clear;
+  DBEdit2.Clear;
+  DBEdit3.Clear;
+  DBEdit4.Clear;
+  DBEdit5.Clear;
+  DBEdit6.Clear;
+  DBEdit7.Clear;
+  DBEdit8.Clear;
+  DBEdit9.Clear;
+  DBEdit10.Clear;
+  DBEdit11.Clear;
+  DBComboBox1.ItemIndex := 0;
 end;
 
 end.

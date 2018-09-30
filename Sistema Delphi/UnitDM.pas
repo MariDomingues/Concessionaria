@@ -39,6 +39,14 @@ type
     ADODS_VeiculoStatus: TStringField;
     ADODS_VeiculoDocum: TStringField;
     DS_Veiculo: TDataSource;
+    DS_Login: TDataSource;
+    ADODS_Login: TADODataSet;
+    ADODS_LoginCodigo: TIntegerField;
+    ADODS_LoginUsuario: TStringField;
+    ADODS_LoginSenha: TStringField;
+    ADODS_LoginFuncionario: TIntegerField;
+    ADODS_LoginCliente: TIntegerField;
+    ADODS_LoginStatus: TStringField;
   private
     { Private declarations }
   public

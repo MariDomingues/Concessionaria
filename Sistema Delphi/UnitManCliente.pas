@@ -44,6 +44,7 @@ type
 
 var
   Frm_Man_Cliente: TFrm_Man_Cliente;
+  Acao : char;
 
 implementation
 
@@ -61,6 +62,8 @@ begin
   FrmCadCliente.btn_Cancelar.Enabled := True;
   FrmCadCliente.btn_Sair.Enabled     := False;
   FrmCadCliente.Pn1Ficha.Enabled     := True;
+
+  Acao := 'A';
 
   FrmCadCliente.ShowModal;
   FrmCadCliente.Free;
@@ -88,6 +91,8 @@ end;
 
 procedure TFrm_Man_Cliente.btn_InserirClick(Sender: TObject);
 begin
+  Acao := 'I';
+
   DM.ADODS_Cliente.Insert;
   FrmCadCliente.btn_Salvar.Enabled   := True;
   FrmCadCliente.btn_Cancelar.Enabled := True;
