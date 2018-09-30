@@ -63,7 +63,6 @@ type
 
 var
   FrmCadCliente: TFrmCadCliente;
-  CodCli : integer;
 
 implementation
 
@@ -91,6 +90,7 @@ begin
 end;
 
 procedure TFrmCadCliente.btn_SalvarClick(Sender: TObject);
+var CodCli : integer;
 begin
   if Acao = 'I' then
     begin
@@ -102,7 +102,10 @@ begin
 
   DM.ADODS_Cliente.Post;
 
-  Application.MessageBox('O registro foi incluido ou alterado com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION);
+  if Acao = 'I' then
+    Application.MessageBox('O registro foi incluido com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION)
+  else
+    Application.MessageBox('O registro foi alterado com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION);
 
   btn_Salvar.Enabled   := False;
   btn_Cancelar.Enabled := False;

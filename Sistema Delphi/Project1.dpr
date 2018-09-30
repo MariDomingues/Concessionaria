@@ -7,7 +7,8 @@ uses
   UnitManCliente in 'UnitManCliente.pas' {Frm_Man_Cliente},
   UnitCadCliente in 'UnitCadCliente.pas' {FrmCadCliente},
   UnitMenu in 'UnitMenu.pas' {Frm_Menu},
-  UnitManVeiculo in 'UnitManVeiculo.pas' {Frm_Man_Veiculo};
+  UnitManVeiculo in 'UnitManVeiculo.pas' {Frm_Man_Veiculo},
+  UnitCadVeiculo in 'UnitCadVeiculo.pas' {FrmCadVeiculo};
 
 {$R *.res}
 
@@ -20,5 +21,6 @@ begin
   Application.CreateForm(TFrmCadCliente, FrmCadCliente);
   Application.CreateForm(TFrm_Menu, Frm_Menu);
   Application.CreateForm(TFrm_Man_Veiculo, Frm_Man_Veiculo);
+  Application.CreateForm(TFrmCadVeiculo, FrmCadVeiculo);
   Application.Run;
 end.

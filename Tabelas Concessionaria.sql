@@ -30,7 +30,7 @@ CREATE TABLE Veiculo (
 	Km          DECIMAL(9,3) NOT NULL,
 	ZeroKm      CHAR(01) DEFAULT 'S' COMMENT '0 = Sim / 1 = Não',
 	Quantidade  INT NOT NULL,
-	Status      CHAR(01) DEFAULT 'A' COMMENT '0 = Ativo / 1 = Inativo / 2 = Mecanico',
+	Status      CHAR(01) DEFAULT 'A' COMMENT '0 = Ativo / 1 = Vendido / 2 = Mecanico',
 	Docum       CHAR(01) DEFAULT 'N' COMMENT '0 = Não / 1 = Sim'
 );
 

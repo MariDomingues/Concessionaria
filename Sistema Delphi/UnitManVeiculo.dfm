@@ -14,6 +14,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 15
   object DBG_Vei: TDBGrid
@@ -214,7 +215,6 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 590
     object Label1: TLabel
       Left = 350
       Top = 10
@@ -236,8 +236,6 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Height = 41
     Align = alTop
     TabOrder = 2
-    ExplicitTop = 88
-    ExplicitWidth = 590
     object Label2: TLabel
       Left = 14
       Top = 13
@@ -262,8 +260,6 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       item
         Width = 50
       end>
-    ExplicitTop = 340
-    ExplicitWidth = 590
   end
   object ToolBar1: TToolBar
     Left = 0
@@ -283,7 +279,6 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     ParentShowHint = False
     ShowHint = True
     TabOrder = 4
-    ExplicitWidth = 590
     object btn_Inserir: TToolButton
       Left = 0
       Top = 0
@@ -306,6 +301,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Hint = 'Alterar Registro'
       Caption = 'btn_Alterar'
       ImageIndex = 1
+      OnClick = btn_AlterarClick
     end
     object ToolButton4: TToolButton
       Left = 94
@@ -321,6 +317,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Hint = 'Excluir Registro'
       Caption = 'btn_Excluir'
       ImageIndex = 2
+      OnClick = btn_ExcluirClick
     end
     object ToolButton10: TToolButton
       Left = 145
@@ -351,6 +348,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Hint = 'Sair'
       Caption = 'btn_Sair'
       ImageIndex = 5
+      OnClick = btn_SairClick
     end
   end
   object ImageList1: TImageList
@@ -359,7 +357,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 320
     Top = 320
     Bitmap = {
-      494C010107004800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070048005C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -966,7 +964,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 424
     Top = 320
     Bitmap = {
-      494C0101070038004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1573,7 +1571,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 512
     Top = 328
     Bitmap = {
-      494C0101070038004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

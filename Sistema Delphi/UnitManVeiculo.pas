@@ -31,6 +31,10 @@ type
     ToolButton12: TToolButton;
     btn_Sair: TToolButton;
     procedure btn_InserirClick(Sender: TObject);
+    procedure btn_AlterarClick(Sender: TObject);
+    procedure btn_ExcluirClick(Sender: TObject);
+    procedure btn_SairClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,6 +43,7 @@ type
 
 var
   Frm_Man_Veiculo: TFrm_Man_Veiculo;
+  Acao : char;
 
 implementation
 
@@ -46,16 +51,66 @@ implementation
 
 uses UnitDM, UnitCadVeiculo;
 
+procedure TFrm_Man_Veiculo.btn_AlterarClick(Sender: TObject);
+begin
+  DM.ADODS_Veiculo.Edit;
+
+  Application.CreateForm(TFrmCadVeiculo, FrmCadVeiculo);
+
+  FrmCadVeiculo.btn_Salvar.Enabled   := True;
+  FrmCadVeiculo.btn_Cancelar.Enabled := True;
+  FrmCadVeiculo.btn_Sair.Enabled     := False;
+  FrmCadVeiculo.Pn1Ficha.Enabled     := True;
+
+  Acao := 'A';
+
+  FrmCadVeiculo.ShowModal;
+  FrmCadVeiculo.Free;
+end;
+
+procedure TFrm_Man_Veiculo.btn_ExcluirClick(Sender: TObject);
+var confExc : integer;
+begin
+  confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
+
+  if confExc = IDYES then
+    begin
+      DM.ADODS_Veiculo.Delete;
+      Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
+    end
+  else
+    Application.MessageBox('A exclusão do registro foi cancelada', 'Informação', MB_OK + MB_ICONERROR);
+
+  FrmCadVeiculo.btn_Salvar.Enabled   := True;
+  FrmCadVeiculo.btn_Cancelar.Enabled := True;
+  FrmCadVeiculo.btn_Sair.Enabled     := False;
+  FrmCadVeiculo.Pn1Ficha.Enabled     := True;
+  FrmCadVeiculo.ShowModal;
+end;
+
 procedure TFrm_Man_Veiculo.btn_InserirClick(Sender: TObject);
 begin
   Acao := 'I';
 
-  DM.ADODS_Cliente.Insert;
-  FrmCadCliente.btn_Salvar.Enabled   := True;
-  FrmCadCliente.btn_Cancelar.Enabled := True;
-  FrmCadCliente.btn_Sair.Enabled     := False;
-  FrmCadCliente.Pn1Ficha.Enabled     := True;
-  FrmCadCliente.ShowModal;
+  DM.ADODS_Veiculo.Insert;
+  FrmCadVeiculo.btn_Salvar.Enabled   := True;
+  FrmCadVeiculo.btn_Cancelar.Enabled := True;
+  FrmCadVeiculo.btn_Sair.Enabled     := False;
+  FrmCadVeiculo.Pn1Ficha.Enabled     := True;
+  FrmCadVeiculo.ShowModal;
+end;
+
+procedure TFrm_Man_Veiculo.btn_SairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrm_Man_Veiculo.FormActivate(Sender: TObject);
+begin
+  DM.ADODS_Veiculo.Close;
+  DM.ADODS_Veiculo.CommandText := '';
+  DM.ADODS_Veiculo.CommandText := 'select * from Veiculo';
+  DM.ADODS_Veiculo.Open;
 end;
 
 end.

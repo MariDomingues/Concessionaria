@@ -3,7 +3,7 @@ object FrmCadCliente: TFrmCadCliente
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Manuten'#231#227'o no Cadastro de Cliente'
+  Caption = 'Cadastro de Cliente'
   ClientHeight = 404
   ClientWidth = 571
   Color = clBtnFace
@@ -29,15 +29,15 @@ object FrmCadCliente: TFrmCadCliente
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 133
-      Top = 10
-      Width = 294
-      Height = 18
-      Caption = ' Manuten'#231#227'o no Cadastro de Cliente'
+      Left = 205
+      Top = 8
+      Width = 148
+      Height = 21
+      Caption = 'Cadastro de Cliente'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
-      Font.Height = -15
-      Font.Name = 'Verdana'
+      Font.Height = -16
+      Font.Name = 'Yu Gothic UI'
       Font.Style = [fsBold]
       ParentFont = False
     end
@@ -196,7 +196,7 @@ object FrmCadCliente: TFrmCadCliente
     end
     object Label13: TLabel
       Left = 32
-      Top = 245
+      Top = 247
       Width = 41
       Height = 15
       Caption = 'Ve'#237'culo:'
@@ -306,7 +306,7 @@ object FrmCadCliente: TFrmCadCliente
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 75
-      Top = 242
+      Top = 244
       Width = 145
       Height = 23
       DataField = 'Codigo'
@@ -318,9 +318,9 @@ object FrmCadCliente: TFrmCadCliente
       TabOrder = 11
     end
     object DBEdit11: TDBEdit
-      Left = 20
-      Top = 269
-      Width = 64
+      Left = 535
+      Top = 118
+      Width = 36
       Height = 23
       DataField = 'Codigo'
       DataSource = DM.DS_Cliente
@@ -333,7 +333,9 @@ object FrmCadCliente: TFrmCadCliente
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select Codigo, Placa from Veiculo where Placa <> null')
+      
+        'select Codigo, Placa from Veiculo where Placa <> null and Status' +
+        ' = '#39'A'#39)
     Left = 296
     Top = 338
   end
