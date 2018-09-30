@@ -1,0 +1,122 @@
+unit UnitManCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.ImageList, Vcl.ImgList,
+  Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ToolWin, Vcl.ExtCtrls, Data.DB, Vcl.Grids,
+  Vcl.DBGrids, UnitCadCliente;
+
+type
+  TFrm_Man_Cliente = class(TForm)
+    ImageList1: TImageList;
+    Panel1: TPanel;
+    ToolBar1: TToolBar;
+    Label1: TLabel;
+    btn_Inserir: TToolButton;
+    ImageList2: TImageList;
+    ImageList3: TImageList;
+    ToolButton2: TToolButton;
+    btn_Alterar: TToolButton;
+    ToolButton4: TToolButton;
+    btn_Excluir: TToolButton;
+    ToolButton10: TToolButton;
+    btn_Imprimir: TToolButton;
+    ToolButton12: TToolButton;
+    btn_Sair: TToolButton;
+    Panel2: TPanel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    StatusBar1: TStatusBar;
+    DBGrid1: TDBGrid;
+    procedure Edit1Change(Sender: TObject);
+    procedure btn_InserirClick(Sender: TObject);
+    procedure btn_AlterarClick(Sender: TObject);
+    procedure btn_ExcluirClick(Sender: TObject);
+    procedure btn_SairClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Man_Cliente: TFrm_Man_Cliente;
+  Acao : char;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDM;
+
+procedure TFrm_Man_Cliente.btn_AlterarClick(Sender: TObject);
+begin
+  DM.ADODS_Cliente.Edit;
+
+  Application.CreateForm(TFrmCadCliente, FrmCadCliente);
+
+  FrmCadCliente.btn_Salvar.Enabled   := True;
+  FrmCadCliente.btn_Cancelar.Enabled := True;
+  FrmCadCliente.btn_Sair.Enabled     := False;
+  FrmCadCliente.Pn1Ficha.Enabled     := True;
+
+  Acao := 'A';
+
+  FrmCadCliente.ShowModal;
+  FrmCadCliente.Free;
+end;
+
+procedure TFrm_Man_Cliente.btn_ExcluirClick(Sender: TObject);
+var confExc : integer;
+begin
+  confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
+
+  if confExc = IDYES then
+    begin
+      DM.ADODS_Cliente.Delete;
+      Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
+    end
+  else
+    Application.MessageBox('A exclusão do registro foi cancelada', 'Informação', MB_OK + MB_ICONERROR);
+
+  FrmCadCliente.btn_Salvar.Enabled   := True;
+  FrmCadCliente.btn_Cancelar.Enabled := True;
+  FrmCadCliente.btn_Sair.Enabled     := False;
+  FrmCadCliente.Pn1Ficha.Enabled     := True;
+  FrmCadCliente.ShowModal;
+end;
+
+procedure TFrm_Man_Cliente.btn_InserirClick(Sender: TObject);
+begin
+  Acao := 'I';
+
+  DM.ADODS_Cliente.Insert;
+  FrmCadCliente.btn_Salvar.Enabled   := True;
+  FrmCadCliente.btn_Cancelar.Enabled := True;
+  FrmCadCliente.btn_Sair.Enabled     := False;
+  FrmCadCliente.Pn1Ficha.Enabled     := True;
+  FrmCadCliente.ShowModal;
+end;
+
+procedure TFrm_Man_Cliente.btn_SairClick(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TFrm_Man_Cliente.Edit1Change(Sender: TObject);
+begin
+  DM.ADODS_Cliente.Locate('Nome', Edit1.Text, [loCaseInsensitive, loPartialKey]);
+end;
+
+procedure TFrm_Man_Cliente.FormActivate(Sender: TObject);
+begin
+  DM.ADODS_Cliente.Close;
+  DM.ADODS_Cliente.CommandText := '';
+  DM.ADODS_Cliente.CommandText := 'select * from Cliente order by Nome';
+  DM.ADODS_Cliente.Open;
+end;
+
+end.

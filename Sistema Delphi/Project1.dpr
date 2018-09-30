@@ -6,7 +6,8 @@ uses
   UnitDM in 'UnitDM.pas' {DM: TDataModule},
   UnitManCliente in 'UnitManCliente.pas' {Frm_Man_Cliente},
   UnitCadCliente in 'UnitCadCliente.pas' {FrmCadCliente},
-  UnitMenu in 'UnitMenu.pas' {Frm_Menu};
+  UnitMenu in 'UnitMenu.pas' {Frm_Menu},
+  UnitManVeiculo in 'UnitManVeiculo.pas' {Frm_Man_Veiculo};
 
 {$R *.res}
 
@@ -18,5 +19,6 @@ begin
   Application.CreateForm(TFrm_Man_Cliente, Frm_Man_Cliente);
   Application.CreateForm(TFrmCadCliente, FrmCadCliente);
   Application.CreateForm(TFrm_Menu, Frm_Menu);
+  Application.CreateForm(TFrm_Man_Veiculo, Frm_Man_Veiculo);
   Application.Run;
 end.

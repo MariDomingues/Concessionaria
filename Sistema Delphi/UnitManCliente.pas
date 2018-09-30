@@ -29,7 +29,7 @@ type
     Edit1: TEdit;
     Label2: TLabel;
     StatusBar1: TStatusBar;
-    DBGrid1: TDBGrid;
+    DBG_Cli: TDBGrid;
     procedure Edit1Change(Sender: TObject);
     procedure btn_InserirClick(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);

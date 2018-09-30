@@ -1,34 +1,34 @@
 object Frm_Man_Cliente: TFrm_Man_Cliente
-  Left = 0
-  Top = 0
-  Align = alCustom
+  Left = 560
+  Top = 291
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Manuuten'#231#227'o do Cadastro de Cliente'
-  ClientHeight = 359
-  ClientWidth = 590
+  Caption = 'Manuten'#231#227'o do Cadastro de Cliente'
+  ClientHeight = 525
+  ClientWidth = 988
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Height = -12
+  Font.Name = 'Yu Gothic UI'
   Font.Style = []
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poDesigned
   OnActivate = FormActivate
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 590
+    Width = 988
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 693
     object Label1: TLabel
-      Left = 123
+      Left = 355
       Top = 10
       Width = 294
       Height = 18
@@ -44,7 +44,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 590
+    Width = 988
     Height = 49
     BorderWidth = 1
     ButtonHeight = 40
@@ -59,6 +59,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
+    ExplicitWidth = 693
     object btn_Inserir: TToolButton
       Left = 0
       Top = 0
@@ -133,44 +134,65 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   end
   object Panel2: TPanel
     Left = 0
-    Top = 88
-    Width = 590
+    Top = 90
+    Width = 988
     Height = 41
-    Align = alCustom
+    Align = alTop
     TabOrder = 2
+    ExplicitWidth = 693
     object Label2: TLabel
       Left = 8
       Top = 14
-      Width = 95
-      Height = 13
+      Width = 105
+      Height = 15
       Caption = 'Pesquisa por Nome:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Yu Gothic UI'
+      Font.Style = []
+      ParentFont = False
     end
     object Edit1: TEdit
-      Left = 109
-      Top = 9
-      Width = 408
-      Height = 21
+      Left = 119
+      Top = 12
+      Width = 490
+      Height = 23
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Yu Gothic UI'
+      Font.Style = []
+      ParentFont = False
       TabOrder = 0
       OnChange = Edit1Change
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 340
-    Width = 590
+    Top = 506
+    Width = 988
     Height = 19
     Panels = <
       item
         Width = 50
       end>
+    ExplicitTop = 376
+    ExplicitWidth = 693
   end
-  object DBGrid1: TDBGrid
+  object DBG_Cli: TDBGrid
     Left = 0
-    Top = 124
-    Width = 590
-    Height = 216
-    Align = alCustom
+    Top = 131
+    Width = 988
+    Height = 374
+    Align = alTop
     DataSource = DM.DS_Cliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 4
     TitleFont.Charset = DEFAULT_CHARSET
@@ -182,24 +204,137 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
       item
         Expanded = False
         FieldName = 'Codigo'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Alignment = taCenter
         Title.Caption = 'C'#243'digo'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 50
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Nome'
-        Width = 383
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 250
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CPF'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'CNH'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 100
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Endereco'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Caption = 'Endere'#231'o'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 200
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Telefone'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 90
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Veiculo'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Alignment = taCenter
+        Title.Caption = 'Ve'#237'culo'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Status'
-        Width = 64
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Yu Gothic UI Semilight'
+        Font.Style = []
+        Title.Alignment = taCenter
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 50
         Visible = True
       end>
   end
@@ -209,7 +344,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 128
     Top = 192
     Bitmap = {
-      494C0101070048004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -816,7 +951,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800440018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1423,7 +1558,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800440018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

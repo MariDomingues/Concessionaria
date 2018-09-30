@@ -7,10 +7,10 @@ object FrmCadCliente: TFrmCadCliente
   ClientHeight = 404
   ClientWidth = 571
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Height = -12
+  Font.Name = 'Yu Gothic UI'
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
@@ -18,7 +18,7 @@ object FrmCadCliente: TFrmCadCliente
   OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -120,92 +120,92 @@ object FrmCadCliente: TFrmCadCliente
     object Label2: TLabel
       Left = 38
       Top = 25
-      Width = 31
-      Height = 13
+      Width = 35
+      Height = 15
       Caption = 'Nome:'
     end
     object Label4: TLabel
       Left = 299
       Top = 57
-      Width = 25
-      Height = 13
+      Width = 28
+      Height = 15
       Caption = 'CNH:'
     end
     object Label5: TLabel
       Left = 46
       Top = 57
       Width = 23
-      Height = 13
+      Height = 15
       Caption = 'CPF:'
     end
     object Label3: TLabel
       Left = 37
       Top = 185
-      Width = 32
-      Height = 13
+      Width = 34
+      Height = 15
       Caption = 'Bairro:'
     end
     object Label6: TLabel
       Left = 32
       Top = 121
-      Width = 37
-      Height = 13
+      Width = 39
+      Height = 15
       Caption = 'Cidade:'
     end
     object Label7: TLabel
       Left = 20
       Top = 153
-      Width = 49
-      Height = 13
+      Width = 52
+      Height = 15
       Caption = 'Endere'#231'o:'
     end
     object Label8: TLabel
       Left = 301
       Top = 121
       Width = 23
-      Height = 13
+      Height = 15
       Caption = 'CEP:'
     end
     object Label9: TLabel
       Left = 278
       Top = 185
-      Width = 46
-      Height = 13
+      Width = 47
+      Height = 15
       Caption = 'Telefone:'
     end
     object Label10: TLabel
       Left = 41
       Top = 89
-      Width = 28
-      Height = 13
+      Width = 31
+      Height = 15
       Caption = 'Email:'
     end
     object Label11: TLabel
       Left = 12
       Top = 216
-      Width = 57
-      Height = 13
+      Width = 60
+      Height = 15
       Caption = 'Nro. Conta:'
     end
     object Label12: TLabel
       Left = 289
       Top = 216
       Width = 35
-      Height = 13
+      Height = 15
       Caption = 'Status:'
     end
     object Label13: TLabel
       Left = 32
       Top = 245
-      Width = 37
-      Height = 13
+      Width = 41
+      Height = 15
       Caption = 'Ve'#237'culo:'
     end
     object DBComboBox1: TDBComboBox
       Left = 330
       Top = 213
       Width = 188
-      Height = 21
+      Height = 23
       Style = csDropDownList
       DataField = 'Status'
       DataSource = DM.DS_Cliente
@@ -218,7 +218,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 22
       Width = 443
-      Height = 21
+      Height = 23
       DataField = 'Nome'
       DataSource = DM.DS_Cliente
       TabOrder = 0
@@ -227,7 +227,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 54
       Width = 190
-      Height = 21
+      Height = 23
       DataField = 'CPF'
       DataSource = DM.DS_Cliente
       TabOrder = 1
@@ -236,7 +236,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 328
       Top = 54
       Width = 190
-      Height = 21
+      Height = 23
       DataField = 'CNH'
       DataSource = DM.DS_Cliente
       TabOrder = 2
@@ -245,7 +245,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 86
       Width = 443
-      Height = 21
+      Height = 23
       DataField = 'Email'
       DataSource = DM.DS_Cliente
       TabOrder = 3
@@ -254,7 +254,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 118
       Width = 190
-      Height = 21
+      Height = 23
       DataField = 'Cidade'
       DataSource = DM.DS_Cliente
       TabOrder = 4
@@ -263,7 +263,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 328
       Top = 118
       Width = 190
-      Height = 21
+      Height = 23
       DataField = 'CEP'
       DataSource = DM.DS_Cliente
       TabOrder = 5
@@ -272,7 +272,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 150
       Width = 443
-      Height = 21
+      Height = 23
       DataField = 'Endereco'
       DataSource = DM.DS_Cliente
       TabOrder = 6
@@ -281,7 +281,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 182
       Width = 190
-      Height = 21
+      Height = 23
       DataField = 'Bairro'
       DataSource = DM.DS_Cliente
       TabOrder = 7
@@ -290,7 +290,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 328
       Top = 182
       Width = 190
-      Height = 21
+      Height = 23
       DataField = 'Telefone'
       DataSource = DM.DS_Cliente
       TabOrder = 8
@@ -299,7 +299,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 213
       Width = 190
-      Height = 21
+      Height = 23
       DataField = 'NroConta'
       DataSource = DM.DS_Cliente
       TabOrder = 9
@@ -308,7 +308,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 75
       Top = 242
       Width = 145
-      Height = 21
+      Height = 23
       DataField = 'Codigo'
       DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
@@ -321,7 +321,7 @@ object FrmCadCliente: TFrmCadCliente
       Left = 20
       Top = 269
       Width = 64
-      Height = 21
+      Height = 23
       DataField = 'Codigo'
       DataSource = DM.DS_Cliente
       TabOrder = 12

@@ -21,6 +21,8 @@ type
     ADOQRY_LoginCodigo: TIntegerField;
     ADOQRY_LoginUsuario: TStringField;
     ADOQRY_LoginSenha: TStringField;
+    Panel2: TPanel;
+    Label3: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private
@@ -48,7 +50,12 @@ begin
   ADOQRY_Login.Open;
 
   if ADOQRY_Login.IsEmpty then
-    Application.MessageBox('Usuário ou Senha Inválido.', 'Erro', MB_OK + MB_ICONERROR)
+    begin
+      Application.MessageBox('Usuário ou Senha Inválido.', 'Erro', MB_OK + MB_ICONERROR);
+      Edit1.Clear;
+      Edit2.Clear;
+      Edit1.SetFocus;
+    end
   else
     Frm_Menu.ShowModal;
 end;

@@ -1,6 +1,6 @@
 object Frm_Login: TFrm_Login
-  Left = 560
-  Top = 208
+  Left = 343
+  Top = 231
   Align = alClient
   BorderIcons = []
   BorderStyle = bsNone
@@ -28,7 +28,7 @@ object Frm_Login: TFrm_Login
     TabOrder = 0
     object Label1: TLabel
       Left = 24
-      Top = 56
+      Top = 81
       Width = 60
       Height = 16
       Caption = 'Usu'#225'rio:'
@@ -41,7 +41,7 @@ object Frm_Login: TFrm_Login
     end
     object Label2: TLabel
       Left = 34
-      Top = 87
+      Top = 112
       Width = 50
       Height = 16
       Caption = 'Senha:'
@@ -54,7 +54,7 @@ object Frm_Login: TFrm_Login
     end
     object Button1: TButton
       Left = 128
-      Top = 152
+      Top = 168
       Width = 75
       Height = 25
       Caption = 'Entrar'
@@ -63,7 +63,7 @@ object Frm_Login: TFrm_Login
     end
     object Button2: TButton
       Left = 320
-      Top = 152
+      Top = 168
       Width = 75
       Height = 25
       Caption = 'Sair'
@@ -72,7 +72,7 @@ object Frm_Login: TFrm_Login
     end
     object Edit1: TEdit
       Left = 90
-      Top = 53
+      Top = 78
       Width = 359
       Height = 24
       Font.Charset = ANSI_CHARSET
@@ -85,7 +85,7 @@ object Frm_Login: TFrm_Login
     end
     object Edit2: TEdit
       Left = 90
-      Top = 84
+      Top = 109
       Width = 359
       Height = 24
       Font.Charset = ANSI_CHARSET
@@ -96,6 +96,29 @@ object Frm_Login: TFrm_Login
       ParentFont = False
       PasswordChar = '*'
       TabOrder = 1
+    end
+    object Panel2: TPanel
+      Left = 1
+      Top = 1
+      Width = 480
+      Height = 41
+      Align = alTop
+      Color = clMenuHighlight
+      ParentBackground = False
+      TabOrder = 4
+      object Label3: TLabel
+        Left = 139
+        Top = 10
+        Width = 197
+        Height = 18
+        Caption = 'Identifica'#231#227'o do Usu'#225'rio'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -15
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
     end
   end
   object ADOQRY_Login: TADOQuery
