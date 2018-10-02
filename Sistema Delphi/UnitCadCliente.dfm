@@ -31,7 +31,7 @@ object FrmCadCliente: TFrmCadCliente
     object Label1: TLabel
       Left = 205
       Top = 8
-      Width = 148
+      Width = 143
       Height = 21
       Caption = 'Cadastro de Cliente'
       Font.Charset = ANSI_CHARSET
@@ -194,13 +194,6 @@ object FrmCadCliente: TFrmCadCliente
       Height = 15
       Caption = 'Status:'
     end
-    object Label13: TLabel
-      Left = 32
-      Top = 247
-      Width = 41
-      Height = 15
-      Caption = 'Ve'#237'culo:'
-    end
     object DBComboBox1: TDBComboBox
       Left = 330
       Top = 213
@@ -296,26 +289,13 @@ object FrmCadCliente: TFrmCadCliente
       TabOrder = 8
     end
     object DBEdit10: TDBEdit
-      Left = 75
-      Top = 213
+      Left = 78
+      Top = 211
       Width = 190
       Height = 23
       DataField = 'NroConta'
       DataSource = DM.DS_Cliente
       TabOrder = 9
-    end
-    object DBLookupComboBox1: TDBLookupComboBox
-      Left = 75
-      Top = 244
-      Width = 145
-      Height = 23
-      DataField = 'Codigo'
-      DataSource = DM.DS_Veiculo
-      KeyField = 'Codigo'
-      ListField = 'Placa'
-      ListSource = DS_Veiculo
-      ReadOnly = True
-      TabOrder = 11
     end
     object DBEdit11: TDBEdit
       Left = 535
@@ -324,25 +304,9 @@ object FrmCadCliente: TFrmCadCliente
       Height = 23
       DataField = 'Codigo'
       DataSource = DM.DS_Cliente
-      TabOrder = 12
+      TabOrder = 11
       Visible = False
     end
-  end
-  object ADOQRY_Veiculo: TADOQuery
-    Connection = DM.ADOConnection1
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      
-        'select Codigo, Placa from Veiculo where Placa <> null and Status' +
-        ' = '#39'A'#39)
-    Left = 296
-    Top = 338
-  end
-  object DS_Veiculo: TDataSource
-    DataSet = ADOQRY_Veiculo
-    Left = 352
-    Top = 338
   end
   object DS_CodCli: TDataSource
     DataSet = ADOQRY_CodCli

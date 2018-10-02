@@ -4,7 +4,6 @@ USE Concessionaria;
 
 CREATE TABLE Cliente (
 	Codigo   INT PRIMARY KEY NOT NULL,
-	Veiculo  INT FOREIGN KEY REFERENCES Veiculo(Codigo),
 	Nome     VARCHAR(150) NOT NULL,
 	CPF      VARCHAR(14)  NOT NULL,
 	CNH      VARCHAR(11)  NOT NULL,
@@ -20,6 +19,7 @@ CREATE TABLE Cliente (
 
 CREATE TABLE Veiculo (
 	Codigo      INT PRIMARY KEY NOT NULL,
+	Cliente     INT FOREIGN KEY REFERENCES Cliente(Codigo),
 	Fabricante  INT FOREIGN KEY REFERENCES Fabricante(Codigo)  NOT NULL,
 	Modelo      INT FOREIGN KEY REFERENCES Modelo(Codigo)      NOT NULL,
 	Combustivel INT FOREIGN KEY REFERENCES Combustivel(Codigo) NOT NULL,

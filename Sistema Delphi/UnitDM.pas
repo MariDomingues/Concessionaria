@@ -8,21 +8,6 @@ uses
 type
   TDM = class(TDataModule)
     ADOConnection1: TADOConnection;
-    ADODS_Cliente: TADODataSet;
-    ADODS_ClienteCodigo: TIntegerField;
-    ADODS_ClienteVeiculo: TIntegerField;
-    ADODS_ClienteNome: TStringField;
-    ADODS_ClienteCPF: TStringField;
-    ADODS_ClienteCNH: TStringField;
-    ADODS_ClienteEndereco: TStringField;
-    ADODS_ClienteCidade: TStringField;
-    ADODS_ClienteBairro: TStringField;
-    ADODS_ClienteCEP: TStringField;
-    ADODS_ClienteTelefone: TStringField;
-    ADODS_ClienteEmail: TStringField;
-    ADODS_ClienteNroConta: TStringField;
-    ADODS_ClienteStatus: TStringField;
-    DS_Cliente: TDataSource;
     ADODS_Veiculo: TADODataSet;
     ADOConnection2: TADOConnection;
     ADODS_VeiculoCodigo: TIntegerField;
@@ -72,6 +57,20 @@ type
     ADODS_ModeloDescricao: TStringField;
     ADODS_ModeloObs: TStringField;
     ADODS_ModeloStatus: TStringField;
+    ADODS_Cliente: TADODataSet;
+    DS_Cliente: TDataSource;
+    ADODS_ClienteCodigo: TIntegerField;
+    ADODS_ClienteNome: TStringField;
+    ADODS_ClienteCPF: TStringField;
+    ADODS_ClienteCNH: TStringField;
+    ADODS_ClienteEndereco: TStringField;
+    ADODS_ClienteCidade: TStringField;
+    ADODS_ClienteBairro: TStringField;
+    ADODS_ClienteCEP: TStringField;
+    ADODS_ClienteTelefone: TStringField;
+    ADODS_ClienteEmail: TStringField;
+    ADODS_ClienteNroConta: TStringField;
+    ADODS_ClienteStatus: TStringField;
   private
     { Private declarations }
   public

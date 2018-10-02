@@ -5,8 +5,8 @@ object Frm_Login: TFrm_Login
   BorderIcons = []
   BorderStyle = bsNone
   Caption = 'Login - Concession'#225'ria'
-  ClientHeight = 652
-  ClientWidth = 1487
+  ClientHeight = 583
+  ClientWidth = 892
   Color = clMenu
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,11 +15,13 @@ object Frm_Login: TFrm_Login
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
+  WindowState = wsMaximized
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
-    Left = 738
-    Top = 359
+    Left = 205
+    Top = 183
     Width = 482
     Height = 217
     Align = alCustom

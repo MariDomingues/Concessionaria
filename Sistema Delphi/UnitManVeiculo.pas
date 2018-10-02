@@ -35,6 +35,7 @@ type
     procedure btn_ExcluirClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -103,6 +104,11 @@ end;
 procedure TFrm_Man_Veiculo.btn_SairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFrm_Man_Veiculo.Edit1Change(Sender: TObject);
+begin
+  DM.ADODS_Veiculo.Locate('Placa', Edit1.Text, [loCaseInsensitive, loPartialKey]);
 end;
 
 procedure TFrm_Man_Veiculo.FormActivate(Sender: TObject);

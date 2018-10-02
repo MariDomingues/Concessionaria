@@ -6,7 +6,7 @@ object Frm_Menu: TFrm_Menu
   BorderStyle = bsNone
   Caption = 'Frm_Menu'
   ClientHeight = 850
-  ClientWidth = 1404
+  ClientWidth = 1078
   Color = clBtnHighlight
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,6 +15,7 @@ object Frm_Menu: TFrm_Menu
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
+  WindowState = wsMaximized
   OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
@@ -23,7 +24,7 @@ object Frm_Menu: TFrm_Menu
     AlignWithMargins = True
     Left = 3
     Top = 828
-    Width = 1398
+    Width = 1072
     Height = 19
     Color = clWhite
     Panels = <
@@ -39,21 +40,27 @@ object Frm_Menu: TFrm_Menu
       item
         Width = 50
       end>
+    ExplicitLeft = 0
+    ExplicitWidth = 1401
   end
   object Panel2: TPanel
     Left = 0
-    Top = 240
-    Width = 1404
-    Height = 585
-    Align = alCustom
+    Top = 241
+    Width = 1078
+    Height = 584
+    Align = alClient
     Color = clSilver
     ParentBackground = False
     TabOrder = 1
+    ExplicitTop = 240
+    ExplicitWidth = 1404
+    ExplicitHeight = 590
     object TreeView1: TTreeView
-      Left = 0
-      Top = 0
+      Left = 1
+      Top = 1
       Width = 288
-      Height = 632
+      Height = 582
+      Align = alLeft
       Color = clWhite
       Font.Charset = ANSI_CHARSET
       Font.Color = clBlack
@@ -94,12 +101,16 @@ object Frm_Menu: TFrm_Menu
         FFFFFFFFFF000000000000000001000000010753006500720076006900E7006F
         0038000000000000000E000000FFFFFFFFFFFFFFFF0000000000000000000000
         00010D4F007200640065006D00200053006500720076006900E7006F00}
+      ExplicitLeft = 553
+      ExplicitTop = 290
+      ExplicitHeight = 231
     end
     object Button1: TButton
       Left = 55
       Top = 544
       Width = 162
       Height = 25
+      Align = alCustom
       Caption = 'Sair'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -114,15 +125,16 @@ object Frm_Menu: TFrm_Menu
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1404
+    Width = 1078
     Height = 241
-    Align = alCustom
+    Align = alTop
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
+    ExplicitWidth = 1404
     object Image1: TImage
-      Left = 889
-      Top = -32
+      Left = 751
+      Top = -40
       Width = 310
       Height = 313
       Picture.Data = {
@@ -1227,9 +1239,9 @@ object Frm_Menu: TFrm_Menu
         ED4FA28AA00A28A290051451401FFFD9}
     end
     object Image2: TImage
-      Left = 410
-      Top = 32
-      Width = 489
+      Left = 290
+      Top = 48
+      Width = 455
       Height = 153
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000001D80000

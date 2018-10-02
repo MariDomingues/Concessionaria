@@ -42,10 +42,6 @@ type
     DBEdit8: TDBEdit;
     DBEdit9: TDBEdit;
     DBEdit10: TDBEdit;
-    Label13: TLabel;
-    DBLookupComboBox1: TDBLookupComboBox;
-    ADOQRY_Veiculo: TADOQuery;
-    DS_Veiculo: TDataSource;
     DS_CodCli: TDataSource;
     ADOQRY_CodCli: TADOQuery;
     DBEdit11: TDBEdit;
@@ -117,10 +113,7 @@ end;
 
 procedure TFrmCadCliente.FormActivate(Sender: TObject);
 begin
-  ADOQRY_Veiculo.Close;
-  ADOQRY_Veiculo.Open;
-
-	ADOQRY_CodCli.Close;
+  ADOQRY_CodCli.Close;
   ADOQRY_CodCli.Open;
 
   DBComboBox1.ItemIndex := 0;
@@ -128,9 +121,6 @@ end;
 
 procedure TFrmCadCliente.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  DM.ADODS_Veiculo.Close;
-
-	ADOQRY_Veiculo.Close;
 	ADOQRY_CodCli.Close;
 end;
 

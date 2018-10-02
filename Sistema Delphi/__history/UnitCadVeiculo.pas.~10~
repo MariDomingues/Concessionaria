@@ -1,0 +1,94 @@
+unit UnitCadVeiculo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.ComCtrls,
+  Vcl.ToolWin, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls;
+
+type
+  TFrmCadVeiculo = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Pn1Ficha: TPanel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label3: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    DBComboBox1: TDBComboBox;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBEdit11: TDBEdit;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    btn_Salvar: TToolButton;
+    ToolButton2: TToolButton;
+    btn_Cancelar: TToolButton;
+    ToolButton4: TToolButton;
+    btn_Sair: TToolButton;
+    ADOQRY_Fabricante: TADOQuery;
+    DS_Fabricante: TDataSource;
+    ADOQRY_CodVei: TADOQuery;
+    DS_CodVei: TDataSource;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    Label11: TLabel;
+    DS_Modelo: TDataSource;
+    DBComboBox2: TDBComboBox;
+    DBComboBox3: TDBComboBox;
+    procedure btn_SalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadVeiculo: TFrmCadVeiculo;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitManVeiculo, UnitDM;
+
+procedure TFrmCadVeiculo.btn_SalvarClick(Sender: TObject);
+var CodVei : integer;
+begin
+  if Acao = 'I' then
+    begin
+      CodVei := ADOQRY_CodVei.FieldByName('Codigo').AsInteger;
+      CodVei := CodVei + 1;
+
+      DBEdit11.Text := IntToStr(CodVei);
+    end;
+
+  DM.ADODS_Veiculo.Post;
+
+  if Acao = 'I' then
+    Application.MessageBox('O registro foi incluido com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION)
+  else
+    Application.MessageBox('O registro foi alterado com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION);
+
+  btn_Salvar.Enabled   := False;
+  btn_Cancelar.Enabled := False;
+  btn_Sair.Enabled     := True;
+  Pn1Ficha.Enabled     := False;
+
+  LimpaTela;
+end;
+
+end.

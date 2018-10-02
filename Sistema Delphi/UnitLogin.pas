@@ -25,6 +25,7 @@ type
     Label3: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,6 +64,12 @@ end;
 procedure TFrm_Login.Button2Click(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFrm_Login.FormActivate(Sender: TObject);
+begin
+  panel1.Top  := Round((Screen.Height - panel1.Height)  / 2) ;
+  panel1.Left := Round((Screen.Width - panel1.Width) / 2);
 end;
 
 end.

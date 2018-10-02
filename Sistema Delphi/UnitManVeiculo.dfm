@@ -4,8 +4,8 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Manuten'#231#227'o no Cadastro de Ve'#237'culos'
-  ClientHeight = 515
-  ClientWidth = 988
+  ClientHeight = 598
+  ClientWidth = 1093
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
@@ -20,8 +20,8 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
   object DBG_Vei: TDBGrid
     Left = 0
     Top = 131
-    Width = 988
-    Height = 376
+    Width = 1093
+    Height = 627
     Align = alTop
     DataSource = DM.DS_Veiculo
     ReadOnly = True
@@ -209,12 +209,13 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 988
+    Width = 1093
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 1
+    ExplicitWidth = 988
     object Label1: TLabel
       Left = 350
       Top = 10
@@ -232,10 +233,11 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
   object Panel2: TPanel
     Left = 0
     Top = 90
-    Width = 988
+    Width = 1093
     Height = 41
     Align = alTop
     TabOrder = 2
+    ExplicitWidth = 988
     object Label2: TLabel
       Left = 14
       Top = 13
@@ -249,22 +251,25 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Width = 474
       Height = 23
       TabOrder = 0
+      OnChange = Edit1Change
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 496
-    Width = 988
+    Top = 579
+    Width = 1093
     Height = 19
     Panels = <
       item
         Width = 50
       end>
+    ExplicitTop = 496
+    ExplicitWidth = 988
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 988
+    Width = 1093
     Height = 49
     BorderWidth = 1
     ButtonHeight = 40
@@ -279,6 +284,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     ParentShowHint = False
     ShowHint = True
     TabOrder = 4
+    ExplicitWidth = 988
     object btn_Inserir: TToolButton
       Left = 0
       Top = 0
@@ -357,7 +363,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 320
     Top = 320
     Bitmap = {
-      494C0101070048005C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800640018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -964,7 +970,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 424
     Top = 320
     Bitmap = {
-      494C010107003800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038005C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1571,7 +1577,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 512
     Top = 328
     Bitmap = {
-      494C010107003800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038005C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005
