@@ -34,7 +34,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitManCliente, UnitLogin, UnitManVeiculo;
+uses UnitManCliente, UnitLogin, UnitManVeiculo, UnitManUsuario;
 
 procedure TFrm_Menu.Button1Click(Sender: TObject);
 begin
@@ -56,6 +56,7 @@ begin
   Case (TreeView1.Selected.SelectedIndex) of
     1: Frm_Man_Cliente.ShowModal;
     2: Frm_Man_Veiculo.ShowModal;
+    9: Frm_Man_Usuario.ShowModal;
   End;
 end;
 

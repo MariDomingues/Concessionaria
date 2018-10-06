@@ -17,7 +17,6 @@ type
     ADODS_LoginUsuario: TStringField;
     ADODS_LoginSenha: TStringField;
     ADODS_LoginFuncionario: TIntegerField;
-    ADODS_LoginCliente: TIntegerField;
     ADODS_LoginStatus: TStringField;
     DS_Combustivel: TDataSource;
     ADODS_Combustivel: TADODataSet;
@@ -72,6 +71,20 @@ type
     ADODS_VeiculoQuantidade: TIntegerField;
     ADODS_VeiculoStatus: TStringField;
     ADODS_VeiculoDocum: TStringField;
+    DS_Funcionario: TDataSource;
+    ADODS_Funcionario: TADODataSet;
+    ADODS_FuncionarioCodigo: TIntegerField;
+    ADODS_FuncionarioNome: TStringField;
+    ADODS_FuncionarioCPF: TStringField;
+    ADODS_FuncionarioDtNasc: TWideStringField;
+    ADODS_FuncionarioEndereco: TStringField;
+    ADODS_FuncionarioCidade: TStringField;
+    ADODS_FuncionarioBairro: TStringField;
+    ADODS_FuncionarioCEP: TStringField;
+    ADODS_FuncionarioTelefone: TStringField;
+    ADODS_FuncionarioNroConta: TStringField;
+    ADODS_FuncionarioCargo: TIntegerField;
+    ADODS_FuncionarioStatus: TStringField;
   private
     { Private declarations }
   public

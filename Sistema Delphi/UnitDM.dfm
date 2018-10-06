@@ -115,9 +115,6 @@ object DM: TDM
     object ADODS_LoginFuncionario: TIntegerField
       FieldName = 'Funcionario'
     end
-    object ADODS_LoginCliente: TIntegerField
-      FieldName = 'Cliente'
-    end
     object ADODS_LoginStatus: TStringField
       FieldName = 'Status'
       FixedChar = True
@@ -298,5 +295,65 @@ object DM: TDM
     DataSet = ADODS_Cliente
     Left = 152
     Top = 88
+  end
+  object DS_Funcionario: TDataSource
+    DataSet = ADODS_Funcionario
+    Left = 157
+    Top = 464
+  end
+  object ADODS_Funcionario: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select *  from Funcionario'#13#10
+    Parameters = <>
+    Left = 40
+    Top = 464
+    object ADODS_FuncionarioCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADODS_FuncionarioNome: TStringField
+      FieldName = 'Nome'
+      Size = 150
+    end
+    object ADODS_FuncionarioCPF: TStringField
+      FieldName = 'CPF'
+      Size = 14
+    end
+    object ADODS_FuncionarioDtNasc: TWideStringField
+      FieldName = 'DtNasc'
+      Size = 10
+    end
+    object ADODS_FuncionarioEndereco: TStringField
+      FieldName = 'Endereco'
+      Size = 100
+    end
+    object ADODS_FuncionarioCidade: TStringField
+      FieldName = 'Cidade'
+      Size = 50
+    end
+    object ADODS_FuncionarioBairro: TStringField
+      FieldName = 'Bairro'
+      Size = 50
+    end
+    object ADODS_FuncionarioCEP: TStringField
+      FieldName = 'CEP'
+      Size = 9
+    end
+    object ADODS_FuncionarioTelefone: TStringField
+      FieldName = 'Telefone'
+      Size = 14
+    end
+    object ADODS_FuncionarioNroConta: TStringField
+      FieldName = 'NroConta'
+      Size = 12
+    end
+    object ADODS_FuncionarioCargo: TIntegerField
+      FieldName = 'Cargo'
+    end
+    object ADODS_FuncionarioStatus: TStringField
+      FieldName = 'Status'
+      FixedChar = True
+      Size = 1
+    end
   end
 end

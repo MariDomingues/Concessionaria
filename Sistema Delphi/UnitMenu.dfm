@@ -40,8 +40,6 @@ object Frm_Menu: TFrm_Menu
       item
         Width = 50
       end>
-    ExplicitLeft = 0
-    ExplicitWidth = 1401
   end
   object Panel2: TPanel
     Left = 0
@@ -52,9 +50,6 @@ object Frm_Menu: TFrm_Menu
     Color = clSilver
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 240
-    ExplicitWidth = 1404
-    ExplicitHeight = 590
     object TreeView1: TTreeView
       Left = 1
       Top = 1
@@ -101,9 +96,6 @@ object Frm_Menu: TFrm_Menu
         FFFFFFFFFF000000000000000001000000010753006500720076006900E7006F
         0038000000000000000E000000FFFFFFFFFFFFFFFF0000000000000000000000
         00010D4F007200640065006D00200053006500720076006900E7006F00}
-      ExplicitLeft = 553
-      ExplicitTop = 290
-      ExplicitHeight = 231
     end
     object Button1: TButton
       Left = 55
@@ -131,7 +123,6 @@ object Frm_Menu: TFrm_Menu
     Color = clWhite
     ParentBackground = False
     TabOrder = 2
-    ExplicitWidth = 1404
     object Image1: TImage
       Left = 751
       Top = -40
