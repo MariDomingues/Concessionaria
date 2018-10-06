@@ -14,6 +14,8 @@ object FrmCadVeiculo: TFrmCadVeiculo
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
@@ -25,11 +27,10 @@ object FrmCadVeiculo: TFrmCadVeiculo
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 571
     object Label1: TLabel
       Left = 216
       Top = 8
-      Width = 161
+      Width = 145
       Height = 21
       Caption = 'Cadastro de Ve'#237'culo'
       Font.Charset = ANSI_CHARSET
@@ -47,7 +48,6 @@ object FrmCadVeiculo: TFrmCadVeiculo
     Height = 317
     Align = alClient
     TabOrder = 1
-    ExplicitTop = 84
     object Label2: TLabel
       Left = 49
       Top = 40
@@ -71,14 +71,14 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object Label3: TLabel
       Left = 264
-      Top = 136
+      Top = 168
       Width = 60
       Height = 13
       Caption = 'Quantidade:'
     end
     object Label6: TLabel
       Left = 296
-      Top = 104
+      Top = 136
       Width = 28
       Height = 13
       Caption = 'Valor:'
@@ -92,7 +92,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object Label8: TLabel
       Left = 266
-      Top = 167
+      Top = 199
       Width = 58
       Height = 13
       Caption = 'Km Rodado:'
@@ -112,8 +112,8 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Caption = 'Combust'#237'vel:'
     end
     object Label12: TLabel
-      Left = 289
-      Top = 199
+      Left = 45
+      Top = 231
       Width = 35
       Height = 13
       Caption = 'Status:'
@@ -132,9 +132,16 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 13
       Caption = 'Zero Km:'
     end
+    object Label14: TLabel
+      Left = 287
+      Top = 104
+      Width = 37
+      Height = 13
+      Caption = 'Cliente:'
+    end
     object DBComboBox1: TDBComboBox
-      Left = 330
-      Top = 196
+      Left = 86
+      Top = 228
       Width = 145
       Height = 21
       Style = csDropDownList
@@ -142,8 +149,9 @@ object FrmCadVeiculo: TFrmCadVeiculo
       DataSource = DM.DS_Veiculo
       Items.Strings = (
         'Ativo'
-        'Inativo')
-      TabOrder = 11
+        'Vendido'
+        'Mec'#226'nico')
+      TabOrder = 12
     end
     object DBEdit1: TDBEdit
       Left = 86
@@ -153,6 +161,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       DataField = 'Placa'
       DataSource = DM.DS_Veiculo
       TabOrder = 0
+      OnExit = DBEdit1Exit
     end
     object DBEdit2: TDBEdit
       Left = 330
@@ -165,21 +174,21 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object DBEdit5: TDBEdit
       Left = 330
-      Top = 101
+      Top = 133
       Width = 145
       Height = 21
       DataField = 'Valor'
       DataSource = DM.DS_Veiculo
-      TabOrder = 5
+      TabOrder = 6
     end
     object DBEdit6: TDBEdit
       Left = 330
-      Top = 164
+      Top = 196
       Width = 145
       Height = 21
       DataField = 'Km'
       DataSource = DM.DS_Veiculo
-      TabOrder = 9
+      TabOrder = 10
     end
     object DBEdit7: TDBEdit
       Left = 86
@@ -188,24 +197,24 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 21
       DataField = 'Cor'
       DataSource = DM.DS_Veiculo
-      TabOrder = 6
+      TabOrder = 7
     end
     object DBEdit8: TDBEdit
       Left = 330
-      Top = 133
+      Top = 165
       Width = 62
       Height = 21
       DataField = 'Quantidade'
       DataSource = DM.DS_Veiculo
-      TabOrder = 7
+      TabOrder = 8
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 86
       Top = 69
       Width = 145
       Height = 21
-      DataField = 'Codigo'
-      DataSource = DM.DS_Fabricante
+      DataField = 'Fabricante'
+      DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
       ListField = 'NomeFantasia'
       ListSource = DS_Fabricante
@@ -219,7 +228,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 21
       DataField = 'Codigo'
       DataSource = DM.DS_Veiculo
-      TabOrder = 12
+      TabOrder = 13
       Visible = False
     end
     object DBLookupComboBox2: TDBLookupComboBox
@@ -227,8 +236,8 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Top = 69
       Width = 145
       Height = 21
-      DataField = 'Codigo'
-      DataSource = DM.DS_Modelo
+      DataField = 'Modelo'
+      DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
       ListField = 'Descricao'
       ListSource = DS_Modelo
@@ -240,11 +249,11 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Top = 101
       Width = 145
       Height = 21
-      DataField = 'Codigo'
-      DataSource = DM.DS_Combustivel
+      DataField = 'Combustivel'
+      DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
       ListField = 'Descricao'
-      ListSource = DM.DS_Combustivel
+      ListSource = DS_Combustivel
       ReadOnly = True
       TabOrder = 4
     end
@@ -259,7 +268,8 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Items.Strings = (
         'Sim'
         'N'#227'o')
-      TabOrder = 8
+      TabOrder = 9
+      OnExit = DBComboBox2Exit
     end
     object DBComboBox3: TDBComboBox
       Left = 86
@@ -272,7 +282,20 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Items.Strings = (
         'Sim'
         'N'#227'o')
-      TabOrder = 10
+      TabOrder = 11
+    end
+    object DBLookupComboBox4: TDBLookupComboBox
+      Left = 330
+      Top = 106
+      Width = 145
+      Height = 21
+      DataField = 'Cliente'
+      DataSource = DM.DS_Veiculo
+      KeyField = 'Codigo'
+      ListField = 'Nome'
+      ListSource = DS_Cliente
+      ReadOnly = True
+      TabOrder = 5
     end
   end
   object StatusBar1: TStatusBar
@@ -284,8 +307,6 @@ object FrmCadVeiculo: TFrmCadVeiculo
       item
         Width = 50
       end>
-    ExplicitTop = 385
-    ExplicitWidth = 571
   end
   object ToolBar1: TToolBar
     Left = 0
@@ -303,7 +324,6 @@ object FrmCadVeiculo: TFrmCadVeiculo
     ParentShowHint = False
     ShowHint = True
     TabOrder = 3
-    ExplicitWidth = 571
     object btn_Salvar: TToolButton
       Left = 0
       Top = 0
@@ -327,6 +347,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Hint = 'Cancelar Registro'
       Caption = 'btn_Cancelar'
       ImageIndex = 4
+      OnClick = btn_CancelarClick
     end
     object ToolButton4: TToolButton
       Left = 94
@@ -342,6 +363,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Hint = 'Sair'
       Caption = 'btn_Sair'
       ImageIndex = 5
+      OnClick = btn_SairClick
     end
   end
   object ADOQRY_Fabricante: TADOQuery
@@ -364,16 +386,54 @@ object FrmCadVeiculo: TFrmCadVeiculo
     Parameters = <>
     SQL.Strings = (
       'select top 1 Codigo from Veiculo order by Codigo desc;')
-    Left = 416
-    Top = 338
+    Left = 472
+    Top = 322
   end
   object DS_CodVei: TDataSource
     DataSet = ADOQRY_CodVei
-    Left = 472
-    Top = 338
+    Left = 528
+    Top = 322
   end
   object DS_Modelo: TDataSource
+    DataSet = ADOQRY_Modelo
     Left = 176
+    Top = 386
+  end
+  object ADOQRY_Modelo: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select Codigo, Descricao from Modelo where Status <> '#39'I'#39)
+    Left = 136
+    Top = 386
+  end
+  object DS_Cliente: TDataSource
+    DataSet = ADOQRY_Cliente
+    Left = 296
+    Top = 386
+  end
+  object ADOQRY_Cliente: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT Codigo, Nome FROM  Cliente WHERE  Status <> '#39'I'#39';')
+    Left = 256
+    Top = 386
+  end
+  object DS_Combustivel: TDataSource
+    DataSet = ADOQRY_Combustivel
+    Left = 384
+    Top = 386
+  end
+  object ADOQRY_Combustivel: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT Codigo, Descricao FROM  Combustivel;')
+    Left = 344
     Top = 386
   end
 end

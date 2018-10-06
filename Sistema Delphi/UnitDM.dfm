@@ -22,6 +22,9 @@ object DM: TDM
     object ADODS_VeiculoCodigo: TIntegerField
       FieldName = 'Codigo'
     end
+    object ADODS_VeiculoCliente: TIntegerField
+      FieldName = 'Cliente'
+    end
     object ADODS_VeiculoFabricante: TIntegerField
       FieldName = 'Fabricante'
     end

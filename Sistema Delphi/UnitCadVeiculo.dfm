@@ -213,8 +213,8 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Top = 69
       Width = 145
       Height = 21
-      DataField = 'Codigo'
-      DataSource = DM.DS_Fabricante
+      DataField = 'Fabricante'
+      DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
       ListField = 'NomeFantasia'
       ListSource = DS_Fabricante
@@ -236,8 +236,8 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Top = 69
       Width = 145
       Height = 21
-      DataField = 'Codigo'
-      DataSource = DM.DS_Modelo
+      DataField = 'Modelo'
+      DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
       ListField = 'Descricao'
       ListSource = DS_Modelo
@@ -249,11 +249,11 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Top = 101
       Width = 145
       Height = 21
-      DataField = 'Codigo'
-      DataSource = DM.DS_Combustivel
+      DataField = 'Combustivel'
+      DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
       ListField = 'Descricao'
-      ListSource = DM.DS_Combustivel
+      ListSource = DS_Combustivel
       ReadOnly = True
       TabOrder = 4
     end
@@ -286,14 +286,14 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object DBLookupComboBox4: TDBLookupComboBox
       Left = 330
-      Top = 101
+      Top = 106
       Width = 145
       Height = 21
-      DataField = 'Codigo'
-      DataSource = DM.DS_Cliente
+      DataField = 'Cliente'
+      DataSource = DM.DS_Veiculo
       KeyField = 'Codigo'
       ListField = 'Nome'
-      ListSource = DM.DS_Cliente
+      ListSource = DS_Cliente
       ReadOnly = True
       TabOrder = 5
     end
@@ -418,8 +418,22 @@ object FrmCadVeiculo: TFrmCadVeiculo
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select Codigo, Nome from Cliente where Status <> '#39'I'#39)
+      'SELECT Codigo, Nome FROM  Cliente WHERE  Status <> '#39'I'#39';')
     Left = 256
+    Top = 386
+  end
+  object DS_Combustivel: TDataSource
+    DataSet = ADOQRY_Combustivel
+    Left = 384
+    Top = 386
+  end
+  object ADOQRY_Combustivel: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT Codigo, Descricao FROM  Combustivel;')
+    Left = 344
     Top = 386
   end
 end

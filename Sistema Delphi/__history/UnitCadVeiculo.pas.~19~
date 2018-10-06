@@ -170,8 +170,6 @@ begin
   ADOQRY_Cliente.Close;
   ADOQRY_Cliente.Open;
 
-  ADOQRY_Combustivel.Close;
-  ADOQRY_Combustivel.Open;
 
   DBComboBox1.ItemIndex := 0;
   DBComboBox2.ItemIndex := 0;
@@ -189,8 +187,8 @@ begin
   DM.ADODS_Cliente.Close;
 	ADOQRY_Cliente.Close;
 
-  DM.ADODS_Combustivel.Close;
-	ADOQRY_Combustivel.Close;
+  DM.ADODS_Cliente.Close;
+	ADOQRY_Cliente.Close;
 
   ADOQRY_CodVei.Close;
 end;
