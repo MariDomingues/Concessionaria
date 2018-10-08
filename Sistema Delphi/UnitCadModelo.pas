@@ -114,6 +114,7 @@ procedure TFrmCadModelo.LimpaTela;
 begin
   DBEdit1.Clear;
   DBMemo1.Clear;
+  DBEdit11.Clear;
   DBComboBox1.ItemIndex := 0;
 end;
 

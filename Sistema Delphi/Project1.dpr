@@ -14,7 +14,9 @@ uses
   UnitManUsuario in 'UnitManUsuario.pas' {Frm_Man_Usuario},
   UnitCadUsuario in 'UnitCadUsuario.pas' {FrmCadUsuario},
   UnitManModelo in 'UnitManModelo.pas' {Frm_Man_Modelo},
-  UnitCadModelo in 'UnitCadModelo.pas' {FrmCadModelo};
+  UnitCadModelo in 'UnitCadModelo.pas' {FrmCadModelo},
+  UnitManCombustivel in 'UnitManCombustivel.pas' {Frm_Man_Combustivel},
+  UnitCadCombustivel in 'UnitCadCombustivel.pas' {FrmCadCombustivel};
 
 {$R *.res}
 
@@ -34,5 +36,7 @@ begin
   Application.CreateForm(TFrmCadUsuario, FrmCadUsuario);
   Application.CreateForm(TFrm_Man_Modelo, Frm_Man_Modelo);
   Application.CreateForm(TFrmCadModelo, FrmCadModelo);
+  Application.CreateForm(TFrm_Man_Combustivel, Frm_Man_Combustivel);
+  Application.CreateForm(TFrmCadCombustivel, FrmCadCombustivel);
   Application.Run;
 end.

@@ -1,0 +1,38 @@
+unit UnitCadCombustivel;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ToolWin, Vcl.StdCtrls,
+  Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TFrmCadCombustivel = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Pn1Ficha: TPanel;
+    Label2: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit11: TDBEdit;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    btn_Salvar: TToolButton;
+    ToolButton2: TToolButton;
+    btn_Cancelar: TToolButton;
+    ToolButton4: TToolButton;
+    btn_Sair: TToolButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadCombustivel: TFrmCadCombustivel;
+
+implementation
+
+{$R *.dfm}
+
+end.

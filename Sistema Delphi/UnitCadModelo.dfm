@@ -48,7 +48,6 @@ object FrmCadModelo: TFrmCadModelo
     Height = 305
     Align = alClient
     TabOrder = 1
-    ExplicitHeight = 295
     object Label2: TLabel
       Left = 19
       Top = 25
@@ -121,7 +120,6 @@ object FrmCadModelo: TFrmCadModelo
       item
         Width = 50
       end>
-    ExplicitTop = 385
   end
   object ToolBar1: TToolBar
     Left = 0
