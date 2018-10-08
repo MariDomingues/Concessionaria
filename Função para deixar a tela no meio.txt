@@ -1,0 +1,2 @@
+Logo.Top  := Round((Screen.Height - Logo.Height)  / 2) ;
+   Logo.Left := Round((Screen.Width - Logo.Width) / 2);
