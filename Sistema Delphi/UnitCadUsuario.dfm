@@ -1,6 +1,6 @@
 object FrmCadUsuario: TFrmCadUsuario
-  Left = 800
-  Top = 415
+  Left = 320
+  Top = 436
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Usu'#225'rio'
@@ -78,7 +78,7 @@ object FrmCadUsuario: TFrmCadUsuario
     end
     object DBComboBox1: TDBComboBox
       Left = 75
-      Top = 118
+      Top = 112
       Width = 190
       Height = 21
       Style = csDropDownList
@@ -126,7 +126,6 @@ object FrmCadUsuario: TFrmCadUsuario
       DataSource = DM.DS_Login
       KeyField = 'Codigo'
       ListField = 'Nome'
-      ListSource = DS_Funcionario
       ReadOnly = True
       TabOrder = 2
     end
@@ -201,8 +200,8 @@ object FrmCadUsuario: TFrmCadUsuario
   end
   object DS_CodUsu: TDataSource
     DataSet = ADOQRY_CodUsu
-    Left = 240
-    Top = 354
+    Left = 472
+    Top = 282
   end
   object ADOQRY_CodUsu: TADOQuery
     Connection = DM.ADOConnection1
@@ -210,13 +209,13 @@ object FrmCadUsuario: TFrmCadUsuario
     Parameters = <>
     SQL.Strings = (
       'select top 1 Codigo from Login order by Codigo desc;')
-    Left = 184
-    Top = 354
+    Left = 416
+    Top = 282
   end
   object DS_Funcionario: TDataSource
     DataSet = ADOQRY_Funcionario
-    Left = 96
-    Top = 352
+    Left = 328
+    Top = 280
   end
   object ADOQRY_Funcionario: TADOQuery
     Connection = DM.ADOConnection1
@@ -224,7 +223,7 @@ object FrmCadUsuario: TFrmCadUsuario
     Parameters = <>
     SQL.Strings = (
       'SELECT Codigo, Nome FROM  Funcionario;')
-    Left = 56
-    Top = 352
+    Left = 288
+    Top = 280
   end
 end

@@ -42,6 +42,10 @@ type
     DBEdit9: TDBEdit;
     DBEdit10: TDBEdit;
     DBEdit11: TDBEdit;
+    Label13: TLabel;
+    DBEdit12: TDBEdit;
+    DS_CodFab: TDataSource;
+    ADOQRY_CodFab: TADOQuery;
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
@@ -86,14 +90,14 @@ begin
 end;
 
 procedure TFrmCadFabricante.btn_SalvarClick(Sender: TObject);
-var CodUsu : integer;
+var CodFab : integer;
 begin
   if Acao = 'I' then
     begin
-      CodUsu := ADOQRY_CodUsu.FieldByName('Codigo').AsInteger;
-      CodUsu := CodUsu + 1;
+      CodFab := ADOQRY_CodFab.FieldByName('Codigo').AsInteger;
+      CodFab := CodFab + 1;
 
-      DBEdit11.Text := IntToStr(CodUsu);
+      DBEdit11.Text := IntToStr(CodFab);
     end;
 
   DM.ADODS_Fabricante.Post;
@@ -113,11 +117,8 @@ end;
 
 procedure TFrmCadFabricante.FormActivate(Sender: TObject);
 begin
-  ADOQRY_CodUsu.Close;
-  ADOQRY_CodUsu.Open;
-
-	ADOQRY_Funcionario.Close;
-  ADOQRY_Funcionario.Open;
+  ADOQRY_CodFab.Close;
+  ADOQRY_CodFab.Open;
 
   DBComboBox1.ItemIndex := 0;
 end;
@@ -125,16 +126,23 @@ end;
 procedure TFrmCadFabricante.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   DM.ADODS_Funcionario.Close;
-  ADOQRY_Funcionario.Close;
-
-  ADOQRY_CodUsu.Close;
+  ADOQRY_CodFab.Close;
 end;
 
 procedure TFrmCadFabricante.LimpaTela;
 begin
   DBEdit1.Clear;
   DBEdit2.Clear;
+  DBEdit3.Clear;
+  DBEdit4.Clear;
+  DBEdit5.Clear;
+  DBEdit6.Clear;
+  DBEdit7.Clear;
+  DBEdit8.Clear;
+  DBEdit9.Clear;
+  DBEdit10.Clear;
   DBEdit11.Clear;
+  DBEdit12.Clear;
   DBComboBox1.ItemIndex := 0;
 end;
 

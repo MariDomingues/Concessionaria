@@ -9,7 +9,6 @@ type
   TDM = class(TDataModule)
     ADOConnection1: TADOConnection;
     ADODS_Veiculo: TADODataSet;
-    ADOConnection2: TADOConnection;
     DS_Veiculo: TDataSource;
     DS_Login: TDataSource;
     ADODS_Login: TADODataSet;

@@ -18,6 +18,8 @@ object Frm_Menu: TFrm_Menu
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnClose = FormClose
+  ExplicitWidth = 320
+  ExplicitHeight = 240
   PixelsPerInch = 96
   TextHeight = 13
   object StatusBar1: TStatusBar

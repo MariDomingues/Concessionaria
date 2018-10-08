@@ -4,8 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.DBCtrls, Vcl.ComCtrls, Vcl.ToolWin,
-  Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls, Data.DB, Data.Win.ADODB;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.ComCtrls,
+  Vcl.ToolWin, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls;
 
 type
   TFrmCadUsuario = class(TForm)
@@ -20,6 +20,7 @@ type
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit11: TDBEdit;
+    DBLookupComboBox1: TDBLookupComboBox;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     btn_Salvar: TToolButton;
@@ -27,14 +28,13 @@ type
     btn_Cancelar: TToolButton;
     ToolButton4: TToolButton;
     btn_Sair: TToolButton;
-    DBLookupComboBox1: TDBLookupComboBox;
     DS_CodUsu: TDataSource;
     ADOQRY_CodUsu: TADOQuery;
     DS_Funcionario: TDataSource;
     ADOQRY_Funcionario: TADOQuery;
+    procedure btn_SalvarClick(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
-    procedure btn_SalvarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private

@@ -75,15 +75,6 @@ object DM: TDM
       Size = 1
     end
   end
-  object ADOConnection2: TADOConnection
-    ConnectionString = 
-      'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=Concessionaria;Data Source=NCC04-14;'
-    LoginPrompt = False
-    Provider = 'SQLOLEDB.1'
-    Left = 152
-    Top = 16
-  end
   object DS_Veiculo: TDataSource
     DataSet = ADODS_Veiculo
     Left = 157
@@ -214,7 +205,7 @@ object DM: TDM
   object ADODS_Modelo: TADODataSet
     Connection = ADOConnection1
     CursorType = ctStatic
-    CommandText = 'select *  from Modelo'#13#10
+    CommandText = 'select * from Modelo'
     Parameters = <>
     Left = 40
     Top = 400
@@ -304,7 +295,7 @@ object DM: TDM
   object ADODS_Funcionario: TADODataSet
     Connection = ADOConnection1
     CursorType = ctStatic
-    CommandText = 'select *  from Funcionario'#13#10
+    CommandText = 'select * from Funcionario'#13#10
     Parameters = <>
     Left = 40
     Top = 464

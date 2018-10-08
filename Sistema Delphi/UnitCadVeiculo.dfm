@@ -201,7 +201,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object DBEdit8: TDBEdit
       Left = 330
-      Top = 165
+      Top = 164
       Width = 62
       Height = 21
       DataField = 'Quantidade'
@@ -218,7 +218,6 @@ object FrmCadVeiculo: TFrmCadVeiculo
       KeyField = 'Codigo'
       ListField = 'NomeFantasia'
       ListSource = DS_Fabricante
-      ReadOnly = True
       TabOrder = 2
     end
     object DBEdit11: TDBEdit
@@ -241,7 +240,6 @@ object FrmCadVeiculo: TFrmCadVeiculo
       KeyField = 'Codigo'
       ListField = 'Descricao'
       ListSource = DS_Modelo
-      ReadOnly = True
       TabOrder = 3
     end
     object DBLookupComboBox3: TDBLookupComboBox
@@ -254,7 +252,6 @@ object FrmCadVeiculo: TFrmCadVeiculo
       KeyField = 'Codigo'
       ListField = 'Descricao'
       ListSource = DS_Combustivel
-      ReadOnly = True
       TabOrder = 4
     end
     object DBComboBox2: TDBComboBox
@@ -286,7 +283,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object DBLookupComboBox4: TDBLookupComboBox
       Left = 330
-      Top = 106
+      Top = 101
       Width = 145
       Height = 21
       DataField = 'Cliente'
@@ -294,7 +291,6 @@ object FrmCadVeiculo: TFrmCadVeiculo
       KeyField = 'Codigo'
       ListField = 'Nome'
       ListSource = DS_Cliente
-      ReadOnly = True
       TabOrder = 5
     end
   end

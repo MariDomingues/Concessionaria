@@ -10,7 +10,9 @@ uses
   UnitManVeiculo in 'UnitManVeiculo.pas' {Frm_Man_Veiculo},
   UnitCadVeiculo in 'UnitCadVeiculo.pas' {FrmCadVeiculo},
   UnitManFabricante in 'UnitManFabricante.pas' {Frm_Man_Fabricante},
-  UnitCadFabricante in 'UnitCadFabricante.pas' {FrmCadFabricante};
+  UnitCadFabricante in 'UnitCadFabricante.pas' {FrmCadFabricante},
+  UnitManUsuario in 'UnitManUsuario.pas' {Frm_Man_Usuario},
+  UnitCadUsuario in 'UnitCadUsuario.pas' {FrmCadUsuario};
 
 {$R *.res}
 
@@ -26,5 +28,7 @@ begin
   Application.CreateForm(TFrmCadVeiculo, FrmCadVeiculo);
   Application.CreateForm(TFrm_Man_Fabricante, Frm_Man_Fabricante);
   Application.CreateForm(TFrmCadFabricante, FrmCadFabricante);
+  Application.CreateForm(TFrm_Man_Usuario, Frm_Man_Usuario);
+  Application.CreateForm(TFrmCadUsuario, FrmCadUsuario);
   Application.Run;
 end.
