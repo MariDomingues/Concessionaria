@@ -1,6 +1,6 @@
 object Frm_Man_Modelo: TFrm_Man_Modelo
-  Left = 300
-  Top = 353
+  Left = 280
+  Top = 291
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Manuten'#231#227'o do Cadastro de Modelo'
@@ -23,7 +23,7 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Width = 1093
     Height = 447
     Align = alTop
-    DataSource = DM.DS_Login
+    DataSource = DM.DS_Modelo
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -35,13 +35,18 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
       item
         Expanded = False
         FieldName = 'Codigo'
-        Title.Caption = 'C'#243'digo'
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'Usuario'
-        Title.Caption = 'Usu'#225'rio'
+        FieldName = 'Descricao'
+        Width = 450
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Obs'
+        Width = 500
         Visible = True
       end
       item
@@ -214,7 +219,7 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -821,7 +826,7 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1428,7 +1433,7 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

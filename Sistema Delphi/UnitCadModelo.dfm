@@ -1,10 +1,10 @@
-object FrmCadUsuario: TFrmCadUsuario
-  Left = 800
-  Top = 415
+object FrmCadModelo: TFrmCadModelo
+  Left = 280
+  Top = 353
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Cadastro de Usu'#225'rio'
-  ClientHeight = 404
+  Caption = 'Cadastro de Modelo'
+  ClientHeight = 414
   ClientWidth = 571
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -30,9 +30,9 @@ object FrmCadUsuario: TFrmCadUsuario
     object Label1: TLabel
       Left = 205
       Top = 8
-      Width = 147
+      Width = 150
       Height = 21
-      Caption = 'Cadastro de Usu'#225'rio'
+      Caption = 'Cadastro de Modelo'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -16
@@ -45,101 +45,83 @@ object FrmCadUsuario: TFrmCadUsuario
     Left = 0
     Top = 90
     Width = 571
-    Height = 295
+    Height = 305
     Align = alClient
     TabOrder = 1
+    ExplicitHeight = 295
     object Label2: TLabel
-      Left = 29
+      Left = 19
       Top = 25
-      Width = 40
+      Width = 50
       Height = 13
-      Caption = 'Usu'#225'rio:'
+      Caption = 'Descri'#231#227'o:'
     end
     object Label5: TLabel
-      Left = 35
+      Left = 7
       Top = 57
-      Width = 34
+      Width = 62
       Height = 13
-      Caption = 'Senha:'
-    end
-    object Label10: TLabel
-      Left = 10
-      Top = 89
-      Width = 59
-      Height = 13
-      Caption = 'Funcion'#225'rio:'
+      Caption = 'Observa'#231#227'o:'
     end
     object Label12: TLabel
       Left = 34
-      Top = 121
+      Top = 146
       Width = 35
       Height = 13
       Caption = 'Status:'
     end
     object DBComboBox1: TDBComboBox
       Left = 75
-      Top = 118
+      Top = 143
       Width = 190
       Height = 21
       Style = csDropDownList
       DataField = 'Status'
-      DataSource = DM.DS_Login
+      DataSource = DM.DS_Modelo
       Items.Strings = (
         'Ativo'
         'Inativo')
-      TabOrder = 3
+      TabOrder = 2
     end
     object DBEdit1: TDBEdit
       Left = 75
       Top = 22
       Width = 344
       Height = 21
-      DataField = 'Usuario'
-      DataSource = DM.DS_Login
+      DataField = 'Descricao'
+      DataSource = DM.DS_Modelo
       TabOrder = 0
     end
-    object DBEdit2: TDBEdit
-      Left = 75
-      Top = 54
-      Width = 190
-      Height = 21
-      DataField = 'Senha'
-      DataSource = DM.DS_Login
-      TabOrder = 1
-    end
     object DBEdit11: TDBEdit
-      Left = 383
-      Top = 118
+      Left = 407
+      Top = 174
       Width = 36
       Height = 21
       DataField = 'Codigo'
-      DataSource = DM.DS_Login
-      TabOrder = 4
+      DataSource = DM.DS_Modelo
+      TabOrder = 3
       Visible = False
     end
-    object DBLookupComboBox1: TDBLookupComboBox
+    object DBMemo1: TDBMemo
       Left = 75
-      Top = 85
-      Width = 190
-      Height = 21
-      DataField = 'Funcionario'
-      DataSource = DM.DS_Login
-      KeyField = 'Codigo'
-      ListField = 'Nome'
-      ListSource = DS_Funcionario
-      ReadOnly = True
-      TabOrder = 2
+      Top = 54
+      Width = 344
+      Height = 75
+      DataField = 'Obs'
+      DataSource = DM.DS_Modelo
+      TabOrder = 1
     end
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 385
+    Top = 395
     Width = 571
     Height = 19
     Panels = <
       item
         Width = 50
       end>
+    ExplicitTop = 385
   end
   object ToolBar1: TToolBar
     Left = 0
@@ -199,32 +181,18 @@ object FrmCadUsuario: TFrmCadUsuario
       OnClick = btn_SairClick
     end
   end
-  object DS_CodUsu: TDataSource
-    DataSet = ADOQRY_CodUsu
-    Left = 240
-    Top = 354
+  object DS_CodMod: TDataSource
+    DataSet = ADOQRY_CodMod
+    Left = 288
+    Top = 322
   end
-  object ADOQRY_CodUsu: TADOQuery
+  object ADOQRY_CodMod: TADOQuery
     Connection = DM.ADOConnection1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select top 1 Codigo from Login order by Codigo desc;')
-    Left = 184
-    Top = 354
-  end
-  object DS_Funcionario: TDataSource
-    DataSet = ADOQRY_Funcionario
-    Left = 96
-    Top = 352
-  end
-  object ADOQRY_Funcionario: TADOQuery
-    Connection = DM.ADOConnection1
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'SELECT Codigo, Nome FROM  Funcionario;')
-    Left = 56
-    Top = 352
+      'select top 1 Codigo from Modelo order by Codigo desc;')
+    Left = 232
+    Top = 322
   end
 end

@@ -34,7 +34,8 @@ implementation
 
 {$R *.dfm}
 
-uses UnitManCliente, UnitLogin, UnitManVeiculo, UnitManUsuario, UnitManFabricante;
+uses UnitManCliente, UnitLogin, UnitManVeiculo, UnitManUsuario, UnitManFabricante,
+     UnitManModelo;
 
 procedure TFrm_Menu.Button1Click(Sender: TObject);
 begin
@@ -57,6 +58,7 @@ begin
     1: Frm_Man_Cliente.ShowModal;
     2: Frm_Man_Veiculo.ShowModal;
     3: Frm_Man_Fabricante.ShowModal;
+    7: Frm_Man_Modelo.ShowModal;
     9: Frm_Man_Usuario.ShowModal;
   End;
 end;

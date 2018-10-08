@@ -30,9 +30,9 @@ type
     btn_Imprimir: TToolButton;
     ToolButton12: TToolButton;
     btn_Sair: TToolButton;
+    procedure btn_InserirClick(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);
     procedure btn_ExcluirClick(Sender: TObject);
-    procedure btn_InserirClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -120,3 +120,4 @@ begin
 end;
 
 end.
+

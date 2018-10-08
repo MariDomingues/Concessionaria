@@ -4,21 +4,19 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.DBCtrls, Vcl.ComCtrls, Vcl.ToolWin,
-  Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls, Data.DB, Data.Win.ADODB;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.StdCtrls,
+  Vcl.DBCtrls, Vcl.ComCtrls, Vcl.ToolWin, Vcl.Mask, Vcl.ExtCtrls;
 
 type
-  TFrmCadUsuario = class(TForm)
+  TFrmCadModelo = class(TForm)
     Panel1: TPanel;
     Label1: TLabel;
     Pn1Ficha: TPanel;
     Label2: TLabel;
     Label5: TLabel;
-    Label10: TLabel;
     Label12: TLabel;
     DBComboBox1: TDBComboBox;
     DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
     DBEdit11: TDBEdit;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
@@ -27,14 +25,12 @@ type
     btn_Cancelar: TToolButton;
     ToolButton4: TToolButton;
     btn_Sair: TToolButton;
-    DBLookupComboBox1: TDBLookupComboBox;
-    DS_CodUsu: TDataSource;
-    ADOQRY_CodUsu: TADOQuery;
-    DS_Funcionario: TDataSource;
-    ADOQRY_Funcionario: TADOQuery;
+    DBMemo1: TDBMemo;
+    DS_CodMod: TDataSource;
+    ADOQRY_CodMod: TADOQuery;
+    procedure btn_SalvarClick(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
-    procedure btn_SalvarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -45,17 +41,17 @@ type
   end;
 
 var
-  FrmCadUsuario: TFrmCadUsuario;
+  FrmCadModelo: TFrmCadModelo;
 
 implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitManUsuario;
+uses UnitDM, UnitManModelo;
 
-procedure TFrmCadUsuario.btn_CancelarClick(Sender: TObject);
+procedure TFrmCadModelo.btn_CancelarClick(Sender: TObject);
 begin
-  DM.ADODS_Login.Cancel;
+  DM.ADODS_Modelo.Cancel;
 
   if Acao = 'I' then
     Application.MessageBox('A inclusão deste registro foi abortada.', 'Atenção', MB_OK + MB_ICONERROR)
@@ -70,23 +66,23 @@ begin
   LimpaTela;
 end;
 
-procedure TFrmCadUsuario.btn_SairClick(Sender: TObject);
+procedure TFrmCadModelo.btn_SairClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TFrmCadUsuario.btn_SalvarClick(Sender: TObject);
-var CodUsu : integer;
+procedure TFrmCadModelo.btn_SalvarClick(Sender: TObject);
+var CodMod : integer;
 begin
   if Acao = 'I' then
     begin
-      CodUsu := ADOQRY_CodUsu.FieldByName('Codigo').AsInteger;
-      CodUsu := CodUsu + 1;
+      CodMod := ADOQRY_CodMod.FieldByName('Codigo').AsInteger;
+      CodMod := CodMod + 1;
 
-      DBEdit11.Text := IntToStr(CodUsu);
+      DBEdit11.Text := IntToStr(CodMod);
     end;
 
-  DM.ADODS_Login.Post;
+  DM.ADODS_Modelo.Post;
 
   if Acao = 'I' then
     Application.MessageBox('O registro foi incluido com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION)
@@ -101,31 +97,25 @@ begin
   LimpaTela;
 end;
 
-procedure TFrmCadUsuario.FormActivate(Sender: TObject);
+procedure TFrmCadModelo.FormActivate(Sender: TObject);
 begin
-  ADOQRY_CodUsu.Close;
-  ADOQRY_CodUsu.Open;
-
-	ADOQRY_Funcionario.Close;
-  ADOQRY_Funcionario.Open;
+  ADOQRY_CodMod.Close;
+  ADOQRY_CodMod.Open;
 
   DBComboBox1.ItemIndex := 0;
 end;
 
-procedure TFrmCadUsuario.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFrmCadModelo.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  DM.ADODS_Funcionario.Close;
-  ADOQRY_Funcionario.Close;
-
-  ADOQRY_CodUsu.Close;
+  ADOQRY_CodMod.Close;
 end;
 
-procedure TFrmCadUsuario.LimpaTela;
+procedure TFrmCadModelo.LimpaTela;
 begin
   DBEdit1.Clear;
-  DBEdit2.Clear;
-  DBEdit11.Clear;
+  DBMemo1.Clear;
   DBComboBox1.ItemIndex := 0;
 end;
 
 end.
+
