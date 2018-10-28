@@ -60,7 +60,6 @@ type
     procedure FormActivate(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
-    procedure DBEdit1Exit(Sender: TObject);
     procedure DBComboBox2Exit(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -129,30 +128,16 @@ end;
 
 procedure TFrmCadVeiculo.DBComboBox2Exit(Sender: TObject);
 begin
+  DBEdit6.Text := IntToStr(0);
   if DBComboBox2.ItemIndex = 0 then
     begin
-      DBEdit6.Text := IntToStr(0);
       DBEdit6.Enabled := false;
+      DBComboBox3.SetFocus;
     end
   else
     begin
-      DBEdit6.Text := IntToStr(0);
       DBEdit6.Enabled := true;
       DBEdit6.SetFocus;
-    end;
-end;
-
-procedure TFrmCadVeiculo.DBEdit1Exit(Sender: TObject);
-begin
-  if DBEdit1.Text = '' then
-    begin
-      DBEdit8.Text := IntToStr(1);
-      DBComboBox2.ItemIndex := 1;
-    end
-  else
-    begin
-      DBEdit8.Text := IntToStr(0);
-      DBComboBox2.ItemIndex := 0;
     end;
 end;
 

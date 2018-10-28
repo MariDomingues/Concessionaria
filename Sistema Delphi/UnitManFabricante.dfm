@@ -7,10 +7,10 @@ object Frm_Man_Fabricante: TFrm_Man_Fabricante
   ClientHeight = 598
   ClientWidth = 1093
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Name = 'Yu Gothic UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
@@ -24,6 +24,12 @@ object Frm_Man_Fabricante: TFrm_Man_Fabricante
     Height = 447
     Align = alTop
     DataSource = DM.DS_Fabricante
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -36,53 +42,99 @@ object Frm_Man_Fabricante: TFrm_Man_Fabricante
         Expanded = False
         FieldName = 'Codigo'
         Title.Caption = 'C'#243'digo'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'NomeFantasia'
         Title.Caption = 'Nome Fantasia'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 300
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CNPJ'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Cidade'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 200
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Pais'
+        Title.Caption = 'Pa'#237's'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 150
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'CEP'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 100
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Email'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 250
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Telefone'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 100
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Status'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end>
   end
@@ -250,7 +302,7 @@ object Frm_Man_Fabricante: TFrm_Man_Fabricante
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -857,7 +909,7 @@ object Frm_Man_Fabricante: TFrm_Man_Fabricante
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1464,7 +1516,7 @@ object Frm_Man_Fabricante: TFrm_Man_Fabricante
     Left = 320
     Top = 192
     Bitmap = {
-      494C010107003800680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

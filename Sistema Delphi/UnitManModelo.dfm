@@ -7,10 +7,10 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
   ClientHeight = 598
   ClientWidth = 1093
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Name = 'Yu Gothic UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
@@ -24,6 +24,12 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Height = 447
     Align = alTop
     DataSource = DM.DS_Modelo
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -35,23 +41,46 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
       item
         Expanded = False
         FieldName = 'Codigo'
+        Title.Caption = 'C'#243'digo'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Descricao'
+        Title.Caption = 'Descri'#231#227'o'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 450
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Obs'
+        Title.Caption = 'Observa'#231#227'o'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Width = 500
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Status'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end>
   end
@@ -219,7 +248,7 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800800018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -826,7 +855,7 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1433,7 +1462,7 @@ object Frm_Man_Modelo: TFrm_Man_Modelo
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800700018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

@@ -36,6 +36,7 @@ object DM: TDM
     end
     object ADODS_VeiculoPlaca: TStringField
       FieldName = 'Placa'
+      EditMask = 'AAA-9999;0;'
       Size = 8
     end
     object ADODS_VeiculoAno: TWideStringField
@@ -108,6 +109,7 @@ object DM: TDM
     end
     object ADODS_LoginStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_LoginStatusGetText
       FixedChar = True
       Size = 1
     end
@@ -157,6 +159,7 @@ object DM: TDM
     end
     object ADODS_FabricanteCNPJ: TStringField
       FieldName = 'CNPJ'
+      EditMask = '99.999.999/9999-99;0;_'
       Size = 18
     end
     object ADODS_FabricantePais: TStringField
@@ -177,10 +180,12 @@ object DM: TDM
     end
     object ADODS_FabricanteCEP: TStringField
       FieldName = 'CEP'
+      EditMask = '99999-999;0;'
       Size = 9
     end
     object ADODS_FabricanteTelefone: TStringField
       FieldName = 'Telefone'
+      EditMask = '!\(999\)0000-0000;0;'
       Size = 14
     end
     object ADODS_FabricanteEmail: TStringField
@@ -193,6 +198,7 @@ object DM: TDM
     end
     object ADODS_FabricanteStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_FabricanteStatusGetText
       FixedChar = True
       Size = 1
     end
@@ -222,6 +228,7 @@ object DM: TDM
     end
     object ADODS_ModeloStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_ModeloStatusGetText
       FixedChar = True
       Size = 1
     end
@@ -242,6 +249,7 @@ object DM: TDM
     end
     object ADODS_ClienteCPF: TStringField
       FieldName = 'CPF'
+      EditMask = '999.999.999-99;0;'
       Size = 14
     end
     object ADODS_ClienteCNH: TStringField
@@ -262,10 +270,12 @@ object DM: TDM
     end
     object ADODS_ClienteCEP: TStringField
       FieldName = 'CEP'
+      EditMask = '99999-999;0;'
       Size = 9
     end
     object ADODS_ClienteTelefone: TStringField
       FieldName = 'Telefone'
+      EditMask = '!\(999\)0000-0000;0;'
       Size = 14
     end
     object ADODS_ClienteEmail: TStringField
@@ -278,6 +288,7 @@ object DM: TDM
     end
     object ADODS_ClienteStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_ClienteStatusGetText
       FixedChar = True
       Size = 1
     end
@@ -308,10 +319,12 @@ object DM: TDM
     end
     object ADODS_FuncionarioCPF: TStringField
       FieldName = 'CPF'
+      EditMask = '999.999.999-99;0;_'
       Size = 14
     end
     object ADODS_FuncionarioDtNasc: TWideStringField
       FieldName = 'DtNasc'
+      EditMask = '!99/99/00;0;'
       Size = 10
     end
     object ADODS_FuncionarioEndereco: TStringField
@@ -328,10 +341,12 @@ object DM: TDM
     end
     object ADODS_FuncionarioCEP: TStringField
       FieldName = 'CEP'
+      EditMask = '99999-999;0;'
       Size = 9
     end
     object ADODS_FuncionarioTelefone: TStringField
       FieldName = 'Telefone'
+      EditMask = '!\(999\)0000-0000;0;'
       Size = 14
     end
     object ADODS_FuncionarioNroConta: TStringField
@@ -343,6 +358,7 @@ object DM: TDM
     end
     object ADODS_FuncionarioStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_FuncionarioStatusGetText
       FixedChar = True
       Size = 1
     end

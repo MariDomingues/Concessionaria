@@ -9,14 +9,14 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -11
   Font.Name = 'Yu Gothic UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
   OnActivate = FormActivate
   PixelsPerInch = 96
-  TextHeight = 15
+  TextHeight = 13
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -26,11 +26,10 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 988
     object Label1: TLabel
       Left = 419
       Top = 10
-      Width = 302
+      Width = 294
       Height = 18
       Caption = ' Manuten'#231#227'o no Cadastro de Cliente'
       Font.Charset = ANSI_CHARSET
@@ -59,7 +58,6 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
-    ExplicitWidth = 988
     object btn_Inserir: TToolButton
       Left = 0
       Top = 0
@@ -139,7 +137,6 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Height = 41
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 988
     object Label2: TLabel
       Left = 8
       Top = 14
@@ -177,8 +174,6 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
       item
         Width = 50
       end>
-    ExplicitTop = 506
-    ExplicitWidth = 988
   end
   object DBG_Cli: TDBGrid
     Left = 0
@@ -187,6 +182,12 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Height = 447
     Align = alTop
     DataSource = DM.DS_Cliente
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 4
     TitleFont.Charset = ANSI_CHARSET
@@ -321,7 +322,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800640018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -928,7 +929,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 232
     Top = 192
     Bitmap = {
-      494C0101070038005C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800600018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1535,7 +1536,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 320
     Top = 200
     Bitmap = {
-      494C0101070038005C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800600018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

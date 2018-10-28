@@ -84,6 +84,16 @@ type
     ADODS_FuncionarioNroConta: TStringField;
     ADODS_FuncionarioCargo: TIntegerField;
     ADODS_FuncionarioStatus: TStringField;
+    procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure ADODS_LoginStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure ADODS_ModeloStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure ADODS_FuncionarioStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
   private
     { Private declarations }
   public
@@ -98,5 +108,50 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDM.ADODS_ClienteStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    Text := 'Inativo';
+end;
+
+procedure TDM.ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    Text := 'Inativo';
+end;
+
+procedure TDM.ADODS_FuncionarioStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    Text := 'Inativo';
+end;
+
+procedure TDM.ADODS_LoginStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    Text := 'Inativo';
+end;
+
+procedure TDM.ADODS_ModeloStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    Text := 'Inativo';
+end;
 
 end.

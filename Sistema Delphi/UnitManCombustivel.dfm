@@ -7,10 +7,10 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
   ClientHeight = 598
   ClientWidth = 1093
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'Tahoma'
+  Font.Name = 'Yu Gothic UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
@@ -24,6 +24,12 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Height = 447
     Align = alTop
     DataSource = DM.DS_Combustivel
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -35,12 +41,24 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       item
         Expanded = False
         FieldName = 'Codigo'
+        Title.Caption = 'C'#243'digo'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Descricao'
-        Width = 1010
+        Title.Caption = 'Descri'#231#227'o'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 800
         Visible = True
       end>
   end
@@ -56,7 +74,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     object Label1: TLabel
       Left = 386
       Top = 10
-      Width = 350
+      Width = 339
       Height = 18
       Caption = ' Manuten'#231#227'o no Cadastro de Combust'#237'vel'
       Font.Charset = ANSI_CHARSET
@@ -208,7 +226,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800800018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -815,7 +833,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800800018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1422,7 +1440,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800780018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800800018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

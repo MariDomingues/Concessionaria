@@ -71,7 +71,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object Label3: TLabel
       Left = 264
-      Top = 168
+      Top = 200
       Width = 60
       Height = 13
       Caption = 'Quantidade:'
@@ -92,7 +92,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
     end
     object Label8: TLabel
       Left = 266
-      Top = 199
+      Top = 167
       Width = 58
       Height = 13
       Caption = 'Km Rodado:'
@@ -158,10 +158,10 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Top = 37
       Width = 94
       Height = 21
+      CharCase = ecUpperCase
       DataField = 'Placa'
       DataSource = DM.DS_Veiculo
       TabOrder = 0
-      OnExit = DBEdit1Exit
     end
     object DBEdit2: TDBEdit
       Left = 330
@@ -170,6 +170,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 21
       DataField = 'Ano'
       DataSource = DM.DS_Veiculo
+      MaxLength = 4
       TabOrder = 1
     end
     object DBEdit5: TDBEdit
@@ -179,16 +180,16 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 21
       DataField = 'Valor'
       DataSource = DM.DS_Veiculo
-      TabOrder = 6
+      TabOrder = 7
     end
     object DBEdit6: TDBEdit
       Left = 330
-      Top = 196
+      Top = 164
       Width = 145
       Height = 21
       DataField = 'Km'
       DataSource = DM.DS_Veiculo
-      TabOrder = 10
+      TabOrder = 9
     end
     object DBEdit7: TDBEdit
       Left = 86
@@ -197,16 +198,16 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 21
       DataField = 'Cor'
       DataSource = DM.DS_Veiculo
-      TabOrder = 7
+      TabOrder = 6
     end
     object DBEdit8: TDBEdit
       Left = 330
-      Top = 164
+      Top = 196
       Width = 62
       Height = 21
       DataField = 'Quantidade'
       DataSource = DM.DS_Veiculo
-      TabOrder = 8
+      TabOrder = 11
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 86
@@ -265,7 +266,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Items.Strings = (
         'Sim'
         'N'#227'o')
-      TabOrder = 9
+      TabOrder = 8
       OnExit = DBComboBox2Exit
     end
     object DBComboBox3: TDBComboBox
@@ -279,7 +280,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Items.Strings = (
         'Sim'
         'N'#227'o')
-      TabOrder = 11
+      TabOrder = 10
     end
     object DBLookupComboBox4: TDBLookupComboBox
       Left = 330
