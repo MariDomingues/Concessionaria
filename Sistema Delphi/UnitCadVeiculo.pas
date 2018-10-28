@@ -192,6 +192,10 @@ begin
   DBComboBox1.ItemIndex := 0;
   DBComboBox2.ItemIndex := 0;
   DBComboBox3.ItemIndex := 0;
+  DBLookupComboBox1.KeyValue := 0;
+  DBLookupComboBox2.KeyValue := 0;
+  DBLookupComboBox3.KeyValue := 0;
+  DBLookupComboBox4.KeyValue := 0;
 end;
 
 end.

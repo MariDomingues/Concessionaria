@@ -63,7 +63,8 @@ type
 
 var
   Frm_Man_Veiculo: TFrm_Man_Veiculo;
-  Acao : char;
+  Acao   : char;
+  CodAlt : integer;
 
 implementation
 
@@ -100,7 +101,13 @@ end;
 
 procedure TFrm_Man_Veiculo.btn_AlterarClick(Sender: TObject);
 begin
-  ADOQRY_Colunas.Edit;
+  CodAlt := ADOQRY_Colunas.FieldByName('Codigo').AsInteger;
+  DM.ADODS_Veiculo.Close;
+  DM.ADODS_Veiculo.CommandText := '';
+  DM.ADODS_Veiculo.CommandText := 'select * from Veiculo where Codigo = ' + IntToStr(CodAlt);
+  DM.ADODS_Veiculo.Open;
+
+  DM.ADODS_Veiculo.Edit;
 
   Application.CreateForm(TFrmCadVeiculo, FrmCadVeiculo);
 
@@ -125,7 +132,13 @@ begin
 
   if confExc = IDYES then
     begin
-      ADOQRY_Colunas.Delete;
+      CodAlt := ADOQRY_Colunas.FieldByName('Codigo').AsInteger;
+      DM.ADODS_Veiculo.Close;
+      DM.ADODS_Veiculo.CommandText := '';
+      DM.ADODS_Veiculo.CommandText := 'select * from Veiculo where Codigo = ' + IntToStr(CodAlt);
+      DM.ADODS_Veiculo.Open;
+
+      DM.ADODS_Veiculo.Delete;
       Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
     end
   else
@@ -145,11 +158,15 @@ begin
   Acao := 'I';
 
   DM.ADODS_Veiculo.Insert;
+
+  Application.CreateForm(TFrmCadVeiculo, FrmCadVeiculo);
+
   FrmCadVeiculo.btn_Salvar.Enabled   := True;
   FrmCadVeiculo.btn_Cancelar.Enabled := True;
   FrmCadVeiculo.btn_Sair.Enabled     := False;
   FrmCadVeiculo.Pn1Ficha.Enabled     := True;
   FrmCadVeiculo.ShowModal;
+  FrmCadVeiculo.Free;
 
   ADOQRY_Colunas.Close;
 	ADOQRY_Colunas.Open;
@@ -170,11 +187,10 @@ begin
   DM.ADODS_Fabricante.Open;
   DM.ADODS_Modelo.Open;
   DM.ADODS_Combustivel.Open;
-  ADOQRY_Colunas.Close;
-	ADOQRY_Colunas.Open;
-
   DM.ADODS_Veiculo.Close;
   DM.ADODS_Veiculo.Open;
+  ADOQRY_Colunas.Close;
+	ADOQRY_Colunas.Open;
 end;
 
 procedure TFrm_Man_Veiculo.FormClose(Sender: TObject; var Action: TCloseAction);
