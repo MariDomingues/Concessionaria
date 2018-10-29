@@ -84,6 +84,18 @@ type
     ADODS_VeiculoQuantidade: TIntegerField;
     ADODS_VeiculoStatus: TStringField;
     ADODS_VeiculoDocum: TStringField;
+    DS_Mecanico: TDataSource;
+    ADODS_Mecanico: TADODataSet;
+    ADODS_MecanicoCodigo: TIntegerField;
+    ADODS_MecanicoNome: TStringField;
+    ADODS_MecanicoCpfCnpj: TStringField;
+    ADODS_MecanicoEndereço: TStringField;
+    ADODS_MecanicoCidade: TStringField;
+    ADODS_MecanicoBairro: TStringField;
+    ADODS_MecanicoTelefone: TStringField;
+    ADODS_MecanicoNroConta: TStringField;
+    ADODS_MecanicoEmail: TStringField;
+    ADODS_MecanicoStatus: TStringField;
     procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;
@@ -93,6 +105,8 @@ type
     procedure ADODS_ModeloStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_FuncionarioStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure ADODS_MecanicoStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
   private
     { Private declarations }
@@ -137,6 +151,15 @@ begin
 end;
 
 procedure TDM.ADODS_LoginStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    Text := 'Inativo';
+end;
+
+procedure TDM.ADODS_MecanicoStatusGetText(Sender: TField; var Text: string;
   DisplayText: Boolean);
 begin
   if Sender.AsString = 'A' then

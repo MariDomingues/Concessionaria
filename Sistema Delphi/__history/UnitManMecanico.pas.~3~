@@ -1,0 +1,48 @@
+unit UnitManMecanico;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ComCtrls, Vcl.ToolWin,
+  Vcl.StdCtrls, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  TFrm_Man_Mecanico = class(TForm)
+    DBG_Mec: TDBGrid;
+    ImageList1: TImageList;
+    ImageList2: TImageList;
+    ImageList3: TImageList;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Panel2: TPanel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    btn_Inserir: TToolButton;
+    ToolButton2: TToolButton;
+    btn_Alterar: TToolButton;
+    ToolButton4: TToolButton;
+    btn_Excluir: TToolButton;
+    ToolButton10: TToolButton;
+    btn_Imprimir: TToolButton;
+    ToolButton12: TToolButton;
+    btn_Sair: TToolButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_Man_Mecanico: TFrm_Man_Mecanico;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDM;
+
+end.

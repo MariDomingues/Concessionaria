@@ -1,4 +1,4 @@
-object DM: TDM
+﻿object DM: TDM
   OldCreateOrder = False
   Height = 800
   Width = 534
@@ -359,6 +359,61 @@ object DM: TDM
     object ADODS_FuncionarioStatus: TStringField
       FieldName = 'Status'
       OnGetText = ADODS_FuncionarioStatusGetText
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object DS_Mecanico: TDataSource
+    DataSet = ADODS_Mecanico
+    Left = 157
+    Top = 528
+  end
+  object ADODS_Mecanico: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from Mecanico'#13#10
+    Parameters = <>
+    Left = 40
+    Top = 528
+    object ADODS_MecanicoCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADODS_MecanicoNome: TStringField
+      FieldName = 'Nome'
+      Size = 150
+    end
+    object ADODS_MecanicoCpfCnpj: TStringField
+      FieldName = 'CpfCnpj'
+      Size = 18
+    end
+    object ADODS_MecanicoEndereço: TStringField
+      FieldName = 'Endere'#231'o'
+      Size = 100
+    end
+    object ADODS_MecanicoCidade: TStringField
+      FieldName = 'Cidade'
+      Size = 50
+    end
+    object ADODS_MecanicoBairro: TStringField
+      FieldName = 'Bairro'
+      Size = 50
+    end
+    object ADODS_MecanicoTelefone: TStringField
+      FieldName = 'Telefone'
+      EditMask = '!\(999\)0000-0000;0;'
+      Size = 13
+    end
+    object ADODS_MecanicoNroConta: TStringField
+      FieldName = 'NroConta'
+      Size = 12
+    end
+    object ADODS_MecanicoEmail: TStringField
+      FieldName = 'Email'
+      Size = 100
+    end
+    object ADODS_MecanicoStatus: TStringField
+      FieldName = 'Status'
+      OnGetText = ADODS_MecanicoStatusGetText
       FixedChar = True
       Size = 1
     end
