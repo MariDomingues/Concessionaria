@@ -1,0 +1,60 @@
+unit UnitCadFuncionario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Data.DB, Data.Win.ADODB, Vcl.ComCtrls, Vcl.ToolWin, Vcl.ExtCtrls;
+
+type
+  TFrmCadFuncionario = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    btn_Salvar: TToolButton;
+    ToolButton2: TToolButton;
+    btn_Cancelar: TToolButton;
+    ToolButton4: TToolButton;
+    btn_Sair: TToolButton;
+    DS_CodFun: TDataSource;
+    ADOQRY_CodFun: TADOQuery;
+    Pn1Ficha: TPanel;
+    Label2: TLabel;
+    Label5: TLabel;
+    Label3: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    DBComboBox1: TDBComboBox;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
+    Label13: TLabel;
+    DBEdit12: TDBEdit;
+    Label14: TLabel;
+    DBEdit13: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadFuncionario: TFrmCadFuncionario;
+
+implementation
+
+{$R *.dfm}
+
+end.

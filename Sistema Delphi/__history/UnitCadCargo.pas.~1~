@@ -1,0 +1,44 @@
+unit UnitCadCargo;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ToolWin, Vcl.StdCtrls,
+  Vcl.DBCtrls, Vcl.Mask, Vcl.ExtCtrls;
+
+type
+  TFrmCadCargo = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Pn1Ficha: TPanel;
+    Label2: TLabel;
+    Label5: TLabel;
+    Label12: TLabel;
+    Label3: TLabel;
+    DBComboBox1: TDBComboBox;
+    DBEdit1: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBMemo1: TDBMemo;
+    DBEdit2: TDBEdit;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    btn_Salvar: TToolButton;
+    ToolButton2: TToolButton;
+    btn_Cancelar: TToolButton;
+    ToolButton4: TToolButton;
+    btn_Sair: TToolButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadCargo: TFrmCadCargo;
+
+implementation
+
+{$R *.dfm}
+
+end.
