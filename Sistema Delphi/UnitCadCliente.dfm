@@ -1,6 +1,6 @@
 object FrmCadCliente: TFrmCadCliente
-  Left = 0
-  Top = 0
+  Left = 411
+  Top = 231
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Cliente'
@@ -14,7 +14,7 @@ object FrmCadCliente: TFrmCadCliente
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poMainFormCenter
   OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
@@ -195,9 +195,9 @@ object FrmCadCliente: TFrmCadCliente
       Caption = 'Status:'
     end
     object DBComboBox1: TDBComboBox
-      Left = 330
+      Left = 328
       Top = 213
-      Width = 188
+      Width = 190
       Height = 23
       Style = csDropDownList
       DataField = 'Status'
@@ -289,8 +289,8 @@ object FrmCadCliente: TFrmCadCliente
       TabOrder = 8
     end
     object DBEdit10: TDBEdit
-      Left = 78
-      Top = 211
+      Left = 75
+      Top = 213
       Width = 190
       Height = 23
       DataField = 'NroConta'

@@ -13,7 +13,7 @@ object FrmCadCombustivel: TFrmCadCombustivel
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poMainFormCenter
   OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
@@ -30,7 +30,7 @@ object FrmCadCombustivel: TFrmCadCombustivel
     object Label1: TLabel
       Left = 193
       Top = 8
-      Width = 188
+      Width = 183
       Height = 21
       Caption = 'Cadastro de Combust'#237'vel'
       Font.Charset = ANSI_CHARSET

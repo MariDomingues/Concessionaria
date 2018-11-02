@@ -96,6 +96,13 @@ type
     ADODS_MecanicoNroConta: TStringField;
     ADODS_MecanicoEmail: TStringField;
     ADODS_MecanicoStatus: TStringField;
+    ADODS_Cargo: TADODataSet;
+    DS_Cargo: TDataSource;
+    ADODS_CargoCodigo: TIntegerField;
+    ADODS_CargoDescricao: TStringField;
+    ADODS_CargoSalBase: TBCDField;
+    ADODS_CargoObs: TStringField;
+    ADODS_CargoStatus: TStringField;
     procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;

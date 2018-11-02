@@ -1,12 +1,15 @@
 ﻿object DM: TDM
   OldCreateOrder = False
-  Height = 800
+  Height = 597
   Width = 534
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
-      'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O;'
+      'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O;' +
+      'Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096' +
+      ';Workstation ID=NCC04-14;Use Encryption for Data=False;Tag with ' +
+      'column collation when possible=False'
     LoginPrompt = False
     Provider = 'SQLOLEDB.1'
     Left = 40
@@ -45,6 +48,7 @@
     end
     object ADODS_VeiculoValor: TBCDField
       FieldName = 'Valor'
+      EditFormat = '###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -324,7 +328,7 @@
     end
     object ADODS_FuncionarioDtNasc: TWideStringField
       FieldName = 'DtNasc'
-      EditMask = '!99/99/00;0;'
+      EditMask = '!99/99/0000;0;'
       Size = 10
     end
     object ADODS_FuncionarioEndereco: TStringField
@@ -417,5 +421,40 @@
       FixedChar = True
       Size = 1
     end
+  end
+  object ADODS_Cargo: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from Cargo'
+    Parameters = <>
+    Left = 256
+    Top = 88
+    object ADODS_CargoCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADODS_CargoDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 100
+    end
+    object ADODS_CargoSalBase: TBCDField
+      FieldName = 'SalBase'
+      EditFormat = '###,###,##0.00'
+      Precision = 9
+      Size = 2
+    end
+    object ADODS_CargoObs: TStringField
+      FieldName = 'Obs'
+      Size = 100
+    end
+    object ADODS_CargoStatus: TStringField
+      FieldName = 'Status'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object DS_Cargo: TDataSource
+    DataSet = ADODS_Cargo
+    Left = 349
+    Top = 88
   end
 end

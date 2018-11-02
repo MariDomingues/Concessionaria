@@ -13,7 +13,7 @@ object FrmCadModelo: TFrmCadModelo
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poMainFormCenter
   OnActivate = FormActivate
   OnClose = FormClose
   PixelsPerInch = 96
@@ -29,7 +29,7 @@ object FrmCadModelo: TFrmCadModelo
     TabOrder = 0
     object Label1: TLabel
       Left = 205
-      Top = 8
+      Top = 10
       Width = 150
       Height = 21
       Caption = 'Cadastro de Modelo'

@@ -99,8 +99,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="UnitManCliente.pas">
-            <Form>Frm_Man_Cliente</Form>
+        <DCCReference Include="UnitManFuncionario.pas">
+            <Form>Frm_Man_Funcionario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UnitCadCliente.pas">
@@ -135,8 +135,8 @@
             <Form>FrmCadUsuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="UnitManModelo.pas">
-            <Form>Frm_Man_Modelo</Form>
+        <DCCReference Include="UnitManCargo.pas">
+            <Form>Frm_Man_Cargo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UnitCadModelo.pas">
@@ -157,6 +157,21 @@
         </DCCReference>
         <DCCReference Include="UnitManMecanico.pas">
             <Form>Frm_Man_Mecanico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UnitCadCargo.pas">
+            <Form>FrmCadCargo</Form>
+        </DCCReference>
+        <DCCReference Include="UnitManModelo.pas">
+            <Form>Frm_Man_Modelo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UnitManCliente.pas">
+            <Form>Frm_Man_Cliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UnitCadFuncionario.pas">
+            <Form>FrmCadFuncionario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

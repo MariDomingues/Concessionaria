@@ -1,184 +1,26 @@
 object Frm_Man_Cliente: TFrm_Man_Cliente
-  Left = 560
-  Top = 291
+  Left = 0
+  Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Manuten'#231#227'o do Cadastro de Cliente'
-  ClientHeight = 598
-  ClientWidth = 1093
+  ClientHeight = 600
+  ClientWidth = 1095
   Color = clBtnFace
-  Font.Charset = ANSI_CHARSET
+  Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'Yu Gothic UI'
+  Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poScreenCenter
   OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
-    Left = 0
-    Top = 0
-    Width = 1093
-    Height = 41
-    Align = alTop
-    Color = clMenuHighlight
-    ParentBackground = False
-    TabOrder = 0
-    object Label1: TLabel
-      Left = 419
-      Top = 10
-      Width = 294
-      Height = 18
-      Caption = ' Manuten'#231#227'o no Cadastro de Cliente'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWhite
-      Font.Height = -15
-      Font.Name = 'Verdana'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-  end
-  object ToolBar1: TToolBar
-    Left = 0
-    Top = 41
-    Width = 1093
-    Height = 49
-    BorderWidth = 1
-    ButtonHeight = 40
-    ButtonWidth = 43
-    Caption = 'ToolBar1'
-    Color = clBtnFace
-    DisabledImages = ImageList2
-    EdgeBorders = [ebTop, ebBottom]
-    HotImages = ImageList3
-    Images = ImageList1
-    ParentColor = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 1
-    object btn_Inserir: TToolButton
-      Left = 0
-      Top = 0
-      Hint = 'Inserir Registro'
-      Caption = 'Inserir'
-      ImageIndex = 0
-      OnClick = btn_InserirClick
-    end
-    object ToolButton2: TToolButton
-      Left = 43
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton2'
-      ImageIndex = 1
-      Style = tbsSeparator
-    end
-    object btn_Alterar: TToolButton
-      Left = 51
-      Top = 0
-      Hint = 'Alterar Registro'
-      Caption = 'btn_Alterar'
-      ImageIndex = 1
-      OnClick = btn_AlterarClick
-    end
-    object ToolButton4: TToolButton
-      Left = 94
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton4'
-      ImageIndex = 2
-      Style = tbsSeparator
-    end
-    object btn_Excluir: TToolButton
-      Left = 102
-      Top = 0
-      Hint = 'Excluir Registro'
-      Caption = 'btn_Excluir'
-      ImageIndex = 2
-      OnClick = btn_ExcluirClick
-    end
-    object ToolButton10: TToolButton
-      Left = 145
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton10'
-      ImageIndex = 5
-      Style = tbsSeparator
-    end
-    object btn_Imprimir: TToolButton
-      Left = 153
-      Top = 0
-      Hint = 'Imprimir'
-      Caption = 'btn_Imprimir'
-      ImageIndex = 6
-    end
-    object ToolButton12: TToolButton
-      Left = 196
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton12'
-      ImageIndex = 6
-      Style = tbsSeparator
-    end
-    object btn_Sair: TToolButton
-      Left = 204
-      Top = 0
-      Hint = 'Sair'
-      Caption = 'btn_Sair'
-      ImageIndex = 5
-      OnClick = btn_SairClick
-    end
-  end
-  object Panel2: TPanel
-    Left = 0
-    Top = 90
-    Width = 1093
-    Height = 41
-    Align = alTop
-    TabOrder = 2
-    object Label2: TLabel
-      Left = 8
-      Top = 11
-      Width = 105
-      Height = 15
-      Caption = 'Pesquisa por Nome:'
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Yu Gothic UI'
-      Font.Style = []
-      ParentFont = False
-    end
-    object Edit1: TEdit
-      Left = 119
-      Top = 8
-      Width = 490
-      Height = 23
-      Font.Charset = ANSI_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Yu Gothic UI'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 0
-      OnChange = Edit1Change
-    end
-  end
-  object StatusBar1: TStatusBar
-    Left = 0
-    Top = 579
-    Width = 1093
-    Height = 19
-    Panels = <
-      item
-        Width = 50
-      end>
-  end
   object DBG_Cli: TDBGrid
     Left = 0
     Top = 131
-    Width = 1093
+    Width = 1095
     Height = 447
     Align = alTop
     DataSource = DM.DS_Cliente
@@ -189,7 +31,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Font.Style = []
     ParentFont = False
     ReadOnly = True
-    TabOrder = 4
+    TabOrder = 0
     TitleFont.Charset = ANSI_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -12
@@ -316,13 +158,176 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
         Visible = True
       end>
   end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 1095
+    Height = 41
+    Align = alTop
+    Color = clMenuHighlight
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitWidth = 1093
+    object Label1: TLabel
+      Left = 419
+      Top = 10
+      Width = 294
+      Height = 18
+      Caption = ' Manuten'#231#227'o no Cadastro de Cliente'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -15
+      Font.Name = 'Verdana'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 90
+    Width = 1095
+    Height = 41
+    Align = alTop
+    TabOrder = 2
+    ExplicitWidth = 1093
+    object Label2: TLabel
+      Left = 8
+      Top = 11
+      Width = 105
+      Height = 15
+      Caption = 'Pesquisa por Nome:'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Yu Gothic UI'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Edit1: TEdit
+      Left = 119
+      Top = 8
+      Width = 490
+      Height = 23
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Yu Gothic UI'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      OnChange = Edit1Change
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 581
+    Width = 1095
+    Height = 19
+    Panels = <
+      item
+        Width = 50
+      end>
+    ExplicitTop = 579
+    ExplicitWidth = 1093
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Top = 41
+    Width = 1095
+    Height = 49
+    BorderWidth = 1
+    ButtonHeight = 40
+    ButtonWidth = 43
+    Caption = 'ToolBar1'
+    Color = clBtnFace
+    DisabledImages = ImageList2
+    EdgeBorders = [ebTop, ebBottom]
+    HotImages = ImageList3
+    Images = ImageList1
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    ExplicitWidth = 1093
+    object btn_Inserir: TToolButton
+      Left = 0
+      Top = 0
+      Hint = 'Inserir Registro'
+      Caption = 'Inserir'
+      ImageIndex = 0
+      OnClick = btn_InserirClick
+    end
+    object ToolButton2: TToolButton
+      Left = 43
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton2'
+      ImageIndex = 1
+      Style = tbsSeparator
+    end
+    object btn_Alterar: TToolButton
+      Left = 51
+      Top = 0
+      Hint = 'Alterar Registro'
+      Caption = 'btn_Alterar'
+      ImageIndex = 1
+      OnClick = btn_AlterarClick
+    end
+    object ToolButton4: TToolButton
+      Left = 94
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton4'
+      ImageIndex = 2
+      Style = tbsSeparator
+    end
+    object btn_Excluir: TToolButton
+      Left = 102
+      Top = 0
+      Hint = 'Excluir Registro'
+      Caption = 'btn_Excluir'
+      ImageIndex = 2
+      OnClick = btn_ExcluirClick
+    end
+    object ToolButton10: TToolButton
+      Left = 145
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton10'
+      ImageIndex = 5
+      Style = tbsSeparator
+    end
+    object btn_Imprimir: TToolButton
+      Left = 153
+      Top = 0
+      Hint = 'Imprimir'
+      Caption = 'btn_Imprimir'
+      ImageIndex = 6
+    end
+    object ToolButton12: TToolButton
+      Left = 196
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton12'
+      ImageIndex = 6
+      Style = tbsSeparator
+    end
+    object btn_Sair: TToolButton
+      Left = 204
+      Top = 0
+      Hint = 'Sair'
+      Caption = 'btn_Sair'
+      ImageIndex = 5
+      OnClick = btn_SairClick
+    end
+  end
   object ImageList1: TImageList
     Height = 24
     Width = 24
     Left = 128
     Top = 192
     Bitmap = {
-      494C0101070048006C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070048007C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -929,7 +934,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800640018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800740018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1536,7 +1541,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800640018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800740018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

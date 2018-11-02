@@ -4,19 +4,24 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.ImageList, Vcl.ImgList,
-  Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ToolWin, Vcl.ExtCtrls, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, UnitCadCliente;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ComCtrls, Vcl.ToolWin,
+  Vcl.StdCtrls, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Vcl.Grids,
+  Vcl.DBGrids;
 
 type
   TFrm_Man_Cliente = class(TForm)
+    DBG_Cli: TDBGrid;
     ImageList1: TImageList;
-    Panel1: TPanel;
-    ToolBar1: TToolBar;
-    Label1: TLabel;
-    btn_Inserir: TToolButton;
     ImageList2: TImageList;
     ImageList3: TImageList;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Panel2: TPanel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    btn_Inserir: TToolButton;
     ToolButton2: TToolButton;
     btn_Alterar: TToolButton;
     ToolButton4: TToolButton;
@@ -25,16 +30,11 @@ type
     btn_Imprimir: TToolButton;
     ToolButton12: TToolButton;
     btn_Sair: TToolButton;
-    Panel2: TPanel;
-    Edit1: TEdit;
-    Label2: TLabel;
-    StatusBar1: TStatusBar;
-    DBG_Cli: TDBGrid;
-    procedure Edit1Change(Sender: TObject);
-    procedure btn_InserirClick(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);
     procedure btn_ExcluirClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
+    procedure btn_InserirClick(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
@@ -50,7 +50,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitCadCliente;
 
 procedure TFrm_Man_Cliente.btn_AlterarClick(Sender: TObject);
 begin
