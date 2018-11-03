@@ -282,8 +282,8 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Width = 1093
     Height = 49
     BorderWidth = 1
-    ButtonHeight = 40
-    ButtonWidth = 43
+    ButtonHeight = 46
+    ButtonWidth = 51
     Caption = 'ToolBar1'
     Color = clBtnFace
     DisabledImages = ImageList2
@@ -292,6 +292,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Images = ImageList1
     ParentColor = False
     ParentShowHint = False
+    ShowCaptions = True
     ShowHint = True
     TabOrder = 4
     object btn_Inserir: TToolButton
@@ -303,7 +304,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       OnClick = btn_InserirClick
     end
     object ToolButton2: TToolButton
-      Left = 43
+      Left = 51
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
@@ -311,15 +312,15 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Style = tbsSeparator
     end
     object btn_Alterar: TToolButton
-      Left = 51
+      Left = 59
       Top = 0
       Hint = 'Alterar Registro'
-      Caption = 'btn_Alterar'
+      Caption = 'Alterar'
       ImageIndex = 1
       OnClick = btn_AlterarClick
     end
     object ToolButton4: TToolButton
-      Left = 94
+      Left = 110
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -327,15 +328,15 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Style = tbsSeparator
     end
     object btn_Excluir: TToolButton
-      Left = 102
+      Left = 118
       Top = 0
       Hint = 'Excluir Registro'
-      Caption = 'btn_Excluir'
+      Caption = 'Excluir'
       ImageIndex = 2
       OnClick = btn_ExcluirClick
     end
     object ToolButton10: TToolButton
-      Left = 145
+      Left = 169
       Top = 0
       Width = 8
       Caption = 'ToolButton10'
@@ -343,14 +344,14 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Style = tbsSeparator
     end
     object btn_Imprimir: TToolButton
-      Left = 153
+      Left = 177
       Top = 0
       Hint = 'Imprimir'
-      Caption = 'btn_Imprimir'
+      Caption = 'Imprimir'
       ImageIndex = 6
     end
     object ToolButton12: TToolButton
-      Left = 196
+      Left = 228
       Top = 0
       Width = 8
       Caption = 'ToolButton12'
@@ -358,10 +359,10 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       Style = tbsSeparator
     end
     object btn_Sair: TToolButton
-      Left = 204
+      Left = 236
       Top = 0
       Hint = 'Sair'
-      Caption = 'btn_Sair'
+      Caption = 'Sair'
       ImageIndex = 5
       OnClick = btn_SairClick
     end
@@ -372,7 +373,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 320
     Top = 320
     Bitmap = {
-      494C0101070048008C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -979,7 +980,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 424
     Top = 320
     Bitmap = {
-      494C010107003800840018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1586,7 +1587,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 512
     Top = 328
     Bitmap = {
-      494C010107003800840018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

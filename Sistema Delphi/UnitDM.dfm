@@ -1,7 +1,7 @@
 object DM: TDM
   OldCreateOrder = False
   Height = 597
-  Width = 534
+  Width = 446
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
@@ -396,5 +396,52 @@ object DM: TDM
     DataSet = ADODS_Cargo
     Left = 141
     Top = 528
+  end
+  object DS_Venda: TDataSource
+    DataSet = ADODS_Venda
+    Left = 357
+    Top = 88
+  end
+  object ADODS_Venda: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'select * from Venda'
+    Parameters = <>
+    Left = 264
+    Top = 88
+    object ADODS_VendaCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADODS_VendaProgressivo: TIntegerField
+      FieldName = 'Progressivo'
+    end
+    object ADODS_VendaCliente: TIntegerField
+      FieldName = 'Cliente'
+    end
+    object ADODS_VendaVeiculo: TIntegerField
+      FieldName = 'Veiculo'
+    end
+    object ADODS_VendaFuncionario: TIntegerField
+      FieldName = 'Funcionario'
+    end
+    object ADODS_VendaDtVen: TDateTimeField
+      FieldName = 'DtVen'
+    end
+    object ADODS_VendaValTotal: TBCDField
+      FieldName = 'ValTotal'
+      Precision = 9
+      Size = 2
+    end
+    object ADODS_VendaQtdParcela: TIntegerField
+      FieldName = 'QtdParcela'
+    end
+    object ADODS_VendaQtdVeiculo: TIntegerField
+      FieldName = 'QtdVeiculo'
+    end
+    object ADODS_VendaDesconto: TBCDField
+      FieldName = 'Desconto'
+      Precision = 5
+      Size = 2
+    end
   end
 end

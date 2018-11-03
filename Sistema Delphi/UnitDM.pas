@@ -90,6 +90,18 @@ type
     ADODS_CargoSalBase: TBCDField;
     ADODS_CargoObs: TStringField;
     ADODS_CargoStatus: TStringField;
+    DS_Venda: TDataSource;
+    ADODS_Venda: TADODataSet;
+    ADODS_VendaCodigo: TIntegerField;
+    ADODS_VendaProgressivo: TIntegerField;
+    ADODS_VendaCliente: TIntegerField;
+    ADODS_VendaVeiculo: TIntegerField;
+    ADODS_VendaFuncionario: TIntegerField;
+    ADODS_VendaDtVen: TDateTimeField;
+    ADODS_VendaValTotal: TBCDField;
+    ADODS_VendaQtdVeiculo: TIntegerField;
+    ADODS_VendaQtdParcela: TIntegerField;
+    ADODS_VendaDesconto: TBCDField;
     procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;

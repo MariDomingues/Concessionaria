@@ -20,7 +20,8 @@ uses
   UnitCadCargo in 'UnitCadCargo.pas' {FrmCadCargo},
   UnitManModelo in 'UnitManModelo.pas' {Frm_Man_Modelo},
   UnitManCliente in 'UnitManCliente.pas' {Frm_Man_Cliente},
-  UnitCadFuncionario in 'UnitCadFuncionario.pas' {FrmCadFuncionario};
+  UnitCadFuncionario in 'UnitCadFuncionario.pas' {FrmCadFuncionario},
+  UnitVenda in 'UnitVenda.pas' {FrmVenda};
 
 {$R *.res}
 
@@ -46,5 +47,6 @@ begin
   Application.CreateForm(TFrm_Man_Modelo, Frm_Man_Modelo);
   Application.CreateForm(TFrm_Man_Cliente, Frm_Man_Cliente);
   Application.CreateForm(TFrmCadFuncionario, FrmCadFuncionario);
+  Application.CreateForm(TFrmVenda, FrmVenda);
   Application.Run;
 end.

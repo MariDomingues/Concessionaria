@@ -48,27 +48,27 @@ object FrmCadCliente: TFrmCadCliente
     Width = 571
     Height = 49
     BorderWidth = 1
-    ButtonHeight = 40
-    ButtonWidth = 43
+    ButtonHeight = 46
+    ButtonWidth = 52
     Caption = 'ToolBar1'
     DisabledImages = Frm_Man_Cliente.ImageList2
     EdgeBorders = [ebTop, ebBottom]
     HotImages = Frm_Man_Cliente.ImageList3
     Images = Frm_Man_Cliente.ImageList1
     ParentShowHint = False
+    ShowCaptions = True
     ShowHint = True
     TabOrder = 1
     object btn_Salvar: TToolButton
       Left = 0
       Top = 0
       Hint = 'Salvar Registro'
-      ParentCustomHint = False
-      Caption = 'btn_Salvar'
+      Caption = 'Salvar'
       ImageIndex = 3
       OnClick = btn_SalvarClick
     end
     object ToolButton2: TToolButton
-      Left = 43
+      Left = 52
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
@@ -76,15 +76,15 @@ object FrmCadCliente: TFrmCadCliente
       Style = tbsSeparator
     end
     object btn_Cancelar: TToolButton
-      Left = 51
+      Left = 60
       Top = 0
       Hint = 'Cancelar Registro'
-      Caption = 'btn_Cancelar'
+      Caption = 'Cancelar'
       ImageIndex = 4
       OnClick = btn_CancelarClick
     end
     object ToolButton4: TToolButton
-      Left = 94
+      Left = 112
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -92,10 +92,10 @@ object FrmCadCliente: TFrmCadCliente
       Style = tbsSeparator
     end
     object btn_Sair: TToolButton
-      Left = 102
+      Left = 120
       Top = 0
       Hint = 'Sair'
-      Caption = 'btn_Sair'
+      Caption = 'Sair'
       ImageIndex = 5
       OnClick = btn_SairClick
     end
