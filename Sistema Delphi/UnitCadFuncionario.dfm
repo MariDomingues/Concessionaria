@@ -132,71 +132,63 @@ object FrmCadFuncionario: TFrmCadFuncionario
     end
     object Label3: TLabel
       Left = 37
-      Top = 121
+      Top = 151
       Width = 32
       Height = 13
       Caption = 'Bairro:'
     end
     object Label6: TLabel
-      Left = 289
-      Top = 88
+      Left = 36
+      Top = 89
       Width = 37
       Height = 13
       Caption = 'Cidade:'
     end
     object Label7: TLabel
       Left = 20
-      Top = 153
+      Top = 120
       Width = 49
       Height = 13
       Caption = 'Endere'#231'o:'
     end
     object Label8: TLabel
       Left = 303
-      Top = 121
+      Top = 89
       Width = 23
       Height = 13
       Caption = 'CEP:'
     end
     object Label9: TLabel
-      Left = 25
-      Top = 184
+      Left = 278
+      Top = 151
       Width = 46
       Height = 13
       Caption = 'Telefone:'
     end
     object Label11: TLabel
-      Left = 269
+      Left = 16
       Top = 182
       Width = 57
       Height = 13
       Caption = 'Nro. Conta:'
     end
     object Label12: TLabel
-      Left = 38
-      Top = 217
+      Left = 291
+      Top = 182
       Width = 35
       Height = 13
       Caption = 'Status:'
     end
-    object Label13: TLabel
-      Left = 281
-      Top = 57
-      Width = 45
-      Height = 13
-      Caption = 'Dt Nasc.:'
-      FocusControl = DBEdit12
-    end
     object Label14: TLabel
-      Left = 40
-      Top = 88
+      Left = 293
+      Top = 57
       Width = 33
       Height = 13
       Caption = 'Cargo:'
     end
     object DBComboBox1: TDBComboBox
-      Left = 75
-      Top = 214
+      Left = 328
+      Top = 179
       Width = 190
       Height = 21
       Style = csDropDownList
@@ -205,7 +197,7 @@ object FrmCadFuncionario: TFrmCadFuncionario
       Items.Strings = (
         'Ativo'
         'Inativo')
-      TabOrder = 10
+      TabOrder = 9
     end
     object DBEdit1: TDBEdit
       Left = 75
@@ -226,58 +218,58 @@ object FrmCadFuncionario: TFrmCadFuncionario
       TabOrder = 1
     end
     object DBEdit5: TDBEdit
-      Left = 328
-      Top = 85
+      Left = 75
+      Top = 86
       Width = 190
       Height = 21
       DataField = 'Cidade'
       DataSource = DM.DS_Funcionario
-      TabOrder = 4
+      TabOrder = 3
     end
     object DBEdit6: TDBEdit
       Left = 328
-      Top = 118
+      Top = 86
       Width = 190
       Height = 21
       DataField = 'CEP'
       DataSource = DM.DS_Funcionario
-      TabOrder = 6
+      TabOrder = 4
     end
     object DBEdit7: TDBEdit
       Left = 75
-      Top = 150
+      Top = 117
       Width = 443
       Height = 21
       DataField = 'Endereco'
       DataSource = DM.DS_Funcionario
-      TabOrder = 7
+      TabOrder = 5
     end
     object DBEdit8: TDBEdit
       Left = 75
-      Top = 118
+      Top = 148
       Width = 190
       Height = 21
       DataField = 'Bairro'
       DataSource = DM.DS_Funcionario
-      TabOrder = 5
+      TabOrder = 6
     end
     object DBEdit9: TDBEdit
-      Left = 75
-      Top = 181
+      Left = 328
+      Top = 148
       Width = 190
       Height = 21
       DataField = 'Telefone'
       DataSource = DM.DS_Funcionario
-      TabOrder = 8
+      TabOrder = 7
     end
     object DBEdit10: TDBEdit
-      Left = 328
+      Left = 75
       Top = 179
       Width = 190
       Height = 21
       DataField = 'NroConta'
       DataSource = DM.DS_Funcionario
-      TabOrder = 9
+      TabOrder = 8
     end
     object DBEdit11: TDBEdit
       Left = 535
@@ -286,21 +278,12 @@ object FrmCadFuncionario: TFrmCadFuncionario
       Height = 21
       DataField = 'Codigo'
       DataSource = DM.DS_Funcionario
-      TabOrder = 11
+      TabOrder = 10
       Visible = False
     end
-    object DBEdit12: TDBEdit
+    object DBLookupComboBox3: TDBLookupComboBox
       Left = 328
       Top = 54
-      Width = 190
-      Height = 21
-      DataField = 'DtNasc'
-      DataSource = DM.DS_Funcionario
-      TabOrder = 2
-    end
-    object DBLookupComboBox3: TDBLookupComboBox
-      Left = 75
-      Top = 85
       Width = 190
       Height = 21
       DataField = 'Cargo'
@@ -308,7 +291,7 @@ object FrmCadFuncionario: TFrmCadFuncionario
       KeyField = 'Codigo'
       ListField = 'Descricao'
       ListSource = DS_Cargo
-      TabOrder = 3
+      TabOrder = 2
     end
   end
   object DS_CodFun: TDataSource

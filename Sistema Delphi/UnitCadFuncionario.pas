@@ -40,8 +40,6 @@ type
     DBEdit9: TDBEdit;
     DBEdit10: TDBEdit;
     DBEdit11: TDBEdit;
-    Label13: TLabel;
-    DBEdit12: TDBEdit;
     Label14: TLabel;
     DBLookupComboBox3: TDBLookupComboBox;
     DS_Cargo: TDataSource;
@@ -65,7 +63,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitManCliente;
+uses UnitDM, UnitManFuncionario;
 
 procedure TFrmCadFuncionario.LimpaTela;
 begin
@@ -78,7 +76,6 @@ begin
   DBEdit9.Clear;
   DBEdit10.Clear;
   DBEdit11.Clear;
-  DBEdit12.Clear;
   DBComboBox1.ItemIndex := 0;
   DBLookupComboBox3.KeyValue := 0;
 end;
@@ -144,7 +141,7 @@ procedure TFrmCadFuncionario.FormClose(Sender: TObject;
 begin
   ADOQRY_CodFun.Close;
 
-  DM.ADODS_Funcionario.Close;
+  DM.ADODS_Cargo.Close;
 	ADOQRY_Cargo.Close;
 end;
 

@@ -61,7 +61,6 @@ type
     ADODS_FuncionarioCodigo: TIntegerField;
     ADODS_FuncionarioNome: TStringField;
     ADODS_FuncionarioCPF: TStringField;
-    ADODS_FuncionarioDtNasc: TWideStringField;
     ADODS_FuncionarioEndereco: TStringField;
     ADODS_FuncionarioCidade: TStringField;
     ADODS_FuncionarioBairro: TStringField;
@@ -84,18 +83,6 @@ type
     ADODS_VeiculoQuantidade: TIntegerField;
     ADODS_VeiculoStatus: TStringField;
     ADODS_VeiculoDocum: TStringField;
-    DS_Mecanico: TDataSource;
-    ADODS_Mecanico: TADODataSet;
-    ADODS_MecanicoCodigo: TIntegerField;
-    ADODS_MecanicoNome: TStringField;
-    ADODS_MecanicoCpfCnpj: TStringField;
-    ADODS_MecanicoEndereço: TStringField;
-    ADODS_MecanicoCidade: TStringField;
-    ADODS_MecanicoBairro: TStringField;
-    ADODS_MecanicoTelefone: TStringField;
-    ADODS_MecanicoNroConta: TStringField;
-    ADODS_MecanicoEmail: TStringField;
-    ADODS_MecanicoStatus: TStringField;
     ADODS_Cargo: TADODataSet;
     DS_Cargo: TDataSource;
     ADODS_CargoCodigo: TIntegerField;

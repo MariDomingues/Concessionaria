@@ -84,12 +84,12 @@
     <Transaction>2018/11/01 23:12:57.000.896,D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas=D:\ProjetoConcessionaria\Sistema Delphi\UnitManModelo.pas</Transaction>
     <Transaction>2018/11/01 23:33:56.000.257,D:\ProjetoConcessionaria\Sistema Delphi\UnitManCliente.dfm=D:\ProjetoConcessionaria\Sistema Delphi\UnitManFuncionario.dfm</Transaction>
     <Transaction>2018/11/01 23:33:56.000.257,D:\ProjetoConcessionaria\Sistema Delphi\UnitManCliente.pas=D:\ProjetoConcessionaria\Sistema Delphi\UnitManFuncionario.pas</Transaction>
-    <Transaction>2018/11/01 23:48:46.214,=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
-    <Transaction>2018/11/01 23:52:46.575,D:\ProjetoConcessionaria\Sistema Delphi\UnitManCliente.pas=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
-    <Transaction>2018/11/01 23:52:46.575,D:\ProjetoConcessionaria\Sistema Delphi\UnitManCliente.dfm=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.dfm</Transaction>
-    <Transaction>2018/11/01 23:53:04.219,=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
-    <Transaction>2018/11/01 23:56:17.322,D:\ProjetoConcessionaria\Sistema Delphi\UnitCadFuncionario.dfm=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.dfm</Transaction>
-    <Transaction>2018/11/01 23:56:17.322,D:\ProjetoConcessionaria\Sistema Delphi\UnitCadFuncionario.pas=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
+    <Transaction>2018/11/01 23:48:46.000.214,=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
+    <Transaction>2018/11/01 23:52:46.000.575,D:\ProjetoConcessionaria\Sistema Delphi\UnitManCliente.pas=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
+    <Transaction>2018/11/01 23:52:46.000.575,D:\ProjetoConcessionaria\Sistema Delphi\UnitManCliente.dfm=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.dfm</Transaction>
+    <Transaction>2018/11/01 23:53:04.000.219,=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
+    <Transaction>2018/11/01 23:56:17.000.322,D:\ProjetoConcessionaria\Sistema Delphi\UnitCadFuncionario.dfm=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.dfm</Transaction>
+    <Transaction>2018/11/01 23:56:17.000.322,D:\ProjetoConcessionaria\Sistema Delphi\UnitCadFuncionario.pas=D:\ProjetoConcessionaria\Sistema Delphi\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="UnitCadCliente.pas"/>
@@ -118,10 +118,6 @@
     <File Path="UnitManVeiculo.dfm"/>
     <File Path="UnitMenu.pas"/>
     <File Path="UnitMenu.dfm"/>
-    <File Path="UnitManMecanico.pas"/>
-    <File Path="UnitManMecanico.dfm"/>
-    <File Path="UnitCadMecanico.pas"/>
-    <File Path="UnitCadMecanico.dfm"/>
     <File Path="UnitManCargo.pas"/>
     <File Path="UnitManCargo.dfm"/>
     <File Path="UnitCadCargo.pas"/>
