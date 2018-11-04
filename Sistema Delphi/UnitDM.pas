@@ -75,12 +75,9 @@ type
     ADODS_VeiculoModelo: TIntegerField;
     ADODS_VeiculoCombustivel: TIntegerField;
     ADODS_VeiculoPlaca: TStringField;
-    ADODS_VeiculoAno: TWideStringField;
     ADODS_VeiculoValor: TBCDField;
     ADODS_VeiculoCor: TStringField;
     ADODS_VeiculoKm: TBCDField;
-    ADODS_VeiculoZeroKm: TStringField;
-    ADODS_VeiculoQuantidade: TIntegerField;
     ADODS_VeiculoStatus: TStringField;
     ADODS_VeiculoDocum: TStringField;
     ADODS_Cargo: TADODataSet;
@@ -92,16 +89,22 @@ type
     ADODS_CargoStatus: TStringField;
     DS_Venda: TDataSource;
     ADODS_Venda: TADODataSet;
+    ADODS_VeiculoAno: TIntegerField;
+    DS_Venda_Itens: TDataSource;
+    ADODS_Venda_Itens: TADODataSet;
+    ADODS_Venda_ItensCodigo: TIntegerField;
+    ADODS_Venda_ItensVeiculo: TIntegerField;
+    ADODS_Venda_ItensValTotVei: TBCDField;
+    ADODS_Venda_ItensDescUnit: TBCDField;
     ADODS_VendaCodigo: TIntegerField;
-    ADODS_VendaProgressivo: TIntegerField;
     ADODS_VendaCliente: TIntegerField;
-    ADODS_VendaVeiculo: TIntegerField;
     ADODS_VendaFuncionario: TIntegerField;
     ADODS_VendaDtVen: TDateTimeField;
     ADODS_VendaValTotal: TBCDField;
-    ADODS_VendaQtdVeiculo: TIntegerField;
     ADODS_VendaQtdParcela: TIntegerField;
     ADODS_VendaDesconto: TBCDField;
+    ADODS_Venda_ItensPlaca: TStringField;
+    ADODS_Venda_ItensValorUnit: TFloatField;
     procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;
@@ -112,8 +115,7 @@ type
       DisplayText: Boolean);
     procedure ADODS_FuncionarioStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
-    procedure ADODS_MecanicoStatusGetText(Sender: TField; var Text: string;
-      DisplayText: Boolean);
+    procedure ADODS_Venda_ItensNewRecord(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -165,15 +167,6 @@ begin
     Text := 'Inativo';
 end;
 
-procedure TDM.ADODS_MecanicoStatusGetText(Sender: TField; var Text: string;
-  DisplayText: Boolean);
-begin
-  if Sender.AsString = 'A' then
-    Text := 'Ativo'
-  else
-    Text := 'Inativo';
-end;
-
 procedure TDM.ADODS_ModeloStatusGetText(Sender: TField; var Text: string;
   DisplayText: Boolean);
 begin
@@ -181,6 +174,11 @@ begin
     Text := 'Ativo'
   else
     Text := 'Inativo';
+end;
+
+procedure TDM.ADODS_Venda_ItensNewRecord(DataSet: TDataSet);
+begin
+  ADODS_Venda_ItensCodigo.AsInteger := ADODS_VendaCodigo.AsInteger;
 end;
 
 end.

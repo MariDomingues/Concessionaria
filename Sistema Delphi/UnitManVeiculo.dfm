@@ -167,25 +167,6 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       item
         Alignment = taCenter
         Expanded = False
-        FieldName = 'ZeroKm'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Alignment = taCenter
-        Title.Caption = 'Zero Km'
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 60
-        Visible = True
-      end
-      item
-        Alignment = taCenter
-        Expanded = False
         FieldName = 'Valor'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
@@ -373,7 +354,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 320
     Top = 320
     Bitmap = {
-      494C010107004800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800940018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -980,7 +961,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 424
     Top = 320
     Bitmap = {
-      494C010107003800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038008C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1587,7 +1568,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 512
     Top = 328
     Bitmap = {
-      494C010107003800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038008C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005
@@ -2201,10 +2182,10 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       
         'select Veiculo.Codigo, Veiculo.Placa, Fabricante.NomeFantasia, C' +
         'ombustivel.Descricao, Veiculo.Km, Veiculo.Docum, Modelo.Descrica' +
-        'o, Veiculo.ZeroKm, Veiculo.Valor, Veiculo.Status from Veiculo in' +
-        'ner join Fabricante on Veiculo.Fabricante = Fabricante.Codigo in' +
-        'ner join Combustivel on Veiculo.Combustivel = Combustivel.Codigo' +
-        ' inner join Modelo on Veiculo.Modelo = Modelo.Codigo')
+        'o, Veiculo.Valor, Veiculo.Status from Veiculo inner join Fabrica' +
+        'nte on Veiculo.Fabricante = Fabricante.Codigo inner join Combust' +
+        'ivel on Veiculo.Combustivel = Combustivel.Codigo inner join Mode' +
+        'lo on Veiculo.Modelo = Modelo.Codigo')
     Left = 72
     Top = 394
     object ADOQRY_ColunasCodigo: TIntegerField
@@ -2212,6 +2193,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     end
     object ADOQRY_ColunasPlaca: TStringField
       FieldName = 'Placa'
+      EditMask = 'AAA-9999;0;'
       Size = 8
     end
     object ADOQRY_ColunasNomeFantasia: TStringField
@@ -2224,6 +2206,8 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     end
     object ADOQRY_ColunasKm: TBCDField
       FieldName = 'Km'
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
       Precision = 9
       Size = 3
     end
@@ -2237,14 +2221,10 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       FieldName = 'Descricao_1'
       Size = 200
     end
-    object ADOQRY_ColunasZeroKm: TStringField
-      FieldName = 'ZeroKm'
-      OnGetText = ADOQRY_ColunasZeroKmGetText
-      FixedChar = True
-      Size = 1
-    end
     object ADOQRY_ColunasValor: TBCDField
       FieldName = 'Valor'
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
       Precision = 9
       Size = 2
     end

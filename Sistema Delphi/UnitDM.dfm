@@ -42,12 +42,9 @@ object DM: TDM
       EditMask = 'AAA-9999;0;'
       Size = 8
     end
-    object ADODS_VeiculoAno: TWideStringField
-      FieldName = 'Ano'
-      Size = 10
-    end
     object ADODS_VeiculoValor: TBCDField
       FieldName = 'Valor'
+      DisplayFormat = '###,###,##0.00'
       EditFormat = '###,###,##0.00'
       Precision = 9
       Size = 2
@@ -58,16 +55,9 @@ object DM: TDM
     end
     object ADODS_VeiculoKm: TBCDField
       FieldName = 'Km'
+      DisplayFormat = '###,###,##0.00'
       Precision = 9
       Size = 3
-    end
-    object ADODS_VeiculoZeroKm: TStringField
-      FieldName = 'ZeroKm'
-      FixedChar = True
-      Size = 1
-    end
-    object ADODS_VeiculoQuantidade: TIntegerField
-      FieldName = 'Quantidade'
     end
     object ADODS_VeiculoStatus: TStringField
       FieldName = 'Status'
@@ -78,6 +68,10 @@ object DM: TDM
       FieldName = 'Docum'
       FixedChar = True
       Size = 1
+    end
+    object ADODS_VeiculoAno: TIntegerField
+      DisplayWidth = 4
+      FieldName = 'Ano'
     end
   end
   object DS_Veiculo: TDataSource
@@ -378,6 +372,7 @@ object DM: TDM
     end
     object ADODS_CargoSalBase: TBCDField
       FieldName = 'SalBase'
+      DisplayFormat = '###,###,##0.00'
       EditFormat = '###,###,##0.00'
       Precision = 9
       Size = 2
@@ -412,36 +407,88 @@ object DM: TDM
     object ADODS_VendaCodigo: TIntegerField
       FieldName = 'Codigo'
     end
-    object ADODS_VendaProgressivo: TIntegerField
-      FieldName = 'Progressivo'
-    end
     object ADODS_VendaCliente: TIntegerField
       FieldName = 'Cliente'
-    end
-    object ADODS_VendaVeiculo: TIntegerField
-      FieldName = 'Veiculo'
     end
     object ADODS_VendaFuncionario: TIntegerField
       FieldName = 'Funcionario'
     end
     object ADODS_VendaDtVen: TDateTimeField
       FieldName = 'DtVen'
+      DisplayFormat = 'DD/MM/YYYY'
     end
     object ADODS_VendaValTotal: TBCDField
       FieldName = 'ValTotal'
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
       Precision = 9
       Size = 2
     end
     object ADODS_VendaQtdParcela: TIntegerField
       FieldName = 'QtdParcela'
     end
-    object ADODS_VendaQtdVeiculo: TIntegerField
-      FieldName = 'QtdVeiculo'
-    end
     object ADODS_VendaDesconto: TBCDField
       FieldName = 'Desconto'
+      DisplayFormat = '##,##0.00'
+      EditFormat = '##,##0.00'
       Precision = 5
       Size = 2
+    end
+  end
+  object DS_Venda_Itens: TDataSource
+    DataSet = ADODS_Venda_Itens
+    Left = 357
+    Top = 152
+  end
+  object ADODS_Venda_Itens: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    OnNewRecord = ADODS_Venda_ItensNewRecord
+    CommandText = 'select * from Venda_Itens'
+    Parameters = <>
+    Left = 264
+    Top = 152
+    object ADODS_Venda_ItensCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADODS_Venda_ItensVeiculo: TIntegerField
+      FieldName = 'Veiculo'
+    end
+    object ADODS_Venda_ItensValTotVei: TBCDField
+      FieldName = 'ValTotVei'
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
+      Precision = 9
+      Size = 2
+    end
+    object ADODS_Venda_ItensDescUnit: TBCDField
+      FieldName = 'DescUnit'
+      DisplayFormat = '##,##0.00'
+      EditFormat = '##,##0.00'
+      Precision = 5
+      Size = 2
+    end
+    object ADODS_Venda_ItensPlaca: TStringField
+      FieldKind = fkLookup
+      FieldName = 'Placa'
+      LookupDataSet = ADODS_Veiculo
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Placa'
+      KeyFields = 'Veiculo'
+      EditMask = 'AAA-9999;0;'
+      Size = 8
+      Lookup = True
+    end
+    object ADODS_Venda_ItensValorUnit: TFloatField
+      FieldKind = fkLookup
+      FieldName = 'ValorUnit'
+      LookupDataSet = ADODS_Veiculo
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Valor'
+      KeyFields = 'Veiculo'
+      DisplayFormat = '###,###,##0.00'
+      EditFormat = '###,###,##0.00'
+      Lookup = True
     end
   end
 end

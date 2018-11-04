@@ -39,7 +39,6 @@ type
     ADOQRY_ColunasKm: TBCDField;
     ADOQRY_ColunasDocum: TStringField;
     ADOQRY_ColunasDescricao_1: TStringField;
-    ADOQRY_ColunasZeroKm: TStringField;
     ADOQRY_ColunasValor: TBCDField;
     ADOQRY_ColunasStatus: TStringField;
     procedure btn_InserirClick(Sender: TObject);

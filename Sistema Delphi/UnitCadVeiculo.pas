@@ -15,7 +15,6 @@ type
     Label2: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    Label3: TLabel;
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
@@ -29,7 +28,6 @@ type
     DBEdit5: TDBEdit;
     DBEdit6: TDBEdit;
     DBEdit7: TDBEdit;
-    DBEdit8: TDBEdit;
     DBLookupComboBox1: TDBLookupComboBox;
     DBEdit11: TDBEdit;
     StatusBar1: TStatusBar;
@@ -45,9 +43,7 @@ type
     DS_CodVei: TDataSource;
     DBLookupComboBox2: TDBLookupComboBox;
     DBLookupComboBox3: TDBLookupComboBox;
-    Label11: TLabel;
     DS_Modelo: TDataSource;
-    DBComboBox2: TDBComboBox;
     DBComboBox3: TDBComboBox;
     ADOQRY_Modelo: TADOQuery;
     Label14: TLabel;
@@ -60,7 +56,6 @@ type
     procedure FormActivate(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
-    procedure DBComboBox2Exit(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     procedure LimpaTela;
@@ -126,21 +121,6 @@ begin
   LimpaTela;
 end;
 
-procedure TFrmCadVeiculo.DBComboBox2Exit(Sender: TObject);
-begin
-  DBEdit6.Text := IntToStr(0);
-  if DBComboBox2.ItemIndex = 0 then
-    begin
-      DBEdit6.Enabled := false;
-      DBComboBox3.SetFocus;
-    end
-  else
-    begin
-      DBEdit6.Enabled := true;
-      DBEdit6.SetFocus;
-    end;
-end;
-
 procedure TFrmCadVeiculo.FormActivate(Sender: TObject);
 begin
   ADOQRY_Fabricante.Close;
@@ -159,7 +139,6 @@ begin
   ADOQRY_Combustivel.Open;
 
   DBComboBox1.ItemIndex := 0;
-  DBComboBox2.ItemIndex := 0;
   DBComboBox3.ItemIndex := 0;
 end;
 
@@ -187,10 +166,8 @@ begin
   DBEdit5.Clear;
   DBEdit6.Clear;
   DBEdit7.Clear;
-  DBEdit8.Clear;
   DBEdit11.Clear;
   DBComboBox1.ItemIndex := 0;
-  DBComboBox2.ItemIndex := 0;
   DBComboBox3.ItemIndex := 0;
   DBLookupComboBox1.KeyValue := 0;
   DBLookupComboBox2.KeyValue := 0;
