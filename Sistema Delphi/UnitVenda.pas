@@ -1,3 +1,83 @@
+{$A8,B-,C+,D+,E-,F-,G+,H+,I+,J-,K-,L+,M-,N-,O+,P+,Q-,R-,S-,T-,U-,V+,W-,X+,Y+,Z1}
+{$MINSTACKSIZE $00004000}
+{$MAXSTACKSIZE $00100000}
+{$IMAGEBASE $00400000}
+{$APPTYPE GUI}
+{$WARN SYMBOL_DEPRECATED ON}
+{$WARN SYMBOL_LIBRARY ON}
+{$WARN SYMBOL_PLATFORM ON}
+{$WARN SYMBOL_EXPERIMENTAL ON}
+{$WARN UNIT_LIBRARY ON}
+{$WARN UNIT_PLATFORM ON}
+{$WARN UNIT_DEPRECATED ON}
+{$WARN UNIT_EXPERIMENTAL ON}
+{$WARN HRESULT_COMPAT ON}
+{$WARN HIDING_MEMBER ON}
+{$WARN HIDDEN_VIRTUAL ON}
+{$WARN GARBAGE ON}
+{$WARN BOUNDS_ERROR ON}
+{$WARN ZERO_NIL_COMPAT ON}
+{$WARN STRING_CONST_TRUNCED ON}
+{$WARN FOR_LOOP_VAR_VARPAR ON}
+{$WARN TYPED_CONST_VARPAR ON}
+{$WARN ASG_TO_TYPED_CONST ON}
+{$WARN CASE_LABEL_RANGE ON}
+{$WARN FOR_VARIABLE ON}
+{$WARN CONSTRUCTING_ABSTRACT ON}
+{$WARN COMPARISON_FALSE ON}
+{$WARN COMPARISON_TRUE ON}
+{$WARN COMPARING_SIGNED_UNSIGNED ON}
+{$WARN COMBINING_SIGNED_UNSIGNED ON}
+{$WARN UNSUPPORTED_CONSTRUCT ON}
+{$WARN FILE_OPEN ON}
+{$WARN FILE_OPEN_UNITSRC ON}
+{$WARN BAD_GLOBAL_SYMBOL ON}
+{$WARN DUPLICATE_CTOR_DTOR ON}
+{$WARN INVALID_DIRECTIVE ON}
+{$WARN PACKAGE_NO_LINK ON}
+{$WARN PACKAGED_THREADVAR ON}
+{$WARN IMPLICIT_IMPORT ON}
+{$WARN HPPEMIT_IGNORED ON}
+{$WARN NO_RETVAL ON}
+{$WARN USE_BEFORE_DEF ON}
+{$WARN FOR_LOOP_VAR_UNDEF ON}
+{$WARN UNIT_NAME_MISMATCH ON}
+{$WARN NO_CFG_FILE_FOUND ON}
+{$WARN IMPLICIT_VARIANTS ON}
+{$WARN UNICODE_TO_LOCALE ON}
+{$WARN LOCALE_TO_UNICODE ON}
+{$WARN IMAGEBASE_MULTIPLE ON}
+{$WARN SUSPICIOUS_TYPECAST ON}
+{$WARN PRIVATE_PROPACCESSOR ON}
+{$WARN UNSAFE_TYPE OFF}
+{$WARN UNSAFE_CODE OFF}
+{$WARN UNSAFE_CAST OFF}
+{$WARN OPTION_TRUNCATED ON}
+{$WARN WIDECHAR_REDUCED ON}
+{$WARN DUPLICATES_IGNORED ON}
+{$WARN UNIT_INIT_SEQ ON}
+{$WARN LOCAL_PINVOKE ON}
+{$WARN MESSAGE_DIRECTIVE ON}
+{$WARN TYPEINFO_IMPLICITLY_ADDED ON}
+{$WARN RLINK_WARNING ON}
+{$WARN IMPLICIT_STRING_CAST ON}
+{$WARN IMPLICIT_STRING_CAST_LOSS ON}
+{$WARN EXPLICIT_STRING_CAST OFF}
+{$WARN EXPLICIT_STRING_CAST_LOSS OFF}
+{$WARN CVT_WCHAR_TO_ACHAR ON}
+{$WARN CVT_NARROWING_STRING_LOST ON}
+{$WARN CVT_ACHAR_TO_WCHAR ON}
+{$WARN CVT_WIDENING_STRING_LOST ON}
+{$WARN NON_PORTABLE_TYPECAST ON}
+{$WARN XML_WHITESPACE_NOT_ALLOWED ON}
+{$WARN XML_UNKNOWN_ENTITY ON}
+{$WARN XML_INVALID_NAME_START ON}
+{$WARN XML_INVALID_NAME ON}
+{$WARN XML_EXPECTED_CHARACTER ON}
+{$WARN XML_CREF_NO_RESOLVE ON}
+{$WARN XML_NO_PARM ON}
+{$WARN XML_NO_MATCHING_PARM ON}
+{$WARN IMMUTABLE_STRINGS OFF}
 unit UnitVenda;
 
 interface
@@ -62,17 +142,6 @@ type
     ADOQRY_Veiculo: TADOQuery;
     ADOQRY_VeiculoCodigo: TIntegerField;
     ADOQRY_VeiculoPlaca: TStringField;
-    ADOQRY_Colunas: TADOQuery;
-    ADOQRY_ColunasCodigo: TIntegerField;
-    ADOQRY_ColunasPlaca: TStringField;
-    ADOQRY_ColunasNomeFantasia: TStringField;
-    ADOQRY_ColunasDescricao: TStringField;
-    ADOQRY_ColunasKm: TBCDField;
-    ADOQRY_ColunasDocum: TStringField;
-    ADOQRY_ColunasDescricao_1: TStringField;
-    ADOQRY_ColunasValor: TBCDField;
-    ADOQRY_ColunasStatus: TStringField;
-    DS_Colunas: TDataSource;
     Label8: TLabel;
     ADOQRY_VeiculoValor: TBCDField;
     MaskEdit1: TMaskEdit;
@@ -84,6 +153,8 @@ type
     DBLookupComboBox3: TDBLookupComboBox;
     DS_CodVen: TDataSource;
     ADOQRY_CodVen: TADOQuery;
+    DS_Delete: TDataSource;
+    ADOQRY_Delete: TADOQuery;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -101,6 +172,8 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBLookupComboBox3Exit(Sender: TObject);
+    procedure DBLookupComboBox3Enter(Sender: TObject);
+    procedure Btn_ExcluirClick(Sender: TObject);
   private
     procedure Botoes(Ativa: Boolean);
     procedure CarregaItens;
@@ -110,8 +183,8 @@ type
   end;
 
 var
-  FrmVenda: TFrmVenda;
-  Operacao: integer;
+  FrmVenda  : TFrmVenda;
+  Operacao  : integer;
 
 implementation
 
@@ -148,6 +221,9 @@ begin
   PnlItens.Enabled:= False;
 
   DM.ADODS_Venda_Itens.Post;
+  DM.ADOC_Atualiza.CommandText := '';
+  DM.ADOC_Atualiza.CommandText := 'update Veiculo set Status = ''V'' where Codigo = ' + IntToStr(DM.ADODS_Venda_ItensVeiculo.Value) + ';';
+  DM.ADOC_Atualiza.Execute;
 end;
 
 procedure TFrmVenda.Bbt_ExcluirClick(Sender: TObject);
@@ -159,6 +235,9 @@ begin
 
   PnlItens.Enabled:= False;
 
+  DM.ADOC_Atualiza.CommandText := '';
+  DM.ADOC_Atualiza.CommandText := 'update Veiculo set Status = ''A'' where Codigo = ' + IntToStr(DM.ADODS_Venda_ItensVeiculo.Value) + ';';
+  DM.ADOC_Atualiza.Execute;
   DM.ADODS_Venda_Itens.Delete;
 end;
 
@@ -182,8 +261,6 @@ begin
 
   CarregaItens;
 
-  DBLookupComboBox3.SetFocus;
-
   Operacao:= 0;
   Botoes(False);
 end;
@@ -205,6 +282,28 @@ begin
 
   Operacao:= 1;
   Botoes(True);
+end;
+
+procedure TFrmVenda.Btn_ExcluirClick(Sender: TObject);
+begin
+  ADOQRY_Delete.Close;
+  ADOQRY_Delete.SQL.Clear;
+  ADOQRY_Delete.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger));
+  ADOQRY_Delete.Open;
+
+  if ADOQRY_Delete.FieldByName('Total').AsInteger > 0 then
+    begin
+      Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
+      Operacao:= 1;
+      Botoes(True);
+    end
+  else
+    begin
+      DM.ADOC_Atualiza.CommandText := '';
+      DM.ADOC_Atualiza.CommandText := 'delete from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
+      DM.ADOC_Atualiza.Execute;
+      DM.ADODS_Venda.Delete;
+    end;
 end;
 
 procedure TFrmVenda.Btn_InserirClick(Sender: TObject);
@@ -280,6 +379,12 @@ begin
     DBEdit3.Text := FloatToStr(ADOQRY_VeiculoValor.AsFloat);
 end;
 
+procedure TFrmVenda.DBLookupComboBox3Enter(Sender: TObject);
+begin
+  ADOQRY_Veiculo.Close;
+  ADOQRY_Veiculo.Open;
+end;
+
 procedure TFrmVenda.DBLookupComboBox3Exit(Sender: TObject);
 begin
   MaskEdit1.Text := FloatToStr(ADOQRY_VeiculoValor.AsFloat);
@@ -316,7 +421,6 @@ begin
   ADOQRY_Cliente.Close;
   ADOQRY_Funcionario.Close;
   ADOQRY_Veiculo.Close;
-  ADOQRY_Colunas.Close;
 end;
 
 procedure TFrmVenda.Botoes(Ativa: Boolean);
@@ -326,58 +430,59 @@ begin
       //Verifica se esta no final da tabela
       if DM.ADODS_Venda.Eof then
         begin
-          Btn_Proximo.Enabled:= False;
-          Btn_Ultimo.Enabled:= False;
+          Btn_Proximo.Enabled := False;
+          Btn_Ultimo.Enabled  := False;
         end
 
       else
         begin
-          Btn_Proximo.Enabled:= True;
-          Btn_Ultimo.Enabled:= True;
+          Btn_Proximo.Enabled := True;
+          Btn_Ultimo.Enabled  := True;
         end;
 
       //Verifica se esta no inicio da tabela
       if DM.ADODS_Venda.Bof then
         begin
-          Btn_Anterior.Enabled:= False;
-          Btn_Primeiro.Enabled:= False;
+          Btn_Anterior.Enabled := False;
+          Btn_Primeiro.Enabled := False;
         end
 
       else
         begin
-          Btn_Anterior.Enabled:= True;
-          Btn_Primeiro.Enabled:= True;
+          Btn_Anterior.Enabled := True;
+          Btn_Primeiro.Enabled := True;
         end;
     end
 
   else
     begin
-      Btn_Primeiro.Enabled:= False;
-      Btn_Anterior.Enabled:= False;
-      Btn_Proximo.Enabled:= False;
-      Btn_Ultimo.Enabled:= False;
+      Btn_Primeiro.Enabled := False;
+      Btn_Anterior.Enabled := False;
+      Btn_Proximo.Enabled  := False;
+      Btn_Ultimo.Enabled   := False;
     end;
 
-  Btn_Inserir.Enabled:= Ativa;
-  Btn_Sair.Enabled:= Ativa;
+  Btn_Inserir.Enabled := Ativa;
+  Btn_Sair.Enabled    := Ativa;
 
   if (DM.ADODS_Venda.RecordCount > 0) then
     begin
-      Btn_Imprimir.Enabled:= Ativa;
-      Btn_Alterar.Enabled:= Ativa;
-      Btn_Excluir.Enabled:= Ativa;
+      Btn_Imprimir.Enabled := Ativa;
+      Btn_Alterar.Enabled  := Ativa;
+      Btn_Excluir.Enabled  := Ativa;
     end
 
   else
     begin
-      Btn_Imprimir.Enabled:= not Ativa;
-      Btn_Alterar.Enabled:= not Ativa;
-      Btn_Excluir.Enabled:= not Ativa;
+      Btn_Imprimir.Enabled := not Ativa;
+      Btn_Alterar.Enabled  := not Ativa;
+      Btn_Excluir.Enabled  := not Ativa;
     end;
 
-  Btn_Salvar.Enabled:= not Ativa;
-  Btn_Cancelar.Enabled:= not Ativa;
-  PnlFicha.Enabled:= not Ativa;
+  Btn_Salvar.Enabled   := not Ativa;
+  Btn_Cancelar.Enabled := not Ativa;
+  PnlFicha.Enabled     := not Ativa;
+  DBEdit4.Enabled      := not Ativa;
 end;
 
 procedure TFrmVenda.CarregaItens;

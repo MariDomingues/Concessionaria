@@ -44,8 +44,8 @@ object DM: TDM
     end
     object ADODS_VeiculoValor: TBCDField
       FieldName = 'Valor'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -61,6 +61,7 @@ object DM: TDM
     end
     object ADODS_VeiculoStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_VeiculoStatusGetText
       FixedChar = True
       Size = 1
     end
@@ -372,8 +373,8 @@ object DM: TDM
     end
     object ADODS_CargoSalBase: TBCDField
       FieldName = 'SalBase'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -419,8 +420,8 @@ object DM: TDM
     end
     object ADODS_VendaValTotal: TBCDField
       FieldName = 'ValTotal'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -429,8 +430,8 @@ object DM: TDM
     end
     object ADODS_VendaDesconto: TBCDField
       FieldName = 'Desconto'
-      DisplayFormat = '##,##0.00'
-      EditFormat = '##,##0.00'
+      DisplayFormat = '##,##0.00%'
+      EditFormat = '##,##0.00%'
       Precision = 5
       Size = 2
     end
@@ -456,8 +457,8 @@ object DM: TDM
     end
     object ADODS_Venda_ItensValTotVei: TBCDField
       FieldName = 'ValTotVei'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Precision = 9
       Size = 2
     end
@@ -465,6 +466,7 @@ object DM: TDM
       FieldName = 'DescUnit'
       DisplayFormat = '##,##0.00'
       EditFormat = '##,##0.00'
+      currency = True
       Precision = 5
       Size = 2
     end
@@ -486,9 +488,15 @@ object DM: TDM
       LookupKeyFields = 'Codigo'
       LookupResultField = 'Valor'
       KeyFields = 'Veiculo'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
+      DisplayFormat = 'R$###,###,##0.00'
+      EditFormat = 'R$###,###,##0.00'
       Lookup = True
     end
+  end
+  object ADOC_Atualiza: TADOCommand
+    Connection = ADOConnection1
+    Parameters = <>
+    Left = 264
+    Top = 216
   end
 end

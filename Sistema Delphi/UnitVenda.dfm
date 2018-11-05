@@ -238,6 +238,7 @@ object FrmVenda: TFrmVenda
           ListField = 'Placa'
           ListSource = DS_Veiculo
           TabOrder = 0
+          OnEnter = DBLookupComboBox3Enter
           OnExit = DBLookupComboBox3Exit
         end
       end
@@ -473,6 +474,7 @@ object FrmVenda: TFrmVenda
       Hint = 'Excluir Registro'
       Caption = 'Excluir'
       ImageIndex = 7
+      OnClick = Btn_ExcluirClick
     end
     object ToolButton11: TToolButton
       Left = 358
@@ -535,7 +537,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 456
     Bitmap = {
-      494C01010C001800400018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C0018004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1735,7 +1737,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 512
     Bitmap = {
-      494C01010C002400400018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C0024004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2935,7 +2937,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 576
     Bitmap = {
-      494C01010C001800400018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C0018004C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4186,70 +4188,6 @@ object FrmVenda: TFrmVenda
       Size = 2
     end
   end
-  object ADOQRY_Colunas: TADOQuery
-    Connection = DM.ADOConnection1
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      
-        'select Veiculo.Codigo, Veiculo.Placa, Fabricante.NomeFantasia, C' +
-        'ombustivel.Descricao, Veiculo.Km, Veiculo.Docum, Modelo.Descrica' +
-        'o, Veiculo.Valor, Veiculo.Status from Veiculo inner join Fabrica' +
-        'nte on Veiculo.Fabricante = Fabricante.Codigo inner join Combust' +
-        'ivel on Veiculo.Combustivel = Combustivel.Codigo inner join Mode' +
-        'lo on Veiculo.Modelo = Modelo.Codigo')
-    Left = 32
-    Top = 330
-    object ADOQRY_ColunasCodigo: TIntegerField
-      FieldName = 'Codigo'
-    end
-    object ADOQRY_ColunasPlaca: TStringField
-      FieldName = 'Placa'
-      EditMask = 'AAA-9999;0;'
-      Size = 8
-    end
-    object ADOQRY_ColunasNomeFantasia: TStringField
-      FieldName = 'NomeFantasia'
-      Size = 150
-    end
-    object ADOQRY_ColunasDescricao: TStringField
-      FieldName = 'Descricao'
-      Size = 200
-    end
-    object ADOQRY_ColunasKm: TBCDField
-      FieldName = 'Km'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
-      Precision = 9
-      Size = 3
-    end
-    object ADOQRY_ColunasDocum: TStringField
-      FieldName = 'Docum'
-      FixedChar = True
-      Size = 1
-    end
-    object ADOQRY_ColunasDescricao_1: TStringField
-      FieldName = 'Descricao_1'
-      Size = 200
-    end
-    object ADOQRY_ColunasValor: TBCDField
-      FieldName = 'Valor'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
-      Precision = 9
-      Size = 2
-    end
-    object ADOQRY_ColunasStatus: TStringField
-      FieldName = 'Status'
-      FixedChar = True
-      Size = 1
-    end
-  end
-  object DS_Colunas: TDataSource
-    DataSet = ADOQRY_Colunas
-    Left = 88
-    Top = 330
-  end
   object DS_CodVen: TDataSource
     DataSet = ADOQRY_CodVen
     Left = 536
@@ -4263,5 +4201,17 @@ object FrmVenda: TFrmVenda
       'select top 1 Codigo from Venda order by Codigo desc;')
     Left = 480
     Top = 338
+  end
+  object DS_Delete: TDataSource
+    DataSet = ADOQRY_Delete
+    Left = 88
+    Top = 346
+  end
+  object ADOQRY_Delete: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    Left = 48
+    Top = 346
   end
 end

@@ -105,6 +105,7 @@ type
     ADODS_VendaDesconto: TBCDField;
     ADODS_Venda_ItensPlaca: TStringField;
     ADODS_Venda_ItensValorUnit: TFloatField;
+    ADOC_Atualiza: TADOCommand;
     procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;
@@ -116,6 +117,8 @@ type
     procedure ADODS_FuncionarioStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_Venda_ItensNewRecord(DataSet: TDataSet);
+    procedure ADODS_VeiculoStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
   private
     { Private declarations }
   public
@@ -176,6 +179,18 @@ begin
     Text := 'Inativo';
 end;
 
+procedure TDM.ADODS_VeiculoStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    if Sender.AsString = 'I' then
+      Text := 'Inativo'
+    else
+      Text := 'Vendido';
+end;
+
 procedure TDM.ADODS_Venda_ItensNewRecord(DataSet: TDataSet);
 begin
   ADODS_Venda_ItensCodigo.AsInteger := ADODS_VendaCodigo.AsInteger;

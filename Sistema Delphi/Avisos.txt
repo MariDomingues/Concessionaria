@@ -1,5 +1,5 @@
-ADOConnection2ADOConnection2 - faculdade
-ADOConnection2ADOConnection1 - casa
+Parametro
+https://www.andrecelestino.com/delphi-trabalhando-com-parametros-na-query/
 
 Ajuda com Query no delphi
 https://www.andrecelestino.com/conhecendo-o-componente-query/
