@@ -29,6 +29,7 @@ type
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
+    procedure DBEdit1Exit(Sender: TObject);
   private
     procedure LimpaTela;
     { Private declarations }
@@ -70,6 +71,13 @@ end;
 procedure TFrmCadCombustivel.btn_SalvarClick(Sender: TObject);
 var CodCom : integer;
 begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Descrição" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort
+    end;
+
   if Acao = 'I' then
     begin
       CodCom := ADOQRY_CodCom.FieldByName('Codigo').AsInteger;
@@ -91,6 +99,16 @@ begin
   Pn1Ficha.Enabled     := False;
 
   LimpaTela;
+end;
+
+procedure TFrmCadCombustivel.DBEdit1Exit(Sender: TObject);
+begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Descrição" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort
+    end;
 end;
 
 procedure TFrmCadCombustivel.FormActivate(Sender: TObject);

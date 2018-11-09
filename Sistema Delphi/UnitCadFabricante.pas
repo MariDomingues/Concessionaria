@@ -51,6 +51,17 @@ type
     procedure btn_SalvarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBEdit1Exit(Sender: TObject);
+    procedure DBEdit2Exit(Sender: TObject);
+    procedure DBEdit4Exit(Sender: TObject);
+    procedure DBEdit5Exit(Sender: TObject);
+    procedure DBEdit6Exit(Sender: TObject);
+    procedure DBEdit7Exit(Sender: TObject);
+    procedure DBEdit8Exit(Sender: TObject);
+    procedure DBEdit9Exit(Sender: TObject);
+    procedure DBEdit12Exit(Sender: TObject);
+    procedure DBEdit3Exit(Sender: TObject);
+    procedure DBEdit10Exit(Sender: TObject);
   private
     procedure LimpaTela;
     { Private declarations }
@@ -92,6 +103,83 @@ end;
 procedure TFrmCadFabricante.btn_SalvarClick(Sender: TObject);
 var CodFab : integer;
 begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Razão Social" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort
+    end;
+
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Nome Fantasia" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort
+    end;
+
+  if DBEdit3.Text = '  .   .   /    -  ' then
+    begin
+      Application.MessageBox('O campo "CNPJ" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit3.SetFocus;
+      Abort
+    end;
+
+  if DBEdit4.Text = '' then
+    begin
+      Application.MessageBox('O campo "Email" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit4.SetFocus;
+      Abort
+    end;
+
+  if DBEdit5.Text = '' then
+    begin
+      Application.MessageBox('O campo "País" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit5.SetFocus;
+      Abort
+    end;
+
+  if DBEdit6.Text = '' then
+    begin
+      Application.MessageBox('O campo "Cidade" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit6.SetFocus;
+      Abort
+    end;
+
+  if DBEdit7.Text = '' then
+    begin
+      Application.MessageBox('O campo "Endereço" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit7.SetFocus;
+      Abort
+    end;
+
+  if DBEdit8.Text = '' then
+    begin
+      Application.MessageBox('O campo "Bairro" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit8.SetFocus;
+      Abort
+    end;
+
+  if DBEdit9.Text = '      -   ' then
+    begin
+      Application.MessageBox('O campo "CEP" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit9.SetFocus;
+      Abort
+    end;
+
+  if DBEdit10.Text = '' then
+    begin
+      Application.MessageBox('O campo "Nro. Conta" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit10.SetFocus;
+      Abort
+    end;
+
+  if DBEdit12.Text = '(   )    -    ' then
+    begin
+      Application.MessageBox('O campo "Telefone" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit12.SetFocus;
+      Abort
+    end;
+
   if Acao = 'I' then
     begin
       CodFab := ADOQRY_CodFab.FieldByName('Codigo').AsInteger;
@@ -144,6 +232,116 @@ begin
   DBEdit11.Clear;
   DBEdit12.Clear;
   DBComboBox1.ItemIndex := 0;
+end;
+
+procedure TFrmCadFabricante.DBEdit10Exit(Sender: TObject);
+begin
+  if DBEdit10.Text = '' then
+    begin
+      Application.MessageBox('O campo "Nro. Conta" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit10.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit12Exit(Sender: TObject);
+begin
+  if DBEdit12.Text = '(   )    -    ' then
+    begin
+      Application.MessageBox('O campo "Telefone" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit12.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit1Exit(Sender: TObject);
+begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Razão Social" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit2Exit(Sender: TObject);
+begin
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Nome Fantasia" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit3Exit(Sender: TObject);
+begin
+  if DBEdit3.Text = '  .   .   /    -  ' then
+    begin
+      Application.MessageBox('O campo "CNPJ" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit3.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit4Exit(Sender: TObject);
+begin
+  if DBEdit4.Text = '' then
+    begin
+      Application.MessageBox('O campo "Email" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit4.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit5Exit(Sender: TObject);
+begin
+  if DBEdit5.Text = '' then
+    begin
+      Application.MessageBox('O campo "País" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit5.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit6Exit(Sender: TObject);
+begin
+  if DBEdit6.Text = '' then
+    begin
+      Application.MessageBox('O campo "Cidade" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit6.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit7Exit(Sender: TObject);
+begin
+  if DBEdit7.Text = '' then
+    begin
+      Application.MessageBox('O campo "Endereço" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit7.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit8Exit(Sender: TObject);
+begin
+  if DBEdit8.Text = '' then
+    begin
+      Application.MessageBox('O campo "Bairro" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit8.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadFabricante.DBEdit9Exit(Sender: TObject);
+begin
+  if DBEdit9.Text = '     -   ' then
+    begin
+      Application.MessageBox('O campo "CEP" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit9.SetFocus;
+      Abort
+    end;
 end;
 
 end.

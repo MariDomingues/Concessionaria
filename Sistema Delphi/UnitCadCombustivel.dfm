@@ -63,6 +63,7 @@ object FrmCadCombustivel: TFrmCadCombustivel
       DataField = 'Descricao'
       DataSource = DM.DS_Combustivel
       TabOrder = 0
+      OnExit = DBEdit1Exit
     end
     object DBEdit11: TDBEdit
       Left = 447

@@ -1,0 +1,155 @@
+unit UnitCadMecanico;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ToolWin, Vcl.StdCtrls,
+  Vcl.Mask, Vcl.DBCtrls, Vcl.ExtCtrls, Data.DB, Data.Win.ADODB;
+
+type
+  TFrmCadMecanico = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Pn1Ficha: TPanel;
+    Label2: TLabel;
+    Label5: TLabel;
+    Label3: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    DBComboBox1: TDBComboBox;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    btn_Salvar: TToolButton;
+    ToolButton2: TToolButton;
+    btn_Cancelar: TToolButton;
+    ToolButton4: TToolButton;
+    btn_Sair: TToolButton;
+    DS_CodMec: TDataSource;
+    ADOQRY_CodMec: TADOQuery;
+    Label4: TLabel;
+    DBComboBox2: TDBComboBox;
+    procedure btn_CancelarClick(Sender: TObject);
+    procedure btn_SairClick(Sender: TObject);
+    procedure btn_SalvarClick(Sender: TObject);
+    procedure DBComboBox2Exit(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    procedure LimpaTela;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadMecanico: TFrmCadMecanico;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitManMecanico, UnitDM;
+
+procedure TFrmCadMecanico.btn_CancelarClick(Sender: TObject);
+begin
+  DM.ADODS_Mecanico.Cancel;
+
+  Application.MessageBox('A inclusão ou alteração deste registro foi abortada.', 'Atenção', MB_OK + MB_ICONERROR);
+
+  btn_Salvar.Enabled   := False;
+  btn_Cancelar.Enabled := False;
+  btn_Sair.Enabled     := True;
+  Pn1Ficha.Enabled     := False;
+
+  LimpaTela;
+end;
+
+procedure TFrmCadMecanico.btn_SairClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmCadMecanico.btn_SalvarClick(Sender: TObject);
+var CodMec : integer;
+begin
+  if Acao = 'I' then
+    begin
+      CodMec := ADOQRY_CodMec.FieldByName('Codigo').AsInteger;
+      CodMec := CodMec + 1;
+
+      DBEdit11.Text := IntToStr(CodMec);
+    end;
+
+  DM.ADODS_Mecanico.Post;
+
+  if Acao = 'I' then
+    Application.MessageBox('O registro foi incluido com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION)
+  else
+    Application.MessageBox('O registro foi alterado com sucesso.', 'Informação', MB_OK + MB_ICONINFORMATION);
+
+  btn_Salvar.Enabled   := False;
+  btn_Cancelar.Enabled := False;
+  btn_Sair.Enabled     := True;
+  Pn1Ficha.Enabled     := False;
+
+  LimpaTela;
+end;
+
+procedure TFrmCadMecanico.DBComboBox2Exit(Sender: TObject);
+begin
+  if DBComboBox2.Text = 'Física' then
+    begin
+      Label5.Caption := 'CPF:';
+      DM.ADODS_Mecanico.FieldByName('CpfCnpj').EditMask := '999.999.999-99;0;'
+    end
+  else
+    begin
+      Label5.Caption := 'CNPJ:';
+      DM.ADODS_Mecanico.FieldByName('CpfCnpj').EditMask := '99.999.999/9999-99;0;'
+    end;
+end;
+
+procedure TFrmCadMecanico.FormActivate(Sender: TObject);
+begin
+  ADOQRY_CodMec.Close;
+  ADOQRY_CodMec.Open;
+
+  DBComboBox1.ItemIndex := 1;
+  DBComboBox2.ItemIndex := 0;
+end;
+
+procedure TFrmCadMecanico.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  ADOQRY_CodMec.Close;
+end;
+
+procedure TFrmCadMecanico.LimpaTela;
+begin
+  DBEdit1.Clear;
+  DBEdit2.Clear;
+  DBEdit4.Clear;
+  DBEdit5.Clear;
+  DBEdit7.Clear;
+  DBEdit8.Clear;
+  DBEdit9.Clear;
+  DBEdit10.Clear;
+  DBEdit11.Clear;
+  DBComboBox1.ItemIndex := 0;
+  DBComboBox2.ItemIndex := 0;
+end;
+
+end.

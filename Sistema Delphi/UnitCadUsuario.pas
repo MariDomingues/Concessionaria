@@ -20,7 +20,6 @@ type
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit11: TDBEdit;
-    DBLookupComboBox1: TDBLookupComboBox;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     btn_Salvar: TToolButton;
@@ -32,11 +31,14 @@ type
     ADOQRY_CodUsu: TADOQuery;
     DS_Funcionario: TDataSource;
     ADOQRY_Funcionario: TADOQuery;
+    DBLookupComboBox2: TDBLookupComboBox;
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBEdit1Exit(Sender: TObject);
+    procedure DBEdit2Exit(Sender: TObject);
   private
     procedure LimpaTela;
     { Private declarations }
@@ -78,6 +80,20 @@ end;
 procedure TFrmCadUsuario.btn_SalvarClick(Sender: TObject);
 var CodUsu : integer;
 begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Usuário" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort
+    end;
+
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Senha" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort
+    end;
+
   if Acao = 'I' then
     begin
       CodUsu := ADOQRY_CodUsu.FieldByName('Codigo').AsInteger;
@@ -99,6 +115,26 @@ begin
   Pn1Ficha.Enabled     := False;
 
   LimpaTela;
+end;
+
+procedure TFrmCadUsuario.DBEdit1Exit(Sender: TObject);
+begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Usuário" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadUsuario.DBEdit2Exit(Sender: TObject);
+begin
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Senha" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort
+    end;
 end;
 
 procedure TFrmCadUsuario.FormActivate(Sender: TObject);

@@ -90,10 +90,9 @@ object Frm_Menu: TFrm_Menu
     end
     object Button1: TButton
       Left = 55
-      Top = 544
+      Top = 295
       Width = 162
       Height = 25
-      Align = alCustom
       Caption = 'Sair'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText

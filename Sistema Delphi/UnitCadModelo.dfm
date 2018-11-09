@@ -84,12 +84,13 @@ object FrmCadModelo: TFrmCadModelo
     end
     object DBEdit1: TDBEdit
       Left = 75
-      Top = 22
+      Top = 27
       Width = 344
       Height = 21
       DataField = 'Descricao'
       DataSource = DM.DS_Modelo
       TabOrder = 0
+      OnExit = DBEdit1Exit
     end
     object DBEdit11: TDBEdit
       Left = 407

@@ -57,6 +57,15 @@ type
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBEdit1Exit(Sender: TObject);
+    procedure DBEdit2Exit(Sender: TObject);
+    procedure DBLookupComboBox1Exit(Sender: TObject);
+    procedure DBLookupComboBox2Exit(Sender: TObject);
+    procedure DBLookupComboBox3Exit(Sender: TObject);
+    procedure DBLookupComboBox4Exit(Sender: TObject);
+    procedure DBEdit7Exit(Sender: TObject);
+    procedure DBEdit5Exit(Sender: TObject);
+    procedure DBEdit6Exit(Sender: TObject);
   private
     procedure LimpaTela;
     { Private declarations }
@@ -98,6 +107,69 @@ end;
 procedure TFrmCadVeiculo.btn_SalvarClick(Sender: TObject);
 var CodVei : integer;
 begin
+  if DBEdit1.Text = '   -    ' then
+    begin
+      Application.MessageBox('O campo "Placa" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort;
+    end;
+
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Ano" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort;
+    end;
+
+  if varisnull(DBLookupComboBox1.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Fabricante" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox1.SetFocus;
+      Abort;
+    end;
+
+  if varisnull(DBLookupComboBox2.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Modelo" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox2.SetFocus;
+      Abort;
+    end;
+
+  if varisnull(DBLookupComboBox3.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Combustível" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox3.SetFocus;
+      Abort;
+    end;
+
+  if varisnull(DBLookupComboBox4.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Cliente" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox4.SetFocus;
+      Abort;
+    end;
+
+  if DBEdit5.Text = '' then
+    begin
+      Application.MessageBox('O campo "Valor" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit5.SetFocus;
+      Abort
+    end;
+
+  if DBEdit6.Text = '' then
+    begin
+      Application.MessageBox('O campo "Km Rodado" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit6.SetFocus;
+      Abort
+    end;
+
+  if DBEdit7.Text = '' then
+    begin
+      Application.MessageBox('O campo "Cor" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit7.SetFocus;
+      Abort
+    end;
+
   if Acao = 'I' then
     begin
       CodVei := ADOQRY_CodVei.FieldByName('Codigo').AsInteger;
@@ -121,12 +193,102 @@ begin
   LimpaTela;
 end;
 
+procedure TFrmCadVeiculo.DBEdit1Exit(Sender: TObject);
+begin
+  if DBEdit1.Text = '   -    ' then
+    begin
+      Application.MessageBox('O campo "Placa" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBEdit2Exit(Sender: TObject);
+begin
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Ano" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBEdit5Exit(Sender: TObject);
+begin
+  if DBEdit5.Text = '' then
+    begin
+      Application.MessageBox('O campo "Valor" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit5.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBEdit6Exit(Sender: TObject);
+begin
+  if DBEdit6.Text = '' then
+    begin
+      Application.MessageBox('O campo "Km Rodado" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit6.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBEdit7Exit(Sender: TObject);
+begin
+  if DBEdit7.Text = '' then
+    begin
+      Application.MessageBox('O campo "Cor" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit7.SetFocus;
+      Abort
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBLookupComboBox1Exit(Sender: TObject);
+begin
+  if varisnull(DBLookupComboBox1.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Fabricante" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox1.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBLookupComboBox2Exit(Sender: TObject);
+begin
+  if varisnull(DBLookupComboBox2.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Modelo" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox2.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBLookupComboBox3Exit(Sender: TObject);
+begin
+  if varisnull(DBLookupComboBox3.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Combustível" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox3.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TFrmCadVeiculo.DBLookupComboBox4Exit(Sender: TObject);
+begin
+  if varisnull(DBLookupComboBox4.KeyValue)  then
+    begin
+      Application.MessageBox('O campo "Cliente" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBLookupComboBox4.SetFocus;
+      Abort;
+    end;
+end;
+
 procedure TFrmCadVeiculo.FormActivate(Sender: TObject);
 begin
   ADOQRY_Fabricante.Close;
   ADOQRY_Fabricante.Open;
 
-	ADOQRY_Modelo.Close;
+  ADOQRY_Modelo.Close;
   ADOQRY_Modelo.Open;
 
   ADOQRY_CodVei.Close;

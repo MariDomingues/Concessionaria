@@ -35,6 +35,8 @@ type
     procedure btn_SalvarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure DBEdit1Exit(Sender: TObject);
+    procedure DBEdit2Exit(Sender: TObject);
   private
     procedure LimpaTela;
     { Private declarations }
@@ -76,6 +78,20 @@ end;
 procedure TFrmCadCargo.btn_SalvarClick(Sender: TObject);
 var CodCar : integer;
 begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Descrição" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort;
+    end;
+
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Salário Base" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort;
+    end;
+
   if Acao = 'I' then
     begin
       CodCar := ADOQRY_CodCar.FieldByName('Codigo').AsInteger;
@@ -99,6 +115,16 @@ begin
   LimpaTela;
 end;
 
+procedure TFrmCadCargo.DBEdit1Exit(Sender: TObject);
+begin
+  if DBEdit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Descrição" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit1.SetFocus;
+      Abort;
+    end;
+end;
+
 procedure TFrmCadCargo.FormActivate(Sender: TObject);
 begin
   ADOQRY_CodCar.Close;
@@ -119,6 +145,16 @@ begin
   DBMemo1.Clear;
   DBEdit11.Clear;
   DBComboBox1.ItemIndex := 0;
+end;
+
+procedure TFrmCadCargo.DBEdit2Exit(Sender: TObject);
+begin
+  if DBEdit2.Text = '' then
+    begin
+      Application.MessageBox('O campo "Salário Base" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      DBEdit2.SetFocus;
+      Abort;
+    end;
 end;
 
 end.

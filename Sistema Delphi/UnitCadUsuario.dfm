@@ -64,21 +64,21 @@ object FrmCadUsuario: TFrmCadUsuario
     end
     object Label10: TLabel
       Left = 10
-      Top = 89
+      Top = 86
       Width = 59
       Height = 13
       Caption = 'Funcion'#225'rio:'
     end
     object Label12: TLabel
       Left = 34
-      Top = 121
+      Top = 116
       Width = 35
       Height = 13
       Caption = 'Status:'
     end
     object DBComboBox1: TDBComboBox
       Left = 75
-      Top = 112
+      Top = 113
       Width = 190
       Height = 21
       Style = csDropDownList
@@ -87,7 +87,7 @@ object FrmCadUsuario: TFrmCadUsuario
       Items.Strings = (
         'Ativo'
         'Inativo')
-      TabOrder = 3
+      TabOrder = 4
     end
     object DBEdit1: TDBEdit
       Left = 75
@@ -97,6 +97,7 @@ object FrmCadUsuario: TFrmCadUsuario
       DataField = 'Usuario'
       DataSource = DM.DS_Login
       TabOrder = 0
+      OnExit = DBEdit1Exit
     end
     object DBEdit2: TDBEdit
       Left = 75
@@ -106,6 +107,7 @@ object FrmCadUsuario: TFrmCadUsuario
       DataField = 'Senha'
       DataSource = DM.DS_Login
       TabOrder = 1
+      OnExit = DBEdit2Exit
     end
     object DBEdit11: TDBEdit
       Left = 383
@@ -114,19 +116,19 @@ object FrmCadUsuario: TFrmCadUsuario
       Height = 21
       DataField = 'Codigo'
       DataSource = DM.DS_Login
-      TabOrder = 4
+      TabOrder = 3
       Visible = False
     end
-    object DBLookupComboBox1: TDBLookupComboBox
+    object DBLookupComboBox2: TDBLookupComboBox
       Left = 75
-      Top = 85
+      Top = 83
       Width = 190
       Height = 21
       DataField = 'Funcionario'
       DataSource = DM.DS_Login
       KeyField = 'Codigo'
       ListField = 'Nome'
-      ReadOnly = True
+      ListSource = DS_Funcionario
       TabOrder = 2
     end
   end

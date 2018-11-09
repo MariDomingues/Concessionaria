@@ -16,7 +16,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
   Position = poScreenCenter
   OnActivate = FormActivate
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 14
   object DBG_Usu: TDBGrid
     Left = 0
     Top = 131
@@ -104,7 +104,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     object Label2: TLabel
       Left = 8
       Top = 14
-      Width = 113
+      Width = 124
       Height = 15
       Caption = 'Pesquisa por Usu'#225'rio:'
       Font.Charset = ANSI_CHARSET
@@ -115,7 +115,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       ParentFont = False
     end
     object Edit1: TEdit
-      Left = 124
+      Left = 137
       Top = 11
       Width = 490
       Height = 23
@@ -145,8 +145,8 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Width = 1093
     Height = 49
     BorderWidth = 1
-    ButtonHeight = 44
-    ButtonWidth = 48
+    ButtonHeight = 45
+    ButtonWidth = 43
     Caption = 'ToolBar1'
     Color = clBtnFace
     DisabledImages = ImageList2
@@ -167,7 +167,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       OnClick = btn_InserirClick
     end
     object ToolButton2: TToolButton
-      Left = 48
+      Left = 43
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
@@ -175,7 +175,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Alterar: TToolButton
-      Left = 56
+      Left = 51
       Top = 0
       Hint = 'Alterar Registro'
       Caption = 'Alterar'
@@ -183,7 +183,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       OnClick = btn_AlterarClick
     end
     object ToolButton4: TToolButton
-      Left = 104
+      Left = 94
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -191,7 +191,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Excluir: TToolButton
-      Left = 112
+      Left = 102
       Top = 0
       Hint = 'Excluir Registro'
       Caption = 'Excluir'
@@ -199,7 +199,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       OnClick = btn_ExcluirClick
     end
     object ToolButton10: TToolButton
-      Left = 160
+      Left = 145
       Top = 0
       Width = 8
       Caption = 'ToolButton10'
@@ -207,14 +207,14 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Imprimir: TToolButton
-      Left = 168
+      Left = 153
       Top = 0
       Hint = 'Imprimir'
       Caption = 'Imprimir'
       ImageIndex = 6
     end
     object ToolButton12: TToolButton
-      Left = 216
+      Left = 196
       Top = 0
       Width = 8
       Caption = 'ToolButton12'
@@ -222,7 +222,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Sair: TToolButton
-      Left = 224
+      Left = 204
       Top = 0
       Hint = 'Sair'
       Caption = 'Sair'
@@ -236,7 +236,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800880018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070048008C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -843,7 +843,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800800018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800840018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1450,7 +1450,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800800018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800840018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005
