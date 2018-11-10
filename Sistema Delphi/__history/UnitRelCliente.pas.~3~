@@ -1,0 +1,124 @@
+unit UnitRelCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, Vcl.ExtCtrls,
+  frxClass, frxDBSet, Data.DB, Data.Win.ADODB;
+
+type
+  TForm1 = class(TForm)
+    EdtCidade: TLabeledEdit;
+    EdtCodigoAte: TLabeledEdit;
+    EdtCodigoDe: TLabeledEdit;
+    EdtNomeAte: TLabeledEdit;
+    EdtNomeDe: TLabeledEdit;
+    Panel1: TPanel;
+    Label1: TLabel;
+    RadioGroup1: TRadioGroup;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQRY_Cliente: TADOQuery;
+    ADOQRY_ClienteID: TAutoIncField;
+    ADOQRY_ClienteCLI_TIPO: TStringField;
+    ADOQRY_ClienteCLI_NOME: TStringField;
+    ADOQRY_ClienteCLI_ENDERECO: TStringField;
+    ADOQRY_ClienteCLI_BAIRRO: TStringField;
+    ADOQRY_ClienteCLI_CIDADE: TStringField;
+    ADOQRY_ClienteCLI_ESTADO: TStringField;
+    ADOQRY_ClienteCLI_EMAIL: TStringField;
+    ADOQRY_ClienteCLI_SITE: TStringField;
+    ADOQRY_ClienteCLI_CEP: TStringField;
+    ADOQRY_ClienteCLI_TELEFONE: TStringField;
+    ADOQRY_ClienteCLI_CELULAR: TStringField;
+    ADOQRY_ClienteCLI_DATA_NASC: TDateTimeField;
+    ADOQRY_ClienteCLI_OBSERVACAO: TMemoField;
+    ADOQRY_ClienteCLI_NOME_FANTASIA: TStringField;
+    ADOQRY_ClienteCLI_CPFCNPJ: TStringField;
+    ADOQRY_ClienteCLI_RGIE: TStringField;
+    ADOQRY_ClienteCLI_LIMITE_CRED: TBCDField;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+    procedure FormCreate(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDM;
+
+procedure TForm1.SpeedButton1Click(Sender: TObject);
+var StrLiga: String;
+begin
+  StrLiga:= 'where ';
+
+  ADOQRY_Cliente.Close;
+    with ADOQRY_Cliente.SQL do
+      begin
+        Clear;
+        Add('SELECT * FROM Cliente ');
+
+        if EdtCodigoDe.Text <> '' then
+          try
+            StrToInt(EdtCodigoDe.Text);
+            Add(StrLiga + 'Codigo > = ' + EdtCodigoDe.Text);
+            StrLiga:= 'and ';
+            except
+              on EConvertError do;
+          end;
+
+        if EdtCodigoAte.Text <> '' then
+          try
+            StrToInt(EdtCodigoAte.Text);
+            Add(StrLiga + 'Codigo < = ' + EdtCodigoAte.Text);
+            StrLiga:= 'and ';
+            except
+              on EConvertError do;
+          end;
+
+        if EdtNomeDe.Text <> '' then
+          begin
+            Add(StrLiga + 'Nome >= ''' + EdtNomeDe.Text + '''');
+            StrLiga:= 'and ';
+          end;
+
+        if EdtNomeAte.Text <> '' then
+          begin
+            Add(StrLiga + 'Nome <= ''' + EdtNomeAte.Text + 'zzz''');
+            StrLiga:= 'and ';
+          end;
+
+        if EdtCidade.Text <> '' then
+          begin
+            Add(StrLiga + 'Cidade like ' + #39 +
+              '%' + EdtCidade.Text + '%' + #39 );
+
+          end;
+
+        case RadioGroup1.ItemIndex of
+          0: Add('order by Codigo');
+          1: Add('order by Nome');
+          2: Add('order by Cidade');
+        end;
+      end;
+  ADOQRY_Cliente.Open;
+  frxreport1.ShowReport;
+end;
+
+procedure TForm1.SpeedButton2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

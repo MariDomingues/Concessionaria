@@ -1,0 +1,57 @@
+unit UnitRelCliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.StdCtrls, Vcl.ExtCtrls,
+  frxClass, frxDBSet, Data.DB, Data.Win.ADODB;
+
+type
+  TForm1 = class(TForm)
+    EdtCidade: TLabeledEdit;
+    EdtCodigoAte: TLabeledEdit;
+    EdtCodigoDe: TLabeledEdit;
+    EdtNomeAte: TLabeledEdit;
+    EdtNomeDe: TLabeledEdit;
+    Panel1: TPanel;
+    Label1: TLabel;
+    RadioGroup1: TRadioGroup;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQuery1: TADOQuery;
+    ADOQuery1ID: TAutoIncField;
+    ADOQuery1CLI_TIPO: TStringField;
+    ADOQuery1CLI_NOME: TStringField;
+    ADOQuery1CLI_ENDERECO: TStringField;
+    ADOQuery1CLI_BAIRRO: TStringField;
+    ADOQuery1CLI_CIDADE: TStringField;
+    ADOQuery1CLI_ESTADO: TStringField;
+    ADOQuery1CLI_EMAIL: TStringField;
+    ADOQuery1CLI_SITE: TStringField;
+    ADOQuery1CLI_CEP: TStringField;
+    ADOQuery1CLI_TELEFONE: TStringField;
+    ADOQuery1CLI_CELULAR: TStringField;
+    ADOQuery1CLI_DATA_NASC: TDateTimeField;
+    ADOQuery1CLI_OBSERVACAO: TMemoField;
+    ADOQuery1CLI_NOME_FANTASIA: TStringField;
+    ADOQuery1CLI_CPFCNPJ: TStringField;
+    ADOQuery1CLI_RGIE: TStringField;
+    ADOQuery1CLI_LIMITE_CRED: TBCDField;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.

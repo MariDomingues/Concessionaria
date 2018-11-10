@@ -1,37 +1,82 @@
-object Frm_Man_Cliente: TFrm_Man_Cliente
-  Left = 560
+object Frm_Man_Combustivel: TFrm_Man_Combustivel
+  Left = 540
   Top = 291
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Manuten'#231#227'o do Cadastro de Cliente'
-  ClientHeight = 525
-  ClientWidth = 988
+  Caption = 'Manuten'#231#227'o do Cadastro de Combust'#237'vel'
+  ClientHeight = 598
+  ClientWidth = 1093
   Color = clBtnFace
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -11
   Font.Name = 'Yu Gothic UI'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poScreenCenter
   OnActivate = FormActivate
   PixelsPerInch = 96
-  TextHeight = 15
+  TextHeight = 13
+  object DBG_Mod: TDBGrid
+    Left = 0
+    Top = 131
+    Width = 1093
+    Height = 447
+    Align = alTop
+    DataSource = DM.DS_Combustivel
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Codigo'
+        Title.Caption = 'C'#243'digo'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Descricao'
+        Title.Caption = 'Descri'#231#227'o'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 800
+        Visible = True
+      end>
+  end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 988
+    Width = 1093
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
-    TabOrder = 0
+    TabOrder = 1
     object Label1: TLabel
-      Left = 355
+      Left = 386
       Top = 10
-      Width = 294
+      Width = 339
       Height = 18
-      Caption = ' Manuten'#231#227'o no Cadastro de Cliente'
+      Caption = ' Manuten'#231#227'o no Cadastro de Combust'#237'vel'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -15
@@ -40,109 +85,19 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
       ParentFont = False
     end
   end
-  object ToolBar1: TToolBar
-    Left = 0
-    Top = 41
-    Width = 988
-    Height = 49
-    BorderWidth = 1
-    ButtonHeight = 40
-    ButtonWidth = 43
-    Caption = 'ToolBar1'
-    Color = clBtnFace
-    DisabledImages = ImageList2
-    EdgeBorders = [ebTop, ebBottom]
-    HotImages = ImageList3
-    Images = ImageList1
-    ParentColor = False
-    ParentShowHint = False
-    ShowHint = True
-    TabOrder = 1
-    object btn_Inserir: TToolButton
-      Left = 0
-      Top = 0
-      Hint = 'Inserir Registro'
-      Caption = 'Inserir'
-      ImageIndex = 0
-      OnClick = btn_InserirClick
-    end
-    object ToolButton2: TToolButton
-      Left = 43
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton2'
-      ImageIndex = 1
-      Style = tbsSeparator
-    end
-    object btn_Alterar: TToolButton
-      Left = 51
-      Top = 0
-      Hint = 'Alterar Registro'
-      Caption = 'btn_Alterar'
-      ImageIndex = 1
-      OnClick = btn_AlterarClick
-    end
-    object ToolButton4: TToolButton
-      Left = 94
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton4'
-      ImageIndex = 2
-      Style = tbsSeparator
-    end
-    object btn_Excluir: TToolButton
-      Left = 102
-      Top = 0
-      Hint = 'Excluir Registro'
-      Caption = 'btn_Excluir'
-      ImageIndex = 2
-      OnClick = btn_ExcluirClick
-    end
-    object ToolButton10: TToolButton
-      Left = 145
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton10'
-      ImageIndex = 5
-      Style = tbsSeparator
-    end
-    object btn_Imprimir: TToolButton
-      Left = 153
-      Top = 0
-      Hint = 'Imprimir'
-      Caption = 'btn_Imprimir'
-      ImageIndex = 6
-    end
-    object ToolButton12: TToolButton
-      Left = 196
-      Top = 0
-      Width = 8
-      Caption = 'ToolButton12'
-      ImageIndex = 6
-      Style = tbsSeparator
-    end
-    object btn_Sair: TToolButton
-      Left = 204
-      Top = 0
-      Hint = 'Sair'
-      Caption = 'btn_Sair'
-      ImageIndex = 5
-      OnClick = btn_SairClick
-    end
-  end
   object Panel2: TPanel
     Left = 0
     Top = 90
-    Width = 988
+    Width = 1093
     Height = 41
     Align = alTop
     TabOrder = 2
     object Label2: TLabel
       Left = 8
       Top = 14
-      Width = 105
+      Width = 138
       Height = 15
-      Caption = 'Pesquisa por Nome:'
+      Caption = 'Pesquisa por Combust'#237'vel:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -151,8 +106,8 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
       ParentFont = False
     end
     object Edit1: TEdit
-      Left = 119
-      Top = 12
+      Left = 161
+      Top = 11
       Width = 490
       Height = 23
       Font.Charset = ANSI_CHARSET
@@ -167,171 +122,104 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 506
-    Width = 988
+    Top = 579
+    Width = 1093
     Height = 19
     Panels = <
       item
         Width = 50
       end>
   end
-  object DBG_Cli: TDBGrid
+  object ToolBar1: TToolBar
     Left = 0
-    Top = 131
-    Width = 988
-    Height = 374
-    Align = alTop
-    DataSource = DM.DS_Cliente
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Yu Gothic UI'
-    Font.Style = []
-    ParentFont = False
-    ReadOnly = True
+    Top = 41
+    Width = 1093
+    Height = 49
+    BorderWidth = 1
+    ButtonHeight = 44
+    ButtonWidth = 48
+    Caption = 'ToolBar1'
+    Color = clBtnFace
+    DisabledImages = ImageList2
+    EdgeBorders = [ebTop, ebBottom]
+    HotImages = ImageList3
+    Images = ImageList1
+    ParentColor = False
+    ParentShowHint = False
+    ShowCaptions = True
+    ShowHint = True
     TabOrder = 4
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'Codigo'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Alignment = taCenter
-        Title.Caption = 'C'#243'digo'
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 50
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Nome'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 250
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CPF'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Alignment = taCenter
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 100
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'CNH'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Alignment = taCenter
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 100
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Endereco'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Caption = 'Endere'#231'o'
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 200
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Telefone'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Alignment = taCenter
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 90
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Veiculo'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Alignment = taCenter
-        Title.Caption = 'Ve'#237'culo'
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Status'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Yu Gothic UI Semilight'
-        Font.Style = []
-        Title.Alignment = taCenter
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Yu Gothic UI'
-        Title.Font.Style = [fsBold]
-        Width = 50
-        Visible = True
-      end>
+    object btn_Inserir: TToolButton
+      Left = 0
+      Top = 0
+      Hint = 'Inserir Registro'
+      Caption = 'Inserir'
+      ImageIndex = 0
+      OnClick = btn_InserirClick
+    end
+    object ToolButton2: TToolButton
+      Left = 48
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton2'
+      ImageIndex = 1
+      Style = tbsSeparator
+    end
+    object btn_Alterar: TToolButton
+      Left = 56
+      Top = 0
+      Hint = 'Alterar Registro'
+      Caption = 'Alterar'
+      ImageIndex = 1
+      OnClick = btn_AlterarClick
+    end
+    object ToolButton4: TToolButton
+      Left = 104
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton4'
+      ImageIndex = 2
+      Style = tbsSeparator
+    end
+    object btn_Excluir: TToolButton
+      Left = 112
+      Top = 0
+      Hint = 'Excluir Registro'
+      Caption = 'Excluir'
+      ImageIndex = 2
+      OnClick = btn_ExcluirClick
+    end
+    object ToolButton10: TToolButton
+      Left = 160
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton10'
+      ImageIndex = 5
+      Style = tbsSeparator
+    end
+    object btn_Imprimir: TToolButton
+      Left = 168
+      Top = 0
+      Hint = 'Imprimir'
+      Caption = 'Imprimir'
+      ImageIndex = 6
+    end
+    object ToolButton12: TToolButton
+      Left = 216
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton12'
+      ImageIndex = 6
+      Style = tbsSeparator
+    end
+    object btn_Sair: TToolButton
+      Left = 224
+      Top = 0
+      Hint = 'Sair'
+      Caption = 'Sair'
+      ImageIndex = 5
+      OnClick = btn_SairClick
+    end
   end
   object ImageList1: TImageList
     Height = 24
@@ -339,7 +227,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800580018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800980018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -946,7 +834,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800500018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1553,7 +1441,7 @@ object Frm_Man_Cliente: TFrm_Man_Cliente
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800500018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

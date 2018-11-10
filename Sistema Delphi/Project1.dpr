@@ -21,7 +21,9 @@ uses
   UnitManModelo in 'UnitManModelo.pas' {Frm_Man_Modelo},
   UnitManCliente in 'UnitManCliente.pas' {Frm_Man_Cliente},
   UnitCadFuncionario in 'UnitCadFuncionario.pas' {FrmCadFuncionario},
-  UnitVenda in 'UnitVenda.pas' {FrmVenda};
+  UnitVenda in 'UnitVenda.pas' {FrmVenda},
+  UnitRelFabricante in 'UnitRelFabricante.pas' {FormRelFab},
+  UnitRelCombustivel in 'UnitRelCombustivel.pas' {FormRelCom};
 
 {$R *.res}
 
@@ -48,5 +50,7 @@ begin
   Application.CreateForm(TFrm_Man_Cliente, Frm_Man_Cliente);
   Application.CreateForm(TFrmCadFuncionario, FrmCadFuncionario);
   Application.CreateForm(TFrmVenda, FrmVenda);
+  Application.CreateForm(TFormRelFab, FormRelFab);
+  Application.CreateForm(TFormRelCom, FormRelCom);
   Application.Run;
 end.

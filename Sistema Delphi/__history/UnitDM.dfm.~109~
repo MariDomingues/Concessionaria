@@ -39,7 +39,7 @@ object DM: TDM
     end
     object ADODS_VeiculoPlaca: TStringField
       FieldName = 'Placa'
-      EditMask = 'AAA-9999;0;'
+      EditMask = 'AAA-9999;1;'
       Size = 8
     end
     object ADODS_VeiculoValor: TBCDField
@@ -61,17 +61,49 @@ object DM: TDM
     end
     object ADODS_VeiculoStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_VeiculoStatusGetText
       FixedChar = True
       Size = 1
     end
     object ADODS_VeiculoDocum: TStringField
       FieldName = 'Docum'
+      OnGetText = ADODS_VeiculoDocumGetText
       FixedChar = True
       Size = 1
     end
     object ADODS_VeiculoAno: TIntegerField
       DisplayWidth = 4
       FieldName = 'Ano'
+    end
+    object ADODS_VeiculoNomeFab: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeFab'
+      LookupDataSet = ADODS_Fabricante
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'NomeFantasia'
+      KeyFields = 'Fabricante'
+      Size = 200
+      Lookup = True
+    end
+    object ADODS_VeiculoNomeMod: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeMod'
+      LookupDataSet = ADODS_Modelo
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Descricao'
+      KeyFields = 'Modelo'
+      Size = 200
+      Lookup = True
+    end
+    object ADODS_VeiculoNomeCom: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeCom'
+      LookupDataSet = ADODS_Combustivel
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Descricao'
+      KeyFields = 'Combustivel'
+      Size = 200
+      Lookup = True
     end
   end
   object DS_Veiculo: TDataSource
@@ -157,7 +189,7 @@ object DM: TDM
     end
     object ADODS_FabricanteCNPJ: TStringField
       FieldName = 'CNPJ'
-      EditMask = '99.999.999/9999-99;0;_'
+      EditMask = '99.999.999/9999-99;1;_'
       Size = 18
     end
     object ADODS_FabricantePais: TStringField
@@ -178,12 +210,12 @@ object DM: TDM
     end
     object ADODS_FabricanteCEP: TStringField
       FieldName = 'CEP'
-      EditMask = '99999-999;0;'
+      EditMask = '99999-999;1;_'
       Size = 9
     end
     object ADODS_FabricanteTelefone: TStringField
       FieldName = 'Telefone'
-      EditMask = '!\(999\)0000-0000;0;'
+      EditMask = '!\(999\)0000-0000;1;_'
       Size = 14
     end
     object ADODS_FabricanteEmail: TStringField
@@ -247,7 +279,7 @@ object DM: TDM
     end
     object ADODS_ClienteCPF: TStringField
       FieldName = 'CPF'
-      EditMask = '999.999.999-99;0;'
+      EditMask = '999.999.999-99;1;_'
       Size = 14
     end
     object ADODS_ClienteCNH: TStringField
@@ -268,12 +300,12 @@ object DM: TDM
     end
     object ADODS_ClienteCEP: TStringField
       FieldName = 'CEP'
-      EditMask = '99999-999;0;'
+      EditMask = '99999-999;1;_'
       Size = 9
     end
     object ADODS_ClienteTelefone: TStringField
       FieldName = 'Telefone'
-      EditMask = '!\(999\)0000-0000;0;'
+      EditMask = '!\(999\)0000-0000;1;_'
       Size = 14
     end
     object ADODS_ClienteEmail: TStringField
@@ -317,7 +349,7 @@ object DM: TDM
     end
     object ADODS_FuncionarioCPF: TStringField
       FieldName = 'CPF'
-      EditMask = '999.999.999-99;0;_'
+      EditMask = '999.999.999-99;1;_'
       Size = 14
     end
     object ADODS_FuncionarioEndereco: TStringField
@@ -334,12 +366,12 @@ object DM: TDM
     end
     object ADODS_FuncionarioCEP: TStringField
       FieldName = 'CEP'
-      EditMask = '99999-999;0;'
+      EditMask = '99999-999;1;_'
       Size = 9
     end
     object ADODS_FuncionarioTelefone: TStringField
       FieldName = 'Telefone'
-      EditMask = '!\(999\)0000-0000;0;'
+      EditMask = '!\(999\)0000-0000;1;_'
       Size = 14
     end
     object ADODS_FuncionarioNroConta: TStringField
@@ -355,14 +387,24 @@ object DM: TDM
       FixedChar = True
       Size = 1
     end
+    object ADODS_FuncionarioNomeCargo: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeCargo'
+      LookupDataSet = ADODS_Cargo
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Descricao'
+      KeyFields = 'Cargo'
+      Size = 200
+      Lookup = True
+    end
   end
   object ADODS_Cargo: TADODataSet
     Connection = ADOConnection1
     CursorType = ctStatic
     CommandText = 'select * from Cargo'
     Parameters = <>
-    Left = 48
-    Top = 528
+    Left = 40
+    Top = 536
     object ADODS_CargoCodigo: TIntegerField
       FieldName = 'Codigo'
     end
@@ -389,7 +431,7 @@ object DM: TDM
   end
   object DS_Cargo: TDataSource
     DataSet = ADODS_Cargo
-    Left = 141
+    Left = 157
     Top = 528
   end
   object DS_Venda: TDataSource
@@ -429,8 +471,8 @@ object DM: TDM
     end
     object ADODS_VendaDesconto: TBCDField
       FieldName = 'Desconto'
-      DisplayFormat = '##,##0.00%'
-      EditFormat = '##,##0.00%'
+      DisplayFormat = '##,##0.00'
+      EditFormat = '##,##0.00'
       Precision = 5
       Size = 2
     end
@@ -463,7 +505,7 @@ object DM: TDM
     end
     object ADODS_Venda_ItensDescUnit: TBCDField
       FieldName = 'DescUnit'
-      DisplayFormat = '##,##0.00%'
+      DisplayFormat = '##,##0.00'
       EditFormat = '##,##0.00'
       currency = True
       Precision = 5
@@ -476,7 +518,6 @@ object DM: TDM
       LookupKeyFields = 'Codigo'
       LookupResultField = 'Placa'
       KeyFields = 'Veiculo'
-      EditMask = 'AAA-9999;0;'
       Size = 8
       Lookup = True
     end
@@ -491,5 +532,11 @@ object DM: TDM
       EditFormat = 'R$###,###,##0.00'
       Lookup = True
     end
+  end
+  object ADOC_Atualiza: TADOCommand
+    Connection = ADOConnection1
+    Parameters = <>
+    Left = 264
+    Top = 216
   end
 end

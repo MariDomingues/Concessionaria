@@ -36,6 +36,7 @@ type
     procedure btn_ExcluirClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +51,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitCadCombustivel;
+uses UnitDM, UnitCadCombustivel, UnitRelCombustivel;
 
 procedure TFrm_Man_Combustivel.btn_AlterarClick(Sender: TObject);
 begin
@@ -86,6 +87,13 @@ begin
   FrmCadCombustivel.btn_Cancelar.Enabled := True;
   FrmCadCombustivel.btn_Sair.Enabled     := False;
   FrmCadCombustivel.Pn1Ficha.Enabled     := True;
+end;
+
+procedure TFrm_Man_Combustivel.btn_ImprimirClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormRelCom, FormRelCom);
+  FormRelCom.ShowModal;
+  FormRelCom.Free;
 end;
 
 procedure TFrm_Man_Combustivel.btn_InserirClick(Sender: TObject);

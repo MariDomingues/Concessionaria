@@ -1,0 +1,50 @@
+unit UnitRelCombustivel;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
+  Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxDBSet;
+
+type
+  TFormRelCom = class(TForm)
+    EdtCidade: TLabeledEdit;
+    EdtCodigoAte: TLabeledEdit;
+    EdtCodigoDe: TLabeledEdit;
+    EdtNomeAte: TLabeledEdit;
+    EdtNomeDe: TLabeledEdit;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    Panel1: TPanel;
+    Label1: TLabel;
+    RadioGroup1: TRadioGroup;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQRY_Cliente: TADOQuery;
+    ADOQRY_ClienteCodigo: TIntegerField;
+    ADOQRY_ClienteNome: TStringField;
+    ADOQRY_ClienteCPF: TStringField;
+    ADOQRY_ClienteCNH: TStringField;
+    ADOQRY_ClienteEndereco: TStringField;
+    ADOQRY_ClienteCidade: TStringField;
+    ADOQRY_ClienteBairro: TStringField;
+    ADOQRY_ClienteCEP: TStringField;
+    ADOQRY_ClienteTelefone: TStringField;
+    ADOQRY_ClienteEmail: TStringField;
+    ADOQRY_ClienteNroConta: TStringField;
+    ADOQRY_ClienteStatus: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRelCom: TFormRelCom;
+
+implementation
+
+{$R *.dfm}
+
+end.
