@@ -299,9 +299,6 @@ begin
 
   ADOQRY_Combustivel.Close;
   ADOQRY_Combustivel.Open;
-
-  DBComboBox1.ItemIndex := 0;
-  DBComboBox3.ItemIndex := 0;
 end;
 
 procedure TFrmCadVeiculo.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -329,8 +326,6 @@ begin
   DBEdit6.Clear;
   DBEdit7.Clear;
   DBEdit11.Clear;
-  DBComboBox1.ItemIndex := 0;
-  DBComboBox3.ItemIndex := 0;
   DBLookupComboBox1.KeyValue := 0;
   DBLookupComboBox2.KeyValue := 0;
   DBLookupComboBox3.KeyValue := 0;

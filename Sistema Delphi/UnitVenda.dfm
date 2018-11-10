@@ -27,6 +27,7 @@ object FrmVenda: TFrmVenda
     Color = clHotLight
     ParentBackground = False
     TabOrder = 0
+    ExplicitTop = -6
     object Label1: TLabel
       Left = 207
       Top = 10
@@ -136,6 +137,7 @@ object FrmVenda: TFrmVenda
       DataSource = DM.DS_Venda
       KeyField = 'Codigo'
       ListField = 'Nome'
+      ListSource = DS_Vendedor
       TabOrder = 1
       OnExit = DBLookupComboBox2Exit
     end
@@ -352,6 +354,7 @@ object FrmVenda: TFrmVenda
             Title.Font.Height = -12
             Title.Font.Name = 'Yu Gothic UI'
             Title.Font.Style = [fsBold]
+            Width = 100
             Visible = True
           end
           item
@@ -374,6 +377,7 @@ object FrmVenda: TFrmVenda
             Title.Font.Height = -12
             Title.Font.Name = 'Yu Gothic UI'
             Title.Font.Style = [fsBold]
+            Width = 100
             Visible = True
           end>
       end
@@ -538,7 +542,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 456
     Bitmap = {
-      494C01010C001800500018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C001800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1738,7 +1742,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 512
     Bitmap = {
-      494C01010C002400500018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C002400540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2938,7 +2942,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 576
     Bitmap = {
-      494C01010C001800500018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C001800540018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4201,24 +4205,32 @@ object FrmVenda: TFrmVenda
     Left = 415
     Top = 298
   end
-  object DS_ValTot: TDataSource
-    DataSet = ADOQRY_ValTot
+  object DS_Vendedor: TDataSource
+    DataSet = ADOQRY_Vendedor
     Left = 480
     Top = 354
   end
-  object ADOQRY_ValTot: TADOQuery
+  object ADOQRY_Vendedor: TADOQuery
     Connection = DM.ADOConnection1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select SUM(ValTotVei) as '#39'Total'#39' from Venda_Itens ')
+      'select Codigo, Nome from Funcionario where Status <> '#39'I'#39)
     Left = 415
     Top = 354
-    object ADOQRY_ValTotTotal: TFMTBCDField
-      FieldName = 'Total'
-      ReadOnly = True
-      Precision = 38
-      Size = 2
-    end
+  end
+  object DS_Soma: TDataSource
+    DataSet = ADOQRY_Soma
+    Left = 312
+    Top = 330
+  end
+  object ADOQRY_Soma: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      '')
+    Left = 247
+    Top = 330
   end
 end

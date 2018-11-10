@@ -173,13 +173,6 @@ object FrmCadFuncionario: TFrmCadFuncionario
       Height = 13
       Caption = 'Nro. Conta:'
     end
-    object Label12: TLabel
-      Left = 291
-      Top = 182
-      Width = 35
-      Height = 13
-      Caption = 'Status:'
-    end
     object Label14: TLabel
       Left = 293
       Top = 57
@@ -187,18 +180,12 @@ object FrmCadFuncionario: TFrmCadFuncionario
       Height = 13
       Caption = 'Cargo:'
     end
-    object DBComboBox1: TDBComboBox
-      Left = 328
-      Top = 179
-      Width = 190
-      Height = 21
-      Style = csDropDownList
-      DataField = 'Status'
-      DataSource = DM.DS_Funcionario
-      Items.Strings = (
-        'Ativo'
-        'Inativo')
-      TabOrder = 9
+    object Label12: TLabel
+      Left = 291
+      Top = 182
+      Width = 35
+      Height = 13
+      Caption = 'Status:'
     end
     object DBEdit1: TDBEdit
       Left = 75
@@ -287,7 +274,7 @@ object FrmCadFuncionario: TFrmCadFuncionario
       Height = 21
       DataField = 'Codigo'
       DataSource = DM.DS_Funcionario
-      TabOrder = 10
+      TabOrder = 9
       Visible = False
     end
     object DBLookupComboBox3: TDBLookupComboBox
@@ -302,6 +289,19 @@ object FrmCadFuncionario: TFrmCadFuncionario
       ListSource = DS_Cargo
       TabOrder = 2
       OnExit = DBLookupComboBox3Exit
+    end
+    object DBComboBox1: TDBComboBox
+      Left = 328
+      Top = 179
+      Width = 190
+      Height = 21
+      Style = csDropDownList
+      DataField = 'Status'
+      DataSource = DM.DS_Funcionario
+      Items.Strings = (
+        'Ativo'
+        'Inativo')
+      TabOrder = 10
     end
   end
   object DS_CodFun: TDataSource

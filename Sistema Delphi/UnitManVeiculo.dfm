@@ -24,7 +24,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Width = 1093
     Height = 627
     Align = alTop
-    DataSource = DS_Colunas
+    DataSource = DM.DS_Veiculo
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -72,7 +72,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       item
         Alignment = taCenter
         Expanded = False
-        FieldName = 'NomeFantasia'
+        FieldName = 'NomeFab'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -90,7 +90,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       item
         Alignment = taCenter
         Expanded = False
-        FieldName = 'Descricao'
+        FieldName = 'NomeCom'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -143,7 +143,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       item
         Alignment = taCenter
         Expanded = False
-        FieldName = 'Descricao_1'
+        FieldName = 'NomeMod'
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -12
@@ -173,6 +173,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
         Title.Font.Height = -12
         Title.Font.Name = 'Yu Gothic UI'
         Title.Font.Style = [fsBold]
+        Width = 128
         Visible = True
       end
       item
@@ -190,7 +191,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
         Title.Font.Height = -12
         Title.Font.Name = 'Yu Gothic UI'
         Title.Font.Style = [fsBold]
-        Width = 40
+        Width = 80
         Visible = True
       end>
   end
@@ -348,7 +349,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 320
     Top = 320
     Bitmap = {
-      494C0101070048009C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800A40018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -955,7 +956,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 424
     Top = 320
     Bitmap = {
-      494C010107003800940018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038009C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1562,7 +1563,7 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
     Left = 512
     Top = 328
     Bitmap = {
-      494C010107003800940018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101070038009C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005
@@ -2162,71 +2163,5 @@ object Frm_Man_Veiculo: TFrm_Man_Veiculo
       00007F000000C0000180000300007F0000C0FFFC0180000300007F0001E1FFFF
       01C000078000FFFFFFF3FFFFC3FFFFFF00000000000000000000000000000000
       000000000000}
-  end
-  object DS_Colunas: TDataSource
-    DataSet = ADOQRY_Colunas
-    Left = 128
-    Top = 394
-  end
-  object ADOQRY_Colunas: TADOQuery
-    Connection = DM.ADOConnection1
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      
-        'select Veiculo.Codigo, Veiculo.Placa, Fabricante.NomeFantasia, C' +
-        'ombustivel.Descricao, Veiculo.Km, Veiculo.Docum, Modelo.Descrica' +
-        'o, Veiculo.Valor, Veiculo.Status from Veiculo inner join Fabrica' +
-        'nte on Veiculo.Fabricante = Fabricante.Codigo inner join Combust' +
-        'ivel on Veiculo.Combustivel = Combustivel.Codigo inner join Mode' +
-        'lo on Veiculo.Modelo = Modelo.Codigo')
-    Left = 72
-    Top = 394
-    object ADOQRY_ColunasCodigo: TIntegerField
-      FieldName = 'Codigo'
-    end
-    object ADOQRY_ColunasPlaca: TStringField
-      FieldName = 'Placa'
-      EditMask = 'AAA-9999;0;'
-      Size = 8
-    end
-    object ADOQRY_ColunasNomeFantasia: TStringField
-      FieldName = 'NomeFantasia'
-      Size = 150
-    end
-    object ADOQRY_ColunasDescricao: TStringField
-      FieldName = 'Descricao'
-      Size = 200
-    end
-    object ADOQRY_ColunasKm: TBCDField
-      FieldName = 'Km'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
-      Precision = 9
-      Size = 3
-    end
-    object ADOQRY_ColunasDocum: TStringField
-      FieldName = 'Docum'
-      OnGetText = ADOQRY_ColunasDocumGetText
-      FixedChar = True
-      Size = 1
-    end
-    object ADOQRY_ColunasDescricao_1: TStringField
-      FieldName = 'Descricao_1'
-      Size = 200
-    end
-    object ADOQRY_ColunasValor: TBCDField
-      FieldName = 'Valor'
-      DisplayFormat = '###,###,##0.00'
-      EditFormat = '###,###,##0.00'
-      Precision = 9
-      Size = 2
-    end
-    object ADOQRY_ColunasStatus: TStringField
-      FieldName = 'Status'
-      OnGetText = ADOQRY_ColunasStatusGetText
-      FixedChar = True
-      Size = 1
-    end
   end
 end

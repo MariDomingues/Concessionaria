@@ -16,7 +16,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
   Position = poScreenCenter
   OnActivate = FormActivate
   PixelsPerInch = 96
-  TextHeight = 14
+  TextHeight = 13
   object DBG_Mod: TDBGrid
     Left = 0
     Top = 131
@@ -95,7 +95,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     object Label2: TLabel
       Left = 8
       Top = 14
-      Width = 149
+      Width = 138
       Height = 15
       Caption = 'Pesquisa por Combust'#237'vel:'
       Font.Charset = ANSI_CHARSET
@@ -136,8 +136,8 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Width = 1093
     Height = 49
     BorderWidth = 1
-    ButtonHeight = 45
-    ButtonWidth = 43
+    ButtonHeight = 44
+    ButtonWidth = 48
     Caption = 'ToolBar1'
     Color = clBtnFace
     DisabledImages = ImageList2
@@ -158,7 +158,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       OnClick = btn_InserirClick
     end
     object ToolButton2: TToolButton
-      Left = 43
+      Left = 48
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
@@ -166,7 +166,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       Style = tbsSeparator
     end
     object btn_Alterar: TToolButton
-      Left = 51
+      Left = 56
       Top = 0
       Hint = 'Alterar Registro'
       Caption = 'Alterar'
@@ -174,7 +174,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       OnClick = btn_AlterarClick
     end
     object ToolButton4: TToolButton
-      Left = 94
+      Left = 104
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -182,7 +182,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       Style = tbsSeparator
     end
     object btn_Excluir: TToolButton
-      Left = 102
+      Left = 112
       Top = 0
       Hint = 'Excluir Registro'
       Caption = 'Excluir'
@@ -190,7 +190,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       OnClick = btn_ExcluirClick
     end
     object ToolButton10: TToolButton
-      Left = 145
+      Left = 160
       Top = 0
       Width = 8
       Caption = 'ToolButton10'
@@ -198,14 +198,14 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       Style = tbsSeparator
     end
     object btn_Imprimir: TToolButton
-      Left = 153
+      Left = 168
       Top = 0
       Hint = 'Imprimir'
       Caption = 'Imprimir'
       ImageIndex = 6
     end
     object ToolButton12: TToolButton
-      Left = 196
+      Left = 216
       Top = 0
       Width = 8
       Caption = 'ToolButton12'
@@ -213,7 +213,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
       Style = tbsSeparator
     end
     object btn_Sair: TToolButton
-      Left = 204
+      Left = 224
       Top = 0
       Hint = 'Sair'
       Caption = 'Sair'
@@ -227,7 +227,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Left = 128
     Top = 192
     Bitmap = {
-      494C010107004800940018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800980018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -834,7 +834,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Left = 232
     Top = 192
     Bitmap = {
-      494C0101070038008C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1441,7 +1441,7 @@ object Frm_Man_Combustivel: TFrm_Man_Combustivel
     Left = 320
     Top = 200
     Bitmap = {
-      494C0101070038008C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

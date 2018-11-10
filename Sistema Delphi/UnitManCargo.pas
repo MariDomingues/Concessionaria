@@ -86,7 +86,6 @@ begin
   FrmCadCargo.btn_Cancelar.Enabled := True;
   FrmCadCargo.btn_Sair.Enabled     := False;
   FrmCadCargo.Pn1Ficha.Enabled     := True;
-  FrmCadCargo.ShowModal;
 end;
 
 procedure TFrm_Man_Cargo.btn_InserirClick(Sender: TObject);

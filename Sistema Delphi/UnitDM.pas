@@ -106,6 +106,10 @@ type
     ADODS_Venda_ItensPlaca: TStringField;
     ADODS_Venda_ItensValorUnit: TFloatField;
     ADOC_Atualiza: TADOCommand;
+    ADODS_FuncionarioNomeCargo: TStringField;
+    ADODS_VeiculoNomeFab: TStringField;
+    ADODS_VeiculoNomeMod: TStringField;
+    ADODS_VeiculoNomeCom: TStringField;
     procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;
@@ -118,6 +122,8 @@ type
       DisplayText: Boolean);
     procedure ADODS_Venda_ItensNewRecord(DataSet: TDataSet);
     procedure ADODS_VeiculoStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
+    procedure ADODS_VeiculoDocumGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
   private
     { Private declarations }
@@ -179,14 +185,23 @@ begin
     Text := 'Inativo';
 end;
 
+procedure TDM.ADODS_VeiculoDocumGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'S' then
+    Text := 'Sim'
+  else
+    Text := 'Não';
+end;
+
 procedure TDM.ADODS_VeiculoStatusGetText(Sender: TField; var Text: string;
   DisplayText: Boolean);
 begin
   if Sender.AsString = 'A' then
     Text := 'Ativo'
   else
-    if Sender.AsString = 'I' then
-      Text := 'Inativo'
+    if Sender.AsString = 'M' then
+      Text := 'Mecânico'
     else
       Text := 'Vendido';
 end;

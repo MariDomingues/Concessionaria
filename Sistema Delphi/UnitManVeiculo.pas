@@ -30,17 +30,6 @@ type
     btn_Imprimir: TToolButton;
     ToolButton12: TToolButton;
     btn_Sair: TToolButton;
-    DS_Colunas: TDataSource;
-    ADOQRY_Colunas: TADOQuery;
-    ADOQRY_ColunasCodigo: TIntegerField;
-    ADOQRY_ColunasPlaca: TStringField;
-    ADOQRY_ColunasNomeFantasia: TStringField;
-    ADOQRY_ColunasDescricao: TStringField;
-    ADOQRY_ColunasKm: TBCDField;
-    ADOQRY_ColunasDocum: TStringField;
-    ADOQRY_ColunasDescricao_1: TStringField;
-    ADOQRY_ColunasValor: TBCDField;
-    ADOQRY_ColunasStatus: TStringField;
     procedure btn_InserirClick(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);
     procedure btn_ExcluirClick(Sender: TObject);
@@ -48,12 +37,6 @@ type
     procedure FormActivate(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure ADOQRY_ColunasDocumGetText(Sender: TField; var Text: string;
-      DisplayText: Boolean);
-    procedure ADOQRY_ColunasStatusGetText(Sender: TField; var Text: string;
-      DisplayText: Boolean);
-    procedure ADOQRY_ColunasZeroKmGetText(Sender: TField; var Text: string;
-      DisplayText: Boolean);
   private
     { Private declarations }
   public
@@ -63,7 +46,6 @@ type
 var
   Frm_Man_Veiculo: TFrm_Man_Veiculo;
   Acao   : char;
-  CodAlt : integer;
 
 implementation
 
@@ -71,41 +53,8 @@ implementation
 
 uses UnitDM, UnitCadVeiculo;
 
-procedure TFrm_Man_Veiculo.ADOQRY_ColunasDocumGetText(Sender: TField;
-  var Text: string; DisplayText: Boolean);
-begin
-  if Sender.AsString = 'S' then
-    Text := 'Sim'
-  else
-    Text := 'Não';
-end;
-
-procedure TFrm_Man_Veiculo.ADOQRY_ColunasStatusGetText(Sender: TField;
-  var Text: string; DisplayText: Boolean);
-begin
-  if Sender.AsString = 'A' then
-    Text := 'Ativo'
-  else
-    Text := 'Inativo';
-end;
-
-procedure TFrm_Man_Veiculo.ADOQRY_ColunasZeroKmGetText(Sender: TField;
-  var Text: string; DisplayText: Boolean);
-begin
-  if Sender.AsString = 'S' then
-    Text := 'Sim'
-  else
-    Text := 'Não';
-end;
-
 procedure TFrm_Man_Veiculo.btn_AlterarClick(Sender: TObject);
 begin
-  CodAlt := ADOQRY_Colunas.FieldByName('Codigo').AsInteger;
-  DM.ADODS_Veiculo.Close;
-  DM.ADODS_Veiculo.CommandText := '';
-  DM.ADODS_Veiculo.CommandText := 'select * from Veiculo where Codigo = ' + IntToStr(CodAlt);
-  DM.ADODS_Veiculo.Open;
-
   DM.ADODS_Veiculo.Edit;
 
   Application.CreateForm(TFrmCadVeiculo, FrmCadVeiculo);
@@ -119,9 +68,6 @@ begin
 
   FrmCadVeiculo.ShowModal;
   FrmCadVeiculo.Free;
-
-  ADOQRY_Colunas.Close;
-	ADOQRY_Colunas.Open;
 end;
 
 procedure TFrm_Man_Veiculo.btn_ExcluirClick(Sender: TObject);
@@ -131,12 +77,6 @@ begin
 
   if confExc = IDYES then
     begin
-      CodAlt := ADOQRY_Colunas.FieldByName('Codigo').AsInteger;
-      DM.ADODS_Veiculo.Close;
-      DM.ADODS_Veiculo.CommandText := '';
-      DM.ADODS_Veiculo.CommandText := 'select * from Veiculo where Codigo = ' + IntToStr(CodAlt);
-      DM.ADODS_Veiculo.Open;
-
       DM.ADODS_Veiculo.Delete;
       Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
     end
@@ -147,9 +87,6 @@ begin
   FrmCadVeiculo.btn_Cancelar.Enabled := True;
   FrmCadVeiculo.btn_Sair.Enabled     := False;
   FrmCadVeiculo.Pn1Ficha.Enabled     := True;
-
-  ADOQRY_Colunas.Close;
-	ADOQRY_Colunas.Open;
 end;
 
 procedure TFrm_Man_Veiculo.btn_InserirClick(Sender: TObject);
@@ -166,9 +103,6 @@ begin
   FrmCadVeiculo.Pn1Ficha.Enabled     := True;
   FrmCadVeiculo.ShowModal;
   FrmCadVeiculo.Free;
-
-  ADOQRY_Colunas.Close;
-	ADOQRY_Colunas.Open;
 end;
 
 procedure TFrm_Man_Veiculo.btn_SairClick(Sender: TObject);
@@ -178,7 +112,7 @@ end;
 
 procedure TFrm_Man_Veiculo.Edit1Change(Sender: TObject);
 begin
-  ADOQRY_Colunas.Locate('Placa', Edit1.Text, [loCaseInsensitive, loPartialKey]);
+  DM.ADODS_Veiculo.Locate('Placa', Edit1.Text, [loCaseInsensitive, loPartialKey]);
 end;
 
 procedure TFrm_Man_Veiculo.FormActivate(Sender: TObject);
@@ -188,8 +122,6 @@ begin
   DM.ADODS_Combustivel.Open;
   DM.ADODS_Veiculo.Close;
   DM.ADODS_Veiculo.Open;
-  ADOQRY_Colunas.Close;
-	ADOQRY_Colunas.Open;
 end;
 
 procedure TFrm_Man_Veiculo.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -197,7 +129,6 @@ begin
   DM.ADODS_Fabricante.Close;
   DM.ADODS_Modelo.Close;
   DM.ADODS_Combustivel.Close;
-	ADOQRY_Colunas.Close;
 end;
 
 end.

@@ -73,9 +73,10 @@ type
     ADOQRY_CodVen: TADOQuery;
     DS_Delete: TDataSource;
     ADOQRY_Delete: TADOQuery;
-    DS_ValTot: TDataSource;
-    ADOQRY_ValTot: TADOQuery;
-    ADOQRY_ValTotTotal: TFMTBCDField;
+    DS_Vendedor: TDataSource;
+    ADOQRY_Vendedor: TADOQuery;
+    DS_Soma: TDataSource;
+    ADOQRY_Soma: TADOQuery;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -149,10 +150,12 @@ begin
   DM.ADOC_Atualiza.CommandText := 'update Veiculo set Status = ''V'' where Codigo = ' + IntToStr(DM.ADODS_Venda_ItensVeiculo.Value) + ';';
   DM.ADOC_Atualiza.Execute;
 
-  ADOQRY_ValTot.Close;
-  ADOQRY_ValTot.Open;
+  ADOQRY_Soma.Close;
+  ADOQRY_Soma.SQL.Text := '';
+  ADOQRY_Soma.SQL.Text := 'select sum(ValtotVei) as ''Total'' from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
+  ADOQRY_Soma.Open;
 
-  DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat;
+  DM.ADODS_VendaValTotal.Value := ADOQRY_Soma.FieldByName('Total').AsFloat;
 end;
 
 procedure TFrmVenda.Bbt_ExcluirClick(Sender: TObject);
@@ -167,6 +170,7 @@ begin
   DM.ADOC_Atualiza.CommandText := '';
   DM.ADOC_Atualiza.CommandText := 'update Veiculo set Status = ''A'' where Codigo = ' + IntToStr(DM.ADODS_Venda_ItensVeiculo.Value) + ';';
   DM.ADOC_Atualiza.Execute;
+
   DM.ADODS_Venda_Itens.Delete;
 end;
 
@@ -237,6 +241,8 @@ end;
 
 procedure TFrmVenda.Btn_InserirClick(Sender: TObject);
 begin
+  DM.ADODS_Venda.Insert;
+
   ADOQRY_CodVen.Close;
   ADOQRY_CodVen.Open;
 
@@ -312,10 +318,8 @@ begin
   if DBEdit4.Text <> '' then
     begin
       Desconto := StrToFloat(DBEdit4.Text);
-      DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat - ((Desconto / 100) * ADOQRY_ValTotTotal.AsFloat);
-    end
-  else
-    DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat;
+      DM.ADODS_VendaValTotal.AsFloat := ADOQRY_Soma.FieldByName('Total').AsFloat - ((Desconto / 100) * ADOQRY_Soma.FieldByName('Total').AsFloat);
+    end;
 end;
 
 procedure TFrmVenda.DBLookupComboBox1Exit(Sender: TObject);
@@ -347,13 +351,6 @@ end;
 procedure TFrmVenda.DBLookupComboBox3Exit(Sender: TObject);
 begin
   MaskEdit1.Text := FloatToStr(ADOQRY_VeiculoValor.AsFloat);
-
-  if varisnull(DBLookupComboBox3.KeyValue)  then
-    begin
-      Application.MessageBox('O campo "Veículo" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
-      DBLookupComboBox3.SetFocus;
-      Abort;
-    end;
 end;
 
 procedure TFrmVenda.FormActivate(Sender: TObject);
@@ -375,12 +372,8 @@ begin
   ADOQRY_Veiculo.Close;
   ADOQRY_Veiculo.Open;
 
-  ADOQRY_ValTot.Close;
-  ADOQRY_ValTot.Open;
-
-  DM.ADODS_Venda.Insert;
-
-  DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat;
+  ADOQRY_Vendedor.Close;
+  ADOQRY_Vendedor.Open;
 end;
 
 procedure TFrmVenda.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -390,7 +383,8 @@ begin
 
   ADOQRY_Cliente.Close;
   ADOQRY_Veiculo.Close;
-  ADOQRY_ValTot.Close;
+  ADOQRY_Vendedor.Close;
+  ADOQRY_Soma.Close;
 end;
 
 procedure TFrmVenda.Botoes(Ativa: Boolean);

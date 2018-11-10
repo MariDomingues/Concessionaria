@@ -119,8 +119,6 @@ procedure TFrmCadModelo.FormActivate(Sender: TObject);
 begin
   ADOQRY_CodMod.Close;
   ADOQRY_CodMod.Open;
-
-  DBComboBox1.ItemIndex := 0;
 end;
 
 procedure TFrmCadModelo.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -133,7 +131,6 @@ begin
   DBEdit1.Clear;
   DBMemo1.Clear;
   DBEdit11.Clear;
-  DBComboBox1.ItemIndex := 0;
 end;
 
 end.

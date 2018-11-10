@@ -144,8 +144,6 @@ begin
 
 	ADOQRY_Funcionario.Close;
   ADOQRY_Funcionario.Open;
-
-  DBComboBox1.ItemIndex := 0;
 end;
 
 procedure TFrmCadUsuario.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -161,7 +159,6 @@ begin
   DBEdit1.Clear;
   DBEdit2.Clear;
   DBEdit11.Clear;
-  DBComboBox1.ItemIndex := 0;
 end;
 
 end.

@@ -129,8 +129,6 @@ procedure TFrmCadCargo.FormActivate(Sender: TObject);
 begin
   ADOQRY_CodCar.Close;
   ADOQRY_CodCar.Open;
-
-  DBComboBox1.ItemIndex := 0;
 end;
 
 procedure TFrmCadCargo.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -144,7 +142,6 @@ begin
   DBEdit2.Clear;
   DBMemo1.Clear;
   DBEdit11.Clear;
-  DBComboBox1.ItemIndex := 0;
 end;
 
 procedure TFrmCadCargo.DBEdit2Exit(Sender: TObject);

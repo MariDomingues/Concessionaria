@@ -86,7 +86,6 @@ begin
   FrmCadCombustivel.btn_Cancelar.Enabled := True;
   FrmCadCombustivel.btn_Sair.Enabled     := False;
   FrmCadCombustivel.Pn1Ficha.Enabled     := True;
-  FrmCadCombustivel.ShowModal;
 end;
 
 procedure TFrm_Man_Combustivel.btn_InserirClick(Sender: TObject);

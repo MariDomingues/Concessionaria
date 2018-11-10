@@ -39,7 +39,7 @@ object DM: TDM
     end
     object ADODS_VeiculoPlaca: TStringField
       FieldName = 'Placa'
-      EditMask = 'AAA-9999;0;_'
+      EditMask = 'AAA-9999;1;'
       Size = 8
     end
     object ADODS_VeiculoValor: TBCDField
@@ -67,12 +67,43 @@ object DM: TDM
     end
     object ADODS_VeiculoDocum: TStringField
       FieldName = 'Docum'
+      OnGetText = ADODS_VeiculoDocumGetText
       FixedChar = True
       Size = 1
     end
     object ADODS_VeiculoAno: TIntegerField
       DisplayWidth = 4
       FieldName = 'Ano'
+    end
+    object ADODS_VeiculoNomeFab: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeFab'
+      LookupDataSet = ADODS_Fabricante
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'NomeFantasia'
+      KeyFields = 'Fabricante'
+      Size = 200
+      Lookup = True
+    end
+    object ADODS_VeiculoNomeMod: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeMod'
+      LookupDataSet = ADODS_Modelo
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Descricao'
+      KeyFields = 'Modelo'
+      Size = 200
+      Lookup = True
+    end
+    object ADODS_VeiculoNomeCom: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeCom'
+      LookupDataSet = ADODS_Combustivel
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Descricao'
+      KeyFields = 'Combustivel'
+      Size = 200
+      Lookup = True
     end
   end
   object DS_Veiculo: TDataSource
@@ -356,6 +387,16 @@ object DM: TDM
       FixedChar = True
       Size = 1
     end
+    object ADODS_FuncionarioNomeCargo: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NomeCargo'
+      LookupDataSet = ADODS_Cargo
+      LookupKeyFields = 'Codigo'
+      LookupResultField = 'Descricao'
+      KeyFields = 'Cargo'
+      Size = 200
+      Lookup = True
+    end
   end
   object ADODS_Cargo: TADODataSet
     Connection = ADOConnection1
@@ -477,7 +518,6 @@ object DM: TDM
       LookupKeyFields = 'Codigo'
       LookupResultField = 'Placa'
       KeyFields = 'Veiculo'
-      EditMask = 'AAA-9999;1;_'
       Size = 8
       Lookup = True
     end

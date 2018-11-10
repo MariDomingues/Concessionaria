@@ -29,8 +29,6 @@ type
     Label8: TLabel;
     Label9: TLabel;
     Label11: TLabel;
-    Label12: TLabel;
-    DBComboBox1: TDBComboBox;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     DBEdit5: TDBEdit;
@@ -44,6 +42,8 @@ type
     DBLookupComboBox3: TDBLookupComboBox;
     DS_Cargo: TDataSource;
     ADOQRY_Cargo: TADOQuery;
+    DBComboBox1: TDBComboBox;
+    Label12: TLabel;
     procedure btn_CancelarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
@@ -85,7 +85,6 @@ begin
   DBEdit9.Clear;
   DBEdit10.Clear;
   DBEdit11.Clear;
-  DBComboBox1.ItemIndex := 0;
   DBLookupComboBox3.KeyValue := 0;
 end;
 
@@ -181,7 +180,7 @@ begin
 
       DBEdit11.Text := IntToStr(CodFun);
     end;
-
+  //dm.ADODS_FuncionarioStatus.Value  ;
   DM.ADODS_Funcionario.Post;
 
   if Acao = 'I' then
@@ -214,8 +213,6 @@ begin
 
   ADOQRY_Cargo.Close;
   ADOQRY_Cargo.Open;
-
-  DBComboBox1.ItemIndex := 0;
 end;
 
 procedure TFrmCadFuncionario.FormClose(Sender: TObject;

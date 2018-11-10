@@ -86,7 +86,6 @@ begin
   FrmCadUsuario.btn_Cancelar.Enabled := True;
   FrmCadUsuario.btn_Sair.Enabled     := False;
   FrmCadUsuario.Pn1Ficha.Enabled     := True;
-  FrmCadUsuario.ShowModal;
 end;
 
 procedure TFrm_Man_Usuario.btn_InserirClick(Sender: TObject);
