@@ -102,7 +102,6 @@ type
     ADODS_VendaDtVen: TDateTimeField;
     ADODS_VendaValTotal: TBCDField;
     ADODS_VendaQtdParcela: TIntegerField;
-    ADODS_VendaDesconto: TBCDField;
     ADODS_Venda_ItensPlaca: TStringField;
     ADODS_Venda_ItensValorUnit: TFloatField;
     ADOC_Atualiza: TADOCommand;

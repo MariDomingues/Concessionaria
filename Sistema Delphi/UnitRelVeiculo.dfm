@@ -243,7 +243,7 @@ object FormRelVei: TFormRelVei
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43395.840991875000000000
-    ReportOptions.LastChange = 43415.020927361100000000
+    ReportOptions.LastChange = 43415.606895196760000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -304,16 +304,16 @@ object FormRelVei: TFormRelVei
           ParentFont = False
         end
         object Memo5: TfrxMemoView
-          Top = 2.000000000000000000
+          Top = 3.000000000000000000
           Width = 56.692950000000000000
           Height = 18.897650000000000000
           DataField = 'VeiCod'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
@@ -321,17 +321,17 @@ object FormRelVei: TFormRelVei
           ParentFont = False
         end
         object frxDBDataset1CLI_NOME: TfrxMemoView
-          Left = 56.692950000000000000
-          Top = 2.000000000000000000
-          Width = 94.488250000000000000
+          Left = 60.472480000000000000
+          Top = 3.000000000000000000
+          Width = 90.708720000000000000
           Height = 18.897650000000000000
           DataField = 'VeiPla'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[frxDBDataset1."VeiPla"]')
@@ -339,15 +339,16 @@ object FormRelVei: TFormRelVei
         end
         object Memo9: TfrxMemoView
           Left = 151.181200000000000000
+          Top = 2.779530000000000000
           Width = 188.976500000000000000
           Height = 18.897650000000000000
           DataField = 'FanNom'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[frxDBDataset1."FanNom"]')
@@ -355,15 +356,16 @@ object FormRelVei: TFormRelVei
         end
         object Memo16: TfrxMemoView
           Left = 340.157700000000000000
+          Top = 3.000000000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataField = 'ModDes'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[frxDBDataset1."ModDes"]')
@@ -371,15 +373,16 @@ object FormRelVei: TFormRelVei
         end
         object Memo17: TfrxMemoView
           Left = 476.220780000000000000
+          Top = 3.000000000000000000
           Width = 136.063080000000000000
           Height = 18.897650000000000000
           DataField = 'ComDes'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[frxDBDataset1."ComDes"]')
@@ -387,15 +390,16 @@ object FormRelVei: TFormRelVei
         end
         object Memo18: TfrxMemoView
           Left = 612.283860000000000000
+          Top = 3.000000000000000000
           Width = 117.165430000000000000
           Height = 18.897650000000000000
           DataField = 'VeiVal'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[frxDBDataset1."VeiVal"]')
@@ -405,17 +409,17 @@ object FormRelVei: TFormRelVei
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Height = 22.677180000000000000
-        Top = 389.291590000000000000
+        Top = 400.630180000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
           Left = 574.488560000000000000
-          Top = 3.338590000000010000
+          Top = 3.338590000000000000
           Width = 143.622140000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           HAlign = haRight
           Memo.UTF8W = (
@@ -428,13 +432,13 @@ object FormRelVei: TFormRelVei
             end>
         end
         object Memo11: TfrxMemoView
-          Top = 3.338590000000010000
+          Top = 3.338590000000000000
           Width = 151.181200000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[Date] - [Time]')
@@ -507,10 +511,10 @@ object FormRelVei: TFormRelVei
         object Memo6: TfrxMemoView
           Top = 1.000000000000000000
           Width = 56.692950000000000000
-          Height = 18.897650000000000000
+          Height = 22.677180000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           HAlign = haCenter
@@ -525,7 +529,7 @@ object FormRelVei: TFormRelVei
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
@@ -545,7 +549,7 @@ object FormRelVei: TFormRelVei
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
@@ -558,7 +562,7 @@ object FormRelVei: TFormRelVei
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
@@ -571,7 +575,7 @@ object FormRelVei: TFormRelVei
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
@@ -584,7 +588,7 @@ object FormRelVei: TFormRelVei
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
@@ -594,18 +598,18 @@ object FormRelVei: TFormRelVei
       end
       object ReportSummary1: TfrxReportSummary
         FillType = ftBrush
-        Height = 45.354360000000000000
+        Height = 56.692950000000000000
         Top = 321.260050000000000000
         Width = 718.110700000000000000
         object SysMemo1: TfrxSysMemoView
           Left = 487.559370000000000000
-          Top = 11.338590000000000000
+          Top = 22.677180000000000000
           Width = 60.472480000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
             '[COUNT(MasterData1)]')
@@ -613,13 +617,13 @@ object FormRelVei: TFormRelVei
         end
         object Memo12: TfrxMemoView
           Left = 324.378170000000000000
-          Top = 11.338590000000000000
+          Top = 22.677180000000000000
           Width = 158.740260000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           HAlign = haRight
           Memo.UTF8W = (
@@ -627,9 +631,9 @@ object FormRelVei: TFormRelVei
           ParentFont = False
         end
         object Shape1: TfrxShapeView
-          Left = 318.464440000000000000
-          Top = 5.559060000000000000
-          Width = 245.669450000000000000
+          Left = 314.684910000000000000
+          Top = 16.897650000000000000
+          Width = 230.551330000000000000
           Height = 30.236240000000000000
         end
       end

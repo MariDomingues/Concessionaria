@@ -60,7 +60,7 @@ begin
         if EdtCodigoDe.Text <> '' then
           try
             StrToInt(EdtCodigoDe.Text);
-            Add(StrLiga + 'VeiCod > = ' + EdtCodigoDe.Text);
+            Add(StrLiga + 'V.Codigo > = ' + EdtCodigoDe.Text);
             StrLiga:= 'and ';
             except
               on EConvertError do;
@@ -69,7 +69,7 @@ begin
         if EdtCodigoAte.Text <> '' then
           try
             StrToInt(EdtCodigoAte.Text);
-            Add(StrLiga + 'VeiCod < = ' + EdtCodigoAte.Text);
+            Add(StrLiga + 'V.Codigo < = ' + EdtCodigoAte.Text);
             StrLiga:= 'and ';
             except
               on EConvertError do;
@@ -77,19 +77,19 @@ begin
 
         if EdtNomeDe.Text <> '' then
           begin
-            Add(StrLiga + 'VeiPla >= ''' + EdtNomeDe.Text + '''');
+            Add(StrLiga + 'V.Placa >= ''' + EdtNomeDe.Text + '''');
             StrLiga:= 'and ';
           end;
 
         if EdtNomeAte.Text <> '' then
           begin
-            Add(StrLiga + 'VeiPla <= ''' + EdtNomeAte.Text + 'zzz''');
+            Add(StrLiga + 'V.Placa <= ''' + EdtNomeAte.Text + 'zzz''');
             StrLiga:= 'and ';
           end;
 
         case RadioGroup1.ItemIndex of
-          0: Add('order by VeiCod');
-          1: Add('order by VeiPla');
+          0: Add('order by V.Codigo');
+          1: Add('order by V.Placa');
         end;
       end;
   ADOQRY_Veiculo.Open;

@@ -122,7 +122,7 @@ procedure TFrm_Man_Modelo.FormActivate(Sender: TObject);
 begin
   DM.ADODS_Modelo.Close;
   DM.ADODS_Modelo.CommandText := '';
-  DM.ADODS_Modelo.CommandText := 'select * from Modelo order by Descricao';
+  DM.ADODS_Modelo.CommandText := 'select * from Modelo order by Codigo';
   DM.ADODS_Modelo.Open;
 end;
 

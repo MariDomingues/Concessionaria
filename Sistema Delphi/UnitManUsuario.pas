@@ -122,7 +122,7 @@ procedure TFrm_Man_Usuario.FormActivate(Sender: TObject);
 begin
   DM.ADODS_Login.Close;
   DM.ADODS_Login.CommandText := '';
-  DM.ADODS_Login.CommandText := 'select * from Login order by Usuario';
+  DM.ADODS_Login.CommandText := 'select * from Login order by Codigo';
   DM.ADODS_Login.Open;
 end;
 

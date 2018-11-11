@@ -36,6 +36,7 @@ type
     procedure btn_SairClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +51,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitCadCargo;
+uses UnitDM, UnitCadCargo, UnitRelCargo;
 
 procedure TFrm_Man_Cargo.btn_AlterarClick(Sender: TObject);
 begin
@@ -88,6 +89,13 @@ begin
   FrmCadCargo.Pn1Ficha.Enabled     := True;
 end;
 
+procedure TFrm_Man_Cargo.btn_ImprimirClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormRelCar, FormRelCar);
+  FormRelCar.ShowModal;
+  FormRelCar.Free;
+end;
+
 procedure TFrm_Man_Cargo.btn_InserirClick(Sender: TObject);
 begin
   Acao := 'I';
@@ -114,7 +122,7 @@ procedure TFrm_Man_Cargo.FormActivate(Sender: TObject);
 begin
   DM.ADODS_Cargo.Close;
   DM.ADODS_Cargo.CommandText := '';
-  DM.ADODS_Cargo.CommandText := 'select * from Cargo order by Descricao';
+  DM.ADODS_Cargo.CommandText := 'select * from Cargo order by Codigo';
   DM.ADODS_Cargo.Open;
 end;
 

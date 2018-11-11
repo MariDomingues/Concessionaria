@@ -122,7 +122,7 @@ procedure TFrm_Man_Combustivel.FormActivate(Sender: TObject);
 begin
   DM.ADODS_Combustivel.Close;
   DM.ADODS_Combustivel.CommandText := '';
-  DM.ADODS_Combustivel.CommandText := 'select * from Combustivel order by Descricao';
+  DM.ADODS_Combustivel.CommandText := 'select * from Combustivel order by Codigo';
   DM.ADODS_Combustivel.Open;
 end;
 

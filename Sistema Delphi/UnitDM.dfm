@@ -3,6 +3,7 @@ object DM: TDM
   Height = 597
   Width = 446
   object ADOConnection1: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
       'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O;' +
@@ -467,13 +468,6 @@ object DM: TDM
     end
     object ADODS_VendaQtdParcela: TIntegerField
       FieldName = 'QtdParcela'
-    end
-    object ADODS_VendaDesconto: TBCDField
-      FieldName = 'Desconto'
-      DisplayFormat = '##,##0.00'
-      EditFormat = '##,##0.00'
-      Precision = 5
-      Size = 2
     end
   end
   object DS_Venda_Itens: TDataSource

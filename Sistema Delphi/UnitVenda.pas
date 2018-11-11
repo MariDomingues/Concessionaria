@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ComCtrls, Vcl.ToolWin,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, Vcl.Mask,
-  Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Data.Win.ADODB;
+  Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Data.Win.ADODB, frxClass, frxDBSet;
 
 type
   TFrmVenda = class(TForm)
@@ -65,8 +65,6 @@ type
     MaskEdit1: TMaskEdit;
     DBEdit3: TDBEdit;
     DBG_Vei: TDBGrid;
-    DBEdit4: TDBEdit;
-    Label9: TLabel;
     DBEdit2: TDBEdit;
     DBLookupComboBox3: TDBLookupComboBox;
     DS_CodVen: TDataSource;
@@ -77,6 +75,30 @@ type
     ADOQRY_Vendedor: TADOQuery;
     DS_Soma: TDataSource;
     ADOQRY_Soma: TADOQuery;
+    ADOQuery1: TADOQuery;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    frxDBDataset2: TfrxDBDataset;
+    ADOQuery2: TADOQuery;
+    DataSource1: TDataSource;
+    ADOQuery1Codigo: TIntegerField;
+    ADOQuery1DtVen: TDateTimeField;
+    ADOQuery1Cliente: TIntegerField;
+    ADOQuery1Funcionario: TIntegerField;
+    ADOQuery1Nome: TStringField;
+    ADOQuery1Endereco: TStringField;
+    ADOQuery1Bairro: TStringField;
+    ADOQuery1Cidade: TStringField;
+    ADOQuery1CPF: TStringField;
+    ADOQuery1CEP: TStringField;
+    ADOQuery1Telefone: TStringField;
+    ADOQuery1Email: TStringField;
+    ADOQuery1Nome_1: TStringField;
+    ADOQuery2ValTotVei: TBCDField;
+    ADOQuery2DescUnit: TBCDField;
+    ADOQuery2Valor: TBCDField;
+    ADOQuery2Placa: TStringField;
+    ADOQuery2Veiculo: TIntegerField;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -98,7 +120,7 @@ type
     procedure Btn_ExcluirClick(Sender: TObject);
     procedure DBLookupComboBox1Exit(Sender: TObject);
     procedure DBLookupComboBox2Exit(Sender: TObject);
-    procedure DBEdit4Exit(Sender: TObject);
+    procedure Btn_ImprimirClick(Sender: TObject);
   private
     procedure Botoes(Ativa: Boolean);
     procedure CarregaItens;
@@ -239,6 +261,26 @@ begin
     end;
 end;
 
+procedure TFrmVenda.Btn_ImprimirClick(Sender: TObject);
+begin
+  ADOQuery1.Close;
+  ADOQuery2.Close;
+
+  with ADOQuery1.SQL do
+    begin
+      Clear;
+      Add('SELECT Venda.Codigo, Venda.DtVen, Venda.Cliente, Venda.Funcionario, ' +
+          'Cliente.Nome, Cliente.Endereco, Cliente.Bairro, Cliente.Cidade, ' +
+          'Cliente.CPF, Cliente.CEP, Cliente.Telefone, Cliente.Email, Funcionario.Nome ' +
+          'FROM Venda LEFT JOIN Cliente ON Venda.Cliente = Cliente.Codigo LEFT JOIN' +
+          ' Funcionario ON Venda.Funcionario = Funcionario.Codigo where Venda.Codigo = ' +
+          IntToStr(DM.ADODS_VendaCodigo.AsInteger));
+    end;
+  ADOQuery1.Open;
+  ADOQuery2.Open;
+  frxReport1.ShowReport();
+end;
+
 procedure TFrmVenda.Btn_InserirClick(Sender: TObject);
 begin
   DM.ADODS_Venda.Insert;
@@ -310,16 +352,6 @@ begin
     end
   else
     DBEdit3.Text := FloatToStr(ADOQRY_VeiculoValor.AsFloat);
-end;
-
-procedure TFrmVenda.DBEdit4Exit(Sender: TObject);
-var Desconto : real;
-begin
-  if DBEdit4.Text <> '' then
-    begin
-      Desconto := StrToFloat(DBEdit4.Text);
-      DM.ADODS_VendaValTotal.AsFloat := ADOQRY_Soma.FieldByName('Total').AsFloat - ((Desconto / 100) * ADOQRY_Soma.FieldByName('Total').AsFloat);
-    end;
 end;
 
 procedure TFrmVenda.DBLookupComboBox1Exit(Sender: TObject);
@@ -446,7 +478,6 @@ begin
   Btn_Salvar.Enabled   := not Ativa;
   Btn_Cancelar.Enabled := not Ativa;
   PnlFicha.Enabled     := not Ativa;
-  DBEdit4.Enabled      := not Ativa;
 end;
 
 procedure TFrmVenda.CarregaItens;

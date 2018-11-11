@@ -174,8 +174,8 @@
             <Form>FormRelVei</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="UnitRelCombustivel.pas">
-            <Form>FormRelCom</Form>
+        <DCCReference Include="UnitRelCargo.pas">
+            <Form>FormRelCar</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

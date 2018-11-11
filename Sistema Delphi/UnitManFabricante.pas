@@ -122,7 +122,7 @@ procedure TFrm_Man_Fabricante.FormActivate(Sender: TObject);
 begin
   DM.ADODS_Fabricante.Close;
   DM.ADODS_Fabricante.CommandText := '';
-  DM.ADODS_Fabricante.CommandText := 'select * from Fabricante order by NomeFantasia';
+  DM.ADODS_Fabricante.CommandText := 'select * from Fabricante order by Codigo';
   DM.ADODS_Fabricante.Open;
 end;
 

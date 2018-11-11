@@ -23,7 +23,7 @@ uses
   UnitCadFuncionario in 'UnitCadFuncionario.pas' {FrmCadFuncionario},
   UnitVenda in 'UnitVenda.pas' {FrmVenda},
   UnitRelVeiculo in 'UnitRelVeiculo.pas' {FormRelVei},
-  UnitRelCombustivel in 'UnitRelCombustivel.pas' {FormRelCom};
+  UnitRelCargo in 'UnitRelCargo.pas' {FormRelCar};
 
 {$R *.res}
 
@@ -51,6 +51,6 @@ begin
   Application.CreateForm(TFrmCadFuncionario, FrmCadFuncionario);
   Application.CreateForm(TFrmVenda, FrmVenda);
   Application.CreateForm(TFormRelVei, FormRelVei);
-  Application.CreateForm(TFormRelCom, FormRelCom);
+  Application.CreateForm(TFormRelCar, FormRelCar);
   Application.Run;
 end.

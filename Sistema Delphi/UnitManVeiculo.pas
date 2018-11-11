@@ -36,7 +36,6 @@ type
     procedure btn_SairClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
@@ -125,18 +124,10 @@ end;
 
 procedure TFrm_Man_Veiculo.FormActivate(Sender: TObject);
 begin
-  DM.ADODS_Fabricante.Open;
-  DM.ADODS_Modelo.Open;
-  DM.ADODS_Combustivel.Open;
   DM.ADODS_Veiculo.Close;
+  DM.ADODS_Veiculo.CommandText := '';
+  DM.ADODS_Veiculo.CommandText := 'select * from Veiculo order by Codigo';
   DM.ADODS_Veiculo.Open;
-end;
-
-procedure TFrm_Man_Veiculo.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  DM.ADODS_Fabricante.Close;
-  DM.ADODS_Modelo.Close;
-  DM.ADODS_Combustivel.Close;
 end;
 
 end.

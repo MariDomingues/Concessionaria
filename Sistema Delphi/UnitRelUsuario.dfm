@@ -240,7 +240,7 @@ object FormRelUsu: TFormRelUsu
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43395.840991875000000000
-    ReportOptions.LastChange = 43414.952559513890000000
+    ReportOptions.LastChange = 43415.607997326390000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -307,10 +307,10 @@ object FormRelUsu: TFormRelUsu
           DataField = 'Codigo'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
@@ -325,10 +325,10 @@ object FormRelUsu: TFormRelUsu
           DataField = 'Usuario'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[frxDBDataset1."Usuario"]')
@@ -336,15 +336,16 @@ object FormRelUsu: TFormRelUsu
         end
         object Memo9: TfrxMemoView
           Left = 381.732530000000000000
+          Top = 2.000000000000000000
           Width = 313.700990000000000000
           Height = 18.897650000000000000
           DataField = 'Nome'
           DataSet = frxDBDataset1
           DataSetName = 'frxDBDataset1'
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Height = -12
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[frxDBDataset1."Nome"]')
@@ -354,17 +355,17 @@ object FormRelUsu: TFormRelUsu
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Height = 22.677180000000000000
-        Top = 389.291590000000000000
+        Top = 400.630180000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
           Left = 574.488560000000000000
-          Top = 3.338590000000010000
+          Top = 3.338590000000000000
           Width = 143.622140000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           HAlign = haRight
           Memo.UTF8W = (
@@ -377,13 +378,13 @@ object FormRelUsu: TFormRelUsu
             end>
         end
         object Memo11: TfrxMemoView
-          Top = 3.338590000000010000
+          Top = 3.338590000000000000
           Width = 151.181200000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = []
           Memo.UTF8W = (
             '[Date] - [Time]')
@@ -391,7 +392,7 @@ object FormRelUsu: TFormRelUsu
         end
         object Line2: TfrxLineView
           Align = baWidth
-          Top = 1.559059999999990000
+          Top = 1.559060000000000000
           Width = 718.110700000000000000
           Color = clBlack
           Diagonal = True
@@ -456,10 +457,10 @@ object FormRelUsu: TFormRelUsu
         object Memo6: TfrxMemoView
           Top = 1.000000000000000000
           Width = 56.692950000000000000
-          Height = 18.897650000000000000
+          Height = 22.677180000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           HAlign = haCenter
@@ -474,7 +475,7 @@ object FormRelUsu: TFormRelUsu
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
@@ -494,7 +495,7 @@ object FormRelUsu: TFormRelUsu
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -13
+          Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
@@ -504,18 +505,18 @@ object FormRelUsu: TFormRelUsu
       end
       object ReportSummary1: TfrxReportSummary
         FillType = ftBrush
-        Height = 45.354360000000000000
+        Height = 56.692950000000000000
         Top = 321.260050000000000000
         Width = 718.110700000000000000
         object SysMemo1: TfrxSysMemoView
           Left = 487.559370000000000000
-          Top = 11.338590000000000000
+          Top = 22.677180000000000000
           Width = 60.472480000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
             '[COUNT(MasterData1)]')
@@ -523,13 +524,13 @@ object FormRelUsu: TFormRelUsu
         end
         object Memo12: TfrxMemoView
           Left = 324.378170000000000000
-          Top = 11.338590000000000000
+          Top = 22.677180000000000000
           Width = 158.740260000000000000
           Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
-          Font.Name = 'Arial'
+          Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           HAlign = haRight
           Memo.UTF8W = (
@@ -537,9 +538,9 @@ object FormRelUsu: TFormRelUsu
           ParentFont = False
         end
         object Shape1: TfrxShapeView
-          Left = 310.905380000000000000
-          Top = 5.559060000000000000
-          Width = 245.669450000000000000
+          Left = 318.464440000000000000
+          Top = 16.897650000000000000
+          Width = 215.433210000000000000
           Height = 30.236240000000000000
         end
       end
@@ -1655,6 +1656,7 @@ object FormRelUsu: TFormRelUsu
     end
   end
   object ADOQRY_Usuario: TADOQuery
+    Active = True
     Connection = DM.ADOConnection1
     CursorType = ctStatic
     Parameters = <>

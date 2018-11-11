@@ -56,7 +56,7 @@ begin
         if EdtCodigoDe.Text <> '' then
           try
             StrToInt(EdtCodigoDe.Text);
-            Add(StrLiga + 'Codigo > = ' + EdtCodigoDe.Text);
+            Add(StrLiga + 'Login.Codigo > = ' + EdtCodigoDe.Text);
             StrLiga:= 'and ';
             except
               on EConvertError do;
@@ -65,7 +65,7 @@ begin
         if EdtCodigoAte.Text <> '' then
           try
             StrToInt(EdtCodigoAte.Text);
-            Add(StrLiga + 'Codigo < = ' + EdtCodigoAte.Text);
+            Add(StrLiga + 'Login.Codigo < = ' + EdtCodigoAte.Text);
             StrLiga:= 'and ';
             except
               on EConvertError do;
@@ -73,19 +73,19 @@ begin
 
         if EdtNomeDe.Text <> '' then
           begin
-            Add(StrLiga + 'Descricao >= ''' + EdtNomeDe.Text + '''');
+            Add(StrLiga + 'Login.Usuario >= ''' + EdtNomeDe.Text + '''');
             StrLiga:= 'and ';
           end;
 
         if EdtNomeAte.Text <> '' then
           begin
-            Add(StrLiga + 'Descricao <= ''' + EdtNomeAte.Text + 'zzz''');
+            Add(StrLiga + 'Login.Usuario <= ''' + EdtNomeAte.Text + 'zzz''');
             StrLiga:= 'and ';
           end;
 
         case RadioGroup1.ItemIndex of
-          0: Add('order by Codigo');
-          1: Add('order by Descricao');
+          0: Add('order by Login.Codigo');
+          1: Add('order by Login.Usuario');
         end;
       end;
   ADOQRY_Usuario.Open;

@@ -122,7 +122,7 @@ procedure TFrm_Man_Cliente.FormActivate(Sender: TObject);
 begin
   DM.ADODS_Cliente.Close;
   DM.ADODS_Cliente.CommandText := '';
-  DM.ADODS_Cliente.CommandText := 'select * from Cliente order by Nome';
+  DM.ADODS_Cliente.CommandText := 'select * from Cliente order by Codigo';
   DM.ADODS_Cliente.Open;
 end;
 

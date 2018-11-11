@@ -36,6 +36,7 @@ type
     procedure btn_ExcluirClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +51,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM;
+uses UnitDM, UnitRelFuncionario;
 
 procedure TFrm_Man_Funcionario.btn_AlterarClick(Sender: TObject);
 begin
@@ -88,6 +89,13 @@ begin
   FrmCadFuncionario.Pn1Ficha.Enabled     := True;
 end;
 
+procedure TFrm_Man_Funcionario.btn_ImprimirClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormRelFun, FormRelFun);
+  FormRelFun.ShowModal;
+  FormRelFun.Free;
+end;
+
 procedure TFrm_Man_Funcionario.btn_InserirClick(Sender: TObject);
 begin
   Acao := 'I';
@@ -114,7 +122,7 @@ procedure TFrm_Man_Funcionario.FormActivate(Sender: TObject);
 begin
   DM.ADODS_Funcionario.Close;
   DM.ADODS_Funcionario.CommandText := '';
-  DM.ADODS_Funcionario.CommandText := 'select * from Funcionario order by Nome';
+  DM.ADODS_Funcionario.CommandText := 'select * from Funcionario order by Codigo';
   DM.ADODS_Funcionario.Open;
 end;
 
