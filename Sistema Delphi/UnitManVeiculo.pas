@@ -37,6 +37,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,7 +52,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitCadVeiculo;
+uses UnitDM, UnitCadVeiculo, UnitRelVeiculo;
 
 procedure TFrm_Man_Veiculo.btn_AlterarClick(Sender: TObject);
 begin
@@ -87,6 +88,13 @@ begin
   FrmCadVeiculo.btn_Cancelar.Enabled := True;
   FrmCadVeiculo.btn_Sair.Enabled     := False;
   FrmCadVeiculo.Pn1Ficha.Enabled     := True;
+end;
+
+procedure TFrm_Man_Veiculo.btn_ImprimirClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormRelVei, FormRelVei);
+  FormRelVei.ShowModal;
+  FormRelVei.Free;
 end;
 
 procedure TFrm_Man_Veiculo.btn_InserirClick(Sender: TObject);

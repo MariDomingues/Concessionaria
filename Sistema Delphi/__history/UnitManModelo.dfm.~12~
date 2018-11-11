@@ -1,9 +1,9 @@
-object Frm_Man_Usuario: TFrm_Man_Usuario
-  Left = 300
-  Top = 353
+object Frm_Man_Modelo: TFrm_Man_Modelo
+  Left = 380
+  Top = 249
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'Manuten'#231#227'o do Cadastro de Usu'#225'rio'
+  Caption = 'Manuten'#231#227'o do Cadastro de Modelo'
   ClientHeight = 598
   ClientWidth = 1093
   Color = clBtnFace
@@ -13,16 +13,23 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
-  object DBG_Cli: TDBGrid
+  object DBG_Mod: TDBGrid
     Left = 0
     Top = 131
     Width = 1093
     Height = 447
     Align = alTop
-    DataSource = DM.DS_Cliente
+    DataSource = DM.DS_Modelo
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -33,6 +40,47 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Columns = <
       item
         Expanded = False
+        FieldName = 'Codigo'
+        Title.Caption = 'C'#243'digo'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Descricao'
+        Title.Caption = 'Descri'#231#227'o'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 450
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Obs'
+        Title.Caption = 'Observa'#231#227'o'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
+        Width = 500
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Status'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -12
+        Title.Font.Name = 'Yu Gothic UI'
+        Title.Font.Style = [fsBold]
         Visible = True
       end>
   end
@@ -48,9 +96,9 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     object Label1: TLabel
       Left = 419
       Top = 10
-      Width = 300
+      Width = 296
       Height = 18
-      Caption = ' Manuten'#231#227'o no Cadastro de Usu'#225'rio'
+      Caption = ' Manuten'#231#227'o no Cadastro de Modelo'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
       Font.Height = -15
@@ -68,10 +116,10 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     TabOrder = 2
     object Label2: TLabel
       Left = 8
-      Top = 14
-      Width = 113
+      Top = 12
+      Width = 114
       Height = 15
-      Caption = 'Pesquisa por Usu'#225'rio:'
+      Caption = 'Pesquisa por Modelo:'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -80,8 +128,8 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       ParentFont = False
     end
     object Edit1: TEdit
-      Left = 124
-      Top = 11
+      Left = 130
+      Top = 9
       Width = 490
       Height = 23
       Font.Charset = ANSI_CHARSET
@@ -91,6 +139,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      OnChange = Edit1Change
     end
   end
   object StatusBar1: TStatusBar
@@ -109,8 +158,8 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Width = 1093
     Height = 49
     BorderWidth = 1
-    ButtonHeight = 40
-    ButtonWidth = 43
+    ButtonHeight = 44
+    ButtonWidth = 45
     Caption = 'ToolBar1'
     Color = clBtnFace
     DisabledImages = ImageList2
@@ -119,6 +168,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Images = ImageList1
     ParentColor = False
     ParentShowHint = False
+    ShowCaptions = True
     ShowHint = True
     TabOrder = 4
     object btn_Inserir: TToolButton
@@ -127,9 +177,10 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Hint = 'Inserir Registro'
       Caption = 'Inserir'
       ImageIndex = 0
+      OnClick = btn_InserirClick
     end
     object ToolButton2: TToolButton
-      Left = 43
+      Left = 45
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
@@ -137,14 +188,15 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Alterar: TToolButton
-      Left = 51
+      Left = 53
       Top = 0
       Hint = 'Alterar Registro'
-      Caption = 'btn_Alterar'
+      Caption = 'Alterar'
       ImageIndex = 1
+      OnClick = btn_AlterarClick
     end
     object ToolButton4: TToolButton
-      Left = 94
+      Left = 98
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -152,14 +204,15 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Excluir: TToolButton
-      Left = 102
+      Left = 106
       Top = 0
       Hint = 'Excluir Registro'
-      Caption = 'btn_Excluir'
+      Caption = 'Excluir'
       ImageIndex = 2
+      OnClick = btn_ExcluirClick
     end
     object ToolButton10: TToolButton
-      Left = 145
+      Left = 151
       Top = 0
       Width = 8
       Caption = 'ToolButton10'
@@ -167,14 +220,14 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Imprimir: TToolButton
-      Left = 153
+      Left = 159
       Top = 0
       Hint = 'Imprimir'
-      Caption = 'btn_Imprimir'
+      Caption = 'Imprimir'
       ImageIndex = 6
     end
     object ToolButton12: TToolButton
-      Left = 196
+      Left = 204
       Top = 0
       Width = 8
       Caption = 'ToolButton12'
@@ -182,11 +235,12 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
       Style = tbsSeparator
     end
     object btn_Sair: TToolButton
-      Left = 204
+      Left = 212
       Top = 0
       Hint = 'Sair'
-      Caption = 'btn_Sair'
+      Caption = 'Sair'
       ImageIndex = 5
+      OnClick = btn_SairClick
     end
   end
   object ImageList1: TImageList
@@ -195,7 +249,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 128
     Top = 192
     Bitmap = {
-      494C0101070048006C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800980018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -802,7 +856,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800640018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1409,7 +1463,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800640018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800900018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

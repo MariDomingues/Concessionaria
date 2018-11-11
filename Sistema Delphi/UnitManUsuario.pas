@@ -36,6 +36,7 @@ type
     procedure btn_SairClick(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +51,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitCadUsuario;
+uses UnitDM, UnitCadUsuario, UnitRelUsuario;
 
 procedure TFrm_Man_Usuario.btn_AlterarClick(Sender: TObject);
 begin
@@ -86,6 +87,13 @@ begin
   FrmCadUsuario.btn_Cancelar.Enabled := True;
   FrmCadUsuario.btn_Sair.Enabled     := False;
   FrmCadUsuario.Pn1Ficha.Enabled     := True;
+end;
+
+procedure TFrm_Man_Usuario.btn_ImprimirClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormRelUsu, FormRelUsu);
+  FormRelUsu.ShowModal;
+  FormRelUsu.Free;
 end;
 
 procedure TFrm_Man_Usuario.btn_InserirClick(Sender: TObject);

@@ -170,8 +170,8 @@
             <Form>FrmVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="UnitRelFabricante.pas">
-            <Form>FormRelFab</Form>
+        <DCCReference Include="UnitRelVeiculo.pas">
+            <Form>FormRelVei</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UnitRelCombustivel.pas">

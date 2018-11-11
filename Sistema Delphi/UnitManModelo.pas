@@ -36,6 +36,7 @@ type
     procedure btn_InserirClick(Sender: TObject);
     procedure btn_ExcluirClick(Sender: TObject);
     procedure btn_AlterarClick(Sender: TObject);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -50,7 +51,7 @@ implementation
 
 {$R *.dfm}
 
-uses UnitDM, UnitCadModelo;
+uses UnitDM, UnitCadModelo, UnitRelModelo;
 
 procedure TFrm_Man_Modelo.btn_AlterarClick(Sender: TObject);
 begin
@@ -86,6 +87,13 @@ begin
   FrmCadModelo.btn_Cancelar.Enabled := True;
   FrmCadModelo.btn_Sair.Enabled     := False;
   FrmCadModelo.Pn1Ficha.Enabled     := True;
+end;
+
+procedure TFrm_Man_Modelo.btn_ImprimirClick(Sender: TObject);
+begin
+  Application.CreateForm(TFormRelMod, FormRelMod);
+  FormRelMod.ShowModal;
+  FormRelMod.Free;
 end;
 
 procedure TFrm_Man_Modelo.btn_InserirClick(Sender: TObject);
