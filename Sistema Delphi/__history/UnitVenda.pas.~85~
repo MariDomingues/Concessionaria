@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ComCtrls, Vcl.ToolWin,
   Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Buttons, Vcl.DBCtrls, Vcl.Mask,
-  Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Data.Win.ADODB;
+  Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Data.Win.ADODB, frxClass, frxDBSet;
 
 type
   TFrmVenda = class(TForm)
@@ -65,17 +65,40 @@ type
     MaskEdit1: TMaskEdit;
     DBEdit3: TDBEdit;
     DBG_Vei: TDBGrid;
-    DBEdit4: TDBEdit;
-    Label9: TLabel;
     DBEdit2: TDBEdit;
     DBLookupComboBox3: TDBLookupComboBox;
     DS_CodVen: TDataSource;
     ADOQRY_CodVen: TADOQuery;
     DS_Delete: TDataSource;
     ADOQRY_Delete: TADOQuery;
-    DS_ValTot: TDataSource;
-    ADOQRY_ValTot: TADOQuery;
-    ADOQRY_ValTotTotal: TFMTBCDField;
+    DS_Vendedor: TDataSource;
+    ADOQRY_Vendedor: TADOQuery;
+    DS_Soma: TDataSource;
+    ADOQRY_Soma: TADOQuery;
+    ADOQuery1: TADOQuery;
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    frxDBDataset2: TfrxDBDataset;
+    ADOQuery2: TADOQuery;
+    DataSource1: TDataSource;
+    ADOQuery1Codigo: TIntegerField;
+    ADOQuery1DtVen: TDateTimeField;
+    ADOQuery1Cliente: TIntegerField;
+    ADOQuery1Funcionario: TIntegerField;
+    ADOQuery1Nome: TStringField;
+    ADOQuery1Endereco: TStringField;
+    ADOQuery1Bairro: TStringField;
+    ADOQuery1Cidade: TStringField;
+    ADOQuery1CPF: TStringField;
+    ADOQuery1CEP: TStringField;
+    ADOQuery1Telefone: TStringField;
+    ADOQuery1Email: TStringField;
+    ADOQuery1Nome_1: TStringField;
+    ADOQuery2ValTotVei: TBCDField;
+    ADOQuery2DescUnit: TBCDField;
+    ADOQuery2Valor: TBCDField;
+    ADOQuery2Placa: TStringField;
+    ADOQuery2Veiculo: TIntegerField;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Bbt_ConfirmaClick(Sender: TObject);
     procedure Bbt_ExcluirClick(Sender: TObject);
@@ -97,7 +120,7 @@ type
     procedure Btn_ExcluirClick(Sender: TObject);
     procedure DBLookupComboBox1Exit(Sender: TObject);
     procedure DBLookupComboBox2Exit(Sender: TObject);
-    procedure DBEdit4Exit(Sender: TObject);
+    procedure Btn_ImprimirClick(Sender: TObject);
   private
     procedure Botoes(Ativa: Boolean);
     procedure CarregaItens;
@@ -149,10 +172,12 @@ begin
   DM.ADOC_Atualiza.CommandText := 'update Veiculo set Status = ''V'' where Codigo = ' + IntToStr(DM.ADODS_Venda_ItensVeiculo.Value) + ';';
   DM.ADOC_Atualiza.Execute;
 
-  ADOQRY_ValTot.Close;
-  ADOQRY_ValTot.Open;
+  ADOQRY_Soma.Close;
+  ADOQRY_Soma.SQL.Text := '';
+  ADOQRY_Soma.SQL.Text := 'select sum(ValtotVei) as ''Total'' from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
+  ADOQRY_Soma.Open;
 
-  DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat;
+  DM.ADODS_VendaValTotal.Value := ADOQRY_Soma.FieldByName('Total').AsFloat;
 end;
 
 procedure TFrmVenda.Bbt_ExcluirClick(Sender: TObject);
@@ -167,6 +192,7 @@ begin
   DM.ADOC_Atualiza.CommandText := '';
   DM.ADOC_Atualiza.CommandText := 'update Veiculo set Status = ''A'' where Codigo = ' + IntToStr(DM.ADODS_Venda_ItensVeiculo.Value) + ';';
   DM.ADOC_Atualiza.Execute;
+
   DM.ADODS_Venda_Itens.Delete;
 end;
 
@@ -214,29 +240,60 @@ begin
 end;
 
 procedure TFrmVenda.Btn_ExcluirClick(Sender: TObject);
+var confExc : integer;
 begin
-  ADOQRY_Delete.Close;
-  ADOQRY_Delete.SQL.Clear;
-  ADOQRY_Delete.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger));
-  ADOQRY_Delete.Open;
+  confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
-  if ADOQRY_Delete.FieldByName('Total').AsInteger > 0 then
+  if confExc = IDYES then
     begin
-      Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
-      Operacao:= 1;
-      Botoes(True);
+      ADOQRY_Delete.Close;
+      ADOQRY_Delete.SQL.Clear;
+      ADOQRY_Delete.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger));
+      ADOQRY_Delete.Open;
+
+      if ADOQRY_Delete.FieldByName('Total').AsInteger > 0 then
+        begin
+          Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
+          Operacao:= 1;
+          Botoes(True);
+        end
+      else
+        begin
+          DM.ADOC_Atualiza.CommandText := '';
+          DM.ADOC_Atualiza.CommandText := 'delete from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
+          DM.ADOC_Atualiza.Execute;
+          DM.ADODS_Venda.Delete;
+        end;
+      Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
     end
   else
+    Application.MessageBox('A exclusão do registro foi cancelada', 'Informação', MB_OK + MB_ICONERROR);
+end;
+
+procedure TFrmVenda.Btn_ImprimirClick(Sender: TObject);
+begin
+  ADOQuery1.Close;
+  ADOQuery2.Close;
+
+  with ADOQuery1.SQL do
     begin
-      DM.ADOC_Atualiza.CommandText := '';
-      DM.ADOC_Atualiza.CommandText := 'delete from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
-      DM.ADOC_Atualiza.Execute;
-      DM.ADODS_Venda.Delete;
+      Clear;
+      Add('SELECT Venda.Codigo, Venda.DtVen, Venda.Cliente, Venda.Funcionario, ' +
+          'Cliente.Nome, Cliente.Endereco, Cliente.Bairro, Cliente.Cidade, ' +
+          'Cliente.CPF, Cliente.CEP, Cliente.Telefone, Cliente.Email, Funcionario.Nome ' +
+          'FROM Venda LEFT JOIN Cliente ON Venda.Cliente = Cliente.Codigo LEFT JOIN' +
+          ' Funcionario ON Venda.Funcionario = Funcionario.Codigo where Venda.Codigo = ' +
+          IntToStr(DM.ADODS_VendaCodigo.AsInteger));
     end;
+  ADOQuery1.Open;
+  ADOQuery2.Open;
+  frxReport1.ShowReport();
 end;
 
 procedure TFrmVenda.Btn_InserirClick(Sender: TObject);
 begin
+  DM.ADODS_Venda.Insert;
+
   ADOQRY_CodVen.Close;
   ADOQRY_CodVen.Open;
 
@@ -306,18 +363,6 @@ begin
     DBEdit3.Text := FloatToStr(ADOQRY_VeiculoValor.AsFloat);
 end;
 
-procedure TFrmVenda.DBEdit4Exit(Sender: TObject);
-var Desconto : real;
-begin
-  if DBEdit4.Text <> '' then
-    begin
-      Desconto := StrToFloat(DBEdit4.Text);
-      DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat - ((Desconto / 100) * ADOQRY_ValTotTotal.AsFloat);
-    end
-  else
-    DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat;
-end;
-
 procedure TFrmVenda.DBLookupComboBox1Exit(Sender: TObject);
 begin
   if varisnull(DBLookupComboBox1.KeyValue)  then
@@ -347,13 +392,6 @@ end;
 procedure TFrmVenda.DBLookupComboBox3Exit(Sender: TObject);
 begin
   MaskEdit1.Text := FloatToStr(ADOQRY_VeiculoValor.AsFloat);
-
-  if varisnull(DBLookupComboBox3.KeyValue)  then
-    begin
-      Application.MessageBox('O campo "Veículo" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
-      DBLookupComboBox3.SetFocus;
-      Abort;
-    end;
 end;
 
 procedure TFrmVenda.FormActivate(Sender: TObject);
@@ -375,12 +413,8 @@ begin
   ADOQRY_Veiculo.Close;
   ADOQRY_Veiculo.Open;
 
-  ADOQRY_ValTot.Close;
-  ADOQRY_ValTot.Open;
-
-  DM.ADODS_Venda.Insert;
-
-  DM.ADODS_VendaValTotal.AsFloat := ADOQRY_ValTotTotal.AsFloat;
+  ADOQRY_Vendedor.Close;
+  ADOQRY_Vendedor.Open;
 end;
 
 procedure TFrmVenda.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -390,7 +424,8 @@ begin
 
   ADOQRY_Cliente.Close;
   ADOQRY_Veiculo.Close;
-  ADOQRY_ValTot.Close;
+  ADOQRY_Vendedor.Close;
+  ADOQRY_Soma.Close;
 end;
 
 procedure TFrmVenda.Botoes(Ativa: Boolean);
@@ -452,7 +487,6 @@ begin
   Btn_Salvar.Enabled   := not Ativa;
   Btn_Cancelar.Enabled := not Ativa;
   PnlFicha.Enabled     := not Ativa;
-  DBEdit4.Enabled      := not Ativa;
 end;
 
 procedure TFrmVenda.CarregaItens;

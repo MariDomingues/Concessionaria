@@ -240,25 +240,34 @@ begin
 end;
 
 procedure TFrmVenda.Btn_ExcluirClick(Sender: TObject);
+var confExc : integer;
 begin
-  ADOQRY_Delete.Close;
-  ADOQRY_Delete.SQL.Clear;
-  ADOQRY_Delete.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger));
-  ADOQRY_Delete.Open;
+  confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
-  if ADOQRY_Delete.FieldByName('Total').AsInteger > 0 then
+  if confExc = IDYES then
     begin
-      Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
-      Operacao:= 1;
-      Botoes(True);
+      ADOQRY_Delete.Close;
+      ADOQRY_Delete.SQL.Clear;
+      ADOQRY_Delete.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger));
+      ADOQRY_Delete.Open;
+
+      if ADOQRY_Delete.FieldByName('Total').AsInteger > 0 then
+        begin
+          Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
+          Operacao:= 1;
+          Botoes(True);
+        end
+      else
+        begin
+          DM.ADOC_Atualiza.CommandText := '';
+          DM.ADOC_Atualiza.CommandText := 'delete from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
+          DM.ADOC_Atualiza.Execute;
+          DM.ADODS_Venda.Delete;
+        end;
+      Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
     end
   else
-    begin
-      DM.ADOC_Atualiza.CommandText := '';
-      DM.ADOC_Atualiza.CommandText := 'delete from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
-      DM.ADOC_Atualiza.Execute;
-      DM.ADODS_Venda.Delete;
-    end;
+    Application.MessageBox('A exclusão do registro foi cancelada', 'Informação', MB_OK + MB_ICONERROR);
 end;
 
 procedure TFrmVenda.Btn_ImprimirClick(Sender: TObject);
@@ -325,12 +334,24 @@ end;
 
 procedure TFrmVenda.Btn_SalvarClick(Sender: TObject);
 begin
-  DM.ADODS_Venda.Post;
+  ADOQRY_Soma.Close;
+  ADOQRY_Soma.SQL.Text := '';
+  ADOQRY_Soma.SQL.Text:= 'select * from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger)  + ' order by Codigo';
+  ADOQRY_Soma.Open;
 
-  Application.MessageBox('O registro foi salvo com sucesso.','Informação',MB_OK+MB_ICONINFORMATION);
+  if ADOQRY_Soma.IsEmpty then
+    begin
+      Application.MessageBox('Não foi adicionado nenhum item, não é possível gravar a venda.','Atenção',MB_OK + MB_ICONERROR);
+    end
+  else
+    begin
+      DM.ADODS_Venda.Post;
 
-  operacao:= 1;
-  Botoes(True);
+      Application.MessageBox('O registro foi salvo com sucesso.','Informação',MB_OK + MB_ICONINFORMATION);
+
+      operacao:= 1;
+      Botoes(True);
+    end;
 end;
 
 procedure TFrmVenda.Btn_UltimoClick(Sender: TObject);
