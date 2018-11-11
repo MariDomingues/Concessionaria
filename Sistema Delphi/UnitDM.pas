@@ -124,6 +124,8 @@ type
       DisplayText: Boolean);
     procedure ADODS_VeiculoDocumGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
+    procedure ADODS_CargoStatusGetText(Sender: TField; var Text: string;
+      DisplayText: Boolean);
   private
     { Private declarations }
   public
@@ -138,6 +140,15 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDM.ADODS_CargoStatusGetText(Sender: TField; var Text: string;
+  DisplayText: Boolean);
+begin
+  if Sender.AsString = 'A' then
+    Text := 'Ativo'
+  else
+    Text := 'Inativo';
+end;
 
 procedure TDM.ADODS_ClienteStatusGetText(Sender: TField; var Text: string;
   DisplayText: Boolean);

@@ -404,7 +404,7 @@ object DM: TDM
     CommandText = 'select * from Cargo'
     Parameters = <>
     Left = 40
-    Top = 536
+    Top = 528
     object ADODS_CargoCodigo: TIntegerField
       FieldName = 'Codigo'
     end
@@ -425,6 +425,7 @@ object DM: TDM
     end
     object ADODS_CargoStatus: TStringField
       FieldName = 'Status'
+      OnGetText = ADODS_CargoStatusGetText
       FixedChar = True
       Size = 1
     end
