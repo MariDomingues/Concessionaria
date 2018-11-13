@@ -70,6 +70,7 @@ begin
   Pn1Ficha.Enabled     := False;
 
   LimpaTela;
+  abort;
 end;
 
 procedure TFrmCadUsuario.btn_SairClick(Sender: TObject);

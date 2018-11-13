@@ -100,6 +100,7 @@ begin
   Pn1Ficha.Enabled     := False;
 
   LimpaTela;
+  abort;
 end;
 
 procedure TFrmCadFuncionario.btn_SairClick(Sender: TObject);
@@ -180,7 +181,6 @@ begin
 
       DBEdit11.Text := IntToStr(CodFun);
     end;
-  //dm.ADODS_FuncionarioStatus.Value  ;
   DM.ADODS_Funcionario.Post;
 
   if Acao = 'I' then

@@ -60,6 +60,7 @@ nav a {
 	text-decoration:none;
 	text-transform:uppercase;
 	color:#727272;
+	transition: 0.4s;
 }
 
 nav .active a,

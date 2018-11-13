@@ -105,7 +105,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Caption = 'Combust'#237'vel:'
     end
     object Label12: TLabel
-      Left = 45
+      Left = 289
       Top = 199
       Width = 35
       Height = 13
@@ -125,8 +125,15 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 13
       Caption = 'Cliente:'
     end
+    object Label3: TLabel
+      Left = 18
+      Top = 199
+      Width = 60
+      Height = 13
+      Caption = 'Tipo Ve'#237'culo:'
+    end
     object DBComboBox1: TDBComboBox
-      Left = 86
+      Left = 330
       Top = 196
       Width = 145
       Height = 21
@@ -137,7 +144,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
         'Ativo'
         'Vendido'
         'Mec'#226'nico')
-      TabOrder = 10
+      TabOrder = 11
     end
     object DBEdit1: TDBEdit
       Left = 86
@@ -211,7 +218,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
       Height = 21
       DataField = 'Codigo'
       DataSource = DM.DS_Veiculo
-      TabOrder = 11
+      TabOrder = 12
       Visible = False
     end
     object DBLookupComboBox2: TDBLookupComboBox
@@ -265,6 +272,32 @@ object FrmCadVeiculo: TFrmCadVeiculo
       ListSource = DS_Cliente
       TabOrder = 5
       OnExit = DBLookupComboBox4Exit
+    end
+    object DBComboBox2: TDBComboBox
+      Left = 86
+      Top = 196
+      Width = 145
+      Height = 21
+      Style = csDropDownList
+      DataField = 'TpVei'
+      DataSource = DM.DS_Veiculo
+      Items.Strings = (
+        'Caminh'#227'o'
+        'Carro'
+        'Carro de luxo'
+        'Carreta'
+        'Caminhonete'
+        'Convers'#237'vel'
+        'Jipe'
+        'Micro'#244'nibus'
+        'Minicarro'
+        'Minivan'
+        'Motocicleta'
+        'Perua'
+        'Supercarro'
+        'Supermini'
+        'Triciclo')
+      TabOrder = 10
     end
   end
   object StatusBar1: TStatusBar

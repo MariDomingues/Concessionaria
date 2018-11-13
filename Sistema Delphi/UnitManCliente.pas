@@ -124,6 +124,11 @@ begin
   DM.ADODS_Cliente.CommandText := '';
   DM.ADODS_Cliente.CommandText := 'select * from Cliente order by Codigo';
   DM.ADODS_Cliente.Open;
+
+  if DM.ADODS_Cliente.IsEmpty then
+    btn_Excluir.Enabled := false
+  else
+    btn_Excluir.Enabled := true;
 end;
 
 end.

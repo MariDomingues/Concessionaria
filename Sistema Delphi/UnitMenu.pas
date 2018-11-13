@@ -5,18 +5,25 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.StdCtrls,
-  Vcl.Imaging.jpeg, Vcl.Imaging.pngimage;
+  Vcl.Imaging.jpeg, Vcl.Imaging.pngimage, Data.DB, Data.Win.ADODB, frxClass,
+  frxDBSet;
 
 type
   TFrm_Menu = class(TForm)
     StatusBar1: TStatusBar;
     Timer1: TTimer;
     Panel2: TPanel;
-    TreeView1: TTreeView;
     Panel1: TPanel;
     Image1: TImage;
-    Button1: TButton;
     Image2: TImage;
+    Panel4: TPanel;
+    TreeView1: TTreeView;
+    Button1: TButton;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+    ADOQRY_TpVei: TADOQuery;
+    ADOQRY_TpVeiTotal: TIntegerField;
+    ADOQRY_TpVeiTpVei: TStringField;
     procedure TreeView1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
@@ -64,6 +71,7 @@ begin
     8: Frm_Man_Combustivel.ShowModal;
     9: Frm_Man_Usuario.ShowModal;
     10: FrmVenda.ShowModal;
+    11: frxreport1.ShowReport;
   End;
 end;
 

@@ -52,6 +52,8 @@ type
     ADOQRY_Cliente: TADOQuery;
     DS_Combustivel: TDataSource;
     ADOQRY_Combustivel: TADOQuery;
+    Label3: TLabel;
+    DBComboBox2: TDBComboBox;
     procedure btn_SalvarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
@@ -97,6 +99,7 @@ begin
   Pn1Ficha.Enabled     := False;
 
   LimpaTela;
+  abort;
 end;
 
 procedure TFrmCadVeiculo.btn_SairClick(Sender: TObject);

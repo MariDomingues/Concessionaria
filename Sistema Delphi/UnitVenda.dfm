@@ -117,7 +117,7 @@ object FrmVenda: TFrmVenda
       KeyField = 'Codigo'
       ListField = 'Nome'
       ListSource = DS_Cliente
-      TabOrder = 0
+      TabOrder = 1
       OnExit = DBLookupComboBox1Exit
     end
     object DBLookupComboBox2: TDBLookupComboBox
@@ -130,7 +130,7 @@ object FrmVenda: TFrmVenda
       KeyField = 'Codigo'
       ListField = 'Nome'
       ListSource = DS_Vendedor
-      TabOrder = 1
+      TabOrder = 2
       OnExit = DBLookupComboBox2Exit
     end
     object GroupBox1: TGroupBox
@@ -139,7 +139,7 @@ object FrmVenda: TFrmVenda
       Width = 659
       Height = 250
       Caption = ' Itens da Venda'
-      TabOrder = 2
+      TabOrder = 0
       object PnlItens: TPanel
         Left = 14
         Top = 19
@@ -525,7 +525,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 456
     Bitmap = {
-      494C01010C001800600018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C001800680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1725,7 +1725,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 512
     Bitmap = {
-      494C01010C002400600018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C002400680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -2925,7 +2925,7 @@ object FrmVenda: TFrmVenda
     Width = 24
     Left = 576
     Bitmap = {
-      494C01010C001800600018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C001800680018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000006000000001002000000000000090
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -4451,6 +4451,7 @@ object FrmVenda: TFrmVenda
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
         RowCount = 0
+        Stretched = True
         object frxDBDataset1ID: TfrxMemoView
           Left = 113.385900000000000000
           Top = 7.795300000000000000
@@ -6179,7 +6180,7 @@ object FrmVenda: TFrmVenda
         Attributes = [paSigned]
         DataType = ftInteger
         Precision = 10
-        Value = 1
+        Value = 3
       end>
     SQL.Strings = (
       

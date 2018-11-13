@@ -61,6 +61,7 @@ begin
   Pn1Ficha.Enabled     := False;
 
   LimpaTela;
+  abort;
 end;
 
 procedure TFrmCadCombustivel.btn_SairClick(Sender: TObject);

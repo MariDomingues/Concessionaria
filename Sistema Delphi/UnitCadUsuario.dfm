@@ -30,8 +30,8 @@ object FrmCadUsuario: TFrmCadUsuario
     object Label1: TLabel
       Left = 205
       Top = 8
-      Width = 147
-      Height = 21
+      Width = 157
+      Height = 19
       Caption = 'Cadastro de Usu'#225'rio'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -106,6 +106,7 @@ object FrmCadUsuario: TFrmCadUsuario
       Height = 21
       DataField = 'Senha'
       DataSource = DM.DS_Login
+      PasswordChar = '*'
       TabOrder = 1
       OnExit = DBEdit2Exit
     end

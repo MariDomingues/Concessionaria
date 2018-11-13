@@ -242,32 +242,33 @@ end;
 procedure TFrmVenda.Btn_ExcluirClick(Sender: TObject);
 var confExc : integer;
 begin
-  confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
+  ADOQRY_Delete.Close;
+  ADOQRY_Delete.SQL.Clear;
+  ADOQRY_Delete.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger));
+  ADOQRY_Delete.Open;
 
-  if confExc = IDYES then
+  if ADOQRY_Delete.FieldByName('Total').AsInteger > 0 then
     begin
-      ADOQRY_Delete.Close;
-      ADOQRY_Delete.SQL.Clear;
-      ADOQRY_Delete.SQL.Add('select count (*) as Total from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.AsInteger));
-      ADOQRY_Delete.Open;
+      Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
+      Operacao:= 1;
+      Botoes(True);
+    end
+  else
+    begin
+      confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
-      if ADOQRY_Delete.FieldByName('Total').AsInteger > 0 then
-        begin
-          Application.MessageBox('Pedido de Venda com Itens adicionados. Não é possível excluir.','Aviso',MB_OK+MB_ICONERROR);
-          Operacao:= 1;
-          Botoes(True);
-        end
-      else
+      if confExc = IDYES then
         begin
           DM.ADOC_Atualiza.CommandText := '';
           DM.ADOC_Atualiza.CommandText := 'delete from Venda_Itens where Codigo = ' + IntToStr(DM.ADODS_VendaCodigo.Value) + ';';
           DM.ADOC_Atualiza.Execute;
           DM.ADODS_Venda.Delete;
-        end;
-      Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
-    end
-  else
-    Application.MessageBox('A exclusão do registro foi cancelada', 'Informação', MB_OK + MB_ICONERROR);
+
+          Application.MessageBox('O registro foi excluido com sucesso!', 'Informação', MB_OK + MB_ICONINFORMATION);
+        end
+      else
+        Application.MessageBox('A exclusão do registro foi cancelada', 'Informação', MB_OK + MB_ICONERROR);
+    end;
 end;
 
 procedure TFrmVenda.Btn_ImprimirClick(Sender: TObject);

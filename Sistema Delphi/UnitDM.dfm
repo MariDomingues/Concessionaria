@@ -3,7 +3,6 @@ object DM: TDM
   Height = 597
   Width = 446
   object ADOConnection1: TADOConnection
-    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
       'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O;' +
@@ -104,6 +103,10 @@ object DM: TDM
       KeyFields = 'Combustivel'
       Size = 200
       Lookup = True
+    end
+    object ADODS_VeiculoTpVei: TStringField
+      FieldName = 'TpVei'
+      Size = 15
     end
   end
   object DS_Veiculo: TDataSource

@@ -68,6 +68,7 @@ begin
   Pn1Ficha.Enabled     := False;
 
   LimpaTela;
+  abort;
 end;
 
 procedure TFrmCadCargo.btn_SairClick(Sender: TObject);
