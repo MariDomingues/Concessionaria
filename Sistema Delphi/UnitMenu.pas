@@ -24,6 +24,16 @@ type
     ADOQRY_TpVei: TADOQuery;
     ADOQRY_TpVeiTotal: TIntegerField;
     ADOQRY_TpVeiTpVei: TStringField;
+    frxReport2: TfrxReport;
+    frxDBDataset2: TfrxDBDataset;
+    ADOQRY_Modelo: TADOQuery;
+    ADOQRY_ModeloTotal: TIntegerField;
+    ADOQRY_ModeloDescricao: TStringField;
+    frxReport3: TfrxReport;
+    ADOQRY_Combustivel: TADOQuery;
+    frxDBDataset3: TfrxDBDataset;
+    ADOQRY_CombustivelTotal: TIntegerField;
+    ADOQRY_CombustivelDescricao: TStringField;
     procedure TreeView1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
@@ -72,6 +82,7 @@ begin
     9: Frm_Man_Usuario.ShowModal;
     10: FrmVenda.ShowModal;
     11: frxreport1.ShowReport;
+    12: frxreport2.ShowReport;
   End;
 end;
 

@@ -30,8 +30,8 @@ object FrmCadModelo: TFrmCadModelo
     object Label1: TLabel
       Left = 205
       Top = 10
-      Width = 153
-      Height = 19
+      Width = 150
+      Height = 21
       Caption = 'Cadastro de Modelo'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -148,21 +148,21 @@ object FrmCadModelo: TFrmCadModelo
       ImageIndex = 3
       OnClick = btn_SalvarClick
     end
-    object btn_Cancelar: TToolButton
-      Left = 49
-      Top = 0
-      Hint = 'Cancelar Registro'
-      Caption = 'Cancelar'
-      ImageIndex = 4
-      OnClick = btn_CancelarClick
-    end
     object ToolButton2: TToolButton
-      Left = 98
+      Left = 49
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
       ImageIndex = 1
       Style = tbsSeparator
+    end
+    object btn_Cancelar: TToolButton
+      Left = 57
+      Top = 0
+      Hint = 'Cancelar Registro'
+      Caption = 'Cancelar'
+      ImageIndex = 4
+      OnClick = btn_CancelarClick
     end
     object ToolButton4: TToolButton
       Left = 106
