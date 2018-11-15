@@ -1,0 +1,80 @@
+unit UnitRelMensal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
+  Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxDBSet, DateUtils;
+
+type
+  TFormRelMes = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    ADOQRY_Mensal: TADOQuery;
+    ADOQRY_MensalSoma: TFMTBCDField;
+    ADOQRY_MensalDataMesAno: TStringField;
+    frxDBDataset4: TfrxDBDataset;
+    frxReport4: TfrxReport;
+    ComboBox1: TComboBox;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRelMes    : TFormRelMes;
+  Dia, Mes, Ano : Word;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDM;
+
+procedure TFormRelMes.FormActivate(Sender: TObject);
+begin
+  ComboBox1.ItemIndex := 0;
+  DecodeDate(Now, Ano, Mes, Dia);
+  Label2.Caption := IntToStr(Ano);
+end;
+
+procedure TFormRelMes.SpeedButton1Click(Sender: TObject);
+var StrLiga, Data : String;
+begin
+  StrLiga:= 'where ';
+
+ADOQRY_Mensal.Close;
+    with ADOQRY_Mensal.SQL do
+      begin
+        Clear;
+        Add('select Venda.Codigo, Cliente.Nome as ''Cliente'', Funcionario.Nome as ''Funcionário'', Venda.DtVen, Venda.ValTotal, ');
+        Add('Venda.QtdParcela from Venda inner join Cliente on Venda.Cliente = Cliente.Codigo inner join Funcionario on Venda.Funcionario = Funcionario.Codigo');
+
+        if Edit1.Text <> '' then
+          try
+            Data := IntToStr(Ano) + '-' + IntToStr(Mes) + '-' + Edit1.Text;
+            Add(StrLiga + 'Convert (date, DtVen, 100) = ''' + Data + '''');
+            except
+              on EConvertError do;
+          end;
+      end;
+  ADOQRY_Mensal.Open;
+  frxreport4.ShowReport;
+end;
+
+procedure TFormRelMes.SpeedButton2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

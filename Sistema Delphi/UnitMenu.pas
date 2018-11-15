@@ -34,11 +34,20 @@ type
     frxDBDataset3: TfrxDBDataset;
     ADOQRY_FabricanteTotal: TIntegerField;
     ADOQRY_FabricanteNomeFantasia: TStringField;
-    frxDBDataset4: TfrxDBDataset;
-    ADOQRY_Mensal: TADOQuery;
     frxReport4: TfrxReport;
-    ADOQRY_MensalSoma: TFMTBCDField;
-    ADOQRY_MensalDataMesAno: TStringField;
+    frxDBDataset4: TfrxDBDataset;
+    ADOQRY_Dia: TADOQuery;
+    ADOQRY_DiaCodigo: TIntegerField;
+    ADOQRY_DiaCliente: TStringField;
+    ADOQRY_DiaFuncionário: TStringField;
+    ADOQRY_DiaDtVen: TDateTimeField;
+    ADOQRY_DiaValTotal: TBCDField;
+    ADOQRY_DiaQtdParcela: TIntegerField;
+    frxReport5: TfrxReport;
+    frxDBDataset5: TfrxDBDataset;
+    ADOQRY_Mes: TADOQuery;
+    ADOQRY_MesSoma: TFMTBCDField;
+    ADOQRY_MesDataMesAno: TStringField;
     procedure TreeView1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
@@ -75,7 +84,10 @@ begin
 end;
 
 procedure TFrm_Menu.TreeView1Click(Sender: TObject);
+var Dia, Mes, Ano : Word;
 begin
+  DecodeDate(Now, Ano, Mes, Dia);
+
   Case (TreeView1.Selected.SelectedIndex) of
     1: Frm_Man_Cliente.ShowModal;
     2: Frm_Man_Veiculo.ShowModal;
@@ -90,11 +102,16 @@ begin
     12: frxreport2.ShowReport;
     13: frxreport3.ShowReport;
     14:
-    begin
-      ADOQRY_Diario.Parameters.ParamByName('pDt').Value := Date;
-      frxreport4.ShowReport;
-    end;
-  End;
+      begin
+        ADOQRY_Dia.Parameters.ParamByName('Dia').Value := Mes;
+        frxreport4.ShowReport;
+      end;
+    15:
+      begin
+        ADOQRY_Mes.Parameters.ParamByName('Mes').Value := Ano;
+        frxreport5.ShowReport;
+      end;
+  end;
 end;
 
 end.

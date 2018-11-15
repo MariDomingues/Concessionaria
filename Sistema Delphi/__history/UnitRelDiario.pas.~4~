@@ -1,0 +1,100 @@
+unit UnitRelDiario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
+  Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxDBSet;
+
+type
+  TFormRelDia = class(TForm)
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    Panel1: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQRY_Dia: TADOQuery;
+    ADOQRY_DiaVeiCod: TIntegerField;
+    ADOQRY_DiaVeiPla: TStringField;
+    ADOQRY_DiaVeiVal: TBCDField;
+    ADOQRY_DiaFanNom: TStringField;
+    ADOQRY_DiaModDes: TStringField;
+    ADOQRY_DiaComDes: TStringField;
+    GroupBox1: TGroupBox;
+    EdtCodigoDe: TLabeledEdit;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRelDia: TFormRelDia;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDM;
+
+procedure TFormRelDia.SpeedButton1Click(Sender: TObject);
+var StrLiga: String;
+begin
+  StrLiga:= 'where ';
+
+  ADOQRY_Veiculo.Close;
+    with ADOQRY_Veiculo.SQL do
+      begin
+        Clear;
+        Add('SELECT V.Codigo as VeiCod, V.Placa as VeiPla, V.Valor as VeiVal, F.NomeFantasia as FanNom, M.Descricao as ModDes,');
+        Add(' C.Descricao as ComDes FROM Veiculo as V LEFT JOIN Fabricante as F ON V.Fabricante = F.Codigo LEFT JOIN Modelo as M ON V.Modelo = M.Codigo LEFT JOIN Combustivel as C ON V.Combustivel = C.Codigo');
+
+        if EdtCodigoDe.Text <> '' then
+          try
+            StrToInt(EdtCodigoDe.Text);
+            Add(StrLiga + 'V.Codigo > = ' + EdtCodigoDe.Text);
+            StrLiga:= 'and ';
+            except
+              on EConvertError do;
+          end;
+
+        if EdtCodigoAte.Text <> '' then
+          try
+            StrToInt(EdtCodigoAte.Text);
+            Add(StrLiga + 'V.Codigo < = ' + EdtCodigoAte.Text);
+            StrLiga:= 'and ';
+            except
+              on EConvertError do;
+          end;
+
+        if EdtNomeDe.Text <> '' then
+          begin
+            Add(StrLiga + 'V.Placa >= ''' + EdtNomeDe.Text + '''');
+            StrLiga:= 'and ';
+          end;
+
+        if EdtNomeAte.Text <> '' then
+          begin
+            Add(StrLiga + 'V.Placa <= ''' + EdtNomeAte.Text + 'zzz''');
+            StrLiga:= 'and ';
+          end;
+
+        case RadioGroup1.ItemIndex of
+          0: Add('order by V.Codigo');
+          1: Add('order by V.Placa');
+        end;
+      end;
+  ADOQRY_Veiculo.Open;
+  frxreport1.ShowReport;
+end;
+
+procedure TFormRelDia.SpeedButton2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

@@ -22,7 +22,6 @@ uses
   UnitManCliente in 'UnitManCliente.pas' {Frm_Man_Cliente},
   UnitCadFuncionario in 'UnitCadFuncionario.pas' {FrmCadFuncionario},
   UnitVenda in 'UnitVenda.pas' {FrmVenda},
-  UnitRelVeiculo in 'UnitRelVeiculo.pas' {FormRelVei},
   UnitRelCargo in 'UnitRelCargo.pas' {FormRelCar};
 
 {$R *.res}
@@ -50,7 +49,6 @@ begin
   Application.CreateForm(TFrm_Man_Cliente, Frm_Man_Cliente);
   Application.CreateForm(TFrmCadFuncionario, FrmCadFuncionario);
   Application.CreateForm(TFrmVenda, FrmVenda);
-  Application.CreateForm(TFormRelVei, FormRelVei);
   Application.CreateForm(TFormRelCar, FormRelCar);
   Application.Run;
 end.

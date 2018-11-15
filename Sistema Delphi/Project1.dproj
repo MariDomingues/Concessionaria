@@ -170,10 +170,6 @@
             <Form>FrmVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="UnitRelVeiculo.pas">
-            <Form>FormRelVei</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="UnitRelCargo.pas">
             <Form>FormRelCar</Form>
             <FormType>dfm</FormType>

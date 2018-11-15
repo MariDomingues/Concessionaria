@@ -1,0 +1,98 @@
+unit UnitRelDiario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
+  Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxDBSet, DateUtils;
+
+type
+  TFormRelDia = class(TForm)
+    frxDBDataset1: TfrxDBDataset;
+    frxReport1: TfrxReport;
+    Panel1: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQRY_Dia: TADOQuery;
+    GroupBox1: TGroupBox;
+    EdtCodigoDe: TLabeledEdit;
+    ADOQRY_DiaCodigo: TIntegerField;
+    ADOQRY_DiaCliente: TIntegerField;
+    ADOQRY_DiaFuncionario: TIntegerField;
+    ADOQRY_DiaDtVen: TDateTimeField;
+    ADOQRY_DiaValTotal: TBCDField;
+    ADOQRY_DiaQtdParcela: TIntegerField;
+    Label2: TLabel;
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRelDia: TFormRelDia;
+
+implementation
+
+{$R *.dfm}
+
+uses UnitDM;
+
+procedure TFormRelDia.FormActivate(Sender: TObject);
+var Dia, Mes, Ano : Word;
+begin
+  DecodeDate(Now, Ano, Mes, Dia);
+
+  Case (Mes) of
+    1: Label2.Caption := 'Janeiro de ' + Ano;
+    2: Label2.Caption := 'Fevereiro de ' + Ano;
+    3: Label2.Caption := 'Março de ';
+    4: Label2.Caption := 'Abril de ';
+    5: Label2.Caption := 'Maio de ';
+    6: Label2.Caption := 'Junho de ';
+    7: Label2.Caption := 'Julho de ';
+    8: Label2.Caption := 'Agosto de ';
+    9: Label2.Caption := 'Setembro de ';
+    10: Label2.Caption := 'Outubro de ';
+    11: Label2.Caption := 'Novembro de ';
+    12: Label2.Caption := 'Dezembro de ';
+  End;
+end;
+
+procedure TFormRelDia.SpeedButton1Click(Sender: TObject);
+var StrLiga, Data : String;
+begin
+  StrLiga:= 'where ';
+
+  Data :=
+
+  ADOQRY_Dia.Close;
+    with ADOQRY_Dia.SQL do
+      begin
+        Clear;
+        Add('select * from Venda where convert (date, DtVen, 100) = :Dia');
+
+        if EdtCodigoDe.Text <> '' then
+          try
+            StrToInt(EdtCodigoDe.Text);
+            Add(StrLiga + 'Convert (date, DtVen, 100) = ' + EdtCodigoDe.Text);
+            StrLiga:= 'and ';
+            except
+              on EConvertError do;
+          end;
+      end;
+  ADOQRY_Dia.Open;
+  frxreport1.ShowReport;
+end;
+
+procedure TFormRelDia.SpeedButton2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.
