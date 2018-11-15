@@ -96,7 +96,7 @@ object Frm_Menu: TFrm_Menu
           FFFFFFFFFFFFFF000000000000000001000000010A460069006E0061006E0063
           006500690072006F002A000000000000000A000000FFFFFFFFFFFFFFFF000000
           0000000000000000000106560065006E00640061007300320000000000000000
-          000000FFFFFFFFFFFFFFFF000000000000000007000000010A520065006C0061
+          000000FFFFFFFFFFFFFFFF000000000000000006000000010A520065006C0061
           007400F300720069006F00730058000000000000000B000000FFFFFFFFFFFFFF
           FF000000000000000000000000011D5400690070006F00200064006500200056
           006500ED00630075006C006F00730020004D006100690073002000560065006E
@@ -108,10 +108,9 @@ object Frm_Menu: TFrm_Menu
           0036000000000000000F000000FFFFFFFFFFFFFFFF0000000000000000000000
           00010C4C007500630072006F00200044006900E100720069006F003600000000
           00000010000000FFFFFFFFFFFFFFFF000000000000000000000000010C4C0075
-          00630072006F0020004D0065006E00730061006C003400000000000000110000
-          00FFFFFFFFFFFFFFFF000000000000000000000000010B4C007500630072006F
-          00200041006E00750061006C002E0000000000000012000000FFFFFFFFFFFFFF
-          FF000000000000000000000000010843006F006D00690073007300E3006F00}
+          00630072006F0020004D0065006E00730061006C002E00000000000000110000
+          00FFFFFFFFFFFFFFFF000000000000000000000000010843006F006D00690073
+          007300E3006F00}
       end
       object Button1: TButton
         Left = 1
@@ -2811,7 +2810,7 @@ object Frm_Menu: TFrm_Menu
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43395.840991875000000000
-    ReportOptions.LastChange = 43418.017670706000000000
+    ReportOptions.LastChange = 43418.017670706020000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -2823,7 +2822,7 @@ object Frm_Menu: TFrm_Menu
     Datasets = <
       item
         DataSet = frxDBDataset2
-        DataSetName = 'frxDBDataset2'
+        DataSetName = 'frxDBDataset1'
       end>
     Variables = <>
     Style = <>
@@ -2850,7 +2849,7 @@ object Frm_Menu: TFrm_Menu
         Top = 245.669450000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDataset2
-        DataSetName = 'frxDBDataset2'
+        DataSetName = 'frxDBDataset1'
         RowCount = 0
         object Memo13: TfrxMemoView
           Align = baClient
@@ -2877,7 +2876,7 @@ object Frm_Menu: TFrm_Menu
           Height = 18.897650000000000000
           DataField = 'Total'
           DataSet = frxDBDataset2
-          DataSetName = 'frxDBDataset2'
+          DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
@@ -2885,7 +2884,7 @@ object Frm_Menu: TFrm_Menu
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
-            '[frxDBDataset2."Total"]')
+            '[frxDBDataset1."Total"]')
           ParentFont = False
         end
         object frxDBDataset1CLI_NOME: TfrxMemoView
@@ -2895,14 +2894,14 @@ object Frm_Menu: TFrm_Menu
           Height = 18.897650000000000000
           DataField = 'Descricao'
           DataSet = frxDBDataset2
-          DataSetName = 'frxDBDataset2'
+          DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[frxDBDataset2."Descricao"]')
+            '[frxDBDataset1."Descricao"]')
           ParentFont = False
         end
       end
@@ -4156,7 +4155,7 @@ object Frm_Menu: TFrm_Menu
     end
   end
   object frxDBDataset2: TfrxDBDataset
-    UserName = 'frxDBDataset2'
+    UserName = 'frxDBDataset1'
     CloseDataSource = False
     FieldAliases.Strings = (
       'Total=Total'
@@ -4209,7 +4208,7 @@ object Frm_Menu: TFrm_Menu
     Datasets = <
       item
         DataSet = frxDBDataset3
-        DataSetName = 'frxDBDataset3'
+        DataSetName = 'frxDBDataset1'
       end>
     Variables = <>
     Style = <>
@@ -4236,7 +4235,7 @@ object Frm_Menu: TFrm_Menu
         Top = 245.669450000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDataset3
-        DataSetName = 'frxDBDataset3'
+        DataSetName = 'frxDBDataset1'
         RowCount = 0
         object Memo13: TfrxMemoView
           Align = baClient
@@ -4263,7 +4262,7 @@ object Frm_Menu: TFrm_Menu
           Height = 18.897650000000000000
           DataField = 'Total'
           DataSet = frxDBDataset3
-          DataSetName = 'frxDBDataset3'
+          DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
@@ -4271,7 +4270,7 @@ object Frm_Menu: TFrm_Menu
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
-            '[frxDBDataset3."Total"]')
+            '[frxDBDataset1."Total"]')
           ParentFont = False
         end
         object frxDBDataset1CLI_NOME: TfrxMemoView
@@ -4281,14 +4280,14 @@ object Frm_Menu: TFrm_Menu
           Height = 18.897650000000000000
           DataField = 'NomeFantasia'
           DataSet = frxDBDataset3
-          DataSetName = 'frxDBDataset3'
+          DataSetName = 'frxDBDataset1'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[frxDBDataset3."NomeFantasia"]')
+            '[frxDBDataset1."NomeFantasia"]')
           ParentFont = False
         end
       end
@@ -5564,7 +5563,7 @@ object Frm_Menu: TFrm_Menu
     end
   end
   object frxDBDataset3: TfrxDBDataset
-    UserName = 'frxDBDataset3'
+    UserName = 'frxDBDataset1'
     CloseDataSource = False
     FieldAliases.Strings = (
       'Total=Total'
@@ -5573,40 +5572,6 @@ object Frm_Menu: TFrm_Menu
     BCDToCurrency = False
     Left = 400
     Top = 400
-  end
-  object frxDBDataset4: TfrxDBDataset
-    UserName = 'frxDBDataset4'
-    CloseDataSource = False
-    FieldAliases.Strings = (
-      'Soma=Soma'
-      'DataMesAno=DataMesAno')
-    DataSet = ADOQRY_Mensal
-    BCDToCurrency = False
-    Left = 400
-    Top = 464
-  end
-  object ADOQRY_Mensal: TADOQuery
-    Connection = DM.ADOConnection1
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      
-        'select sum(valtotal) as '#39'Soma'#39', CONCAT (month(DtVen), '#39' - '#39', yea' +
-        'r(DtVen)) as '#39'DataMesAno'#39' from Venda group by CONCAT (month(DtVe' +
-        'n), '#39' - '#39', year(DtVen))')
-    Left = 336
-    Top = 464
-    object ADOQRY_MensalSoma: TFMTBCDField
-      FieldName = 'Soma'
-      ReadOnly = True
-      Precision = 38
-      Size = 2
-    end
-    object ADOQRY_MensalDataMesAno: TStringField
-      FieldName = 'DataMesAno'
-      ReadOnly = True
-      Size = 27
-    end
   end
   object frxReport4: TfrxReport
     Version = '5.6.17'
@@ -5617,7 +5582,7 @@ object Frm_Menu: TFrm_Menu
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43395.840991875000000000
-    ReportOptions.LastChange = 43419.040336967600000000
+    ReportOptions.LastChange = 43418.994583611110000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -5629,7 +5594,7 @@ object Frm_Menu: TFrm_Menu
     Datasets = <
       item
         DataSet = frxDBDataset4
-        DataSetName = 'frxDBDataset4'
+        DataSetName = 'frxDBDataset1'
       end>
     Variables = <>
     Style = <>
@@ -5653,10 +5618,10 @@ object Frm_Menu: TFrm_Menu
       object MasterData1: TfrxMasterData
         FillType = ftBrush
         Height = 22.677180000000000000
-        Top = 234.330860000000000000
+        Top = 245.669450000000000000
         Width = 718.110700000000000000
         DataSet = frxDBDataset4
-        DataSetName = 'frxDBDataset4'
+        DataSetName = 'frxDBDataset1'
         RowCount = 0
         object Memo13: TfrxMemoView
           Align = baClient
@@ -5679,94 +5644,43 @@ object Frm_Menu: TFrm_Menu
         end
         object Memo5: TfrxMemoView
           Top = 2.000000000000000000
-          Width = 56.692950000000000000
+          Width = 109.606370000000000000
           Height = 18.897650000000000000
-          DataField = 'Codigo'
+          DataField = 'Total'
           DataSet = frxDBDataset4
-          DataSetName = 'frxDBDataset4'
-          Font.Charset = ANSI_CHARSET
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
-          Font.Name = 'Yu Gothic UI'
+          Font.Name = 'Arial'
           Font.Style = []
           HAlign = haCenter
           Memo.UTF8W = (
-            '[frxDBDataset4."Codigo"]')
+            '[frxDBDataset1."Total"]')
           ParentFont = False
         end
         object frxDBDataset1CLI_NOME: TfrxMemoView
-          Left = 64.252010000000000000
+          Left = 124.063080000000000000
           Top = 2.000000000000000000
-          Width = 222.992270000000000000
+          Width = 340.157700000000000000
           Height = 18.897650000000000000
-          DataField = 'Nome'
+          DataField = 'NomeFantasia'
           DataSet = frxDBDataset4
-          DataSetName = 'frxDBDataset4'
-          Font.Charset = ANSI_CHARSET
+          DataSetName = 'frxDBDataset1'
+          Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Height = -12
-          Font.Name = 'Yu Gothic UI'
+          Font.Name = 'Arial'
           Font.Style = []
           Memo.UTF8W = (
-            '[frxDBDataset4."Nome"]')
-          ParentFont = False
-        end
-        object frxDBDataset1CLI_EMAIL: TfrxMemoView
-          Left = 294.803340000000000000
-          Top = 2.000000000000000000
-          Width = 204.094620000000000000
-          Height = 18.897650000000000000
-          DataField = 'Nome_1'
-          DataSet = frxDBDataset4
-          DataSetName = 'frxDBDataset4'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[frxDBDataset4."Nome_1"]')
-          ParentFont = False
-        end
-        object frxDBDataset1CLI_TELEFONE: TfrxMemoView
-          Left = 506.457020000000000000
-          Top = 2.000000000000000000
-          Width = 90.708720000000000000
-          Height = 18.897650000000000000
-          DataField = 'QtdParcela'
-          DataSet = frxDBDataset4
-          DataSetName = 'frxDBDataset4'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[frxDBDataset4."QtdParcela"]')
-          ParentFont = False
-        end
-        object frxDBDataset1CPF: TfrxMemoView
-          Left = 619.842920000000000000
-          Top = 2.000000000000000000
-          Width = 113.385900000000000000
-          Height = 18.897650000000000000
-          DataField = 'ValTotal'
-          DataSet = frxDBDataset4
-          DataSetName = 'frxDBDataset4'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -12
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = []
-          Memo.UTF8W = (
-            '[frxDBDataset4."ValTotal"]')
+            '[frxDBDataset1."NomeFantasia"]')
           ParentFont = False
         end
       end
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
         Height = 22.677180000000000000
-        Top = 396.850650000000000000
+        Top = 328.819110000000000000
         Width = 718.110700000000000000
         object Memo1: TfrxMemoView
           Left = 574.488560000000000000
@@ -5811,7 +5725,7 @@ object Frm_Menu: TFrm_Menu
       end
       object PageHeader1: TfrxPageHeader
         FillType = ftBrush
-        Height = 109.606370000000000000
+        Height = 117.165430000000000000
         Top = 18.897650000000000000
         Width = 718.110700000000000000
         object Memo2: TfrxMemoView
@@ -5845,10 +5759,10 @@ object Frm_Menu: TFrm_Menu
           ParentFont = False
         end
         object Memo4: TfrxMemoView
-          Left = 258.897805000000000000
+          Left = 174.141775000000000000
           Top = 75.590600000000000000
-          Width = 200.315090000000000000
-          Height = 22.677180000000000000
+          Width = 438.425480000000000000
+          Height = 26.456710000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -19
@@ -5856,32 +5770,33 @@ object Frm_Menu: TFrm_Menu
           Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8W = (
-            'Relat'#243'rio Di'#225'rio')
+            'Relat'#243'rio de Fabricantes Mais Vendidos')
           ParentFont = False
         end
       end
       object ColumnHeader1: TfrxColumnHeader
         FillType = ftBrush
-        Height = 22.456710000000000000
-        Top = 151.181200000000000000
+        Height = 26.456710000000000000
+        Top = 158.740260000000000000
         Width = 718.110700000000000000
         object Memo6: TfrxMemoView
           Top = 1.000000000000000000
-          Width = 56.692950000000000000
+          Width = 109.606370000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -15
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
+          HAlign = haCenter
           Memo.UTF8W = (
-            'C'#243'digo')
+            'Qtd. Fabricante')
           ParentFont = False
         end
         object Memo7: TfrxMemoView
-          Left = 64.252010000000000000
+          Left = 124.031540000000000000
           Top = 1.000000000000000000
-          Width = 94.488250000000000000
+          Width = 340.157700000000000000
           Height = 18.897650000000000000
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
@@ -5889,35 +5804,7 @@ object Frm_Menu: TFrm_Menu
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
-            'Cliente')
-          ParentFont = False
-        end
-        object Memo8: TfrxMemoView
-          Left = 294.803340000000000000
-          Top = 1.000000000000000000
-          Width = 94.488250000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -15
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = [fsBold]
-          Memo.UTF8W = (
-            'Funcion'#225'rio')
-          ParentFont = False
-        end
-        object Memo9: TfrxMemoView
-          Left = 506.457020000000000000
-          Top = 1.000000000000000000
-          Width = 90.708720000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -15
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = [fsBold]
-          Memo.UTF8W = (
-            'Qtd. Parcela')
+            'Nome Fantasia')
           ParentFont = False
         end
         object Line1: TfrxLineView
@@ -5926,60 +5813,6 @@ object Frm_Menu: TFrm_Menu
           Width = 718.110700000000000000
           Color = clBlack
           Diagonal = True
-        end
-        object Memo10: TfrxMemoView
-          Left = 619.842920000000000000
-          Width = 90.708720000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -15
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = [fsBold]
-          Memo.UTF8W = (
-            'Valor Total')
-          ParentFont = False
-        end
-      end
-      object ReportSummary1: TfrxReportSummary
-        FillType = ftBrush
-        Height = 56.692950000000000000
-        Top = 317.480520000000000000
-        Width = 718.110700000000000000
-        object SysMemo1: TfrxSysMemoView
-          Left = 487.559370000000000000
-          Top = 22.677180000000000000
-          Width = 60.472480000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = [fsBold]
-          Memo.UTF8W = (
-            '[SUM(<frxDBDataset4."ValTotal">,MasterData1)]')
-          ParentFont = False
-        end
-        object Memo12: TfrxMemoView
-          Left = 336.378170000000000000
-          Top = 22.677180000000000000
-          Width = 147.401670000000000000
-          Height = 18.897650000000000000
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Yu Gothic UI'
-          Font.Style = [fsBold]
-          HAlign = haRight
-          Memo.UTF8W = (
-            'Valor Total Di'#225'rio ==>')
-          ParentFont = False
-        end
-        object Shape1: TfrxShapeView
-          Left = 329.795300000000000000
-          Top = 17.897650000000000000
-          Width = 204.094620000000000000
-          Height = 30.236240000000000000
         end
       end
       object Picture1: TfrxPictureView
@@ -7091,6 +6924,65 @@ object Frm_Menu: TFrm_Menu
         Transparent = False
         TransparentColor = clWhite
       end
+    end
+  end
+  object frxDBDataset4: TfrxDBDataset
+    UserName = 'frxDBDataset1'
+    CloseDataSource = False
+    FieldAliases.Strings = (
+      'Codigo=Codigo'
+      'Cliente=Cliente'
+      'Fantasia=Fantasia'
+      'DtVen=DtVen'
+      'ValTotal=ValTotal'
+      'QtdParcela=QtdParcela')
+    DataSet = ADOQRY_Diario
+    BCDToCurrency = False
+    Left = 400
+    Top = 464
+  end
+  object ADOQRY_Diario: TADOQuery
+    Connection = DM.ADOConnection1
+    CursorType = ctStatic
+    Parameters = <
+      item
+        Name = 'pDt'
+        Attributes = [paNullable]
+        DataType = ftDateTime
+        NumericScale = 3
+        Precision = 23
+        Size = 16
+        Value = Null
+      end>
+    SQL.Strings = (
+      
+        'select Venda.Codigo, Cliente.Nome, Funcionario.Nome, Venda.DtVen' +
+        ', Venda.ValTotal, venda.QtdParcela from Venda inner join Cliente' +
+        ' on Venda.Cliente = Cliente.Codigo inner join Funcionario on Ven' +
+        'da.Funcionario = Funcionario.Codigo where Venda.DtVen = :pDt')
+    Left = 336
+    Top = 464
+    object ADOQRY_DiarioCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADOQRY_DiarioNome: TStringField
+      FieldName = 'Cliente'
+      Size = 150
+    end
+    object ADOQRY_DiarioNome_1: TStringField
+      FieldName = 'Fantasia'
+      Size = 150
+    end
+    object ADOQRY_DiarioDtVen: TDateTimeField
+      FieldName = 'DtVen'
+    end
+    object ADOQRY_DiarioValTotal: TBCDField
+      FieldName = 'ValTotal'
+      Precision = 9
+      Size = 2
+    end
+    object ADOQRY_DiarioQtdParcela: TIntegerField
+      FieldName = 'QtdParcela'
     end
   end
 end

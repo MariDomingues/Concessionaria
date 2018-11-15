@@ -96,7 +96,7 @@ object Frm_Menu: TFrm_Menu
           FFFFFFFFFFFFFF000000000000000001000000010A460069006E0061006E0063
           006500690072006F002A000000000000000A000000FFFFFFFFFFFFFFFF000000
           0000000000000000000106560065006E00640061007300320000000000000000
-          000000FFFFFFFFFFFFFFFF000000000000000007000000010A520065006C0061
+          000000FFFFFFFFFFFFFFFF000000000000000006000000010A520065006C0061
           007400F300720069006F00730058000000000000000B000000FFFFFFFFFFFFFF
           FF000000000000000000000000011D5400690070006F00200064006500200056
           006500ED00630075006C006F00730020004D006100690073002000560065006E
@@ -108,10 +108,9 @@ object Frm_Menu: TFrm_Menu
           0036000000000000000F000000FFFFFFFFFFFFFFFF0000000000000000000000
           00010C4C007500630072006F00200044006900E100720069006F003600000000
           00000010000000FFFFFFFFFFFFFFFF000000000000000000000000010C4C0075
-          00630072006F0020004D0065006E00730061006C003400000000000000110000
-          00FFFFFFFFFFFFFFFF000000000000000000000000010B4C007500630072006F
-          00200041006E00750061006C002E0000000000000012000000FFFFFFFFFFFFFF
-          FF000000000000000000000000010843006F006D00690073007300E3006F00}
+          00630072006F0020004D0065006E00730061006C002E00000000000000110000
+          00FFFFFFFFFFFFFFFF000000000000000000000000010843006F006D00690073
+          007300E3006F00}
       end
       object Button1: TButton
         Left = 1
@@ -5578,34 +5577,60 @@ object Frm_Menu: TFrm_Menu
     UserName = 'frxDBDataset4'
     CloseDataSource = False
     FieldAliases.Strings = (
-      'Soma=Soma'
-      'DataMesAno=DataMesAno')
-    DataSet = ADOQRY_Mensal
+      'Codigo=Codigo'
+      'Nome=Nome'
+      'Nome_1=Nome_1'
+      'DtVen=DtVen'
+      'ValTotal=ValTotal'
+      'QtdParcela=QtdParcela')
+    DataSet = ADOQRY_Diario
     BCDToCurrency = False
     Left = 400
     Top = 464
   end
-  object ADOQRY_Mensal: TADOQuery
+  object ADOQRY_Diario: TADOQuery
+    Active = True
     Connection = DM.ADOConnection1
     CursorType = ctStatic
-    Parameters = <>
+    Parameters = <
+      item
+        Name = 'pDt'
+        Attributes = [paNullable]
+        DataType = ftDateTime
+        NumericScale = 3
+        Precision = 23
+        Size = 16
+        Value = Null
+      end>
     SQL.Strings = (
       
-        'select sum(valtotal) as '#39'Soma'#39', CONCAT (month(DtVen), '#39' - '#39', yea' +
-        'r(DtVen)) as '#39'DataMesAno'#39' from Venda group by CONCAT (month(DtVe' +
-        'n), '#39' - '#39', year(DtVen))')
+        'select Venda.Codigo, Cliente.Nome, Funcionario.Nome, Venda.DtVen' +
+        ', Venda.ValTotal, venda.QtdParcela from Venda inner join Cliente' +
+        ' on Venda.Cliente = Cliente.Codigo inner join Funcionario on Ven' +
+        'da.Funcionario = Funcionario.Codigo where Venda.DtVen = :pDt;')
     Left = 336
     Top = 464
-    object ADOQRY_MensalSoma: TFMTBCDField
-      FieldName = 'Soma'
-      ReadOnly = True
-      Precision = 38
+    object ADOQRY_DiarioCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object ADOQRY_DiarioNome: TStringField
+      FieldName = 'Nome'
+      Size = 150
+    end
+    object ADOQRY_DiarioNome_1: TStringField
+      FieldName = 'Nome_1'
+      Size = 150
+    end
+    object ADOQRY_DiarioDtVen: TDateTimeField
+      FieldName = 'DtVen'
+    end
+    object ADOQRY_DiarioValTotal: TBCDField
+      FieldName = 'ValTotal'
+      Precision = 9
       Size = 2
     end
-    object ADOQRY_MensalDataMesAno: TStringField
-      FieldName = 'DataMesAno'
-      ReadOnly = True
-      Size = 27
+    object ADOQRY_DiarioQtdParcela: TIntegerField
+      FieldName = 'QtdParcela'
     end
   end
   object frxReport4: TfrxReport

@@ -35,10 +35,14 @@ type
     ADOQRY_FabricanteTotal: TIntegerField;
     ADOQRY_FabricanteNomeFantasia: TStringField;
     frxDBDataset4: TfrxDBDataset;
-    ADOQRY_Mensal: TADOQuery;
+    ADOQRY_Diario: TADOQuery;
+    ADOQRY_DiarioCodigo: TIntegerField;
+    ADOQRY_DiarioNome: TStringField;
+    ADOQRY_DiarioNome_1: TStringField;
+    ADOQRY_DiarioDtVen: TDateTimeField;
+    ADOQRY_DiarioValTotal: TBCDField;
+    ADOQRY_DiarioQtdParcela: TIntegerField;
     frxReport4: TfrxReport;
-    ADOQRY_MensalSoma: TFMTBCDField;
-    ADOQRY_MensalDataMesAno: TStringField;
     procedure TreeView1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
