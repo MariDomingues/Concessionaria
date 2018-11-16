@@ -22,7 +22,9 @@ uses
   UnitManCliente in 'UnitManCliente.pas' {Frm_Man_Cliente},
   UnitCadFuncionario in 'UnitCadFuncionario.pas' {FrmCadFuncionario},
   UnitVenda in 'UnitVenda.pas' {FrmVenda},
-  UnitRelCargo in 'UnitRelCargo.pas' {FormRelCar};
+  UnitRelDia in 'UnitRelDia.pas' {FormRelComissao},
+  UnitRelMes in 'UnitRelMes.pas' {FormRelMes},
+  UnitRelAno in 'UnitRelAno.pas' {FormRelAno};
 
 {$R *.res}
 
@@ -49,6 +51,9 @@ begin
   Application.CreateForm(TFrm_Man_Cliente, Frm_Man_Cliente);
   Application.CreateForm(TFrmCadFuncionario, FrmCadFuncionario);
   Application.CreateForm(TFrmVenda, FrmVenda);
-  Application.CreateForm(TFormRelCar, FormRelCar);
+  Application.CreateForm(TFormRelMes, FormRelMes);
+  Application.CreateForm(TFormRelDia, FormRelDia);
+  Application.CreateForm(TFormRelMes, FormRelMes);
+  Application.CreateForm(TFormRelAno, FormRelAno);
   Application.Run;
 end.

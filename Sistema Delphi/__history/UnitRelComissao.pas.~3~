@@ -1,0 +1,59 @@
+unit UnitRelComissao;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls,
+  frxClass, frxDBSet, UnitDM, Data.DB, Vcl.DBCtrls, Data.Win.ADODB;
+
+type
+  TFormRelComissao1 = class(TForm)
+    Edit1: TEdit;
+    frxDBDatasetCom: TfrxDBDataset;
+    frxReportDia: TfrxReport;
+    Label3: TLabel;
+    Panel1: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQRY_Comissao: TADOQuery;
+    ADOQRY_ComissaoCodigo: TIntegerField;
+    ADOQRY_ComissaoNome: TStringField;
+    ADOQRY_ComissaoSalBase: TBCDField;
+    ADOQRY_ComissaoTotVenda: TFMTBCDField;
+    DBLookupComboBox2: TDBLookupComboBox;
+    Label5: TLabel;
+    ADOQRY_Vendedor: TADOQuery;
+    DS_Vendedor: TDataSource;
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure Edit1Exit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRelComissao1: TFormRelComissao1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormRelComissao1.Edit1Exit(Sender: TObject);
+begin
+  if Edit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Comissão" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      Edit1.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TFormRelComissao1.SpeedButton2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

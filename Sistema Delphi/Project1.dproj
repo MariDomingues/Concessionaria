@@ -170,8 +170,16 @@
             <Form>FrmVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="UnitRelCargo.pas">
-            <Form>FormRelCar</Form>
+        <DCCReference Include="UnitRelDia.pas">
+            <Form>FormRelComissao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UnitRelMes.pas">
+            <Form>FormRelMes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UnitRelAno.pas">
+            <Form>FormRelAno</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

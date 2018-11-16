@@ -1,0 +1,96 @@
+unit UnitRelMes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.StdCtrls, frxClass, frxDBSet;
+
+type
+  TFormRelMes = class(TForm)
+    Edit1: TEdit;
+    frxDBDataset5: TfrxDBDataset;
+    frxReport5: TfrxReport;
+    Label3: TLabel;
+    Panel1: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQRY_Mes: TADOQuery;
+    ADOQRY_MesCodigo: TIntegerField;
+    ADOQRY_MesCliente: TStringField;
+    ADOQRY_MesFuncionário: TStringField;
+    ADOQRY_MesData: TStringField;
+    ADOQRY_MesValTotal: TBCDField;
+    ADOQRY_MesQtdParcela: TIntegerField;
+    Label2: TLabel;
+    ComboBox1: TComboBox;
+    procedure Edit1Exit(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRelMes: TFormRelMes;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormRelMes.Edit1Exit(Sender: TObject);
+begin
+  if Edit1.Text = '' then
+    begin
+      Application.MessageBox('O campo "Ano" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
+      Edit1.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TFormRelMes.SpeedButton1Click(Sender: TObject);
+  var StrLiga : String;
+      MesCb   : integer;
+begin
+  StrLiga:= 'where ';
+
+  case ComboBox1.ItemIndex of
+    0: MesCb := 1;
+    1: MesCb := 2;
+    2: MesCb := 3;
+    3: MesCb := 4;
+    4: MesCb := 5;
+    5: MesCb := 6;
+    6: MesCb := 7;
+    7: MesCb := 8;
+    8: MesCb := 9;
+    9: MesCb := 10;
+    10: MesCb := 11;
+    11: MesCb := 12;
+  end;
+
+  ADOQRY_Mes.Close;
+    with ADOQRY_Mes.SQL do
+      begin
+        Clear;
+        Add('select Venda.Codigo, Cliente.Nome as ''Cliente'', Funcionario.Nome as ''Funcionário'', CONVERT (char, Venda.DtVen, 103) as ''Data'', Venda.ValTotal, Venda.QtdParcela ');
+        Add('from Venda ');
+        Add('inner join Cliente on Venda.Cliente = Cliente.Codigo ');
+        Add ('inner join Funcionario on Venda.Funcionario = Funcionario.Codigo ');
+        Add('where month(Venda.DtVen) = ' + MesCb + 'and year(Venda.DtVen) = ' + Edit1.Text);
+
+      end;
+  ADOQRY_Mes.Open;
+  frxReport5.ShowReport;
+end;
+
+procedure TFormRelMes.SpeedButton2Click(Sender: TObject);
+begin
+  Close;
+end;
+
+end.

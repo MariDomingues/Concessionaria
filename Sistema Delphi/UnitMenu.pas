@@ -36,18 +36,11 @@ type
     ADOQRY_FabricanteNomeFantasia: TStringField;
     frxReport4: TfrxReport;
     frxDBDataset4: TfrxDBDataset;
-    ADOQRY_Dia: TADOQuery;
-    ADOQRY_DiaCodigo: TIntegerField;
-    ADOQRY_DiaCliente: TStringField;
-    ADOQRY_DiaFuncionário: TStringField;
-    ADOQRY_DiaDtVen: TDateTimeField;
-    ADOQRY_DiaValTotal: TBCDField;
-    ADOQRY_DiaQtdParcela: TIntegerField;
-    frxReport5: TfrxReport;
-    frxDBDataset5: TfrxDBDataset;
-    ADOQRY_Mes: TADOQuery;
-    ADOQRY_MesSoma: TFMTBCDField;
-    ADOQRY_MesDataMesAno: TStringField;
+    ADOQRY_MaioresFunc: TADOQuery;
+    ADOQRY_MaioresFuncCodigo: TIntegerField;
+    ADOQRY_MaioresFuncNome: TStringField;
+    ADOQRY_MaioresFuncDescricao: TStringField;
+    ADOQRY_MaioresFuncTotVenda: TFMTBCDField;
     procedure TreeView1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure Button1Click(Sender: TObject);
@@ -66,7 +59,8 @@ implementation
 {$R *.dfm}
 
 uses UnitManCliente, UnitLogin, UnitManVeiculo, UnitManUsuario, UnitManFabricante,
-     UnitManModelo, UnitManCombustivel, UnitManCargo, UnitManFuncionario, UnitVenda;
+     UnitManModelo, UnitManCombustivel, UnitManCargo, UnitManFuncionario, UnitVenda,
+     UnitRelDia, UnitRelMes, UnitRelAno;
 
 procedure TFrm_Menu.Button1Click(Sender: TObject);
 begin
@@ -101,16 +95,10 @@ begin
     11: frxreport1.ShowReport;
     12: frxreport2.ShowReport;
     13: frxreport3.ShowReport;
-    14:
-      begin
-        ADOQRY_Dia.Parameters.ParamByName('Dia').Value := Mes;
-        frxreport4.ShowReport;
-      end;
-    15:
-      begin
-        ADOQRY_Mes.Parameters.ParamByName('Mes').Value := Ano;
-        frxreport5.ShowReport;
-      end;
+    14: FormRelDia.ShowModal;
+    15: FormRelMes.ShowModal;
+    16: FormRelAno.ShowModal;
+    17: frxReport4.ShowReport;
   end;
 end;
 

@@ -1,0 +1,36 @@
+unit UnitRelMes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
+  Vcl.ExtCtrls, Vcl.StdCtrls, frxClass, frxDBSet;
+
+type
+  TFormRelMes = class(TForm)
+    Edit1: TEdit;
+    frxDBDataset5: TfrxDBDataset;
+    frxReport5: TfrxReport;
+    Label3: TLabel;
+    Panel1: TPanel;
+    Label1: TLabel;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    ADOQRY_Mes: TADOQuery;
+    ADOQRY_MesSoma: TFMTBCDField;
+    ADOQRY_MesAno: TIntegerField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormRelMes: TFormRelMes;
+
+implementation
+
+{$R *.dfm}
+
+end.
