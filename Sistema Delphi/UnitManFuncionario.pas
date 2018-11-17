@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.ImageList, Vcl.ImgList,
   Vcl.ComCtrls, Vcl.StdCtrls, Vcl.ToolWin, Vcl.ExtCtrls, Data.DB, Vcl.Grids,
-  Vcl.DBGrids, UnitCadFuncionario;
+  Vcl.DBGrids, UnitCadFuncionario, Data.Win.ADODB;
 
 type
   TFrm_Man_Funcionario = class(TForm)
@@ -73,6 +73,34 @@ end;
 procedure TFrm_Man_Funcionario.btn_ExcluirClick(Sender: TObject);
 var confExc : integer;
 begin
+  if DM.ADODS_Funcionario.RecordCount = 0 then
+    begin
+      Application.MessageBox('Não há nada para ser excluído.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
+  DM.ADODS_Login.Close;
+  DM.ADODS_Login.CommandText := '';
+  DM.ADODS_Login.CommandText := 'select * from Login';
+  DM.ADODS_Login.Open;
+
+  if DM.ADODS_Login.Locate('Funcionario', IntToStr(DM.ADODS_FuncionarioCodigo.AsInteger), [loCaseInsensitive, loPartialKey]) then
+    begin
+      Application.MessageBox('Funcionário associado à um login. Não é possível excluir.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
+  DM.ADODS_Venda.Close;
+  DM.ADODS_Venda.CommandText := '';
+  DM.ADODS_Venda.CommandText := 'select * from Venda';
+  DM.ADODS_Venda.Open;
+
+  if DM.ADODS_Venda.Locate('Funcionario', IntToStr(DM.ADODS_FuncionarioCodigo.AsInteger), [loCaseInsensitive, loPartialKey]) then
+    begin
+      Application.MessageBox('Funcionário associado à uma venda. Não é possível excluir.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
   confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
   if confExc = IDYES then
@@ -87,6 +115,7 @@ begin
   FrmCadFuncionario.btn_Cancelar.Enabled := True;
   FrmCadFuncionario.btn_Sair.Enabled     := False;
   FrmCadFuncionario.Pn1Ficha.Enabled     := True;
+  DM.ADODS_Login.Close;
 end;
 
 procedure TFrm_Man_Funcionario.btn_ImprimirClick(Sender: TObject);
@@ -101,6 +130,7 @@ begin
   Acao := 'I';
 
   DM.ADODS_Funcionario.Insert;
+  Application.CreateForm(TFrmCadFuncionario, FrmCadFuncionario);
   FrmCadFuncionario.btn_Salvar.Enabled   := True;
   FrmCadFuncionario.btn_Cancelar.Enabled := True;
   FrmCadFuncionario.btn_Sair.Enabled     := False;

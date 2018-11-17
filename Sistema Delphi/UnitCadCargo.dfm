@@ -4,8 +4,8 @@ object FrmCadCargo: TFrmCadCargo
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Cargo'
-  ClientHeight = 404
-  ClientWidth = 571
+  ClientHeight = 306
+  ClientWidth = 439
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,17 +21,17 @@ object FrmCadCargo: TFrmCadCargo
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 571
+    Width = 439
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 205
+      Left = 157
       Top = 10
-      Width = 136
-      Height = 21
+      Width = 144
+      Height = 19
       Caption = 'Cadastro de Cargo'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -43,11 +43,13 @@ object FrmCadCargo: TFrmCadCargo
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
-    Width = 571
-    Height = 295
+    Top = 93
+    Width = 439
+    Height = 194
     Align = alClient
     TabOrder = 1
+    ExplicitTop = 90
+    ExplicitHeight = 197
     object Label2: TLabel
       Left = 19
       Top = 25
@@ -131,8 +133,8 @@ object FrmCadCargo: TFrmCadCargo
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 385
-    Width = 571
+    Top = 287
+    Width = 439
     Height = 19
     Panels = <
       item
@@ -142,8 +144,8 @@ object FrmCadCargo: TFrmCadCargo
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 571
-    Height = 49
+    Width = 439
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 44
     ButtonWidth = 49

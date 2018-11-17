@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
-  Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxDBSet;
+  Vcl.StdCtrls, Vcl.ExtCtrls, frxClass, frxDBSet, UnitDm, Vcl.DBCtrls,
+  Datasnap.DBClient, Vcl.DdeMan;
 
 type
   TFormRelDia = class(TForm)
@@ -14,11 +15,11 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton2: TSpeedButton;
     Label3: TLabel;
-    Edit1: TEdit;
     ComboBox1: TComboBox;
     Label2: TLabel;
     frxReport4: TfrxReport;
     frxDBDataset4: TfrxDBDataset;
+    ComboBox2: TComboBox;
     ADOQRY_Dia: TADOQuery;
     ADOQRY_DiaCodigo: TIntegerField;
     ADOQRY_DiaCliente: TStringField;
@@ -29,6 +30,7 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
     procedure Edit1Exit(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,20 +46,33 @@ implementation
 
 procedure TFormRelDia.Edit1Exit(Sender: TObject);
 begin
-  if Edit1.Text = '' then
+  if ComboBox2.Text = '' then
     begin
       Application.MessageBox('O campo "Ano" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
-      Edit1.SetFocus;
+      ComboBox2.SetFocus;
       Abort;
     end;
 end;
 
-procedure TFormRelDia.SpeedButton1Click(Sender: TObject);
-var StrLiga : String;
-    MesCb   : integer;
+procedure TFormRelDia.FormActivate(Sender: TObject);
 begin
-  StrLiga:= 'where ';
+  ComboBox1.ItemIndex := 0;
 
+  DM.ADODS_Ano.Close;
+  DM.ADODS_Ano.Open;
+
+  DM.ADODS_Ano.First;
+
+  while not DM.ADODS_Ano.Eof do
+    begin
+      ComboBox2.Items.Add(IntToStr(DM.ADODS_Ano.FieldByName('DtAno').AsInteger));
+      DM.ADODS_Ano.Next;
+    end;
+end;
+
+procedure TFormRelDia.SpeedButton1Click(Sender: TObject);
+var MesCb   : integer;
+begin
   case ComboBox1.ItemIndex of
     0: MesCb := 1;
     1: MesCb := 2;
@@ -75,7 +90,7 @@ begin
 
   ADOQRY_Dia.Close;
   ADOQRY_Dia.Parameters.ParamByName('Mes').Value := IntToStr(MesCb);
-  ADOQRY_Dia.Parameters.ParamByName('Ano').Value := Edit1.Text;
+  ADOQRY_Dia.Parameters.ParamByName('Ano').Value := ComboBox2.Text;
   ADOQRY_Dia .Open;
   frxReport4.ShowReport;
 end;

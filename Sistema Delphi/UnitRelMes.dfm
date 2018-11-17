@@ -14,6 +14,7 @@ object FormRelMes: TFormRelMes
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object Label3: TLabel
@@ -146,15 +147,6 @@ object FormRelMes: TFormRelMes
       FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
     OnClick = SpeedButton2Click
   end
-  object Edit1: TEdit
-    Left = 73
-    Top = 76
-    Width = 68
-    Height = 21
-    MaxLength = 4
-    TabOrder = 0
-    OnExit = Edit1Exit
-  end
   object Panel1: TPanel
     Left = 0
     Top = 0
@@ -163,7 +155,7 @@ object FormRelMes: TFormRelMes
     Align = alTop
     Color = clActiveCaption
     ParentBackground = False
-    TabOrder = 1
+    TabOrder = 0
     object Label1: TLabel
       Left = 106
       Top = 1
@@ -177,6 +169,14 @@ object FormRelMes: TFormRelMes
       Font.Style = [fsBold]
       ParentFont = False
     end
+  end
+  object ComboBox2: TComboBox
+    Left = 61
+    Top = 76
+    Width = 72
+    Height = 21
+    Style = csDropDownList
+    TabOrder = 1
   end
   object frxDBDataset5: TfrxDBDataset
     UserName = 'frxDBDataset5'
@@ -198,7 +198,7 @@ object FormRelMes: TFormRelMes
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43395.840991875000000000
-    ReportOptions.LastChange = 43420.002767673610000000
+    ReportOptions.LastChange = 43421.553985266200000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -282,6 +282,8 @@ object FormRelMes: TFormRelMes
           DataField = 'Soma'
           DataSet = frxDBDataset5
           DataSetName = 'frxDBDataset5'
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
@@ -385,7 +387,7 @@ object FormRelMes: TFormRelMes
           Font.Style = [fsBold]
           HAlign = haCenter
           Memo.UTF8W = (
-            'Relat'#243'rio Anual')
+            'Relat'#243'rio Mensal')
           ParentFont = False
         end
       end
@@ -404,7 +406,7 @@ object FormRelMes: TFormRelMes
           Font.Name = 'Yu Gothic UI'
           Font.Style = [fsBold]
           Memo.UTF8W = (
-            'Ano')
+            'M'#234's')
           ParentFont = False
         end
         object Memo7: TfrxMemoView
@@ -434,11 +436,19 @@ object FormRelMes: TFormRelMes
         Height = 56.692950000000000000
         Top = 317.480520000000000000
         Width = 718.110700000000000000
+        object Shape1: TfrxShapeView
+          Left = 367.590600000000000000
+          Top = 17.897650000000000000
+          Width = 257.008040000000000000
+          Height = 30.236240000000000000
+        end
         object SysMemo1: TfrxSysMemoView
           Left = 487.559370000000000000
           Top = 22.677180000000000000
-          Width = 60.472480000000000000
+          Width = 128.504020000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -462,12 +472,6 @@ object FormRelMes: TFormRelMes
           Memo.UTF8W = (
             'Valor Total ==>')
           ParentFont = False
-        end
-        object Shape1: TfrxShapeView
-          Left = 337.354360000000000000
-          Top = 17.897650000000000000
-          Width = 257.008040000000000000
-          Height = 30.236240000000000000
         end
       end
       object Picture1: TfrxPictureView

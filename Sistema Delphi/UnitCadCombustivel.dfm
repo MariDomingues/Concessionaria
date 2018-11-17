@@ -4,8 +4,8 @@ object FrmCadCombustivel: TFrmCadCombustivel
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Combust'#237'vel'
-  ClientHeight = 414
-  ClientWidth = 571
+  ClientHeight = 209
+  ClientWidth = 446
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,17 +21,17 @@ object FrmCadCombustivel: TFrmCadCombustivel
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 571
+    Width = 446
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 193
+      Left = 137
       Top = 8
-      Width = 183
-      Height = 21
+      Width = 193
+      Height = 19
       Caption = 'Cadastro de Combust'#237'vel'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -43,11 +43,13 @@ object FrmCadCombustivel: TFrmCadCombustivel
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
-    Width = 571
-    Height = 305
+    Top = 93
+    Width = 446
+    Height = 97
     Align = alClient
     TabOrder = 1
+    ExplicitTop = 90
+    ExplicitHeight = 100
     object Label2: TLabel
       Left = 19
       Top = 25
@@ -66,8 +68,8 @@ object FrmCadCombustivel: TFrmCadCombustivel
       OnExit = DBEdit1Exit
     end
     object DBEdit11: TDBEdit
-      Left = 447
-      Top = 70
+      Left = 383
+      Top = 62
       Width = 36
       Height = 21
       DataField = 'Codigo'
@@ -78,8 +80,8 @@ object FrmCadCombustivel: TFrmCadCombustivel
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 395
-    Width = 571
+    Top = 190
+    Width = 446
     Height = 19
     Panels = <
       item
@@ -89,8 +91,8 @@ object FrmCadCombustivel: TFrmCadCombustivel
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 571
-    Height = 49
+    Width = 446
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 44
     ButtonWidth = 49
@@ -147,8 +149,8 @@ object FrmCadCombustivel: TFrmCadCombustivel
   end
   object DS_CodCom: TDataSource
     DataSet = ADOQRY_CodCom
-    Left = 288
-    Top = 266
+    Left = 336
+    Top = 58
   end
   object ADOQRY_CodCom: TADOQuery
     Connection = DM.ADOConnection1
@@ -156,7 +158,7 @@ object FrmCadCombustivel: TFrmCadCombustivel
     Parameters = <>
     SQL.Strings = (
       'select top 1 Codigo from Combustivel order by Codigo desc;')
-    Left = 232
-    Top = 266
+    Left = 280
+    Top = 58
   end
 end

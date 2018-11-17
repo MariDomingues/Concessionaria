@@ -4,8 +4,8 @@ object FrmCadModelo: TFrmCadModelo
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Modelo'
-  ClientHeight = 414
-  ClientWidth = 571
+  ClientHeight = 294
+  ClientWidth = 440
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,17 +21,17 @@ object FrmCadModelo: TFrmCadModelo
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 571
+    Width = 440
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 205
+      Left = 157
       Top = 10
-      Width = 150
-      Height = 21
+      Width = 153
+      Height = 19
       Caption = 'Cadastro de Modelo'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -43,11 +43,13 @@ object FrmCadModelo: TFrmCadModelo
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
-    Width = 571
-    Height = 305
+    Top = 93
+    Width = 440
+    Height = 182
     Align = alClient
     TabOrder = 1
+    ExplicitTop = 90
+    ExplicitHeight = 185
     object Label2: TLabel
       Left = 19
       Top = 25
@@ -93,8 +95,8 @@ object FrmCadModelo: TFrmCadModelo
       OnExit = DBEdit1Exit
     end
     object DBEdit11: TDBEdit
-      Left = 407
-      Top = 174
+      Left = 359
+      Top = 158
       Width = 36
       Height = 21
       DataField = 'Codigo'
@@ -114,8 +116,8 @@ object FrmCadModelo: TFrmCadModelo
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 395
-    Width = 571
+    Top = 275
+    Width = 440
     Height = 19
     Panels = <
       item
@@ -125,8 +127,8 @@ object FrmCadModelo: TFrmCadModelo
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 571
-    Height = 49
+    Width = 440
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 44
     ButtonWidth = 49
@@ -183,8 +185,8 @@ object FrmCadModelo: TFrmCadModelo
   end
   object DS_CodMod: TDataSource
     DataSet = ADOQRY_CodMod
-    Left = 288
-    Top = 322
+    Left = 344
+    Top = 50
   end
   object ADOQRY_CodMod: TADOQuery
     Connection = DM.ADOConnection1
@@ -192,7 +194,7 @@ object FrmCadModelo: TFrmCadModelo
     Parameters = <>
     SQL.Strings = (
       'select top 1 Codigo from Modelo order by Codigo desc;')
-    Left = 232
-    Top = 322
+    Left = 288
+    Top = 50
   end
 end

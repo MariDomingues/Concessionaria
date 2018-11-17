@@ -4,8 +4,8 @@ object FrmCadVeiculo: TFrmCadVeiculo
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Ve'#237'culo'
-  ClientHeight = 426
-  ClientWidth = 581
+  ClientHeight = 354
+  ClientWidth = 508
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,14 +21,15 @@ object FrmCadVeiculo: TFrmCadVeiculo
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 581
+    Width = 508
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 581
     object Label1: TLabel
-      Left = 216
+      Left = 180
       Top = 8
       Width = 145
       Height = 21
@@ -43,11 +44,12 @@ object FrmCadVeiculo: TFrmCadVeiculo
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
-    Width = 581
-    Height = 317
+    Top = 93
+    Width = 508
+    Height = 242
     Align = alClient
     TabOrder = 1
+    ExplicitWidth = 581
     object Label2: TLabel
       Left = 49
       Top = 40
@@ -302,19 +304,20 @@ object FrmCadVeiculo: TFrmCadVeiculo
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 407
-    Width = 581
+    Top = 335
+    Width = 508
     Height = 19
     Panels = <
       item
         Width = 50
       end>
+    ExplicitWidth = 581
   end
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 581
-    Height = 49
+    Width = 508
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 44
     ButtonWidth = 49
@@ -327,6 +330,7 @@ object FrmCadVeiculo: TFrmCadVeiculo
     ShowCaptions = True
     ShowHint = True
     TabOrder = 3
+    ExplicitWidth = 581
     object btn_Salvar: TToolButton
       Left = 0
       Top = 0

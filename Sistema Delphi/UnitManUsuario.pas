@@ -73,6 +73,12 @@ end;
 procedure TFrm_Man_Usuario.btn_ExcluirClick(Sender: TObject);
 var confExc : integer;
 begin
+  if DM.ADODS_Login.RecordCount = 0 then
+    begin
+      Application.MessageBox('Não há nada para ser excluído.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
   confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
   if confExc = IDYES then
@@ -101,6 +107,7 @@ begin
   Acao := 'I';
 
   DM.ADODS_Login.Insert;
+  Application.CreateForm(TFrmCadUsuario, FrmCadUsuario);
   FrmCadUsuario.btn_Salvar.Enabled   := True;
   FrmCadUsuario.btn_Cancelar.Enabled := True;
   FrmCadUsuario.btn_Sair.Enabled     := False;

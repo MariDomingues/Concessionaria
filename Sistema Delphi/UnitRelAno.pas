@@ -5,12 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.StdCtrls, frxClass, frxDBSet;
+  Vcl.ExtCtrls, Vcl.StdCtrls, frxClass, frxDBSet, UnitDM;
 
 type
   TFormRelAno = class(TForm)
-    Edit1: TEdit;
-    Edit2: TEdit;
     frxDBDataset5: TfrxDBDataset;
     frxReport5: TfrxReport;
     Label2: TLabel;
@@ -22,10 +20,13 @@ type
     ADOQRY_Ano: TADOQuery;
     ADOQRY_AnoSoma: TFMTBCDField;
     ADOQRY_AnoAno: TIntegerField;
+    ComboBox2: TComboBox;
+    ComboBox1: TComboBox;
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
-    procedure Edit1Exit(Sender: TObject);
-    procedure Edit2Exit(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure ComboBox2Exit(Sender: TObject);
+    procedure ComboBox1Exit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,23 +40,38 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormRelAno.Edit1Exit(Sender: TObject);
+procedure TFormRelAno.ComboBox1Exit(Sender: TObject);
 begin
-  if Edit1.Text = '' then
+  if ComboBox2.Text = '' then
     begin
       Application.MessageBox('O campo "Ano" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
-      Edit1.SetFocus;
+      ComboBox2.SetFocus;
       Abort;
     end;
 end;
 
-procedure TFormRelAno.Edit2Exit(Sender: TObject);
+procedure TFormRelAno.ComboBox2Exit(Sender: TObject);
 begin
-  if Edit1.Text = '' then
+  if ComboBox2.Text = '' then
     begin
       Application.MessageBox('O campo "Ano" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
-      Edit2.SetFocus;
+      ComboBox2.SetFocus;
       Abort;
+    end;
+end;
+
+procedure TFormRelAno.FormActivate(Sender: TObject);
+begin
+  DM.ADODS_Ano.Close;
+  DM.ADODS_Ano.Open;
+
+  DM.ADODS_Ano.First;
+
+  while not DM.ADODS_Ano.Eof do
+    begin
+      ComboBox2.Items.Add(IntToStr(DM.ADODS_Ano.FieldByName('DtAno').AsInteger));
+      ComboBox1.Items.Add(IntToStr(DM.ADODS_Ano.FieldByName('DtAno').AsInteger));
+      DM.ADODS_Ano.Next;
     end;
 end;
 
@@ -68,7 +84,7 @@ begin
     with ADOQRY_Ano.SQL do
       begin
         Clear;
-        Add('select sum(valtotal) as ''Soma'', (year(DtVen)) as ''Ano'' from Venda where (year(Venda.DtVen) > = ' + Edit1.Text + ' and year(Venda.DtVen) = ' + Edit2.Text + ') group by year(DtVen)');
+        Add('select sum(valtotal) as ''Soma'', (year(DtVen)) as ''Ano'' from Venda where (year(Venda.DtVen) > = ' + ComboBox2.Text + ' and year(Venda.DtVen) = ' + ComboBox1.Text + ') group by year(DtVen)');
       end;
   ADOQRY_Ano .Open;
   frxreport5.ShowReport;

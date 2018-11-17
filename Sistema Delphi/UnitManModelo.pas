@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.ComCtrls, Vcl.ToolWin,
   Vcl.StdCtrls, Vcl.ExtCtrls, System.ImageList, Vcl.ImgList, Vcl.Grids,
-  Vcl.DBGrids;
+  Vcl.DBGrids, Data.Win.ADODB;
 
 type
   TFrm_Man_Modelo = class(TForm)
@@ -30,6 +30,7 @@ type
     btn_Imprimir: TToolButton;
     ToolButton12: TToolButton;
     btn_Sair: TToolButton;
+    ADOQuery1: TADOQuery;
     procedure FormActivate(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
@@ -73,6 +74,23 @@ end;
 procedure TFrm_Man_Modelo.btn_ExcluirClick(Sender: TObject);
 var confExc : integer;
 begin
+  if DM.ADODS_Modelo.RecordCount = 0 then
+    begin
+      Application.MessageBox('Não há nada para ser excluído.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
+  DM.ADODS_Veiculo.Close;
+  DM.ADODS_Veiculo.CommandText := '';
+  DM.ADODS_Veiculo.CommandText := 'select * from Veiculo';
+  DM.ADODS_Veiculo.Open;
+
+  if DM.ADODS_Veiculo.Locate('Modelo', IntToStr(DM.ADODS_ModeloCodigo.AsInteger), [loCaseInsensitive, loPartialKey]) then
+    begin
+      Application.MessageBox('Modelo associado à um veículo. Não é possível excluir.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
   confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
   if confExc = IDYES then
@@ -101,6 +119,7 @@ begin
   Acao := 'I';
 
   DM.ADODS_Modelo.Insert;
+  Application.CreateForm(TFrmCadModelo, FrmCadModelo);
   FrmCadModelo.btn_Salvar.Enabled   := True;
   FrmCadModelo.btn_Cancelar.Enabled := True;
   FrmCadModelo.btn_Sair.Enabled     := False;

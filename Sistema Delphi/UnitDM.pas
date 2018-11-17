@@ -110,6 +110,9 @@ type
     ADODS_VeiculoNomeMod: TStringField;
     ADODS_VeiculoNomeCom: TStringField;
     ADODS_VeiculoTpVei: TStringField;
+    DS_Ano: TDataSource;
+    ADODS_Ano: TADODataSet;
+    ADODS_AnoDtAno: TIntegerField;
     procedure ADODS_FabricanteStatusGetText(Sender: TField; var Text: string;
       DisplayText: Boolean);
     procedure ADODS_ClienteStatusGetText(Sender: TField; var Text: string;

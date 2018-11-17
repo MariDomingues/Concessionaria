@@ -73,6 +73,23 @@ end;
 procedure TFrm_Man_Combustivel.btn_ExcluirClick(Sender: TObject);
 var confExc : integer;
 begin
+  if DM.ADODS_Combustivel.RecordCount = 0 then
+    begin
+      Application.MessageBox('Não há nada para ser excluído.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
+  DM.ADODS_Veiculo.Close;
+  DM.ADODS_Veiculo.CommandText := '';
+  DM.ADODS_Veiculo.CommandText := 'select * from Veiculo';
+  DM.ADODS_Veiculo.Open;
+
+  if DM.ADODS_Veiculo.Locate('Combustivel', IntToStr(DM.ADODS_CombustivelCodigo.AsInteger), [loCaseInsensitive, loPartialKey]) then
+    begin
+      Application.MessageBox('Combustível associado à um veículo. Não é possível excluir.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
   confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
   if confExc = IDYES then
@@ -101,6 +118,7 @@ begin
   Acao := 'I';
 
   DM.ADODS_Combustivel.Insert;
+  Application.CreateForm(TFrmCadCombustivel, FrmCadCombustivel);
   FrmCadCombustivel.btn_Salvar.Enabled   := True;
   FrmCadCombustivel.btn_Cancelar.Enabled := True;
   FrmCadCombustivel.btn_Sair.Enabled     := False;

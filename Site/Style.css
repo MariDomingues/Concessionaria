@@ -10,7 +10,8 @@ body {
 header{
 	display:flex;
 	justify-content:center;
-	height:120px;
+   /*Tamanho do menu*/
+	height:100px;
 }
 
 .container {
@@ -41,6 +42,8 @@ header{
 .menu {
 	display:flex;
 	align-items:center;
+   /*Tamanho do menu*/
+   height:100px;
 }
 
 nav ul,
@@ -51,7 +54,9 @@ nav li {
 }
 
 nav ul {
-	display:flex;
+   display: flex;
+   /* Alinha os itens do menu */
+   align-items: center;
 }
 
 nav a {
@@ -66,12 +71,16 @@ nav a {
 nav .active a,
 nav a:hover {
 	background-color:#002f5e;
-//	background-color:#586bb8;
+/*background-color:#586bb8;*/
 	color:#FFF;
+   height:70px;
+   display: flex;
+   align-items: center;
 }
 
 #banner {
 	background-image:url('../Sistema Delphi/Imagens/banner2.jpg');
+   background-color: #2d3e50;
 	background-position:center;
 	background-size:cover;
 	height:670px;
@@ -172,4 +181,137 @@ nav a:hover {
 	margin-bottom: 20px;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #266fc5;
+}
+
+.row {
+   margin-right: -15px;
+   margin-left: -15px;
+}
+
+.col-lg-7.col-md-8 {
+   padding-right: 0;
+}
+
+.row, .col-md-8 {
+   height: 266px;
+   width:420px;
+}
+
+.col-lg-7, .col-md-8, .col-sm-12 {
+   position: relative;
+   min-height: 1px;
+   padding-right: 15px;
+   padding-left: 15px;
+}
+
+.newsletter-content {
+   margin-top: 38px;
+   position: relative;
+}
+
+.newsletter-content input {
+   background: #00000000;
+   /*background: rgba(0, 0, 0, 0) none repeat scroll 0 0;*/
+   border: 1px solid #fff;
+   border-radius: 9px;
+   color: #a3a3a3;
+   font-size: 14px;
+   height: 49px;
+   padding: 0 19px;
+   width: 100%;
+}
+
+/*.button-olive {
+   background: #3b33ca !important;
+   background-image: initial !important;
+   background-position-x: initial !important;
+   background-position-y: initial !important;
+   background-size: initial !important;
+   background-repeat-x: initial !important;
+   background-repeat-y: initial !important;
+   background-attachment: initial !important;
+   background-origin: initial !important;
+   background-clip: initial !important;
+   background-color: rgb(202, 51, 56) !important;
+   color: #fff !important;
+}*/
+
+button {
+   cursor: pointer;
+}
+
+.newsletter-content .button {
+   /*border: 0 none;
+   border-top-color: initial;
+   border-top-style: none;
+   border-top-width: 0px;
+   border-right-color: initial;
+   border-right-style: none;
+   border-right-width: 0px;
+   border-bottom-color: initial;
+   border-bottom-style: none;
+   border-bottom-width: 0px;
+   border-left-color: initial;
+   border-left-style: none;
+   border-left-width: 0px;
+   border-image-source: initial;
+   border-image-slice: initial;
+   border-image-width: initial;
+   border-image-outset: initial;
+   border-image-repeat: initial;
+   border-radius: 9px;
+   color: #2d3e50;
+   font-family: "latosemibold";*/
+   border: 0 none;
+   font-size: 16px;
+   height: 100%;
+   position: absolute;
+   right: 0;
+   text-align: center;
+   text-transform: uppercase;
+   top: 0;
+   /*-webkit-transition: all 0.3s ease 0s;*/
+   transition: all 0.3s ease 0s;
+   width: 29.5%;
+}
+
+.banner-buttons .button {
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 8px;
+   /*border-bottom-style: none;
+   border-bottom-width: 0;
+   border-image-outset: 0 0 0 0;
+   border-image-repeat: stretch stretch;
+   border-image-slice: 100% 100% 100% 100%;
+   border-image-source: none;
+   border-image-width: 1 1 1 1;
+   border-left-style: none;
+   border-left-width: 0;
+   border-right-style: none;
+   border-right-width: 0;*/
+   border-top-left-radius: 0;
+   border-top-right-radius: 8px;
+   /*border-top-style: none;
+   border-top-width: 0;*/
+   left:380px;
+}
+
+/*.newsletter-content .button {
+   border-radius: 9px;
+   color: #2d3e50;
+   font-family: "latosemibold";
+   font-size: 16px;
+   height: 100%;
+   position: absolute;
+   right: 0;
+   text-align: center;
+   text-transform: uppercase;
+   top: 0;
+   transition: all 0.3s ease 0s;
+   width: 29.5%;
+}*/
+
+.button-olive {
+   background: #333eca;
+   color: #fff;
 }

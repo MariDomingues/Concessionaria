@@ -4,8 +4,8 @@ object FrmCadUsuario: TFrmCadUsuario
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Usu'#225'rio'
-  ClientHeight = 404
-  ClientWidth = 571
+  ClientHeight = 305
+  ClientWidth = 438
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,15 +21,15 @@ object FrmCadUsuario: TFrmCadUsuario
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 571
+    Width = 438
     Height = 41
     Align = alTop
     Color = clMenuHighlight
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
-      Left = 205
-      Top = 8
+      Left = 149
+      Top = 10
       Width = 157
       Height = 19
       Caption = 'Cadastro de Usu'#225'rio'
@@ -43,11 +43,13 @@ object FrmCadUsuario: TFrmCadUsuario
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
-    Width = 571
-    Height = 295
+    Top = 93
+    Width = 438
+    Height = 193
     Align = alClient
     TabOrder = 1
+    ExplicitTop = 90
+    ExplicitHeight = 196
     object Label2: TLabel
       Left = 29
       Top = 25
@@ -111,8 +113,8 @@ object FrmCadUsuario: TFrmCadUsuario
       OnExit = DBEdit2Exit
     end
     object DBEdit11: TDBEdit
-      Left = 383
-      Top = 118
+      Left = 326
+      Top = 83
       Width = 36
       Height = 21
       DataField = 'Codigo'
@@ -135,8 +137,8 @@ object FrmCadUsuario: TFrmCadUsuario
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 385
-    Width = 571
+    Top = 286
+    Width = 438
     Height = 19
     Panels = <
       item
@@ -146,8 +148,8 @@ object FrmCadUsuario: TFrmCadUsuario
   object ToolBar1: TToolBar
     Left = 0
     Top = 41
-    Width = 571
-    Height = 49
+    Width = 438
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 44
     ButtonWidth = 49
@@ -204,8 +206,8 @@ object FrmCadUsuario: TFrmCadUsuario
   end
   object DS_CodUsu: TDataSource
     DataSet = ADOQRY_CodUsu
-    Left = 472
-    Top = 282
+    Left = 280
+    Top = 234
   end
   object ADOQRY_CodUsu: TADOQuery
     Connection = DM.ADOConnection1
@@ -213,13 +215,13 @@ object FrmCadUsuario: TFrmCadUsuario
     Parameters = <>
     SQL.Strings = (
       'select top 1 Codigo from Login order by Codigo desc;')
-    Left = 416
-    Top = 282
+    Left = 224
+    Top = 234
   end
   object DS_Funcionario: TDataSource
     DataSet = ADOQRY_Funcionario
-    Left = 328
-    Top = 280
+    Left = 136
+    Top = 232
   end
   object ADOQRY_Funcionario: TADOQuery
     Connection = DM.ADOConnection1
@@ -227,7 +229,7 @@ object FrmCadUsuario: TFrmCadUsuario
     Parameters = <>
     SQL.Strings = (
       'SELECT Codigo, Nome FROM  Funcionario;')
-    Left = 288
-    Top = 280
+    Left = 96
+    Top = 232
   end
 end

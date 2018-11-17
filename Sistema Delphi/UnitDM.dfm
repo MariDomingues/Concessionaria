@@ -3,6 +3,7 @@ object DM: TDM
   Height = 597
   Width = 446
   object ADOConnection1: TADOConnection
+    Connected = True
     ConnectionString = 
       'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security In' +
       'fo=False;Initial Catalog=Concessionaria;Data Source=PCZ'#195'O\PCZ'#195'O;' +
@@ -272,7 +273,7 @@ object DM: TDM
     CommandText = 'SELECT * FROM Cliente'
     Parameters = <>
     Left = 40
-    Top = 80
+    Top = 88
     object ADODS_ClienteCodigo: TIntegerField
       FieldName = 'Codigo'
     end
@@ -535,5 +536,21 @@ object DM: TDM
     Parameters = <>
     Left = 264
     Top = 216
+  end
+  object DS_Ano: TDataSource
+    DataSet = ADODS_Ano
+    Left = 344
+    Top = 288
+  end
+  object ADODS_Ano: TADODataSet
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    CommandText = 'SELECT * from Ano'
+    Parameters = <>
+    Left = 264
+    Top = 280
+    object ADODS_AnoDtAno: TIntegerField
+      FieldName = 'DtAno'
+    end
   end
 end

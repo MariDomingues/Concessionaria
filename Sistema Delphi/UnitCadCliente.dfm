@@ -30,9 +30,9 @@ object FrmCadCliente: TFrmCadCliente
     TabOrder = 0
     object Label1: TLabel
       Left = 205
-      Top = 8
-      Width = 143
-      Height = 21
+      Top = 10
+      Width = 150
+      Height = 19
       Caption = 'Cadastro de Cliente'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -46,10 +46,10 @@ object FrmCadCliente: TFrmCadCliente
     Left = 0
     Top = 41
     Width = 571
-    Height = 49
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 46
-    ButtonWidth = 52
+    ButtonWidth = 57
     Caption = 'ToolBar1'
     DisabledImages = Frm_Man_Cliente.ImageList2
     EdgeBorders = [ebTop, ebBottom]
@@ -68,7 +68,7 @@ object FrmCadCliente: TFrmCadCliente
       OnClick = btn_SalvarClick
     end
     object ToolButton2: TToolButton
-      Left = 52
+      Left = 57
       Top = 0
       Width = 8
       Caption = 'ToolButton2'
@@ -76,7 +76,7 @@ object FrmCadCliente: TFrmCadCliente
       Style = tbsSeparator
     end
     object btn_Cancelar: TToolButton
-      Left = 60
+      Left = 65
       Top = 0
       Hint = 'Cancelar Registro'
       Caption = 'Cancelar'
@@ -84,7 +84,7 @@ object FrmCadCliente: TFrmCadCliente
       OnClick = btn_CancelarClick
     end
     object ToolButton4: TToolButton
-      Left = 112
+      Left = 122
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -92,7 +92,7 @@ object FrmCadCliente: TFrmCadCliente
       Style = tbsSeparator
     end
     object btn_Sair: TToolButton
-      Left = 120
+      Left = 130
       Top = 0
       Hint = 'Sair'
       Caption = 'Sair'
@@ -112,85 +112,87 @@ object FrmCadCliente: TFrmCadCliente
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
+    Top = 93
     Width = 571
-    Height = 295
+    Height = 292
     Align = alClient
     TabOrder = 3
+    ExplicitTop = 90
+    ExplicitHeight = 295
     object Label2: TLabel
       Left = 38
       Top = 25
-      Width = 35
+      Width = 37
       Height = 15
       Caption = 'Nome:'
     end
     object Label4: TLabel
       Left = 299
       Top = 57
-      Width = 28
+      Width = 30
       Height = 15
       Caption = 'CNH:'
     end
     object Label5: TLabel
       Left = 46
       Top = 57
-      Width = 23
+      Width = 27
       Height = 15
       Caption = 'CPF:'
     end
     object Label3: TLabel
       Left = 37
       Top = 185
-      Width = 34
+      Width = 36
       Height = 15
       Caption = 'Bairro:'
     end
     object Label6: TLabel
       Left = 32
       Top = 121
-      Width = 39
+      Width = 43
       Height = 15
       Caption = 'Cidade:'
     end
     object Label7: TLabel
       Left = 20
       Top = 153
-      Width = 52
+      Width = 56
       Height = 15
       Caption = 'Endere'#231'o:'
     end
     object Label8: TLabel
       Left = 301
       Top = 121
-      Width = 23
+      Width = 28
       Height = 15
       Caption = 'CEP:'
     end
     object Label9: TLabel
       Left = 278
       Top = 185
-      Width = 47
+      Width = 50
       Height = 15
       Caption = 'Telefone:'
     end
     object Label10: TLabel
       Left = 41
       Top = 89
-      Width = 31
+      Width = 35
       Height = 15
       Caption = 'Email:'
     end
     object Label11: TLabel
       Left = 12
       Top = 216
-      Width = 60
+      Width = 62
       Height = 15
       Caption = 'Nro. Conta:'
     end
     object Label12: TLabel
       Left = 289
       Top = 216
-      Width = 35
+      Width = 38
       Height = 15
       Caption = 'Status:'
     end

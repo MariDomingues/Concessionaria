@@ -30,8 +30,8 @@ object FrmCadFabricante: TFrmCadFabricante
     object Label1: TLabel
       Left = 205
       Top = 8
-      Width = 167
-      Height = 21
+      Width = 178
+      Height = 19
       Caption = 'Cadastro de Fabricante'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -55,7 +55,7 @@ object FrmCadFabricante: TFrmCadFabricante
     Left = 0
     Top = 41
     Width = 571
-    Height = 49
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 44
     ButtonWidth = 49
@@ -112,11 +112,13 @@ object FrmCadFabricante: TFrmCadFabricante
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
+    Top = 93
     Width = 571
-    Height = 295
+    Height = 292
     Align = alClient
     TabOrder = 3
+    ExplicitTop = 90
+    ExplicitHeight = 295
     object Label2: TLabel
       Left = 19
       Top = 25

@@ -73,6 +73,23 @@ end;
 procedure TFrm_Man_Cargo.btn_ExcluirClick(Sender: TObject);
 var confExc : integer;
 begin
+  if DM.ADODS_Cargo.RecordCount = 0 then
+    begin
+      Application.MessageBox('Não há nada para ser excluído.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
+  DM.ADODS_Funcionario.Close;
+  DM.ADODS_Funcionario.CommandText := '';
+  DM.ADODS_Funcionario.CommandText := 'select * from Funcionario';
+  DM.ADODS_Funcionario.Open;
+
+  if DM.ADODS_Funcionario.Locate('Cargo', IntToStr(DM.ADODS_CargoCodigo.AsInteger), [loCaseInsensitive, loPartialKey]) then
+    begin
+      Application.MessageBox('Cargo associado à um funcionário. Não é possível excluir.', 'Informação', MB_OK + MB_ICONERROR);
+      Abort;
+    end;
+
   confExc := Application.MessageBox('Confirma a exclusão deste registro?', 'Atenção', MB_YESNO + MB_DEFBUTTON2 + MB_ICONQUESTION);
 
   if confExc = IDYES then
@@ -101,6 +118,7 @@ begin
   Acao := 'I';
 
   DM.ADODS_Cargo.Insert;
+  Application.CreateForm(TFrmCadCargo, FrmCadCargo);
   FrmCadCargo.btn_Salvar.Enabled   := True;
   FrmCadCargo.btn_Cancelar.Enabled := True;
   FrmCadCargo.btn_Sair.Enabled     := False;

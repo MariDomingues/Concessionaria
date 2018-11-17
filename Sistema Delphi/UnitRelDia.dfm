@@ -14,6 +14,7 @@
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnActivate = FormActivate
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton1: TSpeedButton
@@ -161,7 +162,7 @@
     Align = alTop
     Color = clActiveCaption
     ParentBackground = False
-    TabOrder = 2
+    TabOrder = 1
     object Label1: TLabel
       Left = 106
       Top = 1
@@ -176,20 +177,12 @@
       ParentFont = False
     end
   end
-  object Edit1: TEdit
-    Left = 73
-    Top = 95
-    Width = 68
-    Height = 21
-    MaxLength = 4
-    TabOrder = 1
-    OnExit = Edit1Exit
-  end
   object ComboBox1: TComboBox
     Left = 73
     Top = 61
     Width = 120
     Height = 21
+    Style = csDropDownList
     ItemIndex = 0
     TabOrder = 0
     Text = 'Janeiro'
@@ -207,6 +200,14 @@
       'Novembro'
       'Dezembro')
   end
+  object ComboBox2: TComboBox
+    Left = 73
+    Top = 95
+    Width = 72
+    Height = 21
+    Style = csDropDownList
+    TabOrder = 2
+  end
   object frxReport4: TfrxReport
     Version = '5.6.17'
     DotMatrixReport = False
@@ -216,7 +217,7 @@
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 43395.840991875000000000
-    ReportOptions.LastChange = 43420.095506238420000000
+    ReportOptions.LastChange = 43421.554359143520000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       ''
@@ -353,6 +354,8 @@
           DataField = 'ValTotal'
           DataSet = frxDBDataset4
           DataSetName = 'frxDBDataset4'
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -12
@@ -579,11 +582,19 @@
         Height = 56.692950000000000000
         Top = 317.480520000000000000
         Width = 718.110700000000000000
+        object Shape1: TfrxShapeView
+          Left = 356.252010000000000000
+          Top = 17.897650000000000000
+          Width = 238.110390000000000000
+          Height = 30.236240000000000000
+        end
         object SysMemo1: TfrxSysMemoView
           Left = 487.559370000000000000
           Top = 22.677180000000000000
-          Width = 60.472480000000000000
+          Width = 113.385900000000000000
           Height = 18.897650000000000000
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
           Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
           Font.Height = -13
@@ -607,12 +618,6 @@
           Memo.UTF8W = (
             'Valor Total ==>')
           ParentFont = False
-        end
-        object Shape1: TfrxShapeView
-          Left = 344.913420000000000000
-          Top = 17.897650000000000000
-          Width = 238.110390000000000000
-          Height = 30.236240000000000000
         end
       end
       object Picture1: TfrxPictureView

@@ -5,11 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.Buttons,
-  Vcl.ExtCtrls, Vcl.StdCtrls, frxClass, frxDBSet;
+  Vcl.ExtCtrls, Vcl.StdCtrls, frxClass, frxDBSet, UnitDM;
 
 type
   TFormRelMes = class(TForm)
-    Edit1: TEdit;
     frxDBDataset5: TfrxDBDataset;
     frxReport5: TfrxReport;
     Label3: TLabel;
@@ -20,9 +19,11 @@ type
     ADOQRY_Mes: TADOQuery;
     ADOQRY_MesSoma: TFMTBCDField;
     ADOQRY_MesDataMesAno: TStringField;
+    ComboBox2: TComboBox;
     procedure Edit1Exit(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -38,11 +39,25 @@ implementation
 
 procedure TFormRelMes.Edit1Exit(Sender: TObject);
 begin
-  if Edit1.Text = '' then
+  if ComboBox2.Text = '' then
     begin
       Application.MessageBox('O campo "Ano" é de preenchimento obrigatório.', 'Atenção', MB_OK + MB_ICONERROR);
-      Edit1.SetFocus;
+      ComboBox2.SetFocus;
       Abort;
+    end;
+end;
+
+procedure TFormRelMes.FormActivate(Sender: TObject);
+begin
+  DM.ADODS_Ano.Close;
+  DM.ADODS_Ano.Open;
+
+  DM.ADODS_Ano.First;
+
+  while not DM.ADODS_Ano.Eof do
+    begin
+      ComboBox2.Items.Add(IntToStr(DM.ADODS_Ano.FieldByName('DtAno').AsInteger));
+      DM.ADODS_Ano.Next;
     end;
 end;
 
@@ -55,7 +70,7 @@ begin
     with ADOQRY_Mes.SQL do
       begin
         Clear;
-        Add('select sum(valtotal) as ''Soma'', CONCAT (month(DtVen), ''/'', year(DtVen)) as ''DataMesAno'' from Venda where year(DtVen) = ' + Edit1.Text + ' group by CONCAT (month(DtVen), ''/'', year(DtVen))');
+        Add('select sum(valtotal) as ''Soma'', CONCAT (month(DtVen), ''/'', year(DtVen)) as ''DataMesAno'' from Venda where year(DtVen) = ' + ComboBox2.Text + ' group by CONCAT (month(DtVen), ''/'', year(DtVen))');
       end;
   ADOQRY_Mes.Open;
   frxReport5.ShowReport;

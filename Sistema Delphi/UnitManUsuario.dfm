@@ -19,7 +19,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
   TextHeight = 14
   object DBG_Usu: TDBGrid
     Left = 0
-    Top = 131
+    Top = 134
     Width = 1093
     Height = 447
     Align = alTop
@@ -29,6 +29,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Font.Height = -11
     Font.Name = 'Yu Gothic UI'
     Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
     ReadOnly = True
     TabOrder = 0
@@ -96,11 +97,12 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
   end
   object Panel2: TPanel
     Left = 0
-    Top = 90
+    Top = 93
     Width = 1093
     Height = 41
     Align = alTop
     TabOrder = 2
+    ExplicitTop = 90
     object Label2: TLabel
       Left = 8
       Top = 14
@@ -143,7 +145,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 0
     Top = 41
     Width = 1093
-    Height = 49
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 45
     ButtonWidth = 43
@@ -237,7 +239,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 128
     Top = 192
     Bitmap = {
-      494C0101070048009C0018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107004800A80018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000000000000000000000009A0000009A0000039D00020D
@@ -844,7 +846,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 232
     Top = 192
     Bitmap = {
-      494C010107003800940018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800A00018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000009595950095959500969696009999
@@ -1451,7 +1453,7 @@ object Frm_Man_Usuario: TFrm_Man_Usuario
     Left = 320
     Top = 200
     Bitmap = {
-      494C010107003800940018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010107003800A00018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000003000000001002000000000000048
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000820000008200000186000005

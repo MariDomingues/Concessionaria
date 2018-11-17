@@ -4,7 +4,7 @@ object FrmCadFuncionario: TFrmCadFuncionario
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Cadastro de Funcion'#225'rio'
-  ClientHeight = 404
+  ClientHeight = 332
   ClientWidth = 571
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -30,8 +30,8 @@ object FrmCadFuncionario: TFrmCadFuncionario
     object Label1: TLabel
       Left = 205
       Top = 8
-      Width = 176
-      Height = 21
+      Width = 189
+      Height = 19
       Caption = 'Cadastro de Funcion'#225'rio'
       Font.Charset = ANSI_CHARSET
       Font.Color = clWhite
@@ -43,7 +43,7 @@ object FrmCadFuncionario: TFrmCadFuncionario
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 385
+    Top = 313
     Width = 571
     Height = 19
     Panels = <
@@ -55,7 +55,7 @@ object FrmCadFuncionario: TFrmCadFuncionario
     Left = 0
     Top = 41
     Width = 571
-    Height = 49
+    Height = 52
     BorderWidth = 1
     ButtonHeight = 44
     ButtonWidth = 49
@@ -112,11 +112,13 @@ object FrmCadFuncionario: TFrmCadFuncionario
   end
   object Pn1Ficha: TPanel
     Left = 0
-    Top = 90
+    Top = 93
     Width = 571
-    Height = 295
+    Height = 220
     Align = alClient
     TabOrder = 3
+    ExplicitTop = 90
+    ExplicitHeight = 223
     object Label2: TLabel
       Left = 38
       Top = 25

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask,
-  Vcl.DBCtrls, Vcl.ComCtrls, Data.DB, Data.Win.ADODB;
+  Vcl.DBCtrls, Vcl.ComCtrls, Data.DB, Data.Win.ADODB, UnitDM;
 
 type
   TFrm_Login = class(TForm)
@@ -67,9 +67,24 @@ begin
 end;
 
 procedure TFrm_Login.FormActivate(Sender: TObject);
+var ano: integer;
 begin
   panel1.Top  := Round((Screen.Height - panel1.Height)  / 2) ;
   panel1.Left := Round((Screen.Width - panel1.Width) / 2);
+
+  ano := StrToInt(FormatDateTime('yyyy', Date ));
+
+  DM.ADODS_Ano.Close;
+  DM.ADODS_Ano.CommandText := '';
+  DM.ADODS_Ano.CommandText := 'select * from Ano';
+  DM.ADODS_Ano.Open;
+
+  if (DM.ADODS_Ano.Locate('DtAno', ano, [loCaseInsensitive, loPartialKey])) = false then
+    begin
+      DM.ADODS_Ano.Insert;
+      DM.ADODS_AnoDtAno.Value := ano;
+      DM.ADODS_Ano.Post;
+    end;
 end;
 
 end.
