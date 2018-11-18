@@ -30,7 +30,6 @@ header{
 }
 
 .Conteudo {
-	display:flex;
 	justify-content:space-between;
 	width:1150px;
 	margin:auto;
@@ -285,4 +284,53 @@ button {
 
 .Titulo figure {
 	margin-left: 150px;
+}
+
+.vc_separator .vc_sep_holder {
+    height: 1px;
+    position: relative;
+}
+
+.vc_separator .vc_sep_holder .vc_sep_line {
+    height: 1px;
+    border-top: 1px solid #EBEBEB;
+    display: block;
+    position: relative;
+    top: 1px;
+}
+
+.vc_separator.vc_sep_color_grey .vc_sep_line {
+    border-color: #e0e0e0;
+	width: 570px;
+    margin: auto;
+}
+
+.ImagensTextos {
+	margin: auto;
+}
+
+.img1 {
+	width:120px;
+	height:120px;
+	margin-left:70px;
+}
+
+.txt1 {
+	width:250px;
+	text-align:center;
+	float:left;
+}
+
+.img2 {
+	width:80px;
+	height:80px;
+	margin-bottom:20px;
+	margin-left:195px;
+}
+
+.txt2 {
+	width:250px;
+	text-align:center;
+	float:left;
+	margin-left:50px;
 }
