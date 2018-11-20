@@ -423,53 +423,52 @@ button {
 	margin-left: 180px;
 }
 
-.widget_title {
-   margin-top:30px;
-   margin-bottom:20px;
-}
-
-.widget_title_text {
-   font-size:21px;
-}
-
-.widget_title_bar {
-   height:3px;
-   width:50px;
-   background-color:#36e9e3;
-   margin-top:10px;
-}
-
-.make_title {
-    font-size:12px;
-    line-height:18px;
-    color:#5c5c5c;
-    margin-bottom:30px;
-}
-
 .make_info {
     display:flex;
     justify-content: left;
-    margin-bottom:15px;
-    border-bottom: 1px solid #BBB;
     padding-bottom:12px;
-    font-size:12px;
-}
-
-.first_make_info {
-    padding-top:12px;
-    border-top: 1px solid #BBB;
 }
 
 .make_info a {
     text-decoration: none;
     border-bottom: 1px dotted #2b4c99;
-    color:#2b4c99;
 }
 
 .make_info .icon {
     padding-right:8px;
 }
 
-.make_info .icon_text {
-    line-height:23px;
+.icon img {
+	width:20px;
+	height:20px;
+}
+
+.p1 .icon {
+	line-height:27px;
+}
+
+#rodape {
+	background-color:#3b4f64;
+	background-position:center;
+	background-size:cover;
+	height:150px;
+	justify-content:center;
+	padding-left: 50px;
+}
+
+.logo2 {
+	float:left;
+	align-items:center;
+	margin-bottom: 0;
+    margin-top: 0px;
+    padding-top: 15px;
+}
+
+.logo2 a {
+	text-decoration:none;
+}
+
+.icon_text a {
+	text-decoration:none;
+	color:#7b7373;
 }
