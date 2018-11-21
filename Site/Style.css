@@ -452,8 +452,23 @@ button {
 	background-position:center;
 	background-size:cover;
 	height:150px;
+	display:flex;
 	justify-content:center;
-	padding-left: 50px;
+}
+
+.TopoInterior {
+	display:flex;
+	justify-content:space-between;
+	width:1150px;
+}
+
+.logo2 {
+	display:flex;
+	align-items:center;
+}
+
+.logo2 a {
+	text-decoration: none;
 }
 
 .logo2 {
@@ -471,4 +486,16 @@ button {
 .icon_text a {
 	text-decoration:none;
 	color:#7b7373;
+}
+
+.icon_text a:hover {
+	color:#f47121;
+}
+
+.RedesSociais {
+	margin-top:50px;
+}
+
+.RedesSociais a {
+	margin-top:50px;
 }
