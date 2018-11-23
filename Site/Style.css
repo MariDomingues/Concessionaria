@@ -14,6 +14,13 @@ header{
 	justify-content:center;
    /*Tamanho do menu*/
 	height:100px;
+	background-color:#fff;
+	z-index:100;
+	position:fixed;
+	padding-left:19.6%;
+	padding-right:40%;
+	/*border-bottom:3px solid #474866;*/
+	box-shadow: 3px 3px 5px #00000038;
 }
 
 .TopoInterior {
@@ -46,7 +53,7 @@ header{
 .logo {
 	display:flex;
 	align-items:center;
-	padding-bottom:30px;
+	height: 90px;
 }
 
 .logo a {
@@ -95,7 +102,7 @@ nav .active a,
 nav a:hover {
 	background-color:#474866;
 	color:#FFF;
-    height:70px;
+    height:72px;
     display: flex;
     align-items: center;
 }
@@ -107,6 +114,7 @@ nav a:hover {
 	height:670px;
 	display:flex;
 	justify-content:center;
+	padding-top: 200px;
 }
 
 .column {
@@ -193,7 +201,6 @@ button {
    text-align: center;
    text-transform: uppercase;
    top: 0;
-   transition: all 0.3s ease 0s;
    width: 29.5%;
 }
 
@@ -498,4 +505,23 @@ button {
 
 .RedesSociais a {
 	margin-top:50px;
+}
+
+.div_teste{
+	width:300px;
+	height:35px;
+	background:#f47121;
+	position:fixed;
+	z-index:100;
+	bottom:0;
+	right:2px;
+	color:#fff;
+	border-radius: 9px 9px 0 0;
+	font-size:20px;
+	text-align:justify;
+	cursor: pointer;
+}
+
+.div_teste span {
+	padding-left: 32%;
 }
