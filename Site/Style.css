@@ -507,22 +507,3 @@ button {
 .RedesSociais a {
 	margin-top:50px;
 }
-
-.div_teste{
-	width:300px;
-	height:35px;
-	background:#f47121;
-	position:fixed;
-	z-index:100;
-	bottom:0;
-	right:2px;
-	color:#fff;
-	border-radius: 9px 9px 0 0;
-	font-size:20px;
-	text-align:justify;
-	cursor: pointer;
-}
-
-.div_teste span {
-	padding-left: 32%;
-}

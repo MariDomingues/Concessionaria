@@ -43,7 +43,7 @@
 								</div>
 								<div class="form-group">
 									<label>E-mail</label>
-									<input class="email form-control" value="" autocomplete="off" type="email"/>
+									<input class="email form-control" name="email" value="<?php session_start(); if (isset($_SESSION['email'])){ $erro = $_SESSION['email']; echo $erro;} session_destroy();?>" autocomplete="off" type="email"/>
 								</div>
 								<div>
 									<button class="btn btn-success btn-lg" type="submit">
@@ -51,6 +51,7 @@
 										Cadastrar agora
 									</button>
 								</div>
+								<input type="hidden" name="escondido" value="Formulario de cadastro" />
 							</form>
 						</div>
 					</div>

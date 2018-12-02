@@ -3,11 +3,43 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="style.css">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+		<script>
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top - 150}, 1000);
+				  });
+			});
+			
+			function verificaForm1() {
+				if (document.formulario1.email1.value === "") {
+					document.getElementById('email1').focus();
+					document.getElementById('email1').style.background = "#fdfcfc99";
+					return false;
+				}
+				else {
+					document.getElementById('btn1').type = "submit";
+					return true;
+				}
+			}
+			
+			function verificaForm2() {
+				if (document.formulario2.email2.value === "") {
+					document.getElementById('email2').focus();
+					return false;
+				}
+				else {
+					document.getElementById('btn2').type = "submit";
+					return true;
+				}
+			}
+		</script>
 		<title>Concessionária</title>
 	</head>
 
-	<body>
+	<body id="comeco">
 		<header>
 			<div class="TopoInterior">
 				<div class="logo">
@@ -21,11 +53,11 @@
 				<div class="menu">
 					<nav>
 						<ul>
-							<li><a href="">HOME</a></li>
-							<li><a href="#funcionalidade">FUNCIONALIDADES</a></li>
-							<li><a href="#modulo">MÓDULOS</a></li>
-							<li><a href="Cadastro.html">CADASTRE-SE</a></li>
-							<li><a href="#contato">CONTATO</a></li>
+							<li><a class="scroll" href="#comeco">HOME</a></li>
+							<li><a class="scroll" href="#funcionalidade" class="btn1">FUNCIONALIDADES</a></li>
+							<li><a class="scroll" href="#modulo" class="btn2">MÓDULOS</a></li>
+							<li><a href="Cadastro.php" value="<?php $_SESSION['email'] = '';?></a>">CADASTRE-SE</a></li>
+							<li><a class="scroll" href="#contato" class="btn3">CONTATO</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -39,12 +71,13 @@
 					<h2>A UnimepCar é um sistema de gestão empresarial para o controle ideal da sua concessionária.</h2>               
 					<div class="row">
 						<div class="banner-buttons col-sm-12 col-md-8 col-lg-7">
-							<form novalidate="novalidate">
+							<form novalidate="novalidate" name="formulario1" method="POST" action="Doc.php" >
 								<div class="newsletter-content">
-									<input type="text" autocomplete="Off" name="email" placeholder="Digite seu e-mail" />
-									<button type="submit" class="button button-olive">
+									<input id="email1" type="text" autocomplete="Off" name="email1" placeholder="Digite seu e-mail" />
+									<button id="btn1" type="button" class="button button-olive" onclick="verificaForm1()">
 										<span>Experimente</span>
 									</button>
+									<input type="hidden" name="escondido1" value="Formulario de cadastro" />
 								</div>
 							</form>
 						</div>
@@ -70,7 +103,6 @@
 				<br/><br/>
 			</div>
 			
-			<div class="div_teste"><span>Chat Online</span></div>
 			<div class="Conteudo">
 				<div class="Titulo">
 					<h2 id="modulo">Cadastros</h2>
@@ -214,12 +246,13 @@
 						<span class="txt5">EXPERIMENTE GRÁTIS</span>
 						<div class="row2">
 							<div class="banner-buttons2 col-sm-12 col-md-82 col-lg-7">
-								<form novalidate="novalidate">
+								<form novalidate="novalidate" name="formulario2" method="POST" action="Doc.php" >
 									<div class="newsletter-content2">
-										<input type="text" autocomplete="Off" name="email" placeholder="Digite seu e-mail" class="required email"/>
-										<button type="submit" class="button button-olive">
+										<input id="email2" type="text" autocomplete="Off" name="email2" placeholder="Digite seu e-mail" class="required email"/>
+										<button id="btn2" type="button" class="button button-olive" onclick="verificaForm2()">
 											<span class="Visible-xs">SOLICITE AGORA</span>
 										</button>
+										<input type="hidden" name="escondido2" value="Formulario de cadastro" />
 									</div>
 								</form>
 							</div>
